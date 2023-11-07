@@ -1,1 +1,104 @@
-/* You can add global styles to this file, and also import other style files */
+// imports
+@use '@angular/material' as mat;
+@import 'src/app/utils/styles/app-style.scss';
+@include mat.core();
+
+
+// angular material custom palettes
+$Sol-primary-palette: (
+  50: #dbe2ed,
+  100: #bac6da,
+  200: #99a9c7,
+  300: #788cb4,
+  400: #6177a6,
+  500: #52688f,
+  600: #495f85,
+  700: #3f566c,
+  800: #354d53,
+  900: #2b444a,
+  contrast: (50: rgba($sol-dark-color, 0.87),
+    100: rgba($sol-dark-color, 0.87),
+    200: rgba($sol-dark-color, 0.87),
+    300: $sol-light-color,
+    400: $sol-light-color,
+    500: $sol-light-color,
+    600: $sol-light-color,
+    700: $sol-light-color,
+    800: $sol-light-color,
+    900: $sol-light-color,
+  )
+);
+
+$Sol-accent-palette: (
+  50: #677184,
+  100: #546275,
+  200: #435266,
+  300: #35425b,
+  400: #2e3b51,
+  500: #283447,
+  600: #BDC6D9,
+  700: #BDC6D9,
+  800: #BDC6D9,
+  900: #BDC6D9,
+  contrast: (50: rgba($sol-dark-color, 0.87),
+    100: rgba($sol-dark-color, 0.87),
+    200: rgba($sol-dark-color, 0.87),
+    300: $sol-light-color,
+    400: $sol-light-color,
+    500: $sol-light-color,
+    600: $sol-light-color,
+    700: $sol-light-color,
+    800: $sol-light-color,
+    900: $sol-light-color,
+  )
+);
+
+$Sol-primary: mat.define-palette($Sol-primary-palette);
+$Sol-accent: mat.define-palette($Sol-accent-palette);
+$Sol-warn: mat.define-palette(mat.$red-palette);
+
+$Sol-theme: mat.define-light-theme((color: (primary: $Sol-primary,
+        accent: $Sol-accent,
+        warn: $Sol-warn,
+      )));
+
+@include mat.all-component-themes($Sol-theme);
+
+
+// *********************************************************************************
+
+
+a {
+  text-decoration: none;
+}
+
+// global html styles
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+input{
+  caret-color: $sol-darker !important;
+}
+
+// *********************************************************************************
+
+body.dark-mode {
+  background-color: $sol-darker;
+  color: $alt-font-color !important;
+
+  h6, h5, h4, h3, h2, h1, div, span {
+    color: $alt-font-color !important;
+  }
+
+  p {
+    color: white !important;
+  }
+}
