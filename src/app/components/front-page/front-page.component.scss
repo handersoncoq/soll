@@ -8,7 +8,10 @@ $default-font-color: #35425B;
 $alt-font-color: #E3E7F1;
 $text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 $box-shadow: 0px 0px 10px rgba(82, 104, 143, 0.5);
-// $background-image: url('/assets/img/font-page-img.png');
+$background-image: url('/assets/img/jar-money-img.webp');
+$radiant1: rgba(255, 255, 255, 0.5);
+$radiant2: rgb(75, 124, 149, 0.5);
+$dark-dusty-blue: rgb(37 84 109);
 
 
 mat-toolbar {
@@ -64,56 +67,70 @@ sup{
 }
 
 .content {
-  background: $background-color;
-  color: $default-font-color;
+  background: url("/assets/img/jar-money-img.webp");
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 46%;
+  width: 100%;
+  background-position-x: center;
+  background-position-y: center;
+  color: #35425B;
   text-align: center;
-  padding: 16px;
+  padding: 16px 0;
 
-  .hero-links{
-    color: $alt-font-color;
-    text-shadow: $text-shadow;
-  }
+  .inner-div{
+    margin: 0;
+    .hero-links{
+      color: white;
+      text-shadow: $text-shadow;
+      width: 100%;
+      background: linear-gradient(to top, $radiant1, $dark-dusty-blue);
+      padding-top: 1em;
+      margin-top: -1em;
+    }
+  
+    .hero-links span:not(:first-child){
+      padding-left: 3em;
+    }
+  
+    h1, h2{
+      color: $alt-font-color;
+      text-shadow: $text-shadow;
+      display: inline-flex;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, serif;
+    }
+  
+    h1{
+      font-size: xx-large;
+    }
+  
+    .system-links span:not(:last-child){
+      padding-right: 0.6em;
+    }
+  
+    .slogan{
+      display: flex;
+      justify-content: center;
+      vertical-align: middle;
+      width: 100%;
+      p {
+          margin-top: -1.3em;
+          padding: 0.2em;
+          color: white;
+          font-size: medium;
+          width: 88%;
+          font-family: ui-sans-serif;
+          text-shadow: $text-shadow;
+        }
+    }
 
-  .hero-links span:not(:last-child){
-    padding-right: 3em;
-  }
-
-  h1, h2{
-    color: $accent-color;
-    text-shadow: $text-shadow;
-    color: $alt-font-color;
-    display: inline-flex;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, serif;
-  }
-
-  h1{
-    font-size: xx-large;
-  }
-
-  .system-links span:not(:last-child){
-    padding-right: 0.6em;
-  }
-
-  .slogan{
-    display: flex;
-    justify-content: center;
-    vertical-align: middle;
-    width: 100%;
-    p {
-        margin-top: -1em;
-        padding: 0;
-        color: $alt-font-color;
-        font-size: medium;
-        width: 88%;
-        font-family: ui-sans-serif;
-      }
   }
 
 }
 
 .call-to-action{
     display: flex;
-    margin-top: 1.5em;
+    margin-top: 1em;
     justify-content: center;
     vertical-align: middle;
 }
@@ -122,6 +139,7 @@ sup{
     justify-content: center;
     text-align: center;
     width: 100%;
+    margin-top: -1em;
     .learn-more-header{
         margin-bottom: 1em;
     }
