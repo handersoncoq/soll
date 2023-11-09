@@ -7,6 +7,7 @@ $background-color: #7B9DAB;
 $default-font-color: #35425B;
 $alt-font-color: #E3E7F1;
 $text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+$text-shadow2: 2px 2px 4px rgb(21, 43, 55);
 $box-shadow: 0px 0px 10px rgba(82, 104, 143, 0.5);
 $background-image: url('/assets/img/jar-money-img.webp');
 $radiant1: rgba(255, 255, 255, 0.5);
@@ -118,9 +119,9 @@ sup{
           padding: 0.2em;
           color: white;
           font-size: medium;
-          width: 88%;
+          width: 82%;
           font-family: ui-sans-serif;
-          text-shadow: $text-shadow;
+          text-shadow: $text-shadow2;
         }
     }
 
@@ -140,9 +141,6 @@ sup{
     text-align: center;
     width: 100%;
     margin-top: -1em;
-    .learn-more-header{
-        margin-bottom: 1em;
-    }
     h1{
         font-size: xx-large;
         color: $accent-color;
@@ -155,7 +153,7 @@ sup{
         color: white;
         border-radius: 1em;
         font-size: x-large;
-        padding: 0.7em;
+        padding: 0.8em 1.8em;
         box-shadow: $box-shadow;
     }
 }
@@ -168,8 +166,9 @@ sup{
     text-align: center;
     p{
         margin-top: -1.1em;
-        width: 60%;
+        width: 61%;
         padding: 0;
+        padding-bottom: 0.7em;
         color: $primary-color;
     }
 }

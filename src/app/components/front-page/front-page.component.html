@@ -24,15 +24,15 @@
 <div class="content">
   <div class="inner-div">
     <div class="hero-links">
-      <span>What is Soll?</span>
+      <span routerLink="/concept-overview">What is Soll?</span>
       <span>About us</span>
       <span>Help me</span>
       <div class="system-links">
         <span><h1>eps</h1></span>
         <span><h2>•</h2></span>
         <span><h1>ecps</h1></span>
-        <div class="slogan">
-          <p>{{ slogan }}</p>
+        <div *ngIf="slogan" class="slogan">
+          <p>{{ slogan.body }}</p>
         </div>
       </div>
     </div>
@@ -43,8 +43,10 @@
   <div class="learn-more">
     <div class="learn-more-header">
       <h1>LEARN MORE</h1>
-      <div class="learn-more-text">
-        <p>{{ learnMore }}</p>
+      <div *ngIf="learnMore">
+        <div *ngFor="let item of learnMore.body" class="learn-more-text">
+          <p>{{ item }}</p>
+        </div>
       </div>
     </div>
     <div><button mat-raised-button>Learn More</button></div>

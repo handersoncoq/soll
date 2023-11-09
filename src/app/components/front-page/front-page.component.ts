@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { TitleBodyArrayType } from 'src/app/interaces/TitleBodyArrayType';
+import { TitleBodyType } from 'src/app/interaces/TitleBodyType';
+import { ContentManagerService } from 'src/app/services/content-manager/content-manager.service';
 
 @Component({
   selector: 'app-front-page',
@@ -7,19 +10,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FrontPageComponent implements OnInit{
 
-  slogan = "A better way to save money between friends and loved ones. Learn about Soll's different systems.";
-  learnMore = 'We have a system for everyone, based on your need.'
+  slogan!: TitleBodyType;
+  learnMore!: TitleBodyArrayType;
   fontPageImage = './assets/img/font-page-img.png'
 
-  ngOnInit() {
-    this.loadMaterialSymbols();
-  }
+  constructor(private contentManagerService: ContentManagerService){}
 
-  loadMaterialSymbols() {
-    const link = document.createElement('link');
-    link.rel = 'stylesheet';
-    link.href = 'https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200';
-    document.head.appendChild(link);
+  ngOnInit() {
+
+    this.contentManagerService.loadMaterialSymbols();
+
+    this.contentManagerService.getSlongan().subscribe(
+      data => this.slogan = data
+    );
+    this.contentManagerService.getLearnMore().subscribe(
+      data => this.learnMore = data
+    );
   }
 
 }
