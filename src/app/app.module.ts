@@ -12,12 +12,14 @@ import { MatMenuModule } from '@angular/material/menu';
 import { AppComponent } from './app.component';
 import { FrontPageComponent } from './components/front-page/front-page.component';
 import { ContentManagerService } from './services/content-manager/content-manager.service';
-
+import { SharedModule } from './shared/shared.module';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    FrontPageComponent
+    FrontPageComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
@@ -29,7 +31,8 @@ import { ContentManagerService } from './services/content-manager/content-manage
     MatButtonModule,
     MatIconModule,
     MatMenuModule,
-    HttpClientModule
+    HttpClientModule,
+    SharedModule
   ],
   providers: [ContentManagerService],
   bootstrap: [AppComponent]

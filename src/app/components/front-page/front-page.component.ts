@@ -17,9 +17,6 @@ export class FrontPageComponent implements OnInit{
   constructor(private contentManagerService: ContentManagerService){}
 
   ngOnInit() {
-
-    this.contentManagerService.loadMaterialSymbols();
-
     this.contentManagerService.getSlongan().subscribe(
       data => this.slogan = data
     );

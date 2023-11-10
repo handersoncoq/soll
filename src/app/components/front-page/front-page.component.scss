@@ -14,59 +14,6 @@ $radiant1: rgba(255, 255, 255, 0.5);
 $radiant2: rgb(75, 124, 149, 0.5);
 $dark-dusty-blue: rgb(37 84 109);
 
-
-mat-toolbar {
-  background-color: transparent;
-  color: $secondary-color;
-
-  .spacer-row{
-    height: 0.3em;
-  }
-
-  .toolbar-content {
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    align-items: center;
-      
-
-    .spacer {
-      flex: 1 1 auto;
-    }
-  }
-}
-
-.company-name{
-    font-family: 'Inter', sans-serif;
-    font-size: 1.7em;
-    font-weight: bold;
-    text-shadow: $text-shadow;
-}
-
-sup{
-    font-size: small;
-}
-
-.menu-button {
-    background-color: $secondary-color;
-    color: white;
-    margin-left: 0.7em;
-  }
-
-  ::ng-deep .mat-mdc-icon-button.mat-mdc-button-base {
-    --mdc-icon-button-state-layer-size: 30px !important;
-    padding: 0 !important;
-}
-
-.material-symbols-outlined {
-    font-size: 30px;
-    font-variation-settings:
-    'FILL' 0,
-    'wght' 200,
-    'GRAD' 0,
-    'opsz' 40
-}
-
 .content {
   background: url("/assets/img/jar-money-img.webp");
   background-size: cover;
@@ -89,6 +36,10 @@ sup{
       padding-top: 1em;
       margin-top: -1em;
     }
+
+    .hero-links span{
+      cursor: pointer;
+    }
   
     .hero-links span:not(:first-child){
       padding-left: 3em;
@@ -105,10 +56,6 @@ sup{
       font-size: xx-large;
     }
   
-    .system-links span:not(:last-child){
-      padding-right: 0.6em;
-    }
-  
     .slogan{
       display: flex;
       justify-content: center;
@@ -117,11 +64,8 @@ sup{
       p {
           margin-top: -1.3em;
           padding: 0.2em;
-          color: white;
-          font-size: medium;
-          width: 82%;
-          font-family: ui-sans-serif;
-          text-shadow: $text-shadow2;
+          font-size: small;
+          width: 85%;
         }
     }
 

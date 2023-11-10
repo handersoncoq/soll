@@ -1,31 +1,10 @@
-<mat-toolbar>
-  <mat-toolbar-row class="spacer-row"></mat-toolbar-row>
-  <mat-toolbar-row>
-    <div class="toolbar-content">
-      <span class="company-name">Soll<sup>&reg;</sup></span>
-      <span class="spacer"></span>
-      <button mat-button>Join</button>
-      <button mat-button>Sign in</button>
-      <button mat-button><mat-icon>phone</mat-icon>Inquire</button>
-      <button mat-icon-button [matMenuTriggerFor]="menu" class="menu-button">
-        <span class="material-symbols-outlined">menu</span>
-      </button>
-    </div>
-  </mat-toolbar-row>
-  <mat-toolbar-row class="spacer-row"></mat-toolbar-row>
-</mat-toolbar>
-
-<mat-menu #menu="matMenu">
-  <button mat-menu-item>What is Soll?</button>
-  <button mat-menu-item>About us</button>
-  <button mat-menu-item>Help me</button>
-</mat-menu>
+<app-public-nav></app-public-nav>
 
 <div class="content">
   <div class="inner-div">
     <div class="hero-links">
-      <span routerLink="/concept-overview">What is Soll?</span>
-      <span>About us</span>
+      <span routerLink="/info/concept-overview">What is Soll?</span>
+      <span routerLink="/info/about-us">About us</span>
       <span>Help me</span>
       <div class="system-links">
         <span><h1>eps</h1></span>
