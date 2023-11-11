@@ -7,15 +7,16 @@ $background-color: #7B9DAB;
 $default-font-color: #35425B;
 $alt-font-color: #E3E7F1;
 $text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-$text-shadow2: 2px 2px 4px rgb(21, 43, 55);
+$text-shadow2: 0px 2px 3px rgb(37 84 109);
 $box-shadow: 0px 0px 10px rgba(82, 104, 143, 0.5);
 $background-image: url('/assets/img/jar-money-img.webp');
 $radiant1: rgba(255, 255, 255, 0.5);
 $radiant2: rgb(75, 124, 149, 0.5);
 $dark-dusty-blue: rgb(37 84 109);
+$tagline-div-width: 75%;
 
 .content {
-  background: url("/assets/img/jar-money-img.webp");
+  background: $background-image;
   background-size: cover;
   background-repeat: no-repeat;
   min-height: 46%;
@@ -55,6 +56,20 @@ $dark-dusty-blue: rgb(37 84 109);
     h1{
       font-size: xx-large;
     }
+
+    .tag-line{
+      margin-top: 1.7em;
+      justify-content: center;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding-bottom: 1em;
+    }
+
+    .system-links{
+      max-width: 80%;
+    }
   
     .slogan{
       display: flex;
@@ -62,10 +77,14 @@ $dark-dusty-blue: rgb(37 84 109);
       vertical-align: middle;
       width: 100%;
       p {
-          margin-top: -1.3em;
-          padding: 0.2em;
-          font-size: small;
-          width: 85%;
+          margin: 0;
+          padding: 0.2em 0;
+          font-size: 0.8em;
+          line-height: 1.5em;
+          text-align: justify;
+          font-family: 'Inter';
+          letter-spacing: 1px;
+          text-shadow: $text-shadow2;
         }
     }
 
@@ -116,3 +135,23 @@ $dark-dusty-blue: rgb(37 84 109);
         color: $primary-color;
     }
 }
+
+// *********************************************************
+
+.progress-bar {
+  position: relative;
+  background-color: #e0e0e0;
+  overflow: hidden;
+  width: 100%;
+  border-radius: 5px;
+  box-shadow: $box-shadow;
+
+  div {
+    height: 6px;
+    border-radius: 5px;
+    background-color: #466077;
+    width: 85%;
+    transition: width 0.5s ease-in-out;
+  }
+}
+

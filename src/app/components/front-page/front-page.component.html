@@ -6,12 +6,12 @@
       <span routerLink="/info/concept-overview">What is Soll?</span>
       <span routerLink="/info/about-us">About us</span>
       <span>Help me</span>
-      <div class="system-links">
-        <span><h1>eps</h1></span>
-        <span><h2>•</h2></span>
-        <span><h1>ecps</h1></span>
-        <div *ngIf="slogan" class="slogan">
-          <p>{{ slogan.body }}</p>
+      <div class="tag-line">
+        <div class="system-links">
+          <div class="progress-bar"><div></div></div>
+          <div *ngIf="slogan" class="slogan">
+            <p><q>{{ slogan.body }}</q></p>
+          </div>
         </div>
       </div>
     </div>
