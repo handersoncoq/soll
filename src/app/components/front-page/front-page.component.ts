@@ -12,9 +12,11 @@ export class FrontPageComponent implements OnInit{
 
   slogan!: TitleBodyType;
   learnMore!: TitleBodyArrayType;
-  fontPageImage = './assets/img/font-page-img.png'
+  frontPageLogo!: string;
 
-  constructor(private contentManagerService: ContentManagerService){}
+  constructor(private contentManagerService: ContentManagerService){
+    this.frontPageLogo = this.contentManagerService.getAppLogo3()
+  }
 
   ngOnInit() {
     this.contentManagerService.getSlongan().subscribe(

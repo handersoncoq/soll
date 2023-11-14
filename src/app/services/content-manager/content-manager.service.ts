@@ -7,9 +7,11 @@ import { Observable } from 'rxjs';
 })
 export class ContentManagerService {
 
-  aboutUs_resourceLink = './assets/app-content/AboutUs.json'
-  slogan_resourceLink = './assets/app-content/CompanySlogan.json'
-  learnMore_resourceLink = './assets/app-content/LearnMore.json'
+  aboutUs_resourceLink = './assets/app-content/AboutUs.json';
+  slogan_resourceLink = './assets/app-content/CompanySlogan.json';
+  learnMore_resourceLink = './assets/app-content/LearnMore.json';
+  appLogo3 = "./assets/logo/3.png";
+
 
   constructor(private http: HttpClient) {}
 
@@ -23,6 +25,10 @@ export class ContentManagerService {
 
   getLearnMore(): Observable<any> {
     return this.http.get(this.learnMore_resourceLink);
+  }
+
+  getAppLogo3(): string{
+    return this.appLogo3;
   }
 
   // ***************************************************************************
