@@ -13,9 +13,17 @@ export class FrontPageComponent implements OnInit{
   slogan!: TitleBodyType;
   learnMore!: TitleBodyArrayType;
   frontPageLogo!: string;
+  trustPilot!: string;
+  fiveStars!: string;
+  partners!: string[];
+  faqs!: any[];
 
   constructor(private contentManagerService: ContentManagerService){
-    this.frontPageLogo = this.contentManagerService.getAppLogo3()
+    this.frontPageLogo = this.contentManagerService.getAppLogo3();
+    this.trustPilot = this.contentManagerService.getTrustpilotAndStars()[0];
+    this.fiveStars = this.contentManagerService.getTrustpilotAndStars()[1];
+    this.partners = this.contentManagerService.getPartners();
+
   }
 
   ngOnInit() {
@@ -24,6 +32,9 @@ export class FrontPageComponent implements OnInit{
     );
     this.contentManagerService.getLearnMore().subscribe(
       data => this.learnMore = data
+    );
+    this.contentManagerService.getFaqs().subscribe(
+      data => this.faqs = data
     );
   }
 

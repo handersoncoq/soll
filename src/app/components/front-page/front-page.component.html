@@ -45,3 +45,35 @@
     <div><button mat-raised-button>Learn More</button></div>
   </div>
 </div>
+
+<div class="ratings-partners">
+  <div class="trustpilot-rating">
+    <div>
+      <img [src]="trustPilot" alt="Trustpilot" />
+    </div>
+    <div>
+      <img [src]="fiveStars" alt="Stars" />
+    </div>
+  </div>
+  
+  <div class="partners">
+    <span *ngFor="let partner of partners">
+      <img [src]="partner" alt="Soll Partner">
+    </span>
+  </div>
+</div>
+
+<div class="faqs" *ngIf="faqs">
+  <h2>Frequently Asked Questions</h2>
+    <mat-accordion *ngFor="let faqs of faqs">
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              {{faqs.question}}
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <p>{{faqs.body}}</p>
+        </mat-expansion-panel>
+    </mat-accordion>
+</div>
+

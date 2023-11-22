@@ -1,0 +1,18 @@
+[
+    {
+        "question": "How Can I Be Sure That My Money Is Safe?",
+        "body": "Electrnic Payments will be securely processed by Stripe. Cash payments will be collected by fully veted individuals, the Soll Leaders."
+    },
+    {
+        "question": "Who Will Be Managing The Funds?",
+        "body": "Funds from each group will be securely managed by the Soll Core Group, and redistributed to participants accordingly. Please see the fund redistribution section."
+    },
+    {
+        "question": "What If A Participant Quits?",
+        "body": "The Soll System is well equipped to handle situations where a participant cannot continue to make contributions. The system is designed such that even if a participant quits after receiving their contribution, no one suffers any loss, since this participant would have already paid all their dues up to that point in time. \nIf a participant decides to quit before receiving their contribution, the participant will be refunded and the void will be appropriately filled."
+    },
+    {
+        "question": "Can I Participate In More Than One Groups At A Time?",
+        "body": "At this time, multiple group participations are not supported."
+    }
+]

@@ -7,10 +7,23 @@ import { Observable } from 'rxjs';
 })
 export class ContentManagerService {
 
+  // app content
   aboutUs_resourceLink = './assets/app-content/AboutUs.json';
   slogan_resourceLink = './assets/app-content/CompanySlogan.json';
   learnMore_resourceLink = './assets/app-content/LearnMore.json';
-  appLogo3 = "./assets/logo/3.png";
+  faqs = './assets/app-content/Faqs.json';
+
+  // logo and images
+  appLogo = './assets/logo/3.png';
+  five_stars = './assets/img/five-stars.svg';
+
+  // partners
+  trustpilot = './assets/partners/trustpilot.svg';
+  visa = './assets/partners/visa.svg';
+  bank_of_america = './assets/partners/bank-of-america.svg';
+  paypal = './assets/partners/paypal.svg';
+  stripe = './assets/partners/stripe.svg';
+
 
 
   constructor(private http: HttpClient) {}
@@ -27,8 +40,27 @@ export class ContentManagerService {
     return this.http.get(this.learnMore_resourceLink);
   }
 
+  getFaqs(): Observable<any> {
+    return this.http.get(this.faqs);
+  }
+
+
   getAppLogo3(): string{
-    return this.appLogo3;
+    return this.appLogo;
+  }
+
+
+  getTrustpilotAndStars(): string[]{
+    return [this.trustpilot, this.five_stars]
+  }
+
+  getPartners(): string[]{
+    return [
+            this.visa,
+            this.stripe,
+            this.bank_of_america, 
+            this.paypal,
+          ]
   }
 
   // ***************************************************************************

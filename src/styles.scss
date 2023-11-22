@@ -73,8 +73,10 @@ a {
 }
 
 .spacing{
-    margin-bottom: 5em;
+    margin: 2em;
+    margin-bottom: 1em;
     height: 1em;
+    border-bottom: solid $alt-font-color 1px;
 }
 
 // global html styles
