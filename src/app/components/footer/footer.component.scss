@@ -47,4 +47,14 @@ $accent-color: #35425B;
       }
     }
   }
+
+  @media (min-width: 600px) {
+    .app-footer{
+      margin: 1em;
+      margin-top: 3em;
+    }
+    .footer-content{
+      min-width: 100%;
+    }
+  }
   

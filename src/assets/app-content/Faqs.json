@@ -1,18 +1,22 @@
 [
     {
-        "question": "How Can I Be Sure That My Money Is Safe?",
-        "body": "Electrnic Payments will be securely processed by Stripe. Cash payments will be collected by fully veted individuals, the Soll Leaders."
+        "question": "How secure is my money in this system?",
+        "body": "The system is designed with a strong emphasis on financial security and protection against defaults. Through meticulous vetting, the Early Payout System (EPS) and End of Cycle Payout System (ECPS) accommodate participants based on their financial credibility, ensuring a tailored and sustainable savings experience."
     },
     {
-        "question": "Who Will Be Managing The Funds?",
-        "body": "Funds from each group will be securely managed by the Soll Core Group, and redistributed to participants accordingly. Please see the fund redistribution section."
+        "question": "What happens if I face a financial emergency and need to exit the system?",
+        "body": "In case of a financial emergency before payout, you can choose to leave and will be reimbursed your contribution minus the fees. Although exiting the system will affect your reputation within the community, we have measures in place to ensure you're not left in a lurch."
     },
     {
-        "question": "What If A Participant Quits?",
-        "body": "The Soll System is well equipped to handle situations where a participant cannot continue to make contributions. The system is designed such that even if a participant quits after receiving their contribution, no one suffers any loss, since this participant would have already paid all their dues up to that point in time. \nIf a participant decides to quit before receiving their contribution, the participant will be refunded and the void will be appropriately filled."
+        "question": "How are the Group Leaders selected and what role do they play in this system?",
+        "body": "Group Leaders are meticulously vetted to ensure they are trustworthy and comprehend their responsibilities. They facilitate understanding of the system's terms among participants, assist in contributions collection and payouts disbursement, and intervene in payment recovery for EPS participants who default post-payout, ensuring a seamless operational infrastructure. Please refer to the Operational Infrastructure section for more details."
     },
     {
-        "question": "Can I Participate In More Than One Groups At A Time?",
-        "body": "At this time, multiple group participations are not supported."
+        "question": "What measures are in place to handle defaults, especially in the Early Payout System (EPS)?",
+        "body": "In the event of a default in EPS, the system employs a balanced approach using both internal and external funds to cover fallout payments while initiating appropriate measures to recover the remaining payments. This ensures that no participant will incur any loss, maintaining the integrity and trustworthiness of the system. Through the collaborative efforts of Group Leaders and the larger community, we aim to maintain a secure and fair environment for all participants."
+    },
+    {
+        "question": "How does the digital management aspect of the system work?",
+        "body": "The digital management infrastructure oversees, maintains, and monitors the entire system through computerized mechanisms, ensuring efficiency and transparency. Regular updates, thorough documentation, and communication of any system modifications keep participants informed, blending the efficiency of digital with the human touch of our Group Leaders to foster a trustworthy and supportive environment. For more information, you may refer to the Digital Management section."
     }
 ]
