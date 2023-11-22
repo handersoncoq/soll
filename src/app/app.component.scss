@@ -1,0 +1,13 @@
+.logo-div{
+    position: fixed;
+    right: 0;
+    z-index: 1000;
+    cursor: pointer;
+    img{
+        margin: 1em 0.5em;
+        height: 2.6em;
+        width: 2.6em;
+        border-radius: 50%;
+        background-color: white;
+        box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;    }
+}

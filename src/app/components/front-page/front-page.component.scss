@@ -10,6 +10,7 @@ $background-image: url('/assets/img/jar-money-img.webp');
 $radiant1: rgba(255, 255, 255, 0.5);
 $dark-dusty-blue: rgb(37 84 109);
 $transparent-bgr: rgb(82, 104, 143, 0.1);
+$progress-bar-color: rgb(33 63 79);
 
 .content {
   background: $background-image;
@@ -27,9 +28,11 @@ $transparent-bgr: rgb(82, 104, 143, 0.1);
     margin: 0;
     width: 100%;
     .hero-wrapper{
+      position: absolute;
       color: white;
       text-shadow: $text-shadow;
       width: 100%;
+      height: 48%;
       background: linear-gradient(to top, $radiant1, $dark-dusty-blue);
       padding-top: 1em;
       margin-top: -1em;
@@ -43,7 +46,8 @@ $transparent-bgr: rgb(82, 104, 143, 0.1);
       width: 100%;
     }
     .main-links{
-      max-width: 88%;
+      max-width: 90%;
+      font-size: small;
     }
 
     .main-links span:not(.point-separator){
@@ -51,7 +55,7 @@ $transparent-bgr: rgb(82, 104, 143, 0.1);
     }
   
     .main-links span:not(:last-child){
-      padding-right: 1.1em;
+      padding-right: 2em;
     }
     .point-separator{
       font-size: large;
@@ -79,7 +83,7 @@ $transparent-bgr: rgb(82, 104, 143, 0.1);
     }
 
     .tag-wrapper{
-      max-width: 80%;
+      max-width: 82%;
     }
   
     .slogan{
@@ -90,7 +94,7 @@ $transparent-bgr: rgb(82, 104, 143, 0.1);
       p {
           margin: 0;
           padding: 0.2em 0;
-          font-size: 0.8em;
+          font-size: large;
           line-height: 1.5em;
           text-align: justify;
           font-family: 'Inter';
@@ -240,9 +244,9 @@ $transparent-bgr: rgb(82, 104, 143, 0.1);
   box-shadow: $box-shadow;
 
   div {
-    height: 6px;
+    height: 8px;
     border-radius: 5px;
-    background-color: #466077;
+    background-color: $progress-bar-color;
     width: 85%;
     transition: width 0.5s ease-in-out;
     animation: loadProgress 1s ease-out forwards;
@@ -256,13 +260,19 @@ $transparent-bgr: rgb(82, 104, 143, 0.1);
 // *****************************************************************
 
 @media (min-width: 600px) {
+  .inner-div{
+    .main-links{
+      padding-top: 1em !important;
+      font-size: large !important;
+    }
+  }
   .call-to-action{
     margin-top: 3em;
     button{
       width: 40%;
     }
     p{
-      width: 40%;
+      width: 35%;
       font-size: larger;
     }
   }
@@ -275,3 +285,24 @@ $transparent-bgr: rgb(82, 104, 143, 0.1);
   }
 }
 
+@media screen and (orientation: landscape){
+  .inner-div{
+    .hero-wrapper{
+      height: 52% !important;
+    }
+    .tag-line{
+      margin-top: -3em !important;
+    }
+    .main-links{
+      padding-top: 0 !important;
+      font-size: medium !important;
+    }
+
+  }
+  .learn-more-content{
+    p{
+      width: 47% !important;
+    }
+  }
+
+}

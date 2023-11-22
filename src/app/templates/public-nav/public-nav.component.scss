@@ -50,3 +50,17 @@ sup {
   font-size: 30px;
   font-variation-settings: "FILL" 0, "wght" 200, "GRAD" 0, "opsz" 40;
 }
+
+::ng-deep .mat-elevation-z8, .mat-mdc-elevation-specific.mat-elevation-z8 {
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 60px 40px -7px !important;
+}
+
+// *********************************************************************
+
+@media (min-width: 600px) {
+  .toolbar-content{
+    button{
+      font-size: large;
+    }
+  }
+}
