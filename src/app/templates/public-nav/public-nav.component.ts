@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ContentManagerService } from 'src/app/services/content-manager/content-manager.service';
 
 @Component({
@@ -8,10 +9,14 @@ import { ContentManagerService } from 'src/app/services/content-manager/content-
 })
 export class PublicNavComponent implements OnInit{
 
-  constructor(private contentManagerService: ContentManagerService){}
+  constructor(private contentManagerService: ContentManagerService, private router: Router){}
 
   ngOnInit(): void {
     this.contentManagerService.loadMaterialSymbols();
+  }
+
+  navigateTo(link: string){
+    this.router.navigate([link]);
   }
 
 }
