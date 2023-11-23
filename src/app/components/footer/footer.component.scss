@@ -19,7 +19,6 @@ $accent-color: #35425B;
       .footer-links {
         a {
           color: $dark-dusty-blue;
-          margin-right: 15px;
           text-decoration: none;
           border-bottom: solid $alt-font-color 1px;
           
@@ -27,11 +26,8 @@ $accent-color: #35425B;
             text-decoration: underline;
           }
         }
-      }
-  
-      .footer-info {
-        p {
-          margin: 0;
+        a:not(:last-child){
+          margin-right: 2.6em;
         }
       }
     }
@@ -43,6 +39,11 @@ $accent-color: #35425B;
   
         .footer-links {
           margin-bottom: 10px;
+        }
+      }
+      .footer-info {
+        p {
+          margin: 1em;
         }
       }
     }

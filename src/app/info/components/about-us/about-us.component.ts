@@ -19,10 +19,6 @@ export class AboutUsComponent implements OnInit{
       data => this.aboutUs = data
     );
   }
-
-  onImageLoad(event: Event) {
-    (event.target as HTMLImageElement).classList.add('loaded');
-  }
   
 
 }

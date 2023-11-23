@@ -39,8 +39,6 @@ $dark-dusty-blue: rgb(37 84 109);
     
       h2{
         display: inline-flex;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, serif;
-
       }
   
     }
@@ -90,12 +88,6 @@ $dark-dusty-blue: rgb(37 84 109);
     border-radius: 50%;
     object-fit: cover;
     padding: 0.4em;
-    opacity: 0;
-    transition: opacity 0.7s ease-in-out;
-
-    &.loaded {
-      opacity: 1;
-    }
   }
   
   .profile-info {

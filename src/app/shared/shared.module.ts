@@ -7,11 +7,11 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 
 import { PublicNavComponent } from '../templates/public-nav/public-nav.component';
-
+import { LazyLoadingDirective } from '../utils/directives/lazy-loading.directive';
 
 
 @NgModule({
-  declarations: [ PublicNavComponent ],
+  declarations: [ PublicNavComponent, LazyLoadingDirective ],
   imports: [
     CommonModule,
     MatToolbarModule,
@@ -19,6 +19,6 @@ import { PublicNavComponent } from '../templates/public-nav/public-nav.component
     MatIconModule,
     MatMenuModule,
   ],
-  exports: [ PublicNavComponent ]
+  exports: [ PublicNavComponent, LazyLoadingDirective ]
 })
 export class SharedModule { }

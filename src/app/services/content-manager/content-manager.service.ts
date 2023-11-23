@@ -12,6 +12,8 @@ export class ContentManagerService {
   slogan_resourceLink = './assets/app-content/CompanySlogan.json';
   learnMore_resourceLink = './assets/app-content/LearnMore.json';
   faqs = './assets/app-content/Faqs.json';
+  conceptOverview = './assets/app-content/ConceptOverview.json'
+
 
   // logo and images
   appLogo = './assets/logo/3.png';
@@ -44,6 +46,9 @@ export class ContentManagerService {
     return this.http.get(this.faqs);
   }
 
+  getConceptOverview(): Observable<any> {
+    return this.http.get(this.conceptOverview);
+  }
 
   getAppLogo3(): string{
     return this.appLogo;

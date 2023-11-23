@@ -1,1 +1,105 @@
-<p>concept-overview works!</p>
+<app-public-nav></app-public-nav>
+
+<div class="header">
+  <div class="inner-div">
+    <div class="hero-div">
+        <div *ngIf="conceptOverview">
+            <h2>{{ conceptOverview.subTitle }}</h2>
+        </div>
+    </div>
+  </div>
+</div>
+
+<div class="main-content" *ngIf="conceptOverview">
+    <h2>{{ conceptOverview.title }}</h2>
+
+    <section class="overview">
+        <h3>Overview</h3>
+        <p>{{ conceptOverview.overview.description }}</p>
+        <img [src]="community" alt="Community" loading="lazy" appLazyLoading>
+        <p>{{ conceptOverview.overview.innovation }}</p>
+    </section>
+
+    <section>
+        <h3>System Infrastructure</h3>
+        <p>{{ conceptOverview.systemInfrastructure.modelDescription }}</p>
+        <div>
+            <h4>Early Payout System (EPS)</h4>
+            <p>{{ conceptOverview.systemInfrastructure.subdivisions.earlyPayoutSystem.description }}</p>
+            <img [src]="eps" alt="EPS" loading="lazy" appLazyLoading>
+        </div>
+        <div>
+            <h4>End Of Cycle Payout System (ECPS)</h4>
+            <p>{{ conceptOverview.systemInfrastructure.subdivisions.endOfCyclePayoutSystem.description }}</p>
+            <img [src]="ecps" alt="ECPS" loading="lazy" appLazyLoading>
+        </div>
+    </section>
+
+    <section>
+        <h3>Operational Infrastructure</h3>
+        <p>{{ conceptOverview.operationalInfrastructure.groupStructure }}</p>
+        <img [src]="overviewImg" alt="Soll in mobile" loading="lazy" appLazyLoading>
+        <div>
+            <h4>Group Leaders</h4>
+            <p>{{ conceptOverview.operationalInfrastructure.groupLeaders.responsibilities }}</p>
+            <p>{{ conceptOverview.operationalInfrastructure.groupLeaders.selection }}</p>
+        </div>
+        <img [src]="leader" alt="Soll Leader" loading="lazy" appLazyLoading>
+        <p>{{ conceptOverview.operationalInfrastructure.digitalManagement }}</p>
+    </section>
+
+    <section>
+        <h3>Default Management</h3>
+        <p>{{ conceptOverview.defaultManagement }}</p>
+    </section>
+
+    <section>
+        <h3>Reputation and Exit System</h3>
+        <p>{{ conceptOverview.reputationAndExitSystem.description }}</p>
+        <p>{{ conceptOverview.reputationAndExitSystem.gracePeriods }}</p>
+        <p>{{ conceptOverview.reputationAndExitSystem.defaultConsequences }}</p>
+    </section>
+
+    <section>
+        <h3>Transparency Commitment</h3>
+        <p>{{ conceptOverview.transparencyCommitment }}</p>
+    </section>
+
+    <section>
+        <h3>Illustrative Example</h3>
+        <p><strong>Group Size:</strong> {{ conceptOverview.illustrativeExample.groupSize }}</p>
+        <p><strong>Contribution:</strong> {{ conceptOverview.illustrativeExample.contribution }}</p>
+        <div class="examples">
+            <h5>EPS</h5>
+            <ul *ngFor="let point of conceptOverview.illustrativeExample.epsExample">
+                <li>{{point}}</li>
+            </ul>
+            <h5>ECPS</h5>
+            <ul *ngFor="let point of conceptOverview.illustrativeExample.ecpExample">
+                <li>{{point}}</li>
+            </ul>
+        </div>
+    </section>
+
+    <section>
+        <h3>Legal and Regulatory Compliance</h3>
+        <p>{{ conceptOverview.legalAndRegulatoryCompliance }}</p>
+    </section>
+
+    <section>
+        <h3>Scalability and Adaptability</h3>
+        <p>{{ conceptOverview.scalabilityAndAdaptability }}</p>
+    </section>
+
+    <section>
+        <h3>Community Engagement</h3>
+        <p>{{ conceptOverview.communityEngagement }}</p>
+    </section>
+
+    <section>
+        <h3>Financial Sustainability</h3>
+        <p>{{ conceptOverview.financialSustainability }}</p>
+    </section>
+</div>
+
+  

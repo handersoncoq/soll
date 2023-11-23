@@ -55,6 +55,11 @@ sup {
   box-shadow: rgba(0, 0, 0, 0.2) 0px 60px 40px -7px !important;
 }
 
+::ng-deep .mat-mdc-menu-item{
+  font-size: 14px !important;
+  color: $accent-color !important;
+}
+
 // *********************************************************************
 
 @media (min-width: 600px) {

@@ -14,12 +14,7 @@
   <h2>{{ aboutUs.header }}</h2>
   <div div *ngFor="let member of aboutUs.members" class="member-container">
     <div class="profile-picture">
-      <img
-        [src]="profilePic"
-        alt="Member's Name"
-        loading="lazy"
-        (load)="onImageLoad($event)"
-      />
+      <img [src]="profilePic" alt="Member's Name" loading="lazy" appLazyLoading/>
     </div>
     <div class="profile-info">
       <h4>{{ member.name }}</h4>

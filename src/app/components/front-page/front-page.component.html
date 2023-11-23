@@ -13,7 +13,6 @@
         </div>
       </div>
       <div class="spacing"></div>
-      <div class="spacing"></div>
       <div class="tag-line">
         <div class="tag-wrapper">
           <div class="progress-bar"><div></div></div>
@@ -37,30 +36,30 @@
           <p>{{ learnMore.body[0] }}</p>
         </div>
         <div class="learn-more-content">
-          <p><img [src]="frontPageLogo" alt="App Logo" /></p>
+          <p><img [src]="frontPageLogo" alt="App Logo" appLazyLoading/></p>
         </div>
         <div class="learn-more-content tag-words">
           <p>{{ learnMore.body[1] }}</p>
         </div>
       </div>
     </div>
-    <div><button mat-raised-button>Learn More</button></div>
+    <div routerLink="/info/concept-overview"><button mat-raised-button>Learn More</button></div>
   </div>
 </div>
 
 <div class="ratings-partners">
   <div class="trustpilot-rating">
     <div>
-      <img [src]="trustPilot" alt="Trustpilot" />
+      <img [src]="trustPilot" alt="Trustpilot" appLazyLoading/>
     </div>
     <div>
-      <img [src]="fiveStars" alt="Stars" />
+      <img [src]="fiveStars" alt="Stars" appLazyLoading/>
     </div>
   </div>
   
   <div class="partners">
     <span *ngFor="let partner of partners">
-      <img [src]="partner" alt="Soll Partner">
+      <img [src]="partner" alt="Soll Partner" appLazyLoading>
     </span>
   </div>
 </div>

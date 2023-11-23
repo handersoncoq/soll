@@ -8,7 +8,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
-import { MatExpansionModule } from '@angular/material/expansion'
+import { MatExpansionModule } from '@angular/material/expansion';
 
 import { AppComponent } from './app.component';
 import { FrontPageComponent } from './components/front-page/front-page.component';
@@ -34,7 +34,7 @@ import { FooterComponent } from './components/footer/footer.component';
     MatMenuModule,
     HttpClientModule,
     SharedModule,
-    MatExpansionModule
+    MatExpansionModule,
   ],
   providers: [ContentManagerService],
   bootstrap: [AppComponent]
