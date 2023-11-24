@@ -34,7 +34,7 @@ export class ContentManagerService {
     return this.http.get(this.aboutUs_resourceLink);
   }
 
-  getSlongan(): Observable<any> {
+  getSlogan(): Observable<any> {
     return this.http.get(this.slogan_resourceLink);
   }
 

@@ -1,18 +1,21 @@
 <app-public-nav></app-public-nav>
 
-<div class="content">
+<div
+  class="content"
+  [ngStyle]="{ 'background-image': 'url(' + currentImage + ')' }"
+>
   <div class="inner-div">
     <div class="hero-wrapper">
       <div class="pre-wrapper">
         <div class="main-links">
-          <span routerLink="/info/concept-overview">What is Soll?</span>
-          <span class="point-separator">•</span>
+          <div class="spacing"></div>
           <span>EPS</span>
+          <span class="point-separator">•</span>
+          <span>Soll Leaders</span>
           <span class="point-separator">•</span>
           <span>ECPS</span>
         </div>
       </div>
-      <div class="spacing"></div>
       <div class="tag-line">
         <div class="tag-wrapper">
           <div class="progress-bar"><div></div></div>
@@ -23,6 +26,18 @@
           </div>
         </div>
       </div>
+      <div class="spacing"></div>
+      <div class="spacing"></div>
+      <button mat-raised-button>GET STARTED</button>
+      <div class="slide-buttons">
+        <div class="image-indicators">
+          <button
+            *ngFor="let image of images; let i = index"
+            (click)="setCurrentImage(i)"
+            [style.background-color]="i === currentImageIndex ? activeColor(i) : inactiveColor(i)"
+          ></button>
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -30,51 +45,55 @@
 <div class="call-to-action">
   <div class="learn-more">
     <div class="learn-more-header">
-      <h1>LEARN MORE</h1>
+      <h1>What Is Soll?</h1>
       <div *ngIf="learnMore">
         <div class="learn-more-content">
           <p>{{ learnMore.body[0] }}</p>
         </div>
         <div class="learn-more-content">
-          <p><img [src]="frontPageLogo" alt="App Logo" appLazyLoading/></p>
+          <p><img [src]="frontPageLogo" alt="App Logo" appLazyLoading /></p>
         </div>
         <div class="learn-more-content tag-words">
           <p>{{ learnMore.body[1] }}</p>
         </div>
       </div>
     </div>
-    <div routerLink="/info/concept-overview"><button mat-raised-button>Learn More</button></div>
+    <div routerLink="/info/concept-overview">
+      <button mat-raised-button>
+        <span>Learn More</span>
+        <mat-icon>open_in_new</mat-icon>
+      </button>
+    </div>
   </div>
 </div>
 
 <div class="ratings-partners">
   <div class="trustpilot-rating">
     <div>
-      <img [src]="trustPilot" alt="Trustpilot" appLazyLoading/>
+      <img [src]="trustPilot" alt="Trustpilot" appLazyLoading />
     </div>
     <div>
-      <img [src]="fiveStars" alt="Stars" appLazyLoading/>
+      <img [src]="fiveStars" alt="Stars" appLazyLoading />
     </div>
   </div>
-  
+
   <div class="partners">
     <span *ngFor="let partner of partners">
-      <img [src]="partner" alt="Soll Partner" appLazyLoading>
+      <img [src]="partner" alt="Soll Partner" appLazyLoading />
     </span>
   </div>
 </div>
 
 <div class="faqs" *ngIf="faqs">
   <h2>Frequently Asked Questions</h2>
-    <mat-accordion *ngFor="let faqs of faqs">
-        <mat-expansion-panel>
-          <mat-expansion-panel-header>
-            <mat-panel-title>
-              {{faqs.question}}
-            </mat-panel-title>
-          </mat-expansion-panel-header>
-          <p>{{faqs.body}}</p>
-        </mat-expansion-panel>
-    </mat-accordion>
+  <mat-accordion *ngFor="let faqs of faqs">
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          {{ faqs.question }}
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <p>{{ faqs.body }}</p>
+    </mat-expansion-panel>
+  </mat-accordion>
 </div>
-

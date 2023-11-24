@@ -6,36 +6,41 @@ $alt-font-color: #E3E7F1;
 $text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 $text-shadow2: 0px 2px 3px rgb(37 84 109);
 $box-shadow: 0px 0px 10px rgba(82, 104, 143, 0.5);
-$background-image: url('/assets/img/jar-money-img.webp');
 $radiant1: rgb(255 255 255 / 0%);
 $dark-dusty-blue: rgb(37 84 109);
 $transparent-bgr: rgb(82, 104, 143, 0.1);
 $progress-bar-color: rgb(33 63 79);
 
+.hero-section {
+  position: relative;
+  height: 100vh; /* Adjust the height as needed */
+  overflow: hidden;
+}
+
 .content {
-  background: $background-image;
   background-size: cover;
   background-repeat: no-repeat;
-  min-height: 40%;
-  width: 100%;
   background-position-x: center;
   background-position-y: center;
   color: #35425B;
   text-align: center;
   padding: 16px 0;
+  margin: 0.6em;
+  margin-bottom: 0;
+  border-radius: 1em;
+  border: solid $alt-font-color 1px;
 
   .inner-div{
     margin: 0;
     width: 100%;
     .hero-wrapper{
-      position: absolute;
       color: white;
       text-shadow: $text-shadow;
-      width: 100%;
-      height: 44%;
       background: linear-gradient(to top, $radiant1, $dark-dusty-blue);
       padding-top: 1em;
       margin-top: -1em;
+      border-radius: 1em;
+      padding-bottom: 1em;
     }
 
     .pre-wrapper{
@@ -47,7 +52,8 @@ $progress-bar-color: rgb(33 63 79);
     }
     .main-links{
       max-width: 90%;
-      font-size: small;
+      font-size: medium;
+      font-weight: bold;
     }
 
     .main-links span:not(.point-separator){
@@ -55,7 +61,7 @@ $progress-bar-color: rgb(33 63 79);
     }
   
     .main-links span:not(:last-child){
-      padding-right: 3em;
+      padding-right: 1em;
     }
     .point-separator{
       font-size: larger !important;
@@ -94,14 +100,38 @@ $progress-bar-color: rgb(33 63 79);
       p {
           margin: 0;
           padding: 0.2em 0;
-          font-size: large;
+          font-size: medium;
           line-height: 1.5em;
-          text-align: justify;
+          text-align: center;
           font-family: 'Inter';
           letter-spacing: 1px;
           text-shadow: $text-shadow2;
         }
     }
+
+    button{
+      color: $accent-color;
+      border-radius: 1.5em;
+      font-size: medium;
+      font-weight: bolder;
+      padding: 1em 1.8em;
+      box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
+      border: solid $alt-font-color 1px;
+  }
+
+  .slide-buttons {
+    margin-top: 2em;
+    button{
+      cursor: pointer;
+      border: none;
+      border-radius: 50%;
+      width: 12px;
+      height: 12px;
+      padding: 0;
+      margin: 0 5px;
+      transition: background-color 0.3s
+    }
+  }
 
   }
 
@@ -109,9 +139,9 @@ $progress-bar-color: rgb(33 63 79);
 
 .call-to-action{
     display: flex;
-    margin-top: 1em;
     justify-content: center;
     vertical-align: middle;
+    margin-top: 1em;
 }
 
 .learn-more {
@@ -132,7 +162,7 @@ $progress-bar-color: rgb(33 63 79);
         font-size: x-large;
         padding: 0.8em 1.8em;
         box-shadow: $box-shadow;
-        width: 80%;
+        width: 90%;
     }
 }
 
@@ -150,7 +180,6 @@ $progress-bar-color: rgb(33 63 79);
         font-size: large;
     }
     img{
-      margin-top: 1em;
       margin-bottom: -1em;
       height: 7.5em;
       width: 7.5em;
@@ -163,7 +192,10 @@ $progress-bar-color: rgb(33 63 79);
 
 .ratings-partners{
   background-color: $transparent-bgr;
-  margin-top: 5em;
+  margin-top: 4em;
+  margin-left: 1em;
+  margin-right: 1em;
+  border-radius: 1em;
 
   .trustpilot-rating, .partners{
     text-align: center;
@@ -195,7 +227,7 @@ $progress-bar-color: rgb(33 63 79);
 
 .faqs{
   margin: 0 1.5em;
-  margin-top: 5em;
+  margin-top: 4em;
   h2{
     font-weight: normal;
     color: $accent-color;
@@ -255,6 +287,7 @@ $progress-bar-color: rgb(33 63 79);
 
 .spacing{
   border: none;
+  margin-top: 0;
 }
 
 // *****************************************************************
@@ -262,8 +295,10 @@ $progress-bar-color: rgb(33 63 79);
 @media (min-width: 600px) {
   .inner-div{
     .main-links{
-      padding-top: 1em !important;
       font-size: large !important;
+    }
+    .hero-wrapper{
+      padding-bottom: 3em;
     }
   }
   .call-to-action{
@@ -286,19 +321,6 @@ $progress-bar-color: rgb(33 63 79);
 }
 
 @media screen and (orientation: landscape){
-  .inner-div{
-    .hero-wrapper{
-      height: 45% !important;
-    }
-    .tag-line{
-      margin-top: -3em !important;
-    }
-    .main-links{
-      padding-top: 0 !important;
-      font-size: medium !important;
-    }
-
-  }
   .learn-more-content{
     p{
       width: 47% !important;
