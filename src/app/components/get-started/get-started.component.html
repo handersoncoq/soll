@@ -1,0 +1,170 @@
+<div class="container">
+  <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+    <div class="logo-div">
+      <img [src]="appLogo" alt="App Logo" appLazyLoading />
+    </div>
+    <h1>Let's get you started on an exciting journey!</h1>
+    <div *ngIf="currentStep === 1">
+      <h3>Please tell us who you are</h3>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <input
+            type="text"
+            placeholder="First Name"
+            class="form-control"
+            [ngClass]="{
+              isError:
+                registrationForm.get('firstName')?.invalid &&
+                registrationForm.get('firstName')?.touched
+            }"
+            id="firstName"
+            formControlName="firstName"
+          />
+        </div>
+        <div class="form-group col-md-6">
+          <input
+            type="text"
+            placeholder="Last Name"
+            class="form-control"
+            [ngClass]="{
+              isError:
+                registrationForm.get('lastName')?.invalid &&
+                registrationForm.get('lastName')?.touched
+            }"
+            id="lastName"
+            formControlName="lastName"
+          />
+        </div>
+      </div>
+      <div class="form-group">
+        <input
+          type="email"
+          placeholder="Email"
+          class="form-control"
+          [ngClass]="{
+            isError:
+              registrationForm.get('email')?.invalid &&
+              registrationForm.get('email')?.touched
+          }"
+          id="email"
+          formControlName="email"
+        />
+        <div
+          class="error-div"
+          *ngIf="
+            registrationForm.get('email')?.invalid &&
+            registrationForm.get('email')?.touched
+          "
+        >
+          A valid email is required.
+        </div>
+      </div>
+      <button
+        [disabled]="
+          registrationForm.get('firstName')?.invalid ||
+          registrationForm.get('lastName')?.invalid ||
+          registrationForm.get('email')?.invalid
+        "
+        class="first-btn"
+        type="button"
+        (click)="nextStep()"
+      >
+        Next
+      </button>
+    </div>
+
+    <!-- Step 2 -->
+    <div *ngIf="currentStep === 2">
+      <h3>Please tell us your age and your phone number</h3>
+      <div class="form-group">
+        <input
+          type="date"
+          class="form-control"
+          [ngClass]="{
+            isError:
+              registrationForm.get('dob')?.invalid &&
+              registrationForm.get('dob')?.touched
+          }"
+          id="dob"
+          formControlName="dob"
+        />
+        <div
+          class="error-div"
+          *ngIf="
+            registrationForm.get('dob')?.invalid &&
+            registrationForm.get('dob')?.touched
+          "
+        >
+          You must be at least 18 years old.
+        </div>
+      </div>
+      <div class="form-group">
+        <input
+          type="tel"
+          class="form-control"
+          placeholder="(xxx) xxx-xxxx"
+          [ngClass]="{
+            isError:
+              registrationForm.get('phone')?.invalid &&
+              registrationForm.get('phone')?.touched
+          }"
+          id="phone"
+          formControlName="phone"
+        />
+        <div
+          class="error-div"
+          *ngIf="
+            registrationForm.get('phone')?.invalid &&
+            registrationForm.get('phone')?.touched
+          "
+        >
+          A valid U.S. phone number is required.
+        </div>
+        <span class="agreement"
+        ><input type="radio" />
+          By checking this box, you agree to us using your phone number to keep
+          your account safe and for important communications.
+        </span>
+      </div>
+      <div class="prev-next">
+          <button type="button" (click)="previousStep()">Previous</button>
+          <button [disabled]="registrationForm.get('phone')?.invalid || registrationForm.get('dob')?.invalid"
+           type="button" (click)="nextStep()">Next</button>
+      </div>
+    </div>
+
+    <!-- Step 3 -->
+    <div *ngIf="currentStep === 3">
+      <h3>Please tell us where you live</h3>
+      <div class="form-group">
+        <input
+          type="text"
+          placeholder="Street Name"
+          class="form-control"
+          id="street"
+          formControlName="street"
+        />
+        <div
+          class="error-div"
+          *ngIf="
+            registrationForm.get('street')?.invalid &&
+            registrationForm.get('street')?.touched
+          "
+        >
+          Street name is required.
+        </div>
+        <!-- Add more address fields (city, state, zipcode) here in similar fashion -->
+        <span class="agreement" *ngIf="!registrationForm.valid"><input type="radio" />By submitting this form, you agree to our <a href="">Terms of Services</a>.</span>
+      </div>
+      <div class="prev-next">
+          <button type="button" (click)="previousStep()">Previous</button>
+          <button type="submit" [disabled]="!registrationForm.valid">
+            Register
+          </button>
+      </div>
+    </div>
+    <div class="other-info">
+      <h3>Have An Account?</h3>
+    </div>
+  </form>
+</div>

@@ -16,7 +16,8 @@ export class ContentManagerService {
 
 
   // logo and images
-  appLogo = './assets/logo/3.png';
+  appLogo3 = './assets/logo/3.png';
+  appLogo6 = './assets/logo/6.png';
   five_stars = './assets/img/five-stars.svg';
 
   // partners
@@ -51,7 +52,11 @@ export class ContentManagerService {
   }
 
   getAppLogo3(): string{
-    return this.appLogo;
+    return this.appLogo3;
+  }
+
+  getAppLogo6(): string{
+    return this.appLogo6;
   }
 
 
