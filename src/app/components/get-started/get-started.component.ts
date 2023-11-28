@@ -14,25 +14,31 @@ export class GetStartedComponent implements OnInit{
   registrationForm!: FormGroup;
   formHasError = true;
   appLogo!: string;
+  checkPhoneAgr = false;
+  check = false;
 
   currentStep = 1;
 
   constructor(private formBuilder: FormBuilder, private contentManagerService: ContentManagerService) {
     this.appLogo = this.contentManagerService.getAppLogo6();
-   }
-
-  ngOnInit() {
     this.registrationForm = this.formBuilder.group({
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
+      email: ['', [Validators.required, Validators.email, Validators.pattern('^[a-zA-Z0-9._%+-]+@(gmail\\.com|yahoo\\.com|outlook\\.com|aol\\.com|icloud\\.com)$')]],
       dob: ['', [Validators.required, this.validateAge]],
       phone: ['', [Validators.required, this.validatePhoneNumber]],
+      acceptPhoneAgr: [false, Validators.requiredTrue],
       street: ['', Validators.required],
       city: ['', Validators.required],
-      state: ['', Validators.required],
-      zipcode: ['', [Validators.required, Validators.pattern('^[0-9]{5}(?:-[0-9]{4})?$')]]
-    });
+      state: ['', [Validators.required, Validators.pattern('^[A-Z]{2}$')]],
+      zipcode: ['', [Validators.required, Validators.pattern('^[0-9]{5}(?:-[0-9]{4})?$')]],
+      password: ['', [Validators.required, Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$')]],
+      confirmPassword: ['', [Validators.required]],
+      acceptTerms: [false, Validators.requiredTrue]
+    }, { validator: this.passwordMatchValidator });
+   }
+
+  ngOnInit() {
 
     this.registrationForm.get('phone')?.valueChanges.subscribe(value => {
       const formatted = this.formatPhoneNumber(value);
@@ -40,6 +46,7 @@ export class GetStartedComponent implements OnInit{
         this.registrationForm.get('phone')?.setValue(formatted, { emitEvent: false });
       }
     });
+    
   }
 
   validateAge(control: AbstractControl): { [key: string]: any } | null {
@@ -68,18 +75,37 @@ export class GetStartedComponent implements OnInit{
     return formatted;
   }
   
+  passwordMatchValidator(frm: FormGroup) {
+    return frm.controls['password'].value === frm.controls['confirmPassword'].value ? null : {'mismatch': true};
+  }
+
+  hasLowerCase(value: string): boolean {
+  return /[a-z]/.test(value);
+  }
+
+  hasUpperCase(value: string): boolean {
+    return /[A-Z]/.test(value);
+  }
+
+  hasNumber(value: string): boolean {
+    return /\d/.test(value);
+  }
+
+  hasSpecialCharacter(value: string): boolean {
+    return /[@$!%*?&]/.test(value);
+  }
+
 
   onSubmit() {
     if (this.registrationForm.valid) {
       console.log('Form Data: ', this.registrationForm.value);
-      // Handle form submission here
     } else {
       console.log('Form is not valid.');
     }
   }
 
   nextStep() {
-    if (this.currentStep < 3) {
+    if (this.currentStep < 4) {
       this.currentStep++;
     }
   }
@@ -89,5 +115,34 @@ export class GetStartedComponent implements OnInit{
       this.currentStep--;
     }
   }
+
+  isStep1Valid(frm: FormGroup): boolean {
+    return frm.controls['firstName'].valid &&
+    frm.controls['lastName'].valid &&
+    frm.controls['email'].valid;
+  }
+
+  isStep2Valid(frm: FormGroup): boolean {
+    return frm.controls['dob'].valid &&
+    frm.controls['phone'].valid &&
+    frm.controls['acceptPhoneAgr'].valid;
+  }
+
+  isStep3Valid(frm: FormGroup): boolean {
+    return frm.controls['street'].valid &&
+          frm.controls['city'].valid &&
+          frm.controls['state'].valid &&
+          frm.controls['zipcode'].valid;
+  }
+
+  isStep4Valid(frm: FormGroup): boolean {
+    return frm.controls['password'].valid &&
+           (frm.controls['confirmPassword'].valid && !frm.errors?.['mismatch']) &&
+           frm.controls['acceptTerms'].valid;
+  }
+  
+  
+  
+  
 
 }
