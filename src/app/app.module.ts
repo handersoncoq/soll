@@ -12,6 +12,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { ReactiveFormsModule } from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { AppComponent } from './app.component';
 import { FrontPageComponent } from './components/front-page/front-page.component';
@@ -19,6 +20,10 @@ import { ContentManagerService } from './services/content-manager/content-manage
 import { SharedModule } from './shared/shared.module';
 import { FooterComponent } from './components/footer/footer.component';
 import { GetStartedComponent } from './components/get-started/get-started.component';
+import { LoginComponent } from './components/login/login.component';
+import { SnackBarComponent } from './templates/snack-bar/snack-bar.component';
+import { ScreenLayoutService } from './utils/screen-layout/screen-layout.service';
+import { VerificationComponent } from './templates/verification/verification.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +31,9 @@ import { GetStartedComponent } from './components/get-started/get-started.compon
     FrontPageComponent,
     FooterComponent,
     GetStartedComponent,
+    LoginComponent,
+    SnackBarComponent,
+    VerificationComponent,
   ],
   imports: [
     ReactiveFormsModule,
@@ -42,9 +50,10 @@ import { GetStartedComponent } from './components/get-started/get-started.compon
     SharedModule,
     MatExpansionModule,
     MatInputModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatSnackBarModule
   ],
-  providers: [ContentManagerService],
+  providers: [ContentManagerService, ScreenLayoutService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,74 @@
+<div class="container">
+    <form [formGroup]="loginForm">
+      <div class="logo-div" routerLink="/">
+        <img [src]="appLogo" alt="App Logo" appLazyLoading />
+      </div>
+      <h1>Welcome back!</h1>
+      <div *ngIf="currentStep === 1">
+        <h3>Please enter your email and password</h3>
+        <div class="form-group">
+          <input
+            type="email"
+            placeholder="Email"
+            class="form-control"
+            [ngClass]="{
+              isError:
+                loginForm.get('email')?.invalid &&
+                loginForm.get('email')?.touched
+            }"
+            id="email"
+            formControlName="email"
+          />
+          <input
+            type="password"
+            class="form-control"
+            [ngClass]="{
+                isError:
+                  loginForm.get('password')?.invalid &&
+                  loginForm.get('password')?.touched
+              }"
+            id="password"
+            formControlName="password"
+            placeholder="Password"
+          />
+          <span class="agreement" *ngIf="loginForm.get('password')?.valid"
+            ><input type="checkbox" formControlName="acceptPhoneAgr" /> By
+            checking this box, you agree to us sending a verification code
+            to your registered phone number. <a href="">Learn More</a>.
+          </span>
+        </div>
+        <button
+          [disabled]="!isStep1Valid(loginForm)"
+          class="first-btn"
+          type="button"
+          (click)="nextStep()"
+        >
+          Next
+        </button>
+      </div>
+  
+      <!-- Step 2 -->
+      <div *ngIf="currentStep === 2">
+        <h3>Please enter the code we have sent to your phone</h3>
+        <div class="form-group">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="xxx-xxx-xxxx"
+            [ngClass]="{
+              isError:
+                loginForm.get('verificationCode')?.invalid &&
+                loginForm.get('verificationCode')?.touched
+            }"
+            id="verificationCode"
+            formControlName="verificationCode"
+          />
+        </div>
+      </div>
+      <div class="other-info">
+        <h3 routerLink="/get-started">Don't have an account?</h3>
+        <p routerLink="/">Help me login</p>
+      </div>
+    </form>
+  </div>
+  

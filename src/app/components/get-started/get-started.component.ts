@@ -15,8 +15,6 @@ export class GetStartedComponent implements OnInit{
   formHasError = true;
   appLogo!: string;
   checkPhoneAgr = false;
-  check = false;
-
   currentStep = 1;
 
   constructor(private formBuilder: FormBuilder, private contentManagerService: ContentManagerService) {
