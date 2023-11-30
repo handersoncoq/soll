@@ -7,6 +7,8 @@ import { Component } from '@angular/core';
 })
 export class FooterComponent {
 
+  isMember = false;
+
   currentYear: number = new Date().getFullYear();
 
 }

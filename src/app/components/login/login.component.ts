@@ -18,7 +18,9 @@ export class LoginComponent implements OnInit{
   formHasError = true;
   appLogo!: string;
   checkPhoneAgr = false;
+  errorMsg = 'Wrong credentials! Please try again';
   currentStep = 1;
+  hidePassword = true;
 
   constructor(private formBuilder: FormBuilder, private contentManagerService: ContentManagerService, private snackBar: MatSnackBar) {
     this.appLogo = this.contentManagerService.getAppLogo6();
@@ -47,6 +49,9 @@ export class LoginComponent implements OnInit{
     
   }
 
+  togglePasswordVisibility(){
+    this.hidePassword = !this.hidePassword;
+  }
 
   formatVerificationCode(value: string): string {
     const numbers = value.replace(/\D/g, '');
@@ -62,15 +67,14 @@ export class LoginComponent implements OnInit{
 
   nextStep() {
     if(!this.validateEmailDomain(this.loginForm.controls['email'].value)){
-      const errorMsg = 'Ooh, you may have entered the wrong credentials! Please try again';
       this.snackBar.openFromComponent(SnackBarComponent, {
         data: {
-          message: errorMsg,
+          message: this.errorMsg,
           type: 'error'
         },
         duration: 3000,
         verticalPosition: 'top',
-        horizontalPosition: 'center'
+        horizontalPosition: 'right'
       });
     }
     else this.currentStep++;

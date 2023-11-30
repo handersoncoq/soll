@@ -1,10 +1,9 @@
 $success-color: #4CAF50;
-$error-color: rgb(183, 46, 1);
+$error-color: rgb(234, 159, 172);
 
 .layout {
-    font-size: smaller;
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 4fr 1fr;
     gap: 1em;
 }
 

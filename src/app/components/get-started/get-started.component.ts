@@ -3,6 +3,7 @@ import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/fo
 import * as moment from 'moment';
 import { CharMap } from 'src/app/interaces/CharMap';
 import { ContentManagerService } from 'src/app/services/content-manager/content-manager.service';
+import { usStatesAbbreviations } from 'src/app/utils/constants/UsStates';
 
 @Component({
   selector: 'app-get-started',
@@ -16,6 +17,9 @@ export class GetStartedComponent implements OnInit{
   appLogo!: string;
   checkPhoneAgr = false;
   currentStep = 1;
+  hidePassword = true;
+  successMessage = 'Congratulations! You have successfully submitted your request to become a Soll participant. We will follow up with you to complete your application.'
+  usStates = usStatesAbbreviations;
 
   constructor(private formBuilder: FormBuilder, private contentManagerService: ContentManagerService) {
     this.appLogo = this.contentManagerService.getAppLogo6();
@@ -45,6 +49,10 @@ export class GetStartedComponent implements OnInit{
       }
     });
     
+  }
+
+  togglePasswordVisibility(){
+    this.hidePassword = !this.hidePassword;
   }
 
   validateAge(control: AbstractControl): { [key: string]: any } | null {
@@ -96,14 +104,21 @@ export class GetStartedComponent implements OnInit{
 
   onSubmit() {
     if (this.registrationForm.valid) {
-      console.log('Form Data: ', this.registrationForm.value);
-    } else {
-      console.log('Form is not valid.');
+      // console.log('Form Data: ', this.registrationForm.value);
+      console.info('form is valid: ', this.registrationForm.valid);
+      this.nextStep();
+      this.showSpinner();
     }
   }
 
+  showSpinner(){
+    setTimeout(() =>{
+      this.nextStep();
+      }, 1000)
+  }
+
   nextStep() {
-    if (this.currentStep < 4) {
+    if (this.currentStep < 6) {
       this.currentStep++;
     }
   }

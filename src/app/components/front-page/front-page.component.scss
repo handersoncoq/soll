@@ -112,11 +112,11 @@ $progress-bar-color: rgb(33 63 79);
     .cta-btn{
       color: $accent-color;
       border-radius: 1.5em;
-      font-size: medium;
-      font-weight: bolder;
+      font-size: large;
+      font-weight: bold;
       padding: 0 1em;
-      box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
-      border: solid $alt-font-color 1px;
+      height: 1.7em;
+      box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
   }
 
   .slide-buttons {
@@ -158,9 +158,9 @@ $progress-bar-color: rgb(33 63 79);
     button{
         background: $accent-color;
         color: white;
-        border-radius: 1em;
-        font-size: x-large;
-        padding: 0.8em 1.8em;
+        border-radius: 1.3em;
+        font-size: large;
+        padding: 1.2em 1.8em;
         box-shadow: $box-shadow;
         width: 90%;
     }
@@ -188,6 +188,10 @@ $progress-bar-color: rgb(33 63 79);
 
 .learn-more-content.tag-words{
   padding-top: 0.3em;
+  p {
+    color: lighten($accent-color, 10%);
+    font-weight: bold;
+  }
 }
 
 .ratings-partners{

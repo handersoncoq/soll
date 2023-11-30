@@ -1,298 +1,315 @@
 <div class="container">
   <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
-    <div class="logo-div" routerLink="/">
-      <img [src]="appLogo" alt="App Logo" appLazyLoading />
-    </div>
-    <h1>Let's get you started on your Soll<sup>&reg;</sup> journey!</h1>
-    <div *ngIf="currentStep === 1">
-      <h3>Please tell us who you are</h3>
-      <div class="form-row">
-        <div class="form-group col-md-6">
-          <input
-            type="text"
-            placeholder="First Name"
-            class="form-control"
-            [ngClass]="{
-              isError:
-                registrationForm.get('firstName')?.invalid &&
-                registrationForm.get('firstName')?.touched
-            }"
-            id="firstName"
-            formControlName="firstName"
-          />
-        </div>
-        <div class="form-group col-md-6">
-          <input
-            type="text"
-            placeholder="Last Name"
-            class="form-control"
-            [ngClass]="{
-              isError:
-                registrationForm.get('lastName')?.invalid &&
-                registrationForm.get('lastName')?.touched
-            }"
-            id="lastName"
-            formControlName="lastName"
-          />
-        </div>
+    <div *ngIf="currentStep !== 5">
+      <div class="logo-div" routerLink="/">
+        <img [src]="appLogo" alt="App Logo" appLazyLoading />
       </div>
-      <div class="form-group">
-        <input
-          type="email"
-          placeholder="Email"
-          class="form-control"
-          [ngClass]="{
-            isError:
+      <h1>Let's get you started on your Soll<sup>&reg;</sup> journey!</h1>
+      <div *ngIf="currentStep === 1">
+        <h3>Please tell us who you are</h3>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <input
+              type="text"
+              placeholder="First Name"
+              class="form-control"
+              [ngClass]="{
+                isError:
+                  registrationForm.get('firstName')?.invalid &&
+                  registrationForm.get('firstName')?.touched
+              }"
+              id="firstName"
+              formControlName="firstName"
+            />
+          </div>
+          <div class="form-group col-md-6">
+            <input
+              type="text"
+              placeholder="Last Name"
+              class="form-control"
+              [ngClass]="{
+                isError:
+                  registrationForm.get('lastName')?.invalid &&
+                  registrationForm.get('lastName')?.touched
+              }"
+              id="lastName"
+              formControlName="lastName"
+            />
+          </div>
+        </div>
+        <div class="form-group">
+          <input
+            type="email"
+            placeholder="Email"
+            class="form-control"
+            [ngClass]="{
+              isError:
+                registrationForm.get('email')?.invalid &&
+                registrationForm.get('email')?.touched
+            }"
+            id="email"
+            formControlName="email"
+          />
+          <div
+            *ngIf="
               registrationForm.get('email')?.invalid &&
-              registrationForm.get('email')?.touched
-          }"
-          id="email"
-          formControlName="email"
-        />
-        <div
-          *ngIf="
-            registrationForm.get('email')?.invalid &&
-            registrationForm.get('email')?.dirty
-          "
-          class="agreement"
-        >
-          Note: we are only allowing certain email
-          domains at this time: gmail, yahoo, outlook, icloud, and aol.
-          <a href="">Learn More</a>
+              registrationForm.get('email')?.dirty
+            "
+            class="agreement"
+          >
+            Note: we are only allowing certain email domains at this time: gmail,
+            yahoo, outlook, icloud, and aol.
+            <a href="">Learn More</a>
+          </div>
         </div>
-      </div>
-      <button
-        [disabled]="!isStep1Valid(registrationForm)"
-        class="first-btn"
-        type="button"
-        (click)="nextStep()"
-      >
-        Next
-      </button>
-    </div>
-
-    <!-- Step 2 -->
-    <div *ngIf="currentStep === 2">
-      <h3>Please tell us your date of birth and your phone number</h3>
-      <div class="form-group">
-        <input
-          type="date"
-          class="form-control"
-          [ngClass]="{
-            isError:
-              registrationForm.get('dob')?.invalid &&
-              registrationForm.get('dob')?.touched
-          }"
-          id="dob"
-          formControlName="dob"
-        />
-        <div
-          class="error-div"
-          *ngIf="
-            registrationForm.get('dob')?.invalid &&
-            registrationForm.get('dob')?.touched
-          "
-        >
-          You must be at least 18 years old.
-        </div>
-      </div>
-      <div class="form-group">
-        <input
-          type="tel"
-          class="form-control"
-          placeholder="(xxx) xxx-xxxx"
-          [ngClass]="{
-            isError:
-              registrationForm.get('phone')?.invalid &&
-              registrationForm.get('phone')?.touched
-          }"
-          id="phone"
-          formControlName="phone"
-        />
-        <div
-          class="error-div"
-          *ngIf="
-            registrationForm.get('phone')?.invalid &&
-            registrationForm.get('phone')?.touched
-          "
-        >
-          A valid U.S. phone number is required.
-        </div>
-        <span class="agreement" *ngIf="registrationForm.get('phone')?.valid"
-          ><input type="checkbox" formControlName="acceptPhoneAgr" /> By
-          providing your phone numer, you agree to us sending you important
-          information regarding your account. <a href="">Learn More</a>.
-        </span>
-      </div>
-      <div class="prev-next">
-        <button type="button" (click)="previousStep()">Previous</button>
         <button
-          [disabled]="!isStep2Valid(registrationForm)"
+          [disabled]="!isStep1Valid(registrationForm)"
+          class="first-btn"
           type="button"
           (click)="nextStep()"
         >
           Next
         </button>
       </div>
-    </div>
-
-    <!-- Step 3 -->
-    <div *ngIf="currentStep === 3">
-      <h3>Please tell us where you live</h3>
-      <div class="form-group">
-        <input
-          type="text"
-          placeholder="Street Name"
-          class="form-control"
-          [ngClass]="{
-            isError:
-              registrationForm.get('street')?.invalid &&
-              registrationForm.get('street')?.touched
-          }"
-          id="street"
-          formControlName="street"
-        />
-        <input
-          type="text"
-          placeholder="Apt/Floor ..."
-          class="form-control"
-          id="apt-floor"
-        />
-
-        <div class="form-row">
-          <div class="form-group col-md-6">
-            <input
-              type="text"
-              placeholder="City"
-              class="form-control"
-              [ngClass]="{
-                isError:
-                  registrationForm.get('city')?.invalid &&
-                  registrationForm.get('city')?.touched
-              }"
-              id="city"
-              formControlName="city"
-            />
+      <!-- Step 2 -->
+      <div *ngIf="currentStep === 2">
+        <h3>Please tell us your date of birth and your phone number</h3>
+        <div class="form-group">
+          <input
+            type="date"
+            class="form-control"
+            [ngClass]="{
+              isError:
+                registrationForm.get('dob')?.invalid &&
+                registrationForm.get('dob')?.touched
+            }"
+            id="dob"
+            formControlName="dob"
+          />
+          <div
+            class="error-div"
+            *ngIf="
+              registrationForm.get('dob')?.invalid &&
+              registrationForm.get('dob')?.touched
+            "
+          >
+            You must be at least 18 years old.
           </div>
-          <div class="form-group col-md-6">
-            <input
-              type="text"
-              placeholder="State"
-              class="form-control"
+        </div>
+        <div class="form-group">
+          <input
+            type="tel"
+            class="form-control"
+            placeholder="(xxx) xxx-xxxx"
+            [ngClass]="{
+              isError:
+                registrationForm.get('phone')?.invalid &&
+                registrationForm.get('phone')?.touched
+            }"
+            id="phone"
+            formControlName="phone"
+          />
+          <div
+            class="error-div"
+            *ngIf="
+              registrationForm.get('phone')?.invalid &&
+              registrationForm.get('phone')?.touched
+            "
+          >
+            A valid U.S. phone number is required.
+          </div>
+          <span class="agreement" *ngIf="registrationForm.get('phone')?.valid"
+            ><input type="checkbox" formControlName="acceptPhoneAgr" /> By
+            providing your phone numer, you agree to us sending you important
+            information regarding your account. <a href="">Learn More</a>.
+          </span>
+        </div>
+        <div class="prev-next">
+          <button type="button" (click)="previousStep()">Previous</button>
+          <button
+            [disabled]="!isStep2Valid(registrationForm)"
+            type="button"
+            (click)="nextStep()"
+          >
+            Next
+          </button>
+        </div>
+      </div>
+      <!-- Step 3 -->
+      <div *ngIf="currentStep === 3">
+        <h3>Please tell us where you live</h3>
+        <div class="form-group">
+          <input
+            type="text"
+            placeholder="Street Name"
+            class="form-control"
+            [ngClass]="{
+              isError:
+                registrationForm.get('street')?.invalid &&
+                registrationForm.get('street')?.touched
+            }"
+            id="street"
+            formControlName="street"
+          />
+          <input
+            type="text"
+            placeholder="Apt/Floor ..."
+            class="form-control"
+            id="apt-floor"
+          />
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <input
+                type="text"
+                placeholder="City"
+                class="form-control"
+                [ngClass]="{
+                  isError:
+                    registrationForm.get('city')?.invalid &&
+                    registrationForm.get('city')?.touched
+                }"
+                id="city"
+                formControlName="city"
+              />
+            </div>
+            <div class="form-group col-md-6">
+              <mat-select 
+              class="form-control" 
               [ngClass]="{
                 isError:
                   registrationForm.get('state')?.invalid &&
                   registrationForm.get('state')?.touched
               }"
-              id="state"
-              formControlName="state"
-            />
+              formControlName="state" 
+              placeholder="Sate"
+              >
+                <mat-option *ngFor="let state of usStates" [value]="state">
+                  {{ state }}
+                </mat-option>
+              </mat-select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <input
+                type="text"
+                placeholder="Zip Code"
+                class="form-control"
+                [ngClass]="{
+                  isError:
+                    registrationForm.get('zipcode')?.invalid &&
+                    registrationForm.get('zipcode')?.touched
+                }"
+                id="zipcode"
+                formControlName="zipcode"
+              />
+            </div>
+            <div class="form-group col-md-6"></div>
           </div>
         </div>
-
-        <div class="form-row">
-          <div class="form-group col-md-6">
+        <div class="prev-next">
+          <button type="button" (click)="previousStep()">Previous</button>
+          <button
+            [disabled]="!isStep3Valid(registrationForm)"
+            type="button"
+            (click)="nextStep()"
+          >
+            Next
+          </button>
+        </div>
+      </div>
+      <!-- Step 4 -->
+      <div *ngIf="currentStep === 4">
+        <h3>Now, we need a strong password to secure your account</h3>
+        <div class="form-group">
+          <div class="input-container">
             <input
-              type="text"
-              placeholder="Zip Code"
+              [type]="hidePassword ? 'password' : 'text'"
               class="form-control"
               [ngClass]="{
                 isError:
-                  registrationForm.get('zipcode')?.invalid &&
-                  registrationForm.get('zipcode')?.touched
+                  registrationForm.get('password')?.invalid &&
+                  registrationForm.get('password')?.touched
               }"
-              id="zipcode"
-              formControlName="zipcode"
+              id="password"
+              formControlName="password"
+              placeholder="Password"
             />
-          </div>
-          <div class="form-group col-md-6"></div>
-        </div>
-      </div>
-
-      <div class="prev-next">
-        <button type="button" (click)="previousStep()">Previous</button>
-        <button
-          [disabled]="!isStep3Valid(registrationForm)"
-          type="button"
-          (click)="nextStep()"
-        >
-          Next
-        </button>
-      </div>
-    </div>
-
-    <!-- Step 4 -->
-    <div *ngIf="currentStep === 4">
-      <h3>Now, we need a strong password to secure your account</h3>
-      <div class="form-group">
-        <input
-          type="password"
-          class="form-control"
-          id="password"
-          formControlName="password"
-          placeholder="Password"
-        />
-        <div *ngIf="registrationForm.get('password')?.touched">
-          <div
-            class="error-div"
-            *ngIf="registrationForm.get('password')?.errors?.['required']"
-          >
-            Password is required.
-          </div>
-          <div
-            class="error-div"
-            *ngIf="registrationForm.get('password')?.errors?.['pattern']"
-          >
-            <div *ngIf="!hasLowerCase(registrationForm.get('password')?.value)">
-              Password must contain at least one lowercase letter.
-            </div>
-            <div *ngIf="!hasUpperCase(registrationForm.get('password')?.value)">
-              Password must contain at least one uppercase letter.
-            </div>
-            <div *ngIf="!hasNumber(registrationForm.get('password')?.value)">
-              Password must contain at least one number.
-            </div>
-            <div
-              *ngIf="
-                !hasSpecialCharacter(registrationForm.get('password')?.value)
-              "
+            <button
+              *ngIf="registrationForm.get('password')?.dirty"
+              class="toggle-password"
+              (click)="togglePasswordVisibility()"
             >
-              Password must contain at least one special character (@, $, !, %,
-              *, ?, &).
-            </div>
-            <div *ngIf="registrationForm.get('password')?.value.length < 8">
-              Password must be at least 8 characters long.
+              <mat-icon>{{
+                hidePassword ? "visibility_off" : "visibility"
+              }}</mat-icon>
+            </button>
+          </div>
+          <div *ngIf="registrationForm.get('password')?.touched">
+            <div
+              class="error-div"
+              *ngIf="registrationForm.get('password')?.errors?.['pattern']"
+            >
+              <div *ngIf="!hasLowerCase(registrationForm.get('password')?.value)">
+                Password must contain at least one lowercase letter.
+              </div>
+              <div *ngIf="!hasUpperCase(registrationForm.get('password')?.value)">
+                Password must contain at least one uppercase letter.
+              </div>
+              <div *ngIf="!hasNumber(registrationForm.get('password')?.value)">
+                Password must contain at least one number.
+              </div>
+              <div
+                *ngIf="
+                  !hasSpecialCharacter(registrationForm.get('password')?.value)
+                "
+              >
+                Password must contain at least one special character (@, $, !, %,
+                *, ?, &).
+              </div>
+              <div *ngIf="registrationForm.get('password')?.value.length < 8">
+                Password must be at least 8 characters long.
+              </div>
             </div>
           </div>
+          <input
+            [type]="hidePassword ? 'password' : 'text'"
+            class="form-control"
+            id="confirmPassword"
+            formControlName="confirmPassword"
+            placeholder="Confirm Password"
+          />
+          <div
+            class="error-div"
+            *ngIf="registrationForm.errors?.['mismatch'] && registrationForm.get('confirmPassword')?.touched"
+          >
+            Passwords must match.
+          </div>
+          <span class="agreement"
+            ><input type="checkbox" formControlName="acceptTerms" /> By submitting
+            this form, you have agreed to our <a href="">Terms and Conditions</a>.
+          </span>
         </div>
-
-        <input
-          type="password"
-          class="form-control"
-          id="confirmPassword"
-          formControlName="confirmPassword"
-          placeholder="Confirm Password"
-        />
-        <div
-          class="error-div"
-          *ngIf="registrationForm.errors?.['mismatch'] && registrationForm.get('confirmPassword')?.touched"
-        >
-          Passwords must match.
+        <div class="prev-next">
+          <button type="button" (click)="previousStep()">Previous</button>
+          <button
+            type="button"
+            [disabled]="!isStep4Valid(registrationForm)"
+            (click)="onSubmit()"
+          >
+            Submit
+          </button>
         </div>
-        <span class="agreement"
-          ><input type="checkbox" formControlName="acceptTerms" /> By submitting
-          this form, you have agreed to our <a href="">Terms and Conditions</a>.
-        </span>
       </div>
-      <div class="prev-next">
-        <button type="button" (click)="previousStep()">Previous</button>
-        <button type="button" [disabled]="!isStep4Valid(registrationForm)" (click)="onSubmit()">
-          Submit
-        </button>
+      <div *ngIf="currentStep === 6" class="success-message">
+        {{successMessage}}
+      </div>
+      <div *ngIf="currentStep !== 6" class="other-info" routerLink="/login">
+        <h3>Have an account?</h3>
       </div>
     </div>
-    <div class="other-info" routerLink="/login">
-      <h3>Have an account?</h3>
+    <div *ngIf="currentStep === 5" class="spinner-container">
+      <mat-progress-spinner mode="indeterminate" color="accent"></mat-progress-spinner>
     </div>
   </form>
 </div>

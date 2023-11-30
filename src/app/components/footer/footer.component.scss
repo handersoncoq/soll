@@ -27,7 +27,7 @@ $accent-color: #35425B;
           }
         }
         a:not(:last-child){
-          margin-right: 2.6em;
+          margin-right: 1.3em;
         }
       }
     }
@@ -35,10 +35,11 @@ $accent-color: #35425B;
     @media (max-width: 600px) {
       .footer-content {
         flex-direction: column;
-        text-align: center;
+        align-items: flex-start;
   
         .footer-links {
           margin-bottom: 10px;
+          padding-left: 1em;
         }
       }
       .footer-info {

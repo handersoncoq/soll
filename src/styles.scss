@@ -87,8 +87,6 @@ img{
   }
 }
 
-// global html styles
-
 html,
 body {
   height: 100%;
@@ -101,6 +99,53 @@ body {
 
 input{
   caret-color: $sol-darker !important;
+}
+
+.input-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  .form-control {
+    flex: 1;
+    padding-right: 2rem;
+  }
+
+  .toggle-password {
+    position: absolute;
+    right: 0;
+    border: none;
+    background: none;
+    cursor: pointer;
+    padding: 0 12px;
+
+    mat-icon {
+      color: $primary-color;
+    }
+  }
+}
+
+.primary-btn {
+  background-color: $accent-color;
+  color: $alt-font-color;
+  padding: 10px 20px;
+  padding: 0.7em 0;
+  width: 100%;
+  border-radius: 2.5em;
+  border: none;
+  font-size: larger;
+  cursor: pointer;
+  margin-top: 1em;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: darken($accent-color, 10%);
+  }
+
+  &[disabled] {
+    background-color: lighten($accent-color, 10%);
+    cursor: default;
+  }
 }
 
 // *********************************************************************************

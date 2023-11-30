@@ -1,1 +1,15 @@
-<p>verification works!</p>
+<div class="verification-form" [formGroup]="verificationForm">
+    <form (ngSubmit)="onSubmit()">
+      <div id="mobileVerification" class="code-inputs">
+        <input type="tel" formControlName="digit1" maxlength="1" (keyup)="onKeyUp($event, 0)" #digitInput>
+        <input type="tel" formControlName="digit2" maxlength="1" (keyup)="onKeyUp($event, 1)" #digitInput>
+        <input type="tel" formControlName="digit3" maxlength="1" (keyup)="onKeyUp($event, 2)" #digitInput>
+        <input type="tel" formControlName="digit4" maxlength="1" (keyup)="onKeyUp($event, 3)" #digitInput>
+        <input type="tel" formControlName="digit5" maxlength="1" (keyup)="onKeyUp($event, 4)" #digitInput>
+        <input type="tel" formControlName="digit6" maxlength="1" (keyup)="onKeyUp($event, 5)" #digitInput>
+      </div>
+      <button type="submit" [disabled]="!verificationForm.valid" (click)="onSubmit()">Verify</button>
+    </form>
+    <span>Don't receive the code? <p (click)="resendCode()">Resend</p></span>
+  </div>
+  

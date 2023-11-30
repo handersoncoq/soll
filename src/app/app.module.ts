@@ -13,6 +13,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import {MatSelectModule} from '@angular/material/select';
 
 import { AppComponent } from './app.component';
 import { FrontPageComponent } from './components/front-page/front-page.component';
@@ -24,6 +26,7 @@ import { LoginComponent } from './components/login/login.component';
 import { SnackBarComponent } from './templates/snack-bar/snack-bar.component';
 import { ScreenLayoutService } from './utils/screen-layout/screen-layout.service';
 import { VerificationComponent } from './templates/verification/verification.component';
+import { LoadingComponent } from './templates/loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +37,7 @@ import { VerificationComponent } from './templates/verification/verification.com
     LoginComponent,
     SnackBarComponent,
     VerificationComponent,
+    LoadingComponent,
   ],
   imports: [
     ReactiveFormsModule,
@@ -51,7 +55,9 @@ import { VerificationComponent } from './templates/verification/verification.com
     MatExpansionModule,
     MatInputModule,
     MatFormFieldModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatProgressSpinnerModule,
+    MatSelectModule
   ],
   providers: [ContentManagerService, ScreenLayoutService],
   bootstrap: [AppComponent]

@@ -101,8 +101,7 @@ input:focus {
 }
 
 
-// Button Styling
-button {
+button:not(.toggle-password) {
   background-color: $accent-color;
   color: $alt-font-color;
   padding: 10px 20px;
@@ -171,6 +170,50 @@ input[type="checkbox"]{
     button:not(:first-child){
         width: 7em;
     }
+}
+
+.form-group{
+    mat-select.form-control {
+        width: 100%;
+        padding: 0.9em 0;
+        margin: 5px 0;
+        border: 1px solid $dark-dusty-blue;
+        border-radius: 0.6em;
+        color: $accent-color;
+        font-size: small;
+        text-indent: 0.5em;
+        font-family: Roboto, "Helvetica Neue", sans-serif;
+        background-color: white;
+    
+        &:focus {
+            border: none;
+            outline: none;
+            outline: 2px solid $accent-color;
+        }
+      }
+}
+
+::ng-deep .mat-mdc-select-arrow svg {
+    padding-right: 2em !important;
+}
+
+::ng-deep .mat-mdc-option.mdc-list-item {
+    font-size: small !important;
+}
+
+.spinner-container{
+    margin: 12em 0;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.success-message{
+    margin: 0;
+    padding: 0;
+    margin-bottom: 3em;
+    margin-top: 5em;
+    font-size: large;
 }
 
 // *************************************************
