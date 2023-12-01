@@ -32,7 +32,7 @@ export class FrontPageComponent implements OnInit, OnDestroy{
   $accentColor = '#35425B';
 
   constructor(private contentManagerService: ContentManagerService){
-    this.frontPageLogo = this.contentManagerService.getAppLogo3();
+    this.frontPageLogo = this.contentManagerService.getAppLogo6();
     this.trustPilot = this.contentManagerService.getTrustpilotAndStars()[0];
     this.fiveStars = this.contentManagerService.getTrustpilotAndStars()[1];
     this.partners = this.contentManagerService.getPartners();

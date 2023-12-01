@@ -53,10 +53,10 @@
           <p>{{ learnMore.body[0] }}</p>
         </div>
         <div class="learn-more-content">
-          <p><img [src]="frontPageLogo" alt="App Logo" appLazyLoading /></p>
+          <p class="img-p"><img [src]="frontPageLogo" alt="App Logo" appLazyLoading /></p>
         </div>
         <div class="learn-more-content tag-words">
-          <p>{{ learnMore.body[1] }}</p>
+          <p class="tag-p">{{ learnMore.body[1] }}</p>
         </div>
       </div>
     </div>
@@ -95,7 +95,9 @@
           {{ faqs.question }}
         </mat-panel-title>
       </mat-expansion-panel-header>
-      <p>{{ faqs.body }}</p>
+      <ng-template matExpansionPanelContent>
+        <p>{{ faqs.body }}</p>
+      </ng-template>
     </mat-expansion-panel>
   </mat-accordion>
 </div>

@@ -10,10 +10,13 @@ $radiant1: rgb(255 255 255 / 0%);
 $dark-dusty-blue: rgb(37 84 109);
 $transparent-bgr: rgb(82, 104, 143, 0.1);
 $progress-bar-color: rgb(33 63 79);
+$beige-ish: rgb(244, 244, 242);
+$section-boxshadow: rgba(50, 50, 93, 0.25) 0px 13px 27px 23px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+$cta-btn-boxshadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
 
 .hero-section {
   position: relative;
-  height: 100vh; /* Adjust the height as needed */
+  height: 100vh;
   overflow: hidden;
 }
 
@@ -25,10 +28,10 @@ $progress-bar-color: rgb(33 63 79);
   color: #35425B;
   text-align: center;
   padding: 16px 0;
-  margin: 0.6em;
+  // margin: 0.6em;
   margin-bottom: 0;
-  border-radius: 1em;
-  border: solid $alt-font-color 1px;
+  // border-radius: 1em;
+  // border: solid $alt-font-color 1px;
 
   .inner-div{
     margin: 0;
@@ -39,7 +42,7 @@ $progress-bar-color: rgb(33 63 79);
       background: linear-gradient(to top, $radiant1, $dark-dusty-blue);
       padding-top: 1em;
       margin-top: -1em;
-      border-radius: 1em;
+      // border-radius: 1em;
       padding-bottom: 1em;
     }
 
@@ -116,7 +119,7 @@ $progress-bar-color: rgb(33 63 79);
       font-weight: bold;
       padding: 0 1em;
       height: 1.7em;
-      box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+      box-shadow: $cta-btn-boxshadow
   }
 
   .slide-buttons {
@@ -145,14 +148,21 @@ $progress-bar-color: rgb(33 63 79);
 }
 
 .learn-more {
-    justify-content: center;
-    text-align: center;
-    width: 100%;
+        text-align: center;
+        width: 100%;
+        border-radius: 1em;
+        margin: 1em;
+        margin-top: 3em;
+        padding: 1em;
+        padding-top: 0;
+        padding-bottom: 2em;
+        background-color: $beige-ish;
+        margin-bottom: 0;
+        box-shadow: $section-boxshadow;
     h1{
         font-size: xx-large;
-        color: $accent-color;
+        color: $primary-color;
         font-weight: bolder;
-        font-family: 'League Spartan', sans-serif;
     }
     
     button{
@@ -162,7 +172,7 @@ $progress-bar-color: rgb(33 63 79);
         font-size: large;
         padding: 1.2em 1.8em;
         box-shadow: $box-shadow;
-        width: 90%;
+        width: 100%;
     }
 }
 
@@ -174,15 +184,13 @@ $progress-bar-color: rgb(33 63 79);
     text-align: center;
     p{
         margin-top: -1em;
-        width: 90%;
-        padding: 0;
         color: $primary-color;
-        font-size: large;
+        font-size: medium;
     }
     img{
-      margin-bottom: -1em;
-      height: 7.5em;
-      width: 7.5em;
+      margin-top: 1em;
+      height: 5em;
+      width: 5em;
     }
 }
 
@@ -191,6 +199,7 @@ $progress-bar-color: rgb(33 63 79);
   p {
     color: lighten($accent-color, 10%);
     font-weight: bold;
+    font-size: large;
   }
 }
 
@@ -200,6 +209,7 @@ $progress-bar-color: rgb(33 63 79);
   margin-left: 1em;
   margin-right: 1em;
   border-radius: 1em;
+  box-shadow: $section-boxshadow;
 
   .trustpilot-rating, .partners{
     text-align: center;
@@ -255,7 +265,36 @@ $progress-bar-color: rgb(33 63 79);
     font-size: small;
   }
 
+  .panel-icon {
+    float: right;
+  }
 
+
+}
+
+::ng-deep mat-expansion-panel-header .mat-expansion-indicator::after {
+  content: "+" !important;
+  border-radius: 50%;
+  background-color: $primary-color;
+  color: white;
+  width: 18px;
+  height: 18px;
+  justify-content: center;
+  display: flex;
+  vertical-align: middle;
+  border: 0;
+  transform: none;
+}
+::ng-deep .mat-expansion-panel-header.mat-expanded .mat-expansion-indicator::after {
+  content: "-" !important;
+  border-radius: 50%;
+  background-color: $primary-color;
+  color: white;
+  width: 18px;
+  height: 18px;
+  justify-content: center;
+  display: flex;
+  vertical-align: middle;
 }
 
 
@@ -304,6 +343,11 @@ $progress-bar-color: rgb(33 63 79);
     .hero-wrapper{
       padding-bottom: 3em;
     }
+  }
+  .learn-more{
+    margin-top: 1em;
+    padding: 3em;
+    padding-top: 2em;
   }
   .call-to-action{
     margin-top: 3em;
