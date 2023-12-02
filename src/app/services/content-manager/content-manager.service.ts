@@ -20,6 +20,13 @@ export class ContentManagerService {
   appLogo6 = './assets/logo/6.png';
   five_stars = './assets/img/five-stars.svg';
 
+  // videos
+  savingAtYourFingerTip = './assets/videos/saving-at-your-finger-tip.mp4';
+  raiseAndSaveWithFriendsAndLovedOnes = './assets/videos/raise-and-save-with-friends-and-loved-ones1.mp4';
+  bringYourIdeaToLife = './assets/videos/bring-your-dream-project-to-life.mp4';
+  getExcitedWhenItsYourTurn = './assets/videos/get-excited-when-its-your-turn.mp4';
+  startSavingForTheirFuture = './assets/videos/start-saving-for-their-future.mp4';
+
   // partners
   trustpilot = './assets/partners/trustpilot.svg';
   visa = './assets/partners/visa.svg';
@@ -71,6 +78,16 @@ export class ContentManagerService {
             this.bank_of_america, 
             this.paypal,
           ]
+  }
+
+  getContentVideos(): string[]{
+    return [
+      this.savingAtYourFingerTip,
+      this.raiseAndSaveWithFriendsAndLovedOnes,
+      this.bringYourIdeaToLife,
+      this.getExcitedWhenItsYourTurn,
+      this.startSavingForTheirFuture
+    ]
   }
 
   // ***************************************************************************

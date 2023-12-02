@@ -27,6 +27,7 @@ import { SnackBarComponent } from './templates/snack-bar/snack-bar.component';
 import { ScreenLayoutService } from './utils/screen-layout/screen-layout.service';
 import { VerificationComponent } from './templates/verification/verification.component';
 import { LoadingComponent } from './templates/loading/loading.component';
+import { VideoPlayerComponent } from './templates/video-player/video-player.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { LoadingComponent } from './templates/loading/loading.component';
     SnackBarComponent,
     VerificationComponent,
     LoadingComponent,
+    VideoPlayerComponent,
   ],
   imports: [
     ReactiveFormsModule,

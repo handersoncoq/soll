@@ -13,18 +13,19 @@ export class FrontPageComponent implements OnInit, OnDestroy{
 
   slogan!: TitleBodyType;
   learnMore!: TitleBodyArrayType;
-  frontPageLogo!: string;
-  trustPilot!: string;
-  fiveStars!: string;
-  partners!: string[];
+  frontPageLogo: string;
+  trustPilot: string;
+  fiveStars: string;
+  partners: string[];
   faqs!: any[];
+  contentVideos: string[];
 
   intervalId: any;
   currentImageIndex: number = 0;
   images: string[] = [
+    '/assets/img/hero-image2.webp',
     '/assets/img/hero-image0.webp',
     '/assets/img/hero-image1.webp',
-    '/assets/img/hero-image2.webp',
     '/assets/img/hero-image3.webp',
     '/assets/img/hero-image4.webp',
   ];
@@ -36,6 +37,7 @@ export class FrontPageComponent implements OnInit, OnDestroy{
     this.trustPilot = this.contentManagerService.getTrustpilotAndStars()[0];
     this.fiveStars = this.contentManagerService.getTrustpilotAndStars()[1];
     this.partners = this.contentManagerService.getPartners();
+    this.contentVideos = this.contentManagerService.getContentVideos();
     this.startSlideshow();
 
   }

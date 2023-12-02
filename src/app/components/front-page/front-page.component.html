@@ -28,7 +28,7 @@
       </div>
       <div class="spacing"></div>
       <div class="spacing"></div>
-      <div routerLink="/get-started"><button class="cta-btn" mat-raised-button>Get Started</button></div>
+      <div routerLink="/info/concept-overview"><button class="cta-btn" mat-raised-button>Explore More</button></div>
       <div class="slide-buttons">
         <div class="image-indicators">
           <button
@@ -44,28 +44,42 @@
   </div>
 </div>
 
+<div class="content-video video-even">
+  <div routerLink="/get-started">
+    <video loop playsinline [src]="contentVideos[1]" autoplay muted></video>
+  </div>
+</div>
+
 <div class="call-to-action">
-  <div class="learn-more">
+  <div class="learn-more" *ngIf="learnMore">
     <div class="learn-more-header">
       <h1>What Is Soll?</h1>
-      <div *ngIf="learnMore">
+      <div>
         <div class="learn-more-content">
           <p>{{ learnMore.body[0] }}</p>
         </div>
-        <div class="learn-more-content">
-          <p class="img-p"><img [src]="frontPageLogo" alt="App Logo" appLazyLoading /></p>
-        </div>
-        <div class="learn-more-content tag-words">
-          <p class="tag-p">{{ learnMore.body[1] }}</p>
-        </div>
       </div>
     </div>
-    <div routerLink="/info/concept-overview">
-      <button mat-raised-button>
-        <span>Learn More</span>
-        <mat-icon>open_in_new</mat-icon>
-      </button>
+    <div class="branding">
+      <div class="learn-more-content">
+        <p class="img-p"><img [src]="frontPageLogo" alt="App Logo" appLazyLoading /></p>
+      </div>
+      <div class="learn-more-content tag-words">
+        <p class="tag-p">{{ learnMore.body[1] }}</p>
+      </div>
+      <div routerLink="/info/concept-overview">
+        <button mat-raised-button>
+          <span>Learn More</span>
+          <mat-icon>open_in_new</mat-icon>
+        </button>
+      </div>
     </div>
+  </div>
+</div>
+
+<div class="content-video video-odd">
+  <div routerLink="/">
+    <video loop playsinline [src]="contentVideos[0]" autoplay muted></video>
   </div>
 </div>
 
@@ -80,9 +94,23 @@
   </div>
 
   <div class="partners">
+    <div>
+      <h1>Our partners<sup>1</sup> are best in their fields</h1>
+    </div>
     <span *ngFor="let partner of partners">
       <img [src]="partner" alt="Partner" appLazyLoading />
     </span>
+  </div>
+</div>
+
+<div class="content-video video-odd">
+  <div routerLink="/info/concept-overview">
+    <video loop playsinline [src]="contentVideos[3]" autoplay muted></video>
+  </div>
+</div>
+<div class="content-video video-even">
+  <div routerLink="/get-started">
+    <video loop playsinline [src]="contentVideos[4]" autoplay muted></video>
   </div>
 </div>
 
@@ -100,4 +128,10 @@
       </ng-template>
     </mat-expansion-panel>
   </mat-accordion>
+</div>
+
+<div class="content-video video-even">
+  <div routerLink="/info/concept-overview">
+    <video loop playsinline [src]="contentVideos[2]" autoplay muted></video>
+  </div>
 </div>
