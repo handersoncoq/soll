@@ -1,0 +1,74 @@
+<div class="termsAndConditions" *ngIf="termsAndConditions">
+  <h2 mat-dialog-title>{{ termsAndConditions.termsAndConditionsTitle }}</h2>
+  <mat-dialog-content class="mat-typography">
+
+    <section id="introduction" *ngIf="termsAndConditions.introduction">
+      <h3>Introduction</h3>
+      <p>{{ termsAndConditions.introduction.content }}</p>
+    </section>
+
+    <section id="userRegistrationAndAccounts" *ngIf="termsAndConditions.userRegistrationAndAccounts">
+      <h3>User Registration and Accounts</h3>
+      <p>{{ termsAndConditions.userRegistrationAndAccounts.content }}</p>
+    </section>
+
+    <section id="contributionsAndPayouts" *ngIf="termsAndConditions.contributionsAndPayouts">
+      <h3>Contributions and Payouts</h3>
+      <p>{{ termsAndConditions.contributionsAndPayouts.content }}</p>
+    </section>
+
+    <section id="groupParticipationAndManagement" *ngIf="termsAndConditions.groupParticipationAndManagement">
+      <h3>Group Participation and Management</h3>
+      <p>{{ termsAndConditions.groupParticipationAndManagement.content }}</p>
+    </section>
+
+    <section id="defaultManagementAndPenalties" *ngIf="termsAndConditions.defaultManagementAndPenalties">
+      <h3>Default Management and Penalties</h3>
+      <p>{{ termsAndConditions.defaultManagementAndPenalties.content }}</p>
+    </section>
+
+    <section id="reputationAndExitSystem" *ngIf="termsAndConditions.reputationAndExitSystem">
+      <h3>Reputation and Exit System</h3>
+      <p>{{ termsAndConditions.reputationAndExitSystem.content }}</p>
+    </section>
+
+    <section id="digitalPlatformUse" *ngIf="termsAndConditions.digitalPlatformUse">
+      <h3>Digital Platform Use</h3>
+      <p>{{ termsAndConditions.digitalPlatformUse.content }}</p>
+    </section>
+
+    <section id="legalAndRegulatoryCompliance" *ngIf="termsAndConditions.legalAndRegulatoryCompliance">
+      <h3>Legal and Regulatory Compliance</h3>
+      <p>{{ termsAndConditions.legalAndRegulatoryCompliance.content }}</p>
+    </section>
+
+    <section id="modificationOfTerms" *ngIf="termsAndConditions.modificationOfTerms">
+      <h3>Modification of Terms</h3>
+      <p>{{ termsAndConditions.modificationOfTerms.content }}</p>
+    </section>
+
+    <section id="disputeResolution" *ngIf="termsAndConditions.disputeResolution">
+      <h3>Dispute Resolution</h3>
+      <p>{{ termsAndConditions.disputeResolution.content }}</p>
+    </section>
+
+    <section id="terminationAndSuspension" *ngIf="termsAndConditions.terminationAndSuspension">
+      <h3>Termination and Suspension</h3>
+      <p>{{ termsAndConditions.terminationAndSuspension.content }}</p>
+    </section>
+
+    <section id="disclaimerOfWarrantiesAndLimitationOfLiability" *ngIf="termsAndConditions.disclaimerOfWarrantiesAndLimitationOfLiability">
+      <h3>Disclaimer of Warranties and Limitation of Liability</h3>
+      <p>{{ termsAndConditions.disclaimerOfWarrantiesAndLimitationOfLiability.content }}</p>
+    </section>
+
+    <!-- <section id="generalProvisions" *ngIf="termsAndConditions.generalProvisions">
+      <h3>General Provisions</h3>
+      <p>{{ termsAndConditions.generalProvisions.content }}</p>
+    </section> -->
+
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Close</button>
+  </mat-dialog-actions>
+</div>

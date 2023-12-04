@@ -8,12 +8,57 @@
     <div class="hero-wrapper">
       <div class="pre-wrapper">
         <div class="main-links">
-          <div class="spacing"></div>
-          <span>EPS</span>
-          <span class="point-separator">•</span>
-          <span>Soll Leaders</span>
-          <span class="point-separator">•</span>
-          <span>ECPS</span>
+          <div class="pre-key-words">
+            <div class="spacing"></div>
+            <span class="key-words" *ngIf="keyWordsValid()">
+              <button
+                #tooltip="matTooltip"
+                [matTooltip]="keyWords.eps"
+                matTooltipPosition="below"  (click)="trackTooltip('icon1'); tooltip.toggle()"
+              >
+                EPS
+              </button>
+              <button
+                mat-button
+                class="tooltip-btn"
+                (click)="trackTooltip('icon1'); tooltip.toggle()"
+              >
+                <mat-icon [class.rotate-icon]="activatedIconId === 'icon1'">keyboard_arrow_down</mat-icon>
+              </button>
+            </span>
+            <span class="key-words" *ngIf="keyWordsValid()">
+              <button
+                #tooltip="matTooltip"
+                [matTooltip]="keyWords.leaders"
+                matTooltipPosition="below"  (click)="trackTooltip('icon2'); tooltip.toggle()"
+              >
+              Soll Leaders
+              </button>
+              <button
+                mat-button
+                class="tooltip-btn"
+                (click)="trackTooltip('icon2'); tooltip.toggle()"
+              >
+                <mat-icon [class.rotate-icon]="activatedIconId === 'icon2'">keyboard_arrow_down</mat-icon>
+              </button>
+            </span>
+            <span class="key-words" *ngIf="keyWordsValid()">
+              <button
+                #tooltip="matTooltip"
+                [matTooltip]="keyWords.ecps"
+                matTooltipPosition="below"  (click)="trackTooltip('icon3'); tooltip.toggle()"
+              >
+              ECPS
+              </button>
+              <button
+                mat-button
+                class="tooltip-btn"
+                (click)="trackTooltip('icon3'); tooltip.toggle()"
+              >
+                <mat-icon [class.rotate-icon]="activatedIconId === 'icon3'">keyboard_arrow_down</mat-icon>
+              </button>
+            </span>
+          </div>
         </div>
       </div>
       <div class="tag-line">
@@ -27,8 +72,11 @@
         </div>
       </div>
       <div class="spacing"></div>
+      <div routerLink="/info/concept-overview">
+        <button class="cta-btn" mat-raised-button>Explore More</button>
+      </div>
       <div class="spacing"></div>
-      <div routerLink="/info/concept-overview"><button class="cta-btn" mat-raised-button>Explore More</button></div>
+      <div class="spacing"></div>
       <div class="slide-buttons">
         <div class="image-indicators">
           <button
@@ -62,7 +110,9 @@
     </div>
     <div class="branding">
       <div class="learn-more-content">
-        <p class="img-p"><img [src]="frontPageLogo" alt="App Logo" appLazyLoading /></p>
+        <p class="img-p">
+          <img [src]="frontPageLogo" alt="App Logo" appLazyLoading />
+        </p>
       </div>
       <div class="learn-more-content tag-words">
         <p class="tag-p">{{ learnMore.body[1] }}</p>

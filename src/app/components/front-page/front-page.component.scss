@@ -40,9 +40,7 @@ $cta-btn-boxshadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0
       color: white;
       text-shadow: $text-shadow;
       background: linear-gradient(to top, $radiant1, $dark-dusty-blue);
-      padding-top: 1em;
       margin-top: -1em;
-      // border-radius: 1em;
       padding-bottom: 1em;
     }
 
@@ -57,17 +55,39 @@ $cta-btn-boxshadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0
       max-width: 90%;
       font-size: medium;
       font-weight: bold;
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      .key-words{
+        button{
+          outline: none;
+          border: none;
+          background-color: transparent;
+          width: fit-content;
+          font-size: medium;
+          color: white;
+          font-weight: bold;
+          text-shadow: $text-shadow;
+        }
+        .tooltip-btn{
+          margin-left: -1.55em;
+          margin-right: -1.55em;
+          color: bisque;
+          padding: 0;
+          width: fit-content;
+        }
+        .rotate-icon{
+          transform: rotate(180deg) !important;
+          transition: transform 0.3s ease-in-out;
+        }
+      }
+      .pre-key-words span:not(:last-child){
+        padding-right: 2.2em;
+      }
     }
 
     .main-links span:not(.point-separator){
       cursor: pointer;
-    }
-  
-    .main-links span:not(:last-child){
-      padding-right: 1em;
-    }
-    .point-separator{
-      font-size: larger !important;
     }
   
     h1, h2{
@@ -119,11 +139,11 @@ $cta-btn-boxshadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0
       font-weight: bold;
       padding: 0 1em;
       height: 1.7em;
-      box-shadow: $cta-btn-boxshadow
+      box-shadow: $cta-btn-boxshadow;
   }
 
   .slide-buttons {
-    margin-top: 2em;
+    margin-top: 3em;
     button{
       cursor: pointer;
       border: none;
@@ -312,6 +332,17 @@ $cta-btn-boxshadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0
   justify-content: center;
   display: flex;
   vertical-align: middle;
+}
+
+::ng-deep .mat-mdc-tooltip .mdc-tooltip__surface {
+  font-size: x-small !important;
+  background-color: white !important;
+  color: #636B74 !important;
+  border-radius: 1em !important;
+}
+
+::ng-deep .mat-mdc-tooltip{
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 60px 40px -7px !important;
 }
 
 .content-video {

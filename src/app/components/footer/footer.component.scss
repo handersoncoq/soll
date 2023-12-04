@@ -1,5 +1,6 @@
 
 $dark-dusty-blue: rgb(37 84 109);
+$primary-color: #52688F;
 $alt-font-color: #E3E7F1;
 $accent-color: #35425B;
 
@@ -17,20 +18,23 @@ $accent-color: #35425B;
       margin: 0 auto;
       
       .footer-links {
-        a {
+        span {
           color: $dark-dusty-blue;
-          text-decoration: none;
-          border-bottom: solid $alt-font-color 1px;
+          text-decoration: underline;
+          width: fit-content;
+          cursor: pointer;
           
           &:hover {
-            text-decoration: underline;
+            color: $primary-color;
           }
         }
-        a:not(:last-child){
+        span:not(:last-child){
           margin-right: 1.3em;
         }
       }
     }
+
+    // ***************************************************
     
     @media (max-width: 600px) {
       .footer-content {
@@ -43,7 +47,7 @@ $accent-color: #35425B;
         }
       }
       .footer-info {
-        p {
+        p, span {
           margin: 1em;
         }
       }

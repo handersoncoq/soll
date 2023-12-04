@@ -18,7 +18,7 @@ export class GetStartedComponent implements OnInit{
   checkPhoneAgr = false;
   currentStep = 1;
   hidePassword = true;
-  successMessage = 'Congratulations! You have successfully submitted your request to become a Soll participant. We will follow up with you to complete your application.'
+  successMessage = 'Congratulations! You have successfully submitted your request to become a Soll participant. You will receive an email from us within the next 15 minutes to complete your onboarding process.';
   usStates = usStatesAbbreviations;
 
   constructor(private formBuilder: FormBuilder, private contentManagerService: ContentManagerService) {

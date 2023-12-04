@@ -18,7 +18,9 @@ export class FrontPageComponent implements OnInit, OnDestroy{
   fiveStars: string;
   partners: string[];
   faqs!: any[];
+  keyWords!: any;
   contentVideos: string[];
+  activatedIconId: string | null = null;
 
   intervalId: any;
   currentImageIndex: number = 0;
@@ -46,11 +48,13 @@ export class FrontPageComponent implements OnInit, OnDestroy{
     forkJoin({
         slogan: this.contentManagerService.getSlogan(),
         learnMore: this.contentManagerService.getLearnMore(),
-        faqs: this.contentManagerService.getFaqs()
+        faqs: this.contentManagerService.getFaqs(),
+        keyWords: this.contentManagerService.getKeyWords(),
     }).subscribe(results => {
         this.slogan = results.slogan;
         this.learnMore = results.learnMore;
         this.faqs = results.faqs;
+        this.keyWords = results.keyWords;
     });
 }
 
@@ -78,6 +82,15 @@ export class FrontPageComponent implements OnInit, OnDestroy{
 
   inactiveColor(index: number): string {
     return 'white';
+  }
+
+  keyWordsValid(): boolean{
+    return this.keyWords && this.keyWords.eps && 
+    this.keyWords.ecps && this.keyWords.leaders;
+  }
+
+  trackTooltip(iconId: string) {
+    this.activatedIconId = this.activatedIconId === iconId ? null : iconId;
   }
 
 }

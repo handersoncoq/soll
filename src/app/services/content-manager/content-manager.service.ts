@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { InfoDetails } from 'src/app/interaces/Info';
 
 @Injectable({
   providedIn: 'root'
@@ -8,12 +9,15 @@ import { Observable } from 'rxjs';
 export class ContentManagerService {
 
   // app content
-  aboutUs_resourceLink = './assets/app-content/AboutUs.json';
-  slogan_resourceLink = './assets/app-content/CompanySlogan.json';
-  learnMore_resourceLink = './assets/app-content/LearnMore.json';
+  aboutUs = './assets/app-content/AboutUs.json';
+  slogan = './assets/app-content/CompanySlogan.json';
+  learnMore = './assets/app-content/LearnMore.json';
   faqs = './assets/app-content/Faqs.json';
-  conceptOverview = './assets/app-content/ConceptOverview.json'
-
+  conceptOverview = './assets/app-content/ConceptOverview.json';
+  infoDetails = './assets/app-content/Info.json';
+  privacyPolicy = './assets/app-content/PrivacyPolicy.json';
+  termsAndConditions = './assets/app-content/TermsAndConditions.json';
+  keyWords = './assets/app-content/KeyWords.json';
 
   // logo and images
   appLogo3 = './assets/logo/3.png';
@@ -22,7 +26,7 @@ export class ContentManagerService {
 
   // videos
   savingAtYourFingerTip = './assets/videos/saving-at-your-finger-tip.mp4';
-  raiseAndSaveWithFriendsAndLovedOnes = './assets/videos/raise-and-save-with-friends-and-loved-ones1.mp4';
+  raiseAndSaveWithFriendsAndLovedOnes = './assets/videos/raise-and-save-with-friends-and-loved-ones.mp4';
   bringYourIdeaToLife = './assets/videos/bring-your-dream-project-to-life.mp4';
   getExcitedWhenItsYourTurn = './assets/videos/get-excited-when-its-your-turn.mp4';
   startSavingForTheirFuture = './assets/videos/start-saving-for-their-future.mp4';
@@ -39,15 +43,15 @@ export class ContentManagerService {
   constructor(private http: HttpClient) {}
 
   getAboutUs(): Observable<any> {
-    return this.http.get(this.aboutUs_resourceLink);
+    return this.http.get(this.aboutUs);
   }
 
   getSlogan(): Observable<any> {
-    return this.http.get(this.slogan_resourceLink);
+    return this.http.get(this.slogan);
   }
 
   getLearnMore(): Observable<any> {
-    return this.http.get(this.learnMore_resourceLink);
+    return this.http.get(this.learnMore);
   }
 
   getFaqs(): Observable<any> {
@@ -56,6 +60,23 @@ export class ContentManagerService {
 
   getConceptOverview(): Observable<any> {
     return this.http.get(this.conceptOverview);
+  }
+
+  getPrivacyPolicy(): Observable<any> {
+    return this.http.get(this.privacyPolicy);
+  }
+
+  getTermsAndConditions(): Observable<any> {
+    return this.http.get(this.termsAndConditions);
+  }
+
+  getKeyWords(): Observable<any> {
+    return this.http.get(this.keyWords);
+  }
+
+
+  getInfo(): Observable<InfoDetails> {
+    return this.http.get<InfoDetails>(this.infoDetails);
   }
 
   getAppLogo3(): string{

@@ -15,6 +15,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import {MatSelectModule} from '@angular/material/select';
+import { MatDialogModule } from '@angular/material/dialog';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 import { AppComponent } from './app.component';
 import { FrontPageComponent } from './components/front-page/front-page.component';
@@ -28,6 +30,9 @@ import { ScreenLayoutService } from './utils/screen-layout/screen-layout.service
 import { VerificationComponent } from './templates/verification/verification.component';
 import { LoadingComponent } from './templates/loading/loading.component';
 import { VideoPlayerComponent } from './templates/video-player/video-player.component';
+import { DialogueComponent } from './templates/dialogue/dialogue.component';
+import { PrivacyPolicyComponent } from './templates/privacy-policy/privacy-policy.component';
+import { TermsAndConditionsComponent } from './templates/terms-and-conditions/terms-and-conditions.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +45,9 @@ import { VideoPlayerComponent } from './templates/video-player/video-player.comp
     VerificationComponent,
     LoadingComponent,
     VideoPlayerComponent,
+    DialogueComponent,
+    PrivacyPolicyComponent,
+    TermsAndConditionsComponent,
   ],
   imports: [
     ReactiveFormsModule,
@@ -59,7 +67,9 @@ import { VideoPlayerComponent } from './templates/video-player/video-player.comp
     MatFormFieldModule,
     MatSnackBarModule,
     MatProgressSpinnerModule,
-    MatSelectModule
+    MatSelectModule,
+    MatDialogModule,
+    MatTooltipModule
   ],
   providers: [ContentManagerService, ScreenLayoutService],
   bootstrap: [AppComponent]

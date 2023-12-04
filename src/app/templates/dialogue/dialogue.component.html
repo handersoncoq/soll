@@ -1,0 +1,16 @@
+<h1 class="title">{{data.title}}</h1>
+<div mat-dialog-content>
+    <div class="content" *ngIf="data.copiable, else normal">
+        <h1>{{data.content}}</h1>
+        <div (click)="copyContent()"><mat-icon>content_copy</mat-icon></div>
+    </div>
+    <ng-template #normal>
+        <div>{{data.content}}</div>
+    </ng-template>
+    <div *ngIf="data.action">
+        <button mat-button [mat-dialog-close]="data.action" cdkFocusInitial>{{data.action}}</button>
+    </div>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Close</button>
+</div>
