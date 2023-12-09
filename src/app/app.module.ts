@@ -29,10 +29,10 @@ import { SnackBarComponent } from './templates/snack-bar/snack-bar.component';
 import { ScreenLayoutService } from './utils/screen-layout/screen-layout.service';
 import { VerificationComponent } from './templates/verification/verification.component';
 import { LoadingComponent } from './templates/loading/loading.component';
-import { VideoPlayerComponent } from './templates/video-player/video-player.component';
 import { DialogueComponent } from './templates/dialogue/dialogue.component';
 import { PrivacyPolicyComponent } from './templates/privacy-policy/privacy-policy.component';
 import { TermsAndConditionsComponent } from './templates/terms-and-conditions/terms-and-conditions.component';
+import { LazyVideoDirective } from './utils/directives/lazy-video.directive';
 
 @NgModule({
   declarations: [
@@ -44,10 +44,10 @@ import { TermsAndConditionsComponent } from './templates/terms-and-conditions/te
     SnackBarComponent,
     VerificationComponent,
     LoadingComponent,
-    VideoPlayerComponent,
     DialogueComponent,
     PrivacyPolicyComponent,
     TermsAndConditionsComponent,
+    LazyVideoDirective,
   ],
   imports: [
     ReactiveFormsModule,

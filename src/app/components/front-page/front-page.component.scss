@@ -123,12 +123,13 @@ $cta-btn-boxshadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0
       p {
           margin: 0;
           padding: 0.2em 0;
-          font-size: medium;
+          font-size: large;
           line-height: 1.5em;
           text-align: center;
           font-family: 'Inter';
           letter-spacing: 1px;
           text-shadow: $text-shadow2;
+          text-align: start;
         }
     }
 
@@ -158,6 +159,14 @@ $cta-btn-boxshadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0
 
   }
 
+}
+
+.hero-btn-container{
+  display: flex;
+  max-width: 90%;
+  width: fit-content;
+  justify-content: flex-start;
+  margin: 0 2.5em;
 }
 
 .call-to-action{
@@ -379,14 +388,14 @@ $cta-btn-boxshadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0
 
 .progress-bar {
   position: relative;
-  background-color: #e0e0e0;
-  overflow: hidden;
+  background-color: white;
   width: 100%;
   border-radius: 5px;
   box-shadow: $box-shadow;
 
   div {
     height: 8px;
+    padding: 1px;
     border-radius: 5px;
     background-color: $progress-bar-color;
     width: 85%;
@@ -413,6 +422,10 @@ $cta-btn-boxshadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0
     .hero-wrapper{
       padding-bottom: 3em;
     }
+  }
+  .hero-btn-container{
+    justify-content: center;
+    width: 100%;
   }
   .learn-more{
     margin-top: 1em;

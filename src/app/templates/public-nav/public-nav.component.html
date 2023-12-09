@@ -5,7 +5,7 @@
       <a href='/' class="company-name">Soll<sup>&reg;</sup></a>
       <span class="spacer"></span>
       <button mat-button (click)="navigateTo('/login')">Sign in</button>
-      <button mat-button (click)="openDialog(infoDetails.inquireTitle, infoDetails.phoneNumber)"><mat-icon>phone</mat-icon>Inquire</button>
+      <button mat-button (click)="openDialog(infoDetails.inquireTitle, infoDetails.phoneNumber, false)"><mat-icon>phone</mat-icon>Inquire</button>
       <button mat-icon-button [matMenuTriggerFor]="menu" class="menu-button">
         <span class="material-symbols-outlined">menu</span>
       </button>
@@ -17,5 +17,5 @@
 <mat-menu #menu="matMenu">
   <button mat-menu-item  (click)="navigateTo('/info/concept-overview')">What is Soll?</button>
   <button mat-menu-item  (click)="navigateTo('/info/about-us')">About us</button>
-  <button (click)="openDialog(infoDetails.feedbackTitle, infoDetails.email)" mat-menu-item>Feedback</button>
+  <button (click)="openDialog(infoDetails.feedbackTitle, infoDetails.email, true)" mat-menu-item>Feedback</button>
 </mat-menu>

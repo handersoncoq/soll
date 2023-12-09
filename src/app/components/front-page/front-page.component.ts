@@ -11,11 +11,12 @@ import { ContentManagerService } from 'src/app/services/content-manager/content-
 })
 export class FrontPageComponent implements OnInit, OnDestroy{
 
-  slogan!: TitleBodyType;
+  slogan!: string;
   learnMore!: TitleBodyArrayType;
   frontPageLogo: string;
   trustPilot: string;
   fiveStars: string;
+  taglines!: any;
   partners: string[];
   faqs!: any[];
   keyWords!: any;
@@ -50,11 +51,14 @@ export class FrontPageComponent implements OnInit, OnDestroy{
         learnMore: this.contentManagerService.getLearnMore(),
         faqs: this.contentManagerService.getFaqs(),
         keyWords: this.contentManagerService.getKeyWords(),
+        taglines: this.contentManagerService.getTaglines()
     }).subscribe(results => {
         this.slogan = results.slogan;
         this.learnMore = results.learnMore;
         this.faqs = results.faqs;
         this.keyWords = results.keyWords;
+        this.taglines = results.taglines;
+        this.slogan = results.taglines.array[0];
     });
 }
 
@@ -62,6 +66,7 @@ export class FrontPageComponent implements OnInit, OnDestroy{
     this.intervalId = setInterval(() => {
       this.currentImageIndex = (this.currentImageIndex + 1) % this.images.length;
       this.currentImage = this.images[this.currentImageIndex];
+      if(this.taglines) this.slogan = this.taglines.array[this.currentImageIndex];
     }, 5000);
   }
 

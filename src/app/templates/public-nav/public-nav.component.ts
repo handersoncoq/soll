@@ -31,13 +31,13 @@ export class PublicNavComponent implements OnInit{
     this.router.navigate([link]);
   }
 
-  openDialog(title: string, content: string): void {
+  openDialog(title: string, content: string, isFeedback: boolean): void {
     this.dialog.open(DialogueComponent, {
       data: {
         title: title,
         content: content,
         copiable: true,
-        width: '100%',
+        isFeedback: isFeedback,
         enterAnimationDuration: this.enterAnimationDuration,
         exitAnimationDuration: this.exitAnimationDuration,
       },

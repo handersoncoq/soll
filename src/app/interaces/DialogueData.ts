@@ -3,6 +3,5 @@ export interface DialogData {
     content: any,
     action: any,
     copiable: boolean,
-    privacyPolicy: boolean,
-    termsAndConditions: boolean
+    isFeedback: boolean,
 }

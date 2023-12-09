@@ -66,13 +66,13 @@
           <div class="progress-bar"><div></div></div>
           <div *ngIf="slogan" class="slogan">
             <p>
-              <q>{{ slogan.body }}</q>
+              <q>{{ slogan }}</q>
             </p>
           </div>
         </div>
       </div>
       <div class="spacing"></div>
-      <div routerLink="/info/concept-overview">
+      <div routerLink="/info/concept-overview" class="hero-btn-container">
         <button class="cta-btn" mat-raised-button>Explore More</button>
       </div>
       <div class="spacing"></div>
@@ -94,7 +94,7 @@
 
 <div class="content-video video-even">
   <div routerLink="/get-started">
-    <video loop playsinline [src]="contentVideos[1]" autoplay muted></video>
+    <video [appLazyVideo]="contentVideos[1]" ></video>
   </div>
 </div>
 
@@ -111,7 +111,7 @@
     <div class="branding">
       <div class="learn-more-content">
         <p class="img-p">
-          <img [src]="frontPageLogo" alt="App Logo" appLazyLoading />
+          <img [attr.data-src]="frontPageLogo" alt="App Logo" appLazyLoading />
         </p>
       </div>
       <div class="learn-more-content tag-words">
@@ -129,17 +129,17 @@
 
 <div class="content-video video-odd">
   <div routerLink="/">
-    <video loop playsinline [src]="contentVideos[0]" autoplay muted></video>
+    <video [appLazyVideo]="contentVideos[0]" ></video>
   </div>
 </div>
 
 <div class="ratings-partners">
   <div class="trustpilot-rating">
     <div>
-      <img [src]="trustPilot" alt="Trustpilot" appLazyLoading />
+      <img [attr.data-src]="trustPilot" alt="Trustpilot" appLazyLoading />
     </div>
     <div>
-      <img [src]="fiveStars" alt="Stars" appLazyLoading />
+      <img [attr.data-src]="fiveStars" alt="Stars" appLazyLoading />
     </div>
   </div>
 
@@ -148,19 +148,19 @@
       <h1>Our partners<sup>1</sup> are best in their fields</h1>
     </div>
     <span *ngFor="let partner of partners">
-      <img [src]="partner" alt="Partner" appLazyLoading />
+      <img [attr.data-src]="partner" alt="Partner" appLazyLoading />
     </span>
   </div>
 </div>
 
 <div class="content-video video-odd">
   <div routerLink="/info/concept-overview">
-    <video loop playsinline [src]="contentVideos[3]" autoplay muted></video>
+    <video [appLazyVideo]="contentVideos[3]" ></video>
   </div>
 </div>
 <div class="content-video video-even">
   <div routerLink="/get-started">
-    <video loop playsinline [src]="contentVideos[4]" autoplay muted></video>
+    <video [appLazyVideo]="contentVideos[4]" ></video>
   </div>
 </div>
 
@@ -182,6 +182,6 @@
 
 <div class="content-video video-even">
   <div routerLink="/info/concept-overview">
-    <video loop playsinline [src]="contentVideos[2]" autoplay muted></video>
+    <video [appLazyVideo]="contentVideos[2]" ></video>
   </div>
 </div>

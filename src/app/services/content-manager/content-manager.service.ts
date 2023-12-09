@@ -11,6 +11,7 @@ export class ContentManagerService {
   // app content
   aboutUs = './assets/app-content/AboutUs.json';
   slogan = './assets/app-content/CompanySlogan.json';
+  taglines = './assets/app-content/Taglines.json';
   learnMore = './assets/app-content/LearnMore.json';
   faqs = './assets/app-content/Faqs.json';
   conceptOverview = './assets/app-content/ConceptOverview.json';
@@ -18,6 +19,7 @@ export class ContentManagerService {
   privacyPolicy = './assets/app-content/PrivacyPolicy.json';
   termsAndConditions = './assets/app-content/TermsAndConditions.json';
   keyWords = './assets/app-content/KeyWords.json';
+  appVersion = '0.0.1';
 
   // logo and images
   appLogo3 = './assets/logo/3.png';
@@ -74,6 +76,10 @@ export class ContentManagerService {
     return this.http.get(this.keyWords);
   }
 
+  getTaglines(): Observable<any> {
+    return this.http.get(this.taglines);
+  }
+
 
   getInfo(): Observable<InfoDetails> {
     return this.http.get<InfoDetails>(this.infoDetails);
@@ -85,6 +91,10 @@ export class ContentManagerService {
 
   getAppLogo6(): string{
     return this.appLogo6;
+  }
+
+  getAppVersion(): string{
+    return this.appVersion;
   }
 
 

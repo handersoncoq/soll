@@ -16,7 +16,7 @@
     <section class="overview">
         <h3>Overview</h3>
         <p>{{ conceptOverview.overview.description }}</p>
-        <img [src]="community" alt="Community" loading="lazy" appLazyLoading>
+        <img [attr.data-src]="community" alt="Community" loading="lazy" appLazyLoading>
         <p>{{ conceptOverview.overview.innovation }}</p>
     </section>
 
@@ -26,25 +26,25 @@
         <div>
             <h4>Early Payout System (EPS)</h4>
             <p>{{ conceptOverview.systemInfrastructure.subdivisions.earlyPayoutSystem.description }}</p>
-            <img [src]="eps" alt="EPS" loading="lazy" appLazyLoading>
+            <img [attr.data-src]="eps" alt="EPS" loading="lazy" appLazyLoading>
         </div>
         <div>
             <h4>End Of Cycle Payout System (ECPS)</h4>
             <p>{{ conceptOverview.systemInfrastructure.subdivisions.endOfCyclePayoutSystem.description }}</p>
-            <img [src]="ecps" alt="ECPS" loading="lazy" appLazyLoading>
+            <img [attr.data-src]="ecps" alt="ECPS" loading="lazy" appLazyLoading>
         </div>
     </section>
 
     <section>
         <h3>Operational Infrastructure</h3>
         <p>{{ conceptOverview.operationalInfrastructure.groupStructure }}</p>
-        <img [src]="overviewImg" alt="Soll in mobile" loading="lazy" appLazyLoading>
+        <img [attr.data-src]="overviewImg" alt="Soll in mobile" loading="lazy" appLazyLoading>
         <div>
             <h4>Group Leaders</h4>
             <p>{{ conceptOverview.operationalInfrastructure.groupLeaders.responsibilities }}</p>
             <p>{{ conceptOverview.operationalInfrastructure.groupLeaders.selection }}</p>
         </div>
-        <img [src]="leader" alt="Soll Leader" loading="lazy" appLazyLoading>
+        <img [attr.data-src]="leader" alt="Soll Leader" loading="lazy" appLazyLoading>
         <p>{{ conceptOverview.operationalInfrastructure.digitalManagement }}</p>
     </section>
 
