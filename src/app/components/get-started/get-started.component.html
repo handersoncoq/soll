@@ -2,7 +2,7 @@
   <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
     <div *ngIf="currentStep !== 5">
       <div class="logo-div" routerLink="/">
-        <img [src]="appLogo" alt="App Logo" appLazyLoading />
+        <img [attr.data-src]="appLogo" alt="App Logo" appLazyLoading />
       </div>
       <h1>Let's get you started on your Soll<sup>&reg;</sup> journey!</h1>
       <div *ngIf="currentStep === 1">

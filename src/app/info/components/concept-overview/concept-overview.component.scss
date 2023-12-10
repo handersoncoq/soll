@@ -58,14 +58,18 @@ $dark-dusty-blue: rgb(37 84 109);
     margin-bottom: 3em;
     color: $accent-color;
 
-    h2, h4, h3, h5{
+    h2{
       color: $primary-color;
+    }
+
+    h3, h5, h4{
+      color: $accent-color;
     }
 
   p, ul, li{
     line-height: 1.5;     
-    font-size: small;
-    color: $accent-color;
+    font-size: medium;
+    color: $primary-color;
   }
 
   .examples{
@@ -85,29 +89,30 @@ $dark-dusty-blue: rgb(37 84 109);
   }
 }
 
+
 // *********************************************************
 
-@media (min-width: 600px) and (orientation: portrait) {
+@media (min-width: 600px){
   .main-content{
+    margin-left: 2em;
+    margin-right: 2em;
+    .layout{
+      display: flex;
+      flex-direction: row;
+      p{
+        margin-right: 3em;
+      }
+    }
     p, ul, li{
-      font-size: medium !important;
+      font-size: medium;
     }
     img{
-      width: 32% !important;
+      width: 45%;
     }
-  }
-  .overview{
-    img{
-      height: 20em !important;
-    }
-  }
-}
-
-@media screen and (orientation: landscape) {
-  .main-content {
-    img {
-      width: 32% !important;
-      height: 12em !important;
+    .overview img{
+      margin-top: 2em;
+      height: 70%;
+      width: 20em;
     }
   }
 }

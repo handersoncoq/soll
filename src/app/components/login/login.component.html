@@ -1,7 +1,7 @@
 <div class="container">
   <form [formGroup]="loginForm">
     <div class="logo-div" routerLink="/">
-      <img [src]="appLogo" alt="App Logo" appLazyLoading />
+      <img [attr.data-src]="appLogo" alt="App Logo" appLazyLoading />
     </div>
     <h1>Welcome back!</h1>
     <div *ngIf="currentStep === 1">

@@ -5,9 +5,7 @@ import { ConceptOverviewComponent } from './components/concept-overview/concept-
 import { MatIconModule } from '@angular/material/icon';
 
 import { AboutUsComponent } from './components/about-us/about-us.component';
-import { HelpMeComponent } from './components/help-me/help-me.component';
 import { InfoRoutingModule } from './info-routing.module';
-import { InquireComponent } from './components/inquire/inquire.component';
 import { SharedModule } from '../shared/shared.module';
 
 
@@ -15,8 +13,6 @@ import { SharedModule } from '../shared/shared.module';
   declarations: [
     ConceptOverviewComponent,
     AboutUsComponent,
-    HelpMeComponent,
-    InquireComponent,
   ],
   imports: [
     CommonModule,
