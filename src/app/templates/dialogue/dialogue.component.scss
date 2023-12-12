@@ -25,8 +25,11 @@ h1{
     }
 }
 
-.feedback h1:hover{
-    cursor: pointer;
-    width: fit-content;
-    text-decoration: underline;
+.feedback h1{
+    font-size: larger;
+    &:hover{
+        cursor: pointer;
+        width: fit-content;
+        text-decoration: underline;
+    }
 }

@@ -33,6 +33,8 @@ import { DialogueComponent } from './templates/dialogue/dialogue.component';
 import { PrivacyPolicyComponent } from './templates/privacy-policy/privacy-policy.component';
 import { TermsAndConditionsComponent } from './templates/terms-and-conditions/terms-and-conditions.component';
 import { LazyVideoDirective } from './utils/directives/lazy-video.directive';
+import { StyleManagerService } from './services/style-manager/style-manager.service';
+import { NoticeComponent } from './templates/notice/notice.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +50,7 @@ import { LazyVideoDirective } from './utils/directives/lazy-video.directive';
     PrivacyPolicyComponent,
     TermsAndConditionsComponent,
     LazyVideoDirective,
+    NoticeComponent,
   ],
   imports: [
     ReactiveFormsModule,
@@ -71,7 +74,7 @@ import { LazyVideoDirective } from './utils/directives/lazy-video.directive';
     MatDialogModule,
     MatTooltipModule
   ],
-  providers: [ContentManagerService, ScreenLayoutService],
+  providers: [ContentManagerService, ScreenLayoutService, StyleManagerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -32,6 +32,7 @@ export class ContentManagerService {
   bringYourIdeaToLife = './assets/videos/bring-your-dream-project-to-life.mp4';
   getExcitedWhenItsYourTurn = './assets/videos/get-excited-when-its-your-turn.mp4';
   startSavingForTheirFuture = './assets/videos/start-saving-for-their-future.mp4';
+  howItWorks = './assets/videos/how-it-works.mp4';
 
   // partners
   trustpilot = './assets/partners/trustpilot.svg';
@@ -117,17 +118,9 @@ export class ContentManagerService {
       this.raiseAndSaveWithFriendsAndLovedOnes,
       this.bringYourIdeaToLife,
       this.getExcitedWhenItsYourTurn,
-      this.startSavingForTheirFuture
+      this.startSavingForTheirFuture,
+      this.howItWorks
     ]
-  }
-
-  // ***************************************************************************
-
-  loadMaterialSymbols() {
-    const link = document.createElement('link');
-    link.rel = 'stylesheet';
-    link.href = 'https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200';
-    document.head.appendChild(link);
   }
 
 }

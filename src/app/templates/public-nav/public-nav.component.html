@@ -2,7 +2,7 @@
   <mat-toolbar-row class="spacer-row"></mat-toolbar-row>
   <mat-toolbar-row>
     <div class="toolbar-content">
-      <a href='/' class="company-name">Soll<sup>&reg;</sup></a>
+      <span (click)="navigateTo('/')" class="company-name">Soll<sup>&reg;</sup></span>
       <span class="spacer"></span>
       <button mat-button (click)="navigateTo('/login')">Sign in</button>
       <button mat-button (click)="openDialog(infoDetails.inquireTitle, infoDetails.phoneNumber, false)"><mat-icon>phone</mat-icon>Inquire</button>

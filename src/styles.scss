@@ -67,6 +67,9 @@ $Sol-theme: mat.define-light-theme((color: (primary: $Sol-primary,
 
 // *********************************************************************************
 
+body.no-scroll {
+  overflow: hidden;
+}
 
 a {
   text-decoration: none;

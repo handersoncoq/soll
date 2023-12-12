@@ -34,6 +34,8 @@ mat-toolbar {
   font-weight: bold;
   text-shadow: $text-shadow;
   color: $accent-color;
+  width: fit-content;
+  cursor: pointer;
 }
 
 sup {

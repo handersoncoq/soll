@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { ContentManagerService } from 'src/app/services/content-manager/content-manager.service';
 import { DialogueComponent } from '../dialogue/dialogue.component';
 import { InfoDetails } from 'src/app/interaces/Info';
+import { StyleManagerService } from 'src/app/services/style-manager/style-manager.service';
 
 @Component({
   selector: 'app-public-nav',
@@ -17,14 +18,15 @@ export class PublicNavComponent implements OnInit{
   exitAnimationDuration = '400ms';
 
 
-  constructor(private contentManagerService: ContentManagerService, private router: Router, private dialog: MatDialog){
+  constructor(private contentManagerService: ContentManagerService, private styleManager: StyleManagerService,
+    private router: Router, private dialog: MatDialog){
     this.contentManagerService.getInfo().subscribe(
       (details) => this.infoDetails = details
     )
   }
 
   ngOnInit(): void {
-    this.contentManagerService.loadMaterialSymbols();
+    this.styleManager.loadMaterialSymbols();
   }
 
   navigateTo(link: string){
