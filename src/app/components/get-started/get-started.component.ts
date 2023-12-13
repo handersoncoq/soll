@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import * as moment from 'moment';
+import { differenceInYears, parseISO } from 'date-fns';
 import { CharMap } from 'src/app/interaces/CharMap';
 import { ContentManagerService } from 'src/app/services/content-manager/content-manager.service';
 import { usStatesAbbreviations } from 'src/app/utils/constants/UsStates';
@@ -57,9 +57,10 @@ export class GetStartedComponent implements OnInit{
 
   validateAge(control: AbstractControl): { [key: string]: any } | null {
     if (control.value) {
-      const eighteenYearsAgo = moment().subtract(18, 'years');
-      const birthdate = moment(control.value);
-      return birthdate.isBefore(eighteenYearsAgo) ? null : { 'ageInvalid': true };
+      const birthdate = parseISO(control.value); // assuming the date is in ISO format
+      if (differenceInYears(new Date(), birthdate) < 18) {
+        return { 'ageInvalid': true };
+      }
     }
     return null;
   }
