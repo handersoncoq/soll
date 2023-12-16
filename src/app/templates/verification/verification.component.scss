@@ -23,8 +23,8 @@ $dark-dusty-blue: rgb(37, 84, 109);
     margin-bottom: 20px;
 
     input {
-      width: 40px;
-      height: 40px;
+      width: 1em;
+      height: 1.5em;
       text-align: center;
       border: 1px solid $dark-dusty-blue;
       border-radius: 5px;
@@ -78,4 +78,17 @@ $dark-dusty-blue: rgb(37, 84, 109);
       }
   }
 
+}
+
+::ng-deep .mat-mdc-snack-bar-container {
+  --mdc-snackbar-container-color: #35425B;
+  --mdc-snackbar-supporting-text-color: white;
+  font-size: small !important;
+}
+
+.spinner-container{
+  margin: 12em 0;
+  display: flex;
+  justify-content: center;
+  text-align: center;
 }

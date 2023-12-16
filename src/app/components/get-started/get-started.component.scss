@@ -21,7 +21,8 @@ $progress-bar-color: rgb(33 63 79);
 
 h1{
     margin-bottom: 1.5em;
-    font-size: 1.97em;
+    font-size: 1.8em;
+    font-family: "Roboto";
 }
 
 h3{
@@ -60,11 +61,16 @@ form{
 input[type="text"], input[type="email"], input[type="number"],
 input[type="date"], input[type="tel"], input[type="password"] {
   width: 100%;
-  padding: 1.3em 0;
+  padding: 1em 0;
   margin: 5px 0;
   border: 1px solid $dark-dusty-blue;
   border-radius: 0.6em;
   text-indent: 1em;
+  font-size: medium;
+}
+
+input::placeholder{
+    font-size: medium;
 }
 
 input[type="date"]{
@@ -109,6 +115,7 @@ button:not(.toggle-password) {
   border-radius: 5px;
   cursor: pointer;
   margin-top: 1em;
+  font-size: medium;
   transition: background-color 0.3s ease;
 
   &:hover {

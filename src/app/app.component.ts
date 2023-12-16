@@ -1,5 +1,4 @@
 import { Component, HostBinding, HostListener, OnInit } from '@angular/core';
-import { ContentManagerService } from './services/content-manager/content-manager.service';
 import { MatDialog } from '@angular/material/dialog';
 import { StyleManagerService } from './services/style-manager/style-manager.service';
 import { NoticeComponent } from './templates/notice/notice.component';
@@ -13,12 +12,9 @@ export class AppComponent implements OnInit {
   
   disclaimerAccepted = false;
   title = 'Soll';
-  showLogo = false;
-  appLogo!: string;
+  showIcon = false;
 
-  constructor(private contentManagerService: ContentManagerService, public dialog: MatDialog, private styleManager: StyleManagerService){
-    this.appLogo = this.contentManagerService.getAppLogo3();
-  }
+  constructor(public dialog: MatDialog, private styleManager: StyleManagerService){}
 
   ngOnInit(): void {
     this.styleManager.disableScroll();
@@ -39,9 +35,9 @@ export class AppComponent implements OnInit {
   @HostListener('window:scroll', [])
   onWindowScroll() {
     if (window.scrollY > 20) {
-      this.showLogo = true;
+      this.showIcon = true;
     } else {
-      this.showLogo = false;
+      this.showIcon = false;
     }
   }
 

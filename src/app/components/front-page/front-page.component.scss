@@ -13,6 +13,12 @@ $beige-ish: rgb(244, 244, 242);
 $section-boxshadow: rgba(50, 50, 93, 0.25) 0px 13px 27px 23px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 $cta-btn-boxshadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
 
+.nav-box{
+  margin-bottom: 4em;
+  display: flex;
+}
+
+
 .hero-section {
   position: relative;
   height: 100vh;
@@ -20,12 +26,11 @@ $cta-btn-boxshadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0
 }
 
 .content {
-  margin-top: 0.5em;
   background-size: cover;
   background-repeat: no-repeat;
   background-position-x: center;
   background-position-y: center;
-  transition: background-image 0.5s ease-in;
+  transition: background-color 0.5s ease-in;
   color: #35425B;
   text-align: center;
   padding: 16px 0;
@@ -70,8 +75,8 @@ $cta-btn-boxshadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0
           font-family: 'Roboto';
         }
         .tooltip-btn{
-          margin-left: -1.55em;
-          margin-right: -1.55em;
+          margin-left: -2em;
+          margin-right: -2em;
           color: bisque;
           padding: 0;
           width: fit-content;
@@ -81,9 +86,11 @@ $cta-btn-boxshadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0
           transition: transform 0.3s ease-in-out;
         }
       }
+      
       .pre-key-words span:not(:last-child){
-        padding-right: 1em;
+        margin-right: 1.4em;
       }
+
     }
   
     h1, h2{
@@ -421,10 +428,15 @@ $cta-btn-boxshadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0
     .main-links{
       font-size: large !important;
     }
+    .tooltip-btn{
+      margin-left: -1.5em !important;
+      margin-right: -1.5em !important;
+    }
     .hero-wrapper{
       padding-bottom: 3em;
     }
   }
+  
   .hero-btn-container{
     justify-content: center;
     width: 100%;

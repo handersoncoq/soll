@@ -4,14 +4,14 @@
     bottom: 0;
     margin-bottom: 2em;
     z-index: 1000;
+    width: fit-content;
     cursor: pointer;
-    img{
-        margin: 1em 0.5em;
-        height: 2.6em;
-        width: 2.6em;
+    mat-icon{
         border-radius: 50%;
         background-color: white;
-        box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;    }
+        padding: 4px;
+        box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    }
 }
 
 .spacing{

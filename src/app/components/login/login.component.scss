@@ -21,7 +21,8 @@ $progress-bar-color: rgb(33 63 79);
 
 h1{
     margin-bottom: 1.5em;
-    font-size: 1.97em;
+    font-size: 1.8em;
+    font-family: "Roboto";
 }
 
 h3{
@@ -60,16 +61,18 @@ form{
 input[type="text"], input[type="email"], input[type="number"],
 input[type="date"], input[type="tel"], input[type="password"] {
   width: 100%;
-  padding: 1.3em 0;
+  padding: 1em 0;
   margin: 5px 0;
   border: 1px solid $dark-dusty-blue;
   border-radius: 0.6em;
+  font-size: medium;
   text-indent: 1em;
 }
 
-input[type="date"]{
-    text-indent: 0.45em;
+input::placeholder{
+    font-size: medium;
 }
+
 
 label {
   display: block;
@@ -149,6 +152,7 @@ input[type="checkbox"]{
 ::ng-deep .mat-mdc-snack-bar-container {
     --mdc-snackbar-container-color: #35425B;
     --mdc-snackbar-supporting-text-color: white;
+    font-size: small !important;
 }
 
 // *************************************************

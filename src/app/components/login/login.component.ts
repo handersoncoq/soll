@@ -32,37 +32,10 @@ export class LoginComponent implements OnInit{
     });
    }
 
-  ngOnInit() {
-
-    this.loginForm.get('phone')?.valueChanges.subscribe(value => {
-      const formatted = this.formatVerificationCode(value);
-      if (formatted !== value) {
-        this.loginForm.get('phone')?.setValue(formatted, { emitEvent: false });
-      }
-    });
-
-    this.loginForm.get('verificationCode')?.valueChanges.subscribe(value => {
-      if (value && value.length > 9) {
-        this.loginForm.get('verificationCode')?.setValue(value.substr(0, 11), { emitEvent: false });
-      }
-    });
-    
-  }
+  ngOnInit() {}
 
   togglePasswordVisibility(){
     this.hidePassword = !this.hidePassword;
-  }
-
-  formatVerificationCode(value: string): string {
-    const numbers = value.replace(/\D/g, '');
-    const char: CharMap = {0: '', 3: '-'};
-    let formatted = '';
-  
-    for (let i = 0; i < numbers.length; i++) {
-      formatted += (char[i] || '') + numbers[i];
-    }
-  
-    return formatted;
   }
 
   nextStep() {

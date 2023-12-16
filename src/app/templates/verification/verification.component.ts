@@ -1,5 +1,8 @@
 import { Component, ElementRef, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
+import { SnackBarComponent } from '../snack-bar/snack-bar.component';
 
 @Component({
   selector: 'app-verification',
@@ -10,8 +13,10 @@ export class VerificationComponent {
 
   verificationForm!: FormGroup;
   @ViewChildren('digitInput') digitInputs!: QueryList<ElementRef>;
+  errorMsg = 'Invalid code. Please try again';
+  verificationSucceeds = false;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private router: Router, private snackBar: MatSnackBar) {
     this.verificationForm = this.fb.group({
       digit1: ['', [Validators.required, Validators.pattern('\\d')]],
       digit2: ['', [Validators.required, Validators.pattern('\\d')]],
@@ -34,7 +39,6 @@ export class VerificationComponent {
       this.focusInputAtIndex(index + 1);
     }
   
-    // If the value is filled and the key is not backspace, move to next control
     if (this.verificationForm.get(controlName)?.value && event.key !== "Backspace") {
       this.verificationForm.get(nextControlName)?.enable({ emitEvent: false });
       this.focusInputAtIndex(index + 1);
@@ -51,11 +55,38 @@ export class VerificationComponent {
   }
   
   onSubmit() {
-    if (this.verificationForm.valid) {
-      const verificationCode = Object.values(this.verificationForm.value).join('');
-      console.log('Verification Code:', verificationCode);
-      // Send the code to the server for verification
+    if(this.verificationForm.invalid){
+      this.throwError();
+      return;
     }
+    const verificationCode = Object.values(this.verificationForm.value).join('');
+    // TODO: Send the code to the server for verification
+    this.verificationSucceeds = true;
+    this.navigateToHome();
+  }
+
+  throwError(){
+    this.snackBar.openFromComponent(SnackBarComponent, {
+      data: {
+        message: this.errorMsg,
+        type: 'error'
+      },
+      duration: 3000,
+      verticalPosition: 'top',
+      horizontalPosition: 'right'
+    });
+  }
+
+  allFiledsFilled(): boolean {
+    return Object.values(this.verificationForm.controls)
+    .every(control => control.value !== '');
+  }
+
+
+  navigateToHome(){
+    setTimeout(() =>{
+      this.router.navigate(['home']);
+    }, 1000)
   }
 
   resendCode(){

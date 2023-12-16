@@ -57,7 +57,7 @@ export class GetStartedComponent implements OnInit{
 
   validateAge(control: AbstractControl): { [key: string]: any } | null {
     if (control.value) {
-      const birthdate = parseISO(control.value); // assuming the date is in ISO format
+      const birthdate = parseISO(control.value);
       if (differenceInYears(new Date(), birthdate) < 18) {
         return { 'ageInvalid': true };
       }
