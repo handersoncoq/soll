@@ -25,11 +25,18 @@ export class LazyVideoDirective implements AfterViewInit, OnDestroy {
     const videoElement: HTMLVideoElement = this.el.nativeElement;
     videoElement.src = this.appLazyVideo;
     videoElement.muted = true;
-    videoElement.play().catch(e => {
-      console.info("Error attempting to play video: ", e);
+  
+    videoElement.load();
+    videoElement.addEventListener('loadeddata', () => {
+      videoElement.classList.add('video-loaded');
+      videoElement.play().catch(e => {
+        console.info("Error attempting to play video: ", e);
+      });
     });
+  
     this.observer.disconnect();
   }
+  
 
   ngOnDestroy() {
     if (this.observer) {

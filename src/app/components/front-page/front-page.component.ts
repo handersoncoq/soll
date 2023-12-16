@@ -24,7 +24,7 @@ export class FrontPageComponent implements OnInit, OnDestroy{
   activatedIconId: string | null = null;
 
   intervalId: any;
-  currentImageIndex: number = 0;
+  currentImageIndex = 0;
   images: string[] = [
     '/assets/img/hero-image2.webp',
     '/assets/img/hero-image0.webp',
@@ -32,7 +32,7 @@ export class FrontPageComponent implements OnInit, OnDestroy{
     '/assets/img/hero-image3.webp',
     '/assets/img/hero-image4.webp',
   ];
-  currentImage = this.images[0];
+  currentImage!: string;
   $accentColor = '#35425B';
 
   constructor(private contentManagerService: ContentManagerService){
@@ -46,6 +46,7 @@ export class FrontPageComponent implements OnInit, OnDestroy{
   }
 
   ngOnInit() {
+    this.currentImage = this.images[0];
     forkJoin({
         slogan: this.contentManagerService.getSlogan(),
         learnMore: this.contentManagerService.getLearnMore(),
@@ -67,7 +68,16 @@ export class FrontPageComponent implements OnInit, OnDestroy{
       this.currentImageIndex = (this.currentImageIndex + 1) % this.images.length;
       this.currentImage = this.images[this.currentImageIndex];
       if(this.taglines) this.slogan = this.taglines.array[this.currentImageIndex];
+      this.toggleBackground();
     }, 5000);
+  }
+
+  toggleBackground() {
+    const contentDiv = document.querySelector('.content');
+    contentDiv?.classList.add('transition');
+    setTimeout(() => {
+      contentDiv?.classList.remove('transition');
+    }, 500);
   }
 
   ngOnDestroy() {
