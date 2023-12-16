@@ -20,6 +20,7 @@ $cta-btn-boxshadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0
 }
 
 .content {
+  margin-top: 0.5em;
   background-size: cover;
   background-repeat: no-repeat;
   background-position-x: center;
@@ -34,6 +35,7 @@ $cta-btn-boxshadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0
     margin: 0;
     width: 100%;
     .hero-wrapper{
+      padding-top: 0.5em;
       color: white;
       text-shadow: $text-shadow;
       background: linear-gradient(to top, $radiant1, $dark-dusty-blue);
@@ -80,12 +82,8 @@ $cta-btn-boxshadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0
         }
       }
       .pre-key-words span:not(:last-child){
-        padding-right: 2.2em;
+        padding-right: 1em;
       }
-    }
-
-    .main-links span:not(.point-separator){
-      cursor: pointer;
     }
   
     h1, h2{
@@ -110,6 +108,7 @@ $cta-btn-boxshadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0
     }
 
     .tag-wrapper{
+      margin-top: 1em;
       max-width: 82%;
     }
   
