@@ -6,8 +6,9 @@
       <span class="spacer"></span>
       <button mat-button (click)="navigateTo('/login')">Sign in</button>
       <button mat-button (click)="openDialog(infoDetails.inquireTitle, infoDetails.phoneNumber, false)"><mat-icon>phone</mat-icon>Inquire</button>
-      <button mat-icon-button [matMenuTriggerFor]="menu" class="menu-button">
-        <span class="material-symbols-outlined">menu</span>
+      <button mat-icon-button [matMenuTriggerFor]="menu" #trigger="matMenuTrigger" class="menu-button">
+        <span *ngIf="trigger.menuOpen" class="material-symbols-outlined">keyboard_arrow_down</span>
+        <span *ngIf="!trigger.menuOpen" class="material-symbols-outlined rotated">menu</span>
       </button>
     </div>
   </mat-toolbar-row>
@@ -15,7 +16,11 @@
 </mat-toolbar>
 
 <mat-menu #menu="matMenu">
-  <button mat-menu-item  (click)="navigateTo('/info/concept-overview')">What is Soll?</button>
-  <button mat-menu-item  (click)="navigateTo('/info/about-us')">About us</button>
-  <button (click)="openDialog(infoDetails.feedbackTitle, infoDetails.email, true)" mat-menu-item>Feedback</button>
+  <ng-template matMenuContent>
+      <div @accordion class="menu-items">
+        <button mat-menu-item (click)="navigateTo('/info/concept-overview')">What is Soll?</button>
+        <button mat-menu-item (click)="navigateTo('/info/about-us')">About us</button>
+        <button mat-menu-item (click)="openDialog(infoDetails.feedbackTitle, infoDetails.email, true)">Feedback</button>
+      </div>
+  </ng-template>
 </mat-menu>

@@ -1,17 +1,33 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { ContentManagerService } from 'src/app/services/content-manager/content-manager.service';
 import { DialogueComponent } from '../dialogue/dialogue.component';
 import { InfoDetails } from 'src/app/interaces/Info';
 import { StyleManagerService } from 'src/app/services/style-manager/style-manager.service';
+import { trigger, transition, style, animate } from '@angular/animations';
+import { MatMenuTrigger } from '@angular/material/menu';
 
 @Component({
   selector: 'app-public-nav',
   templateUrl: './public-nav.component.html',
-  styleUrls: ['./public-nav.component.scss']
+  styleUrls: ['./public-nav.component.scss'],
+  animations: [
+    trigger('accordion', [
+      transition(':enter', [
+        style({ opacity: 0, height: 0}),
+        animate('500ms ease-in-out', style({ opacity: 1, height: '*' }))
+      ]),
+      transition(':leave', [
+        style({ opacity: 1, height: '*' }),
+        animate('500ms ease-out', style({ opacity: 0, height: 0 }))
+      ])
+    ]),
+  ]
 })
 export class PublicNavComponent implements OnInit{
+
+  @ViewChild(MatMenuTrigger) menuTrigger!: MatMenuTrigger;
 
   infoDetails!: InfoDetails
   enterAnimationDuration = '400ms';

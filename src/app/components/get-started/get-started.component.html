@@ -75,17 +75,19 @@
       <div *ngIf="currentStep === 2">
         <h3>Please tell us your date of birth and your phone number</h3>
         <div class="form-group">
-          <input
-            type="date"
-            class="form-control"
-            [ngClass]="{
-              isError:
-                registrationForm.get('dob')?.invalid &&
-                registrationForm.get('dob')?.touched
-            }"
-            id="dob"
-            formControlName="dob"
-          />
+          <span class="app-datepicker">
+            <input
+              matInput
+              [matDatepicker]="dobPicker"
+              placeholder="MM/DD/YYYY"
+              class="form-control"
+              [ngClass]="{'isError': registrationForm.get('dob')?.invalid && registrationForm.get('dob')?.touched}"
+              id="dob"
+              formControlName="dob"
+            />
+            <mat-datepicker-toggle matSuffix [for]="dobPicker"></mat-datepicker-toggle>
+            <mat-datepicker #dobPicker></mat-datepicker>
+          </span>          
           <div
             class="error-div"
             *ngIf="

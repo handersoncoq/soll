@@ -17,6 +17,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import {MatSelectModule} from '@angular/material/select';
 import { MatDialogModule } from '@angular/material/dialog';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatNativeDateModule} from '@angular/material/core';
+import {MatDatepickerModule} from '@angular/material/datepicker';
 
 import { AppComponent } from './app.component';
 import { FrontPageComponent } from './components/front-page/front-page.component';
@@ -72,7 +74,9 @@ import { NoticeComponent } from './templates/notice/notice.component';
     MatProgressSpinnerModule,
     MatSelectModule,
     MatDialogModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatNativeDateModule,
+    MatDatepickerModule
   ],
   providers: [ContentManagerService, ScreenLayoutService, StyleManagerService],
   bootstrap: [AppComponent]

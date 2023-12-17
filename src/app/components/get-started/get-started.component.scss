@@ -59,7 +59,7 @@ form{
 
 // Input and Label Styling
 input[type="text"], input[type="email"], input[type="number"],
-input[type="date"], input[type="tel"], input[type="password"] {
+input[type="tel"], input[type="password"] {
   width: 100%;
   padding: 1em 0;
   margin: 5px 0;
@@ -73,15 +73,43 @@ input::placeholder{
     font-size: medium;
 }
 
-input[type="date"]{
-    text-indent: 0.45em;
-}
+input[type="checkbox"]{
+    cursor: pointer;
+    border: none;
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    padding: 0;
+    margin: 0 5px;
+    background-color: transparent;
+  }
 
-label {
-  display: block;
-  margin-top: .5rem;
-  color: $primary-color;
+.app-datepicker {
+  position: relative;
+  display: inline-block;
   width: 100%;
+
+  .form-control {
+    width: 100%;
+    padding: 1em 0;
+    margin: 5px 0;
+    border: 1px solid $dark-dusty-blue;
+    border-radius: 0.7em;
+    text-indent: 1em;
+    font-size: medium;
+    &:focus{
+        border: none;
+    }
+  }
+
+  .mat-datepicker-toggle {
+    position: absolute;
+    right: 2px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+  }
 }
 
 p{
@@ -132,12 +160,6 @@ sup {
     font-size: medium;
 }
 
-// .first-btn{
-//     width: 100%;
-//     font-size: larger;
-//     padding: 0.8em 0;
-//     border-radius: 2em;
-// }
 
 .other-info{
     color: $primary-color;
@@ -150,17 +172,6 @@ sup {
         cursor: pointer;
     }
 }
-
-input[type="checkbox"]{
-    cursor: pointer;
-    border: none;
-    border-radius: 50%;
-    width: 10px;
-    height: 10px;
-    padding: 0;
-    margin: 0 5px;
-    background-color: transparent;
-  }
 
 .agreement{
     font-size: smaller;

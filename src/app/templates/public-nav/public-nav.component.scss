@@ -62,6 +62,11 @@ sup {
 .material-symbols-outlined {
   font-size: 30px;
   font-variation-settings: "FILL" 0, "wght" 200, "GRAD" 0, "opsz" 40;
+  transition: transform 1s ease-in-out
+}
+
+.rotated{
+  transform: rotate(180deg);
 }
 
 ::ng-deep .mat-elevation-z8, .mat-mdc-elevation-specific.mat-elevation-z8 {
@@ -70,6 +75,14 @@ sup {
 
 ::ng-deep .mat-mdc-menu-item{
   color: $accent-color !important;
+}
+
+.menu-items{
+  overflow: hidden;
+  button{
+    font-size: 14px;
+    font-weight: 450;
+  }
 }
 
 // *********************************************************************

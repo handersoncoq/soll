@@ -254,8 +254,9 @@ $cta-btn-boxshadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0
 .ratings-partners{
   background-color: $transparent-bgr;
   margin-top: 0;
-  // border-radius: 1em;
-  // box-shadow: $section-boxshadow;
+  img{
+    transform: none !important;
+  }
 
   .trustpilot-rating, .partners{
     text-align: center;
@@ -366,6 +367,10 @@ $cta-btn-boxshadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0
 .content-video {
   margin: 0;
   margin-top: 1em;
+  img{
+    height: auto;
+    width: 100%;
+  }
   .video-even{
     display: block;
     width: auto;

@@ -20,7 +20,7 @@ export class LazyLoadingDirective implements AfterViewInit, OnDestroy {
     this.observer.observe(this.el.nativeElement);
   }
 
-  private loadImage() {
+  loadImage() {
     const imageElement: HTMLImageElement = this.el.nativeElement;
     const src = imageElement.getAttribute('data-src');
     if (src) {

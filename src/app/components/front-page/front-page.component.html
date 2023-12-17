@@ -96,7 +96,7 @@
   
   <div class="content-video video-even">
     <div routerLink="/get-started">
-      <video preload="auto" [appLazyVideo]="contentVideos[1]"></video>
+      <img [attr.data-src]="contentVideos[1]" alt="content"  appLazyLoading>
     </div>
   </div>
   
@@ -131,13 +131,13 @@
   
   <div class="content-video video-odd">
     <div routerLink="/">
-      <video preload="none" [appLazyVideo]="contentVideos[5]" ></video>
+      <img [attr.data-src]="contentVideos[5]" alt="content"  appLazyLoading>
     </div>
   </div>
   
   <div class="content-video video-odd">
     <div routerLink="/">
-      <video preload="none" [appLazyVideo]="contentVideos[0]" ></video>
+      <img [attr.data-src]="contentVideos[0]" alt="content"  appLazyLoading>
     </div>
   </div>
   
@@ -163,12 +163,12 @@
   
   <div class="content-video video-odd">
     <div routerLink="/info/concept-overview">
-      <video preload="none" [appLazyVideo]="contentVideos[3]" ></video>
+      <img [attr.data-src]="contentVideos[3]" alt="content" appLazyLoading>
     </div>
   </div>
   <div class="content-video video-even">
     <div routerLink="/get-started">
-      <video preload="none" [appLazyVideo]="contentVideos[4]" ></video>
+      <img [attr.data-src]="contentVideos[4]" alt="content" appLazyLoading>
     </div>
   </div>
   
@@ -190,7 +190,7 @@
   
   <div class="content-video video-even">
     <div routerLink="/info/concept-overview">
-      <video preload="none" [appLazyVideo]="contentVideos[2]" ></video>
+      <img [attr.data-src]="contentVideos[2]" alt="content" appLazyLoading>
     </div>
   </div>
 </div>

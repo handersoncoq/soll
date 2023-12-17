@@ -27,12 +27,12 @@ export class ContentManagerService {
   five_stars = './assets/img/five-stars.svg';
 
   // videos
-  savingAtYourFingerTip = './assets/videos/saving-at-your-finger-tip.mp4';
-  raiseAndSaveWithFriendsAndLovedOnes = './assets/videos/raise-and-save-with-friends-and-loved-ones.mp4';
-  bringYourIdeaToLife = './assets/videos/bring-your-dream-project-to-life.mp4';
-  getExcitedWhenItsYourTurn = './assets/videos/get-excited-when-its-your-turn.mp4';
-  startSavingForTheirFuture = './assets/videos/start-saving-for-their-future.mp4';
-  howItWorks = './assets/videos/how-it-works.mp4';
+  savingAtYourFingerTip = './assets/img/Saving-at -your-fingertips.png';
+  raiseAndSaveWithFriendsAndLovedOnes = './assets/img/raise-save-with-friends.png';
+  bringYourIdeaToLife = './assets/img/bring-your-dream-project-to-life.png';
+  getExcitedWhenItsYourTurn = './assets/img/get-excited.png';
+  startSavingForTheirFuture = './assets/img/start-saving-for-their-future.png';
+  howItWorks = './assets/img/how-it-works.png';
 
   // partners
   trustpilot = './assets/partners/trustpilot.svg';

@@ -55,15 +55,27 @@ export class GetStartedComponent implements OnInit{
     this.hidePassword = !this.hidePassword;
   }
 
-  validateAge(control: AbstractControl): { [key: string]: any } | null {
-    if (control.value) {
-      const birthdate = parseISO(control.value);
-      if (differenceInYears(new Date(), birthdate) < 18) {
-        return { 'ageInvalid': true };
+validateAge(control: AbstractControl): { [key: string]: boolean } | null {
+  const value = control.value;
+  if (value) {
+    let birthdate: Date;
+    
+    if (typeof value === 'string') {
+      birthdate = parseISO(value);
+      if (isNaN(birthdate.getTime())) {
+        return { 'dateInvalid': true };
       }
+    } else {
+      birthdate = value;
     }
-    return null;
+
+    if (differenceInYears(new Date(), birthdate) < 18) {
+      return { 'ageInvalid': true };
+    }
   }
+  return null;
+}
+
 
   validatePhoneNumber(control: AbstractControl): { [key: string]: any } | null {
     const pattern = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
