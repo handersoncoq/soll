@@ -4,11 +4,6 @@ $alt-font-color: #E3E7F1;
 $dark-dusty-blue: rgb(37, 84, 109);
 
 .verification-form {
-  // background-color: $primary-color;
-  // color: $alt-font-color;
-  // padding: 20px;
-  // border-radius: 5px;
-  // box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   font-family: 'Arial', sans-serif;
   color: $primary-color;
 
@@ -18,8 +13,9 @@ $dark-dusty-blue: rgb(37, 84, 109);
   }
 
   .code-inputs {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 5px;
     margin-bottom: 20px;
 
     input {
@@ -91,4 +87,11 @@ $dark-dusty-blue: rgb(37, 84, 109);
   display: flex;
   justify-content: center;
   text-align: center;
+}
+
+@media (min-width: 600px) {
+  input{
+    width: 1.5em !important;
+    height: 1.8em !important;
+  }
 }

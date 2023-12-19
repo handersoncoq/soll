@@ -26,7 +26,6 @@ import { ContentManagerService } from './services/content-manager/content-manage
 import { SharedModule } from './shared/shared.module';
 import { FooterComponent } from './components/footer/footer.component';
 import { GetStartedComponent } from './components/get-started/get-started.component';
-import { LoginComponent } from './components/login/login.component';
 import { SnackBarComponent } from './templates/snack-bar/snack-bar.component';
 import { ScreenLayoutService } from './utils/screen-layout/screen-layout.service';
 import { VerificationComponent } from './templates/verification/verification.component';
@@ -45,7 +44,6 @@ import { SignInComponent } from './components/sign-in/sign-in.component';
     FrontPageComponent,
     FooterComponent,
     GetStartedComponent,
-    LoginComponent,
     SnackBarComponent,
     VerificationComponent,
     LoadingComponent,

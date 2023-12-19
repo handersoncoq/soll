@@ -72,8 +72,8 @@
             </div>
           </div>
         </div>
-        <div routerLink="/info/concept-overview" class="hero-btn-container">
-          <button class="cta-btn" mat-raised-button>Explore More</button>
+        <div routerLink="/get-started" class="hero-btn-container">
+          <button class="cta-btn" mat-raised-button>Get Started</button>
         </div>
         <div class="spacing"></div>
         <div class="spacing"></div>
@@ -92,7 +92,7 @@
     </div>
   </div>
   
-  <div class="content-video video-even">
+  <div class="content-video video-odd">
     <div routerLink="/get-started">
       <img [attr.data-src]="contentVideos[1]" alt="content"  appLazyLoading>
     </div>
@@ -111,7 +111,7 @@
       <div class="branding">
         <div class="learn-more-content">
           <p class="img-p">
-            <img [attr.data-src]="frontPageLogo" alt="App Logo" appLazyLoading />
+            <img class="what-is-img" [attr.data-src]="frontPageLogo" alt="App Logo" appLazyLoading />
           </p>
         </div>
         <div class="learn-more-content tag-words">
@@ -127,7 +127,7 @@
     </div>
   </div>
   
-  <div class="content-video video-odd">
+  <div class="content-video video-even">
     <div routerLink="/">
       <img [attr.data-src]="contentVideos[5]" alt="content"  appLazyLoading>
     </div>
@@ -186,7 +186,7 @@
     </mat-accordion>
   </div>
   
-  <div class="content-video video-even">
+  <div class="content-video video-odd">
     <div routerLink="/info/concept-overview">
       <img [attr.data-src]="contentVideos[2]" alt="content" appLazyLoading>
     </div>

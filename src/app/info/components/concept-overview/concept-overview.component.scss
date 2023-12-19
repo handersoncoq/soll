@@ -76,15 +76,18 @@ $dark-dusty-blue: rgb(37 84 109);
   }
 
   img{
-    height: 17em;
+    height: 100%;
     width: 100%;
     border-radius: 1em;
   }
 
   .overview{
     img{
-      height: 16em;
+      height: 95%;
     }
+  }
+  .ecps img{
+    border: solid gainsboro 1px;
   }
 }
 
@@ -96,25 +99,18 @@ $dark-dusty-blue: rgb(37 84 109);
     height: 20em !important;
   }
   .main-content{
-    margin-left: 2em;
-    margin-right: 2em;
-    .layout{
-      display: flex;
-      flex-direction: row;
-      p{
-        margin-right: 3em;
-      }
-    }
-    p, ul, li{
-      font-size: medium;
-    }
-    img{
-      width: 45%;
-    }
-    .overview img{
-      margin-top: 2em;
-      height: 70%;
-      width: 20em;
-    }
+    margin-right: 5em !important;
   }
+  section{
+    margin-right: 5em !important;
+  }
+  img{
+    object-fit: contain;
+    height: auto !important;
+    width: 100% !important;
+  }
+
+p, ul, li{
+  font-size: large !important;
+}
 }

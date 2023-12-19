@@ -16,6 +16,7 @@ export class ConceptOverviewComponent implements OnInit{
   eps = '/assets/img/eps.webp';
   ecps = '/assets/img/ecps.webp';
   leader = '/assets/img/leader.webp';
+  communityEngagement = '/assets/img/community-engagement.webp';
 
   constructor(private contentManagerService: ContentManagerService){
     this.appLogo = this.contentManagerService.getAppLogo3();
