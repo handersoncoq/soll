@@ -14,7 +14,7 @@
       <span>Don't receive the code? <p (click)="resendCode()">Resend</p></span>
     </div>
     <div *ngIf="verificationSucceeds" class="spinner-container">
-      <mat-progress-spinner mode="indeterminate" color="accent"></mat-progress-spinner>
+      <app-loading></app-loading>
     </div>
   </div>
   

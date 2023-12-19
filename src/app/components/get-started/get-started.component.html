@@ -4,7 +4,7 @@
       <div class="logo-div" routerLink="/">
         <img [attr.data-src]="appLogo" alt="App Logo" appLazyLoading />
       </div>
-      <h1>Let's get you started on your Soll<sup>&reg;</sup> journey!</h1>
+      <h1 *ngIf="currentStep !== 6">Let's get you started on your Soll<sup>&reg;</sup> journey!</h1>
       <div *ngIf="currentStep === 1">
         <h3>Please tell us who you are</h3>
         <div class="form-row">
@@ -305,13 +305,14 @@
       </div>
       <div *ngIf="currentStep === 6" class="success-message">
         {{successMessage}}
+        <div class="spacing"></div>
       </div>
-      <div *ngIf="currentStep !== 6" class="other-info" routerLink="/login">
+      <div *ngIf="currentStep !== 6" class="other-info" routerLink="/sign-in">
         <h3>Have an account?</h3>
       </div>
     </div>
-    <div *ngIf="currentStep === 5" class="spinner-container">
-      <mat-progress-spinner mode="indeterminate" color="accent"></mat-progress-spinner>
+    <div *ngIf="currentStep === 5" class="spinner-component">
+      <app-loading></app-loading>
     </div>
   </form>
 </div>

@@ -66,4 +66,7 @@
       <p routerLink="/">I can't sign in</p>
     </div>
   </form>
+  <div *ngIf="credialsAreValid" class="spinner-container">
+    <app-loading></app-loading>
+  </div>
 </div>

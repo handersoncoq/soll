@@ -1,4 +1,9 @@
-.logo-div{
+.nav-container{
+    margin-bottom: 4em;
+    display: flex;
+  }
+
+.scroll-indicator{
     position: fixed;
     right: 0;
     bottom: 0;
@@ -9,7 +14,7 @@
     mat-icon{
         border-radius: 50%;
         background-color: white;
-        padding: 4px;
+        padding: 6px;
         box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
     }
 }

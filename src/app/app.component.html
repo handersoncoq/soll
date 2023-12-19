@@ -1,4 +1,7 @@
-<div *ngIf="showIcon" class="logo-div" (click)="scrollToTop()">
+<div *ngIf="shouldShowNavbar()" class="nav-container">
+    <app-public-nav></app-public-nav>
+</div>
+<div *ngIf="showIcon" class="scroll-indicator" (click)="scrollToTop()">
     <mat-icon color="accent">keyboard_arrow_up</mat-icon>
 </div>
 <router-outlet></router-outlet>

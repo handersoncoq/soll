@@ -4,7 +4,7 @@
     <div class="toolbar-content">
       <span (click)="navigateTo('/')" class="company-name">Soll<sup>&reg;</sup></span>
       <span class="spacer"></span>
-      <button mat-button (click)="navigateTo('/login')">Sign in</button>
+      <button mat-button (click)="navigateTo('/sign-in')">Sign in</button>
       <button mat-button (click)="openDialog(infoDetails.inquireTitle, infoDetails.phoneNumber, false)"><mat-icon>phone</mat-icon>Inquire</button>
       <button mat-icon-button [matMenuTriggerFor]="menu" #trigger="matMenuTrigger" class="menu-button">
         <span *ngIf="trigger.menuOpen" class="material-symbols-outlined">keyboard_arrow_down</span>
@@ -12,6 +12,7 @@
       </button>
     </div>
   </mat-toolbar-row>
+  <mat-toolbar-row class="spacer-row"></mat-toolbar-row>
   <mat-toolbar-row class="spacer-row"></mat-toolbar-row>
 </mat-toolbar>
 

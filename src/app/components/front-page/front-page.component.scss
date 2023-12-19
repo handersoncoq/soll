@@ -13,11 +13,6 @@ $beige-ish: rgb(244, 244, 242);
 $section-boxshadow: rgba(50, 50, 93, 0.25) 0px 13px 27px 23px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 $cta-btn-boxshadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
 
-.nav-box{
-  margin-bottom: 4em;
-  display: flex;
-}
-
 
 .hero-section {
   position: relative;
@@ -390,14 +385,7 @@ $cta-btn-boxshadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0
 
 // *********************************************************
 
-@keyframes loadProgress {
-  from {
-    width: 0%;
-  }
-  to {
-    width: 85%;
-  }
-}
+
 
 
 .progress-bar {
@@ -407,14 +395,12 @@ $cta-btn-boxshadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0
   border-radius: 5px;
   box-shadow: $box-shadow;
 
-  div {
+  .inner-progress {
     height: 8px;
     padding: 1px;
     border-radius: 5px;
     background-color: $progress-bar-color;
-    width: 85%;
     transition: width 0.5s ease-in-out;
-    animation: loadProgress 1s ease-out forwards;
   }
 }
 

@@ -37,6 +37,7 @@ import { TermsAndConditionsComponent } from './templates/terms-and-conditions/te
 import { LazyVideoDirective } from './utils/directives/lazy-video.directive';
 import { StyleManagerService } from './services/style-manager/style-manager.service';
 import { NoticeComponent } from './templates/notice/notice.component';
+import { SignInComponent } from './components/sign-in/sign-in.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { NoticeComponent } from './templates/notice/notice.component';
     TermsAndConditionsComponent,
     LazyVideoDirective,
     NoticeComponent,
+    SignInComponent
   ],
   imports: [
     ReactiveFormsModule,

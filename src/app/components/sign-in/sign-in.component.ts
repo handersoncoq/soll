@@ -5,11 +5,11 @@ import { ContentManagerService } from 'src/app/services/content-manager/content-
 import { SnackBarComponent } from 'src/app/templates/snack-bar/snack-bar.component';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  selector: 'app-sign-in',
+  templateUrl: './sign-in.component.html',
+  styleUrl: './sign-in.component.scss'
 })
-export class LoginComponent implements OnInit{
+export class SignInComponent implements OnInit{
 
   isMobile!: boolean;
   loginForm!: FormGroup;
@@ -49,9 +49,17 @@ export class LoginComponent implements OnInit{
         horizontalPosition: 'right'
       });
     }
-    else {
-      
-    }
+    else this.toVerification();
+  }
+
+  toVerification(){
+    this.credialsAreValid = true;
+      setTimeout(() =>{
+        this.credialsAreValid = false;
+      }, 1000);
+      setTimeout(() =>{
+        this.currentStep++;
+      }, 1000);
   }
 
   validateEmailDomain(email: string): boolean{

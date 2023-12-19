@@ -34,6 +34,7 @@ export class FrontPageComponent implements OnInit, OnDestroy{
   ];
   currentImage!: string;
   $accentColor = '#35425B';
+  progessPercent = '20%';
 
   constructor(private contentManagerService: ContentManagerService){
     this.frontPageLogo = this.contentManagerService.getAppLogo6();
@@ -68,16 +69,25 @@ export class FrontPageComponent implements OnInit, OnDestroy{
       this.currentImageIndex = (this.currentImageIndex + 1) % this.images.length;
       this.currentImage = this.images[this.currentImageIndex];
       if(this.taglines) this.slogan = this.taglines.array[this.currentImageIndex];
-      this.toggleBackground();
+      this.toggleBackground(this.currentImageIndex);
     }, 5000);
   }
 
-  toggleBackground() {
+  toggleBackground(index: number) {
+    this.moveProgess(index);
     const contentDiv = document.querySelector('.content');
     contentDiv?.classList.add('transition');
     setTimeout(() => {
       contentDiv?.classList.remove('transition');
     }, 500);
+  }
+
+  moveProgess(index: number){
+    if(index == 0) this.progessPercent = '20%'
+    if(index == 1) this.progessPercent = '40%'
+    if(index == 2) this.progessPercent = '60%'
+    if(index == 3) this.progessPercent = '80%'
+    if(index == 4) this.progessPercent = '100%'
   }
 
   ngOnDestroy() {
@@ -89,6 +99,8 @@ export class FrontPageComponent implements OnInit, OnDestroy{
   setCurrentImage(index: number): void {
     this.currentImageIndex = index;
     this.currentImage = this.images[index];
+    this.moveProgess(index);
+    this.slogan = this.taglines.array[this.currentImageIndex];
   }
 
   activeColor(index: number): string {

@@ -2,6 +2,7 @@ import { Component, HostBinding, HostListener, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { StyleManagerService } from './services/style-manager/style-manager.service';
 import { NoticeComponent } from './templates/notice/notice.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -14,7 +15,7 @@ export class AppComponent implements OnInit {
   title = 'Soll';
   showIcon = false;
 
-  constructor(public dialog: MatDialog, private styleManager: StyleManagerService){}
+  constructor(public dialog: MatDialog, private styleManager: StyleManagerService, public router: Router){}
 
   ngOnInit(): void {
     this.styleManager.disableScroll();
@@ -45,5 +46,10 @@ export class AppComponent implements OnInit {
     window.scroll({
       top: 0,
       behavior: 'smooth'})
+  }
+
+  shouldShowNavbar(): boolean {
+    const hideOnRoutes = ['/sign-in', '/get-started'];
+    return !hideOnRoutes.includes(this.router.url);
   }
 }

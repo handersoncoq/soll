@@ -227,6 +227,7 @@ sup {
 }
 
 .success-message{
+    text-align: center;
     margin: 0;
     padding: 0;
     margin-bottom: 3em;
@@ -234,9 +235,10 @@ sup {
     font-size: large;
 }
 
-video{
-    height: 2em;
-    width: 2em;
+.spinner-component{
+    display: flex;
+    justify-content: center;
+    margin-top: 12em;
 }
 
 // *************************************************

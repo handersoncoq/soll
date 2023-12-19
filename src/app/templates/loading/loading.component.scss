@@ -1,13 +1,5 @@
-.component-wrapper{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+.spinner-container{
+    display: flex;
+    justify-content: center;
     text-align: center;
-    overflow: hidden;
-}
-
-.spinner-div{
-    justify-content: center; 
-    padding: 1em;
 }

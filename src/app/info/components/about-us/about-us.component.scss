@@ -21,7 +21,7 @@ $dark-dusty-blue: rgb(37 84 109);
     background-position-y: center;
     color: $accent-color;
     text-align: center;
-    height: 18%;
+    height: 10em;
     padding: 16px 0;
   
     .inner-div{
@@ -99,5 +99,11 @@ $dark-dusty-blue: rgb(37 84 109);
   
   .profile-info p {
     margin: 0;
+  }
+
+  @media (min-width: 600px){
+    .header{
+      height: 20em !important;
+    }
   }
   
