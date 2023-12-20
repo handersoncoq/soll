@@ -1,0 +1,24 @@
+.nav-container{
+    margin-bottom: 4em;
+    display: flex;
+  }
+
+.scroll-indicator{
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    margin-bottom: 2em;
+    z-index: 1000;
+    width: fit-content;
+    cursor: pointer;
+    mat-icon{
+        border-radius: 50%;
+        background-color: white;
+        padding: 6px;
+        box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    }
+}
+
+.spacing{
+    border: none;
+}

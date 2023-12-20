@@ -1,0 +1,36 @@
+{
+    "privacyPolicyTitle": "Privacy Policy",
+    "introduction": {
+      "welcomeText": "Welcome to Soll!",
+      "policyOutline": "This Privacy Policy outlines our guidelines for the collection, use, and disclosure of your information."
+    },
+    "informationCollection": {
+      "personalDataCollected": "We collect personal data such as name, email address, and contact information.",
+      "usageData": "We may also collect information on how the Service is accessed and used ('Usage Data')."
+    },
+    "useOfInformation": {
+      "purposeOfCollection": "The collected information is used to provide and improve the service.",
+      "communication": "We may use your information to contact you with newsletters, marketing or promotional materials and other information."
+    },
+    "informationSharing": {
+      "thirdPartySharing": "We do not sell or rent personal data to third parties.",
+      "legalRequirements": "We will disclose your information where required to do so by law or subpoena."
+    },
+    "securityOfData": {
+      "dataSecurity": "The security of your data is important to us but remember that no method of transmission over the Internet is 100% secure."
+    },
+    "serviceProviders": {
+      "thirdPartyServices": "We may employ third party companies to facilitate our Service ('Service Providers'), to provide the Service on our behalf, or to assist us in analyzing how our Service is used."
+    },
+    "childrensPrivacy": {
+      "childrenUnder18": "Our Service does not address anyone under the age of 18 ('Children').",
+      "parentalControl": "We do not knowingly collect personally identifiable information from anyone under the age of 18."
+    },
+    "changesToPolicy": {
+      "updateNotice": "We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page.",
+      "changeDateNotice": "Changes to this Privacy Policy are effective when they are posted on this page."
+    },
+    "contactUs": {
+      "inquiries": "If you have any questions about this Privacy Policy, please contact us."
+    }
+  }  

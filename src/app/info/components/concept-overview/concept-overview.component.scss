@@ -1,0 +1,116 @@
+
+$primary-color: #52688F;
+$accent-color: #35425B;
+$background-color: #7B9DAB;
+$default-font-color: #35425B;
+$alt-font-color: #E3E7F1;
+$text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+$text-shadow2: 2px 2px 4px rgb(21, 43, 55);
+$box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+$background-image: url('/assets/img/people.webp');
+$radiant1: rgb(255 255 255 / 0%);
+$radiant2: rgb(75, 124, 149, 0.5);
+$dark-dusty-blue: rgb(37 84 109);
+
+.header {
+    background: $background-image;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    background-position-x: center;
+    background-position-y: center;
+    color: $accent-color;
+    text-align: center;
+    height: 10em;
+    padding: 16px 0;
+  
+    .inner-div{
+        background: linear-gradient(to top, $radiant1, $dark-dusty-blue);
+        margin: 0;
+      .hero-div{
+        color: white;
+        text-shadow: $text-shadow;
+        width: 100%;
+        padding-top: 1em;
+        padding-bottom: 7em;
+        margin-top: -1em;
+      }
+  
+    }
+  
+  }
+
+  .headline{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-size: large;
+    text-shadow: $text-shadow;
+}
+
+// *************************************************************
+
+.main-content {
+    margin: 1em;
+    margin-top: 2em;
+    margin-bottom: 3em;
+    color: $accent-color;
+
+    h2{
+      color: $primary-color;
+    }
+
+    h3, h5, h4{
+      color: $accent-color;
+    }
+
+  p, ul, li{
+    line-height: 1.5;     
+    font-size: medium;
+    color: $primary-color;
+  }
+
+  .examples{
+    padding-left: 1em;
+  }
+
+  img{
+    height: 100%;
+    width: 100%;
+    border-radius: 1em;
+  }
+
+  .overview{
+    img{
+      height: 95%;
+    }
+  }
+  .ecps img{
+    border: solid gainsboro 1px;
+  }
+}
+
+
+// *********************************************************
+
+@media (min-width: 600px){
+  .header{
+    height: 20em !important;
+  }
+  .main-content{
+    margin-right: 5em !important;
+  }
+  section{
+    margin-right: 5em !important;
+  }
+  img{
+    object-fit: contain;
+    height: auto !important;
+    width: 100% !important;
+  }
+
+p, ul, li{
+  font-size: large !important;
+}
+}

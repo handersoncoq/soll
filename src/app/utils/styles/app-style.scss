@@ -1,0 +1,24 @@
+// global variables
+$primary-color: #52688F;
+$secondary-color: #35425B;
+$accent-color: #35425B;
+$background-color: #BDC6D9;
+$default-font-color: #35425B;
+$alt-font-color: #E3E7F1;
+$sol-logo-light-color: #d6dff3;
+$sol-dark-color: #353c4a;
+$sol-black: rgba(0, 0, 0, 0.87);
+$sol-light-color: #BDC6D9;
+$sol-transparent-bgr: rgb(82, 104, 143, 0.1);
+$sol-box-shadow: 0px 0px 10px rgb(82, 104, 143, 0.2);
+$third-color: #445470;
+$sol-subtle-backgound: #b4bfd6;
+$sol-glossy-background: #2a416b;
+$sol-thin-border: solid $secondary-color 1px;
+$sol-darker: #161B22;
+$dark-dusty-blue: rgb(37 84 109);
+
+// divider
+.divider{
+    border-top-color: $alt-font-color !important;
+}
