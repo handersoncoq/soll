@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { PhoneAgreementComponent } from 'src/app/info/components/phone-agreement/phone-agreement.component';
 import { ContentManagerService } from 'src/app/services/content-manager/content-manager.service';
 import { SnackBarComponent } from 'src/app/templates/snack-bar/snack-bar.component';
 
@@ -20,8 +22,11 @@ export class SignInComponent implements OnInit{
   currentStep = 1;
   hidePassword = true;
   credialsAreValid = false;
+  enterAnimationDuration = '400ms';
+  exitAnimationDuration = '200ms';
 
-  constructor(private formBuilder: FormBuilder, private contentManagerService: ContentManagerService, private snackBar: MatSnackBar) {
+  constructor(private formBuilder: FormBuilder, private contentManagerService: ContentManagerService, 
+    private snackBar: MatSnackBar, private dialog: MatDialog) {
     this.appLogo = this.contentManagerService.getAppLogo6();
     this.loginForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
@@ -77,6 +82,15 @@ export class SignInComponent implements OnInit{
     return frm.controls['dob'].valid &&
     frm.controls['phone'].valid &&
     frm.controls['acceptPhoneAgr'].valid;
+  }
+
+  openPhoneAgr(): void {
+    this.dialog.open(PhoneAgreementComponent,
+      {
+        width: '100%',
+        enterAnimationDuration: this.enterAnimationDuration,
+        exitAnimationDuration: this.exitAnimationDuration,
+      })
   }
   
 

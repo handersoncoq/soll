@@ -16,6 +16,7 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatNativeDateModule} from '@angular/material/core';
 import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 import { AppComponent } from './app.component';
 import { FrontPageComponent } from './components/front-page/front-page.component';
@@ -68,7 +69,8 @@ import { SignInComponent } from './components/sign-in/sign-in.component';
     MatSelectModule,
     MatTooltipModule,
     MatNativeDateModule,
-    MatDatepickerModule
+    MatDatepickerModule,
+    MatCheckboxModule
   ],
   providers: [ContentManagerService, ScreenLayoutService, StyleManagerService],
   bootstrap: [AppComponent]

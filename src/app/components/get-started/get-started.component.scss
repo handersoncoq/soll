@@ -73,17 +73,6 @@ input::placeholder{
     font-size: medium;
 }
 
-input[type="checkbox"]{
-    cursor: pointer;
-    border: none;
-    border-radius: 50%;
-    width: 15px;
-    height: 15px;
-    padding: 0;
-    margin: 0 5px;
-    background-color: transparent;
-  }
-
 .app-datepicker {
   position: relative;
   display: inline-block;
@@ -169,15 +158,6 @@ sup {
     }
     p{
         font-size: small;
-        cursor: pointer;
-    }
-}
-
-.agreement{
-    font-size: smaller;
-    a, span{
-        font-weight: bold;
-        color: $primary-color;
         cursor: pointer;
     }
 }

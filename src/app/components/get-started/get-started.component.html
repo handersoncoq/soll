@@ -4,7 +4,9 @@
       <div class="logo-div" routerLink="/">
         <img [attr.data-src]="appLogo" alt="App Logo" appLazyLoading />
       </div>
-      <h1 *ngIf="currentStep !== 6">Let's get you started on your Soll<sup>&reg;</sup> journey!</h1>
+      <h1 *ngIf="currentStep !== 6">
+        Let's get you started on your Soll<sup>&reg;</sup> journey!
+      </h1>
       <div *ngIf="currentStep === 1">
         <h3>Please tell us who you are</h3>
         <div class="form-row">
@@ -57,7 +59,9 @@
             "
             class="agreement"
           >
-            Note: To ensure the security of our platform, we currently accept only the following email domains: Gmail, Yahoo, Outlook, iCloud, and AOL.
+            Note: To ensure the security of our platform, we currently accept
+            only the following email domains: Gmail, Yahoo, Outlook, iCloud, and
+            AOL.
             <span (click)="openEmailJustification()">Learn More</span>
           </div>
         </div>
@@ -80,13 +84,20 @@
               [matDatepicker]="dobPicker"
               placeholder="MM/DD/YYYY"
               class="form-control"
-              [ngClass]="{'isError': registrationForm.get('dob')?.invalid && registrationForm.get('dob')?.touched}"
+              [ngClass]="{
+                isError:
+                  registrationForm.get('dob')?.invalid &&
+                  registrationForm.get('dob')?.touched
+              }"
               id="dob"
               formControlName="dob"
             />
-            <mat-datepicker-toggle matSuffix [for]="dobPicker"></mat-datepicker-toggle>
+            <mat-datepicker-toggle
+              matSuffix
+              [for]="dobPicker"
+            ></mat-datepicker-toggle>
             <mat-datepicker #dobPicker></mat-datepicker>
-          </span>          
+          </span>
           <div
             class="error-div"
             *ngIf="
@@ -119,9 +130,14 @@
           >
             A valid U.S. phone number is required.
           </div>
-          <span class="agreement" *ngIf="registrationForm.get('phone')?.valid"
-            ><input type="checkbox" formControlName="acceptPhoneAgr" /> By
-            providing your phone numer, you agree to receive essential account-related communications from us. <span (click)="openPhoneAgr()">Learn More</span>
+          <span class="agreement" *ngIf="registrationForm.get('phone')?.valid">
+            <mat-checkbox
+              color="primary"
+              formControlName="acceptPhoneAgr"
+            ></mat-checkbox>
+            By providing your phone numer, you agree to receive essential
+            account-related communications from us.
+            <span (click)="openPhoneAgr()">Learn More</span>
           </span>
         </div>
         <div class="prev-next">
@@ -173,15 +189,15 @@
               />
             </div>
             <div class="form-group col-md-6">
-              <mat-select 
-              class="form-control" 
-              [ngClass]="{
-                isError:
-                  registrationForm.get('state')?.invalid &&
-                  registrationForm.get('state')?.touched
-              }"
-              formControlName="state" 
-              placeholder="Sate"
+              <mat-select
+                class="form-control"
+                [ngClass]="{
+                  isError:
+                    registrationForm.get('state')?.invalid &&
+                    registrationForm.get('state')?.touched
+                }"
+                formControlName="state"
+                placeholder="Sate"
               >
                 <mat-option *ngFor="let state of usStates" [value]="state">
                   {{ state }}
@@ -250,10 +266,14 @@
               class="error-div"
               *ngIf="registrationForm.get('password')?.errors?.['pattern']"
             >
-              <div *ngIf="!hasLowerCase(registrationForm.get('password')?.value)">
+              <div
+                *ngIf="!hasLowerCase(registrationForm.get('password')?.value)"
+              >
                 Password must contain at least one lowercase letter.
               </div>
-              <div *ngIf="!hasUpperCase(registrationForm.get('password')?.value)">
+              <div
+                *ngIf="!hasUpperCase(registrationForm.get('password')?.value)"
+              >
                 Password must contain at least one uppercase letter.
               </div>
               <div *ngIf="!hasNumber(registrationForm.get('password')?.value)">
@@ -264,8 +284,8 @@
                   !hasSpecialCharacter(registrationForm.get('password')?.value)
                 "
               >
-                Password must contain at least one special character (&#64;, $, !, %,
-                *, ?, &).
+                Password must contain at least one special character (&#64;, $,
+                !, %, *, ?, &).
               </div>
               <div *ngIf="registrationForm.get('password')?.value.length < 8">
                 Password must be at least 8 characters long.
@@ -286,8 +306,13 @@
             Passwords must match.
           </div>
           <span class="agreement"
-            ><input type="checkbox" formControlName="acceptTerms" /> By submitting
-            this form, you agree to our <span (click)="openTermsAndConditions()">Terms and Conditions</span>.
+            ><mat-checkbox
+              color="primary"
+              formControlName="acceptTerms"
+            ></mat-checkbox
+            >By submitting this form, you agree to our
+            <span (click)="openTermsAndConditions()">Terms and Conditions</span
+            >.
           </span>
         </div>
         <div class="prev-next">
@@ -302,7 +327,7 @@
         </div>
       </div>
       <div *ngIf="currentStep === 6" class="success-message">
-        {{successMessage}}
+        {{ successMessage }}
         <div class="spacing"></div>
       </div>
       <div *ngIf="currentStep !== 6" class="other-info" routerLink="/sign-in">

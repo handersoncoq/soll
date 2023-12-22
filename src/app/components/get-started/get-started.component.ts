@@ -27,7 +27,7 @@ export class GetStartedComponent implements OnInit{
   exitAnimationDuration = '200ms';
   usStates = states;
 
-  constructor(private formBuilder: FormBuilder, private contentManagerService: ContentManagerService, private dialog: MatDialog,) {
+  constructor(private formBuilder: FormBuilder, private contentManagerService: ContentManagerService, private dialog: MatDialog) {
     this.appLogo = this.contentManagerService.getAppLogo6();
     this.registrationForm = this.formBuilder.group({
       firstName: ['', Validators.required],
