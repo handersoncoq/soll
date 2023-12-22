@@ -9,13 +9,15 @@ export class LazyLoadingDirective implements AfterViewInit, OnDestroy {
   constructor(private el: ElementRef<HTMLImageElement>) {}
 
   ngAfterViewInit() {
-    this.observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
+    this.observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
         if (entry.isIntersecting) {
           this.loadImage();
+        } else {
+          this.unloadImage();
         }
       });
-    }, { threshold: 0.5 });
+    }, { threshold: 0.1 });
 
     this.observer.observe(this.el.nativeElement);
   }
@@ -23,11 +25,15 @@ export class LazyLoadingDirective implements AfterViewInit, OnDestroy {
   loadImage() {
     const imageElement: HTMLImageElement = this.el.nativeElement;
     const src = imageElement.getAttribute('data-src');
-    if (src) {
+    if (src && imageElement.src !== src) {
       imageElement.src = src;
       imageElement.onload = () => imageElement.classList.add('loaded');
     }
-    this.observer.disconnect();
+  }
+
+  unloadImage() {
+    const imageElement: HTMLImageElement = this.el.nativeElement;
+    imageElement.classList.remove('loaded');
   }
 
   ngOnDestroy() {
