@@ -9,10 +9,11 @@ import { MatDialogModule } from '@angular/material/dialog';
 
 import { PublicNavComponent } from '../templates/public-nav/public-nav.component';
 import { LazyLoadingDirective } from '../utils/directives/lazy-loading.directive';
+import { LazyLoadTextDirective } from '../utils/directives/lazy-load-text.directive';
 
 
 @NgModule({
-  declarations: [ PublicNavComponent, LazyLoadingDirective ],
+  declarations: [ PublicNavComponent, LazyLoadingDirective, LazyLoadTextDirective ],
   imports: [
     CommonModule,
     MatToolbarModule,
@@ -23,7 +24,8 @@ import { LazyLoadingDirective } from '../utils/directives/lazy-loading.directive
   ],
   exports: [ 
     PublicNavComponent, 
-    LazyLoadingDirective, 
+    LazyLoadingDirective,
+    LazyLoadTextDirective,
     MatDialogModule, 
     MatToolbarModule,
     MatButtonModule

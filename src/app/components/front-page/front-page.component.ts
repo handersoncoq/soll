@@ -76,8 +76,10 @@ export class FrontPageComponent implements OnInit, OnDestroy{
   toggleBackground(index: number) {
     this.moveProgess(index);
     const contentDiv = document.querySelector('.content');
+    const heroImages = document.querySelector('.heroImages');
     contentDiv?.classList.add('transition');
     setTimeout(() => {
+      heroImages?.classList.remove('heroImages');
       contentDiv?.classList.remove('transition');
     }, 500);
   }

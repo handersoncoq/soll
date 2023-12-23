@@ -15,8 +15,8 @@
         <h3>Overview</h3>
         <section class="overview layout">
             <div>
-                <p>{{ conceptOverview.overview.description }}</p>
-                <p>{{ conceptOverview.overview.innovation }}</p>
+                <p appLazyLoadText >{{ conceptOverview.overview.description }}</p>
+                <p appLazyLoadText >{{ conceptOverview.overview.innovation }}</p>
             </div>
             <div>
                 <img [attr.data-src]="community" alt="Community" appLazyLoading>
@@ -25,18 +25,18 @@
     
         <h3>System Infrastructure</h3>
         <section>
-            <p>{{ conceptOverview.systemInfrastructure.modelDescription }}</p>
-            <h4>Early Payout System (EPS)</h4>
+            <p appLazyLoadText >{{ conceptOverview.systemInfrastructure.modelDescription }}</p>
+            <h4 appLazyLoadText >Early Payout System (EPS)</h4>
             <div class="layout">
                 <div>
-                    <p>{{ conceptOverview.systemInfrastructure.subdivisions.earlyPayoutSystem.description }}</p>
+                    <p appLazyLoadText >{{ conceptOverview.systemInfrastructure.subdivisions.earlyPayoutSystem.description }}</p>
                 </div>
                 <img [attr.data-src]="eps" alt="EPS" appLazyLoading>
             </div>
-            <h4>End Of Cycle Payout System (ECPS)</h4>
+            <h4 appLazyLoadText >End Of Cycle Payout System (ECPS)</h4>
             <div class="layout ecps">
                 <div>
-                    <p>{{ conceptOverview.systemInfrastructure.subdivisions.endOfCyclePayoutSystem.description }}</p>
+                    <p appLazyLoadText >{{ conceptOverview.systemInfrastructure.subdivisions.endOfCyclePayoutSystem.description }}</p>
                 </div>
                 <img [attr.data-src]="ecps" alt="ECPS" appLazyLoading>
             </div>
@@ -45,16 +45,16 @@
         <section>
             <h3>Operational Infrastructure</h3>
             <div class="layout">
-                <p>{{ conceptOverview.operationalInfrastructure.groupStructure }}</p>
+                <p appLazyLoadText >{{ conceptOverview.operationalInfrastructure.groupStructure }}</p>
                 <div style="width: 100%;"></div>
             </div>
             <img [attr.data-src]="overviewImg" alt="Soll in mobile" appLazyLoading>
             <h4>Group Leaders</h4>
             <div class="layout">
                 <div>
-                    <p>{{ conceptOverview.operationalInfrastructure.groupLeaders.responsibilities }}</p>
-                    <p>{{ conceptOverview.operationalInfrastructure.groupLeaders.selection }}</p>
-                    <p>{{ conceptOverview.operationalInfrastructure.digitalManagement }}</p>
+                    <p appLazyLoadText >{{ conceptOverview.operationalInfrastructure.groupLeaders.responsibilities }}</p>
+                    <p appLazyLoadText >{{ conceptOverview.operationalInfrastructure.groupLeaders.selection }}</p>
+                    <p appLazyLoadText >{{ conceptOverview.operationalInfrastructure.digitalManagement }}</p>
                 </div>
                 <img [attr.data-src]="leader" alt="Soll Leader" appLazyLoading>
             </div>
@@ -62,56 +62,56 @@
     
         <section>
             <h3>Default Management</h3>
-            <p>{{ conceptOverview.defaultManagement }}</p>
+            <p appLazyLoadText >{{ conceptOverview.defaultManagement }}</p>
         </section>
     
         <section>
             <h3>Reputation and Exit System</h3>
-            <p>{{ conceptOverview.reputationAndExitSystem.description }}</p>
-            <p>{{ conceptOverview.reputationAndExitSystem.gracePeriods }}</p>
-            <p>{{ conceptOverview.reputationAndExitSystem.defaultConsequences }}</p>
+            <p appLazyLoadText >{{ conceptOverview.reputationAndExitSystem.description }}</p>
+            <p appLazyLoadText >{{ conceptOverview.reputationAndExitSystem.gracePeriods }}</p>
+            <p appLazyLoadText >{{ conceptOverview.reputationAndExitSystem.defaultConsequences }}</p>
         </section>
     
         <section>
             <h3>Transparency Commitment</h3>
-            <p>{{ conceptOverview.transparencyCommitment }}</p>
+            <p appLazyLoadText >{{ conceptOverview.transparencyCommitment }}</p>
         </section>
     
         <section>
             <h3>Illustrative Example</h3>
-            <p><strong>Group Size:</strong> {{ conceptOverview.illustrativeExample.groupSize }}</p>
-            <p><strong>Contribution:</strong> {{ conceptOverview.illustrativeExample.contribution }}</p>
+            <p appLazyLoadText ><strong>Group Size:</strong> {{ conceptOverview.illustrativeExample.groupSize }}</p>
+            <p appLazyLoadText ><strong>Contribution:</strong> {{ conceptOverview.illustrativeExample.contribution }}</p>
             <div class="examples">
                 <h5>EPS</h5>
                 <ul *ngFor="let point of conceptOverview.illustrativeExample.epsExample">
-                    <li>{{point}}</li>
+                    <li appLazyLoadText >{{point}}</li>
                 </ul>
                 <h5>ECPS</h5>
                 <ul *ngFor="let point of conceptOverview.illustrativeExample.ecpExample">
-                    <li>{{point}}</li>
+                    <li appLazyLoadText >{{point}}</li>
                 </ul>
             </div>
         </section>
     
         <section>
             <h3>Legal and Regulatory Compliance</h3>
-            <p>{{ conceptOverview.legalAndRegulatoryCompliance }}</p>
+            <p appLazyLoadText >{{ conceptOverview.legalAndRegulatoryCompliance }}</p>
         </section>
     
         <section>
             <h3>Scalability and Adaptability</h3>
-            <p>{{ conceptOverview.scalabilityAndAdaptability }}</p>
+            <p appLazyLoadText >{{ conceptOverview.scalabilityAndAdaptability }}</p>
         </section>
     
         <section>
             <h3>Community Engagement</h3>
-            <p>{{ conceptOverview.communityEngagement }}</p>
+            <p appLazyLoadText >{{ conceptOverview.communityEngagement }}</p>
             <img [attr.data-src]="communityEngagement" alt="Soll Leader" appLazyLoading>
         </section>
     
         <section>
             <h3>Financial Sustainability</h3>
-            <p>{{ conceptOverview.financialSustainability }}</p>
+            <p appLazyLoadText >{{ conceptOverview.financialSustainability }}</p>
         </section>
     </div>
 </div>

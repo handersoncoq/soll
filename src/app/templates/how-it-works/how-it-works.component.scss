@@ -1,0 +1,17 @@
+$primary-color: #52688f;
+$beige-ish: rgb(244, 244, 242);
+
+.how-it-works{
+    padding: 0.5em 1em;
+    background-color: $beige-ish;
+    ol{
+        color: $primary-color;
+    }
+    li:not(:last-child){
+        font-size: medium;
+        padding-bottom: 1em;
+    }
+    strong{
+        font-size: large;
+    }
+}

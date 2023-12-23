@@ -34,6 +34,7 @@ import { TermsAndConditionsComponent } from './templates/terms-and-conditions/te
 import { StyleManagerService } from './services/style-manager/style-manager.service';
 import { NoticeComponent } from './templates/notice/notice.component';
 import { SignInComponent } from './components/sign-in/sign-in.component';
+import { HowItWorksComponent } from './templates/how-it-works/how-it-works.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { SignInComponent } from './components/sign-in/sign-in.component';
     PrivacyPolicyComponent,
     TermsAndConditionsComponent,
     NoticeComponent,
-    SignInComponent
+    SignInComponent,
+    HowItWorksComponent
   ],
   imports: [
     ReactiveFormsModule,
