@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { filter } from 'rxjs';
 import { TitleBodyArrayType } from 'src/app/interaces/TitleBodyArrayType';
 import { ContentManagerService } from 'src/app/services/content-manager/content-manager.service';
 
@@ -20,7 +21,8 @@ export class ConceptOverviewComponent implements OnInit{
   communityEngagement = '/assets/img/community-engagement.webp';
   transparency = '/assets/img/transparency.webp';
 
-  constructor(private contentManagerService: ContentManagerService, private route: ActivatedRoute){
+  constructor(private contentManagerService: ContentManagerService, 
+    private route: ActivatedRoute, private router: Router){
     this.appLogo = this.contentManagerService.getAppLogo3();
   }
 
@@ -28,10 +30,24 @@ export class ConceptOverviewComponent implements OnInit{
     this.contentManagerService.getConceptOverview().subscribe(
       data => this.conceptOverview = data
     );
-    this.route.fragment.subscribe(fragment => {
-      if (fragment) {
-        document.getElementById(fragment)?.scrollIntoView({ behavior: 'smooth' });
-      }
+    this.scrollToSection();
+  }
+
+  scrollToSection(){
+    this.router.events.pipe(
+      filter(event => event instanceof NavigationEnd)
+    ).subscribe(() => {
+      setTimeout(() => {
+        this.route.fragment.subscribe(fragment => {
+          if (fragment) {
+            document.getElementById(fragment)?.scrollIntoView({ 
+              behavior: 'smooth',
+              block: "start",
+              inline: "nearest" 
+            });
+          }
+        });
+      }, 150);
     });
   }
 

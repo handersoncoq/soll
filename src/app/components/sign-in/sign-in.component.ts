@@ -36,7 +36,9 @@ export class SignInComponent implements OnInit{
     });
    }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.scrollToTop()
+  }
 
   togglePasswordVisibility(){
     this.hidePassword = !this.hidePassword;
@@ -91,6 +93,13 @@ export class SignInComponent implements OnInit{
         enterAnimationDuration: this.enterAnimationDuration,
         exitAnimationDuration: this.exitAnimationDuration,
       })
+  }
+
+
+  scrollToTop(){
+    window.scroll({
+      top: 0,
+      behavior: 'smooth'})
   }
   
 

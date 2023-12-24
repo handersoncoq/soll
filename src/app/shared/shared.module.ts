@@ -12,10 +12,14 @@ import { PublicNavComponent } from '../templates/public-nav/public-nav.component
 import { LazyLoadingDirective } from '../utils/directives/lazy-loading.directive';
 import { LazyLoadTextDirective } from '../utils/directives/lazy-load-text.directive';
 import { PublicInteractionService } from '../services/public-interaction/public-interaction.service';
+import { ScrollToSectionDirective } from '../utils/directives/scroll-to-section.directive';
 
 
 @NgModule({
-  declarations: [ PublicNavComponent, LazyLoadingDirective, LazyLoadTextDirective ],
+  declarations: [ 
+    PublicNavComponent, LazyLoadingDirective, ScrollToSectionDirective,
+    LazyLoadTextDirective]
+    ,
   imports: [
     CommonModule,
     MatToolbarModule,

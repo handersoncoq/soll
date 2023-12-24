@@ -126,13 +126,11 @@ export class FrontPageComponent implements OnInit, OnDestroy{
   }
 
   getStarted() {
-    console.log(this.inputForm.valid)
-    if (this.inputForm.invalid) return;
     const emailValue = this.inputForm.get('email')?.value;
     if (emailValue) {
       this.publicInteractionService.setEmail(emailValue)
-      this.router.navigate(['/get-started']);
     }
+    this.router.navigate(['/get-started']);
   }  
 
 }

@@ -8,6 +8,7 @@ import { CharMap } from 'src/app/interaces/CharMap';
 import { ContentManagerService } from 'src/app/services/content-manager/content-manager.service';
 import { PublicInteractionService } from 'src/app/services/public-interaction/public-interaction.service';
 import { TermsAndConditionsComponent } from 'src/app/templates/terms-and-conditions/terms-and-conditions.component';
+import { successMessage } from 'src/app/utils/constants/GetStartedSuccessMsg';
 import { states } from 'src/app/utils/constants/UsStates';
 
 @Component({
@@ -23,7 +24,7 @@ export class GetStartedComponent implements OnInit{
   checkPhoneAgr = false;
   currentStep = 1;
   hidePassword = true;
-  successMessage = 'Congratulations! Your request to become a Soll participant has been successfully submitted. You will soon receive an email from us with further steps to complete your onboarding process.';
+  successMessage = successMessage;
   enterAnimationDuration = '400ms';
   exitAnimationDuration = '200ms';
   usStates = states;
@@ -49,6 +50,7 @@ export class GetStartedComponent implements OnInit{
    }
 
   ngOnInit() {
+    this.scrollToTop();
     const email = this.publicInteractionService.getEmail();
     if (email) {
       this.registrationForm.get('email')?.setValue(email);
@@ -63,6 +65,13 @@ export class GetStartedComponent implements OnInit{
       }
     });
     
+  }
+
+
+  scrollToTop(){
+    window.scroll({
+      top: 0,
+      behavior: 'smooth'})
   }
 
   togglePasswordVisibility(){

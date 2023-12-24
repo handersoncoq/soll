@@ -28,7 +28,7 @@
       <p appLazyLoadText>
         {{ conceptOverview.systemInfrastructure.modelDescription }}
       </p>
-      <div id="eps">
+      <div id="eps" appScrollToSection="eps" >
         <h4 appLazyLoadText>Early Payout System (EPS)</h4>
         <div class="layout">
           <div>
@@ -44,7 +44,7 @@
           </div>
         </div>
       </div>
-      <div id="ecps">
+      <div id="ecps" appScrollToSection="ecps">
         <h4 appLazyLoadText>End Of Cycle Payout System (ECPS)</h4>
         <div class="layout ecps">
           <div>
@@ -64,7 +64,7 @@
 
     <section>
       <h3>Operational Infrastructure</h3>
-      <div class="layout">
+      <div class="layout" id="operational-infrastructure">
         <p appLazyLoadText>
           {{ conceptOverview.operationalInfrastructure.groupStructure }}
         </p>
@@ -77,7 +77,7 @@
           appLazyLoading
         />
       </div>
-      <div id="leaders">
+      <div id="group-leaders" appScrollToSection="group-leaders">
         <h4>Group Leaders</h4>
         <div class="layout">
           <div>

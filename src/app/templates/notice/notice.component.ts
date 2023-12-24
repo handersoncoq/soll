@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
-import { DISCLAIMER_TEXT } from 'src/app/constants/Notice';
+import { DISCLAIMER_TEXT } from 'src/app/utils/constants/Notice';
 
 @Component({
   selector: 'app-notice',
