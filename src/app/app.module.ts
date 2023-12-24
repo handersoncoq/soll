@@ -1,5 +1,6 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { Injectable, NgModule } from '@angular/core';
+import { BrowserModule, HammerModule, HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
+import * as Hammer from 'hammerjs';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
@@ -36,6 +37,13 @@ import { NoticeComponent } from './templates/notice/notice.component';
 import { SignInComponent } from './components/sign-in/sign-in.component';
 import { HowItWorksComponent } from './templates/how-it-works/how-it-works.component';
 
+
+@Injectable()
+export class HammerConfig extends HammerGestureConfig {
+  override overrides = <any> { 
+    swipe: { direction: Hammer.DIRECTION_ALL }, 
+  };
+}
 @NgModule({
   declarations: [
     AppComponent,
@@ -57,7 +65,6 @@ import { HowItWorksComponent } from './templates/how-it-works/how-it-works.compo
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    BrowserModule,
     BrowserAnimationsModule,
     MatIconModule,
     MatMenuModule,
@@ -72,9 +79,17 @@ import { HowItWorksComponent } from './templates/how-it-works/how-it-works.compo
     MatTooltipModule,
     MatNativeDateModule,
     MatDatepickerModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    HammerModule
   ],
-  providers: [ContentManagerService, ScreenLayoutService, StyleManagerService],
+  providers: [
+    ContentManagerService, ScreenLayoutService, 
+    StyleManagerService, 
+    {
+      provide: HAMMER_GESTURE_CONFIG,
+      useClass: HammerConfig
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

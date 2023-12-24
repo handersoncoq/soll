@@ -11,10 +11,6 @@
           type="email"
           placeholder="Email"
           class="form-control"
-          [ngClass]="{
-            isError:
-              loginForm.get('email')?.invalid && loginForm.get('email')?.touched
-          }"
           id="email"
           formControlName="email"
         />
@@ -22,11 +18,6 @@
           <input
             [type]="hidePassword ? 'password' : 'text'"
             class="form-control"
-            [ngClass]="{
-              isError:
-                loginForm.get('password')?.invalid &&
-                loginForm.get('password')?.touched
-            }"
             id="password"
             formControlName="password"
             placeholder="Password"

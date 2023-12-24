@@ -96,6 +96,11 @@ input{
   caret-color: $sol-darker !important;
 }
 
+input.ng-invalid.ng-touched:not(.front-page) {
+  border: none !important;
+  outline: 1px solid red;
+}
+
 .input-container {
   position: relative;
   display: flex;

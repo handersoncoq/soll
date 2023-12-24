@@ -44,8 +44,12 @@ export class PublicNavComponent implements OnInit{
     this.styleManager.loadMaterialSymbols();
   }
 
-  navigateTo(link: string){
-    this.router.navigate([link]);
+  navigateTo(route: string, fragment: string){
+    this.router.navigate([route], { fragment: fragment });
+  }
+
+  navigateToSimpleRoute(route: string){
+    this.router.navigate([route]);
   }
 
   openDialog(title: string, content: string, isFeedback: boolean): void {

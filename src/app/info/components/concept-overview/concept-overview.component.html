@@ -28,32 +28,36 @@
       <p appLazyLoadText>
         {{ conceptOverview.systemInfrastructure.modelDescription }}
       </p>
-      <h4 appLazyLoadText>Early Payout System (EPS)</h4>
-      <div class="layout">
-        <div>
-          <p appLazyLoadText>
-            {{
-              conceptOverview.systemInfrastructure.subdivisions
-                .earlyPayoutSystem.description
-            }}
-          </p>
-        </div>
-        <div class="img-box">
-          <img [attr.data-src]="eps" alt="EPS" appLazyLoading />
+      <div id="eps">
+        <h4 appLazyLoadText>Early Payout System (EPS)</h4>
+        <div class="layout">
+          <div>
+            <p appLazyLoadText>
+              {{
+                conceptOverview.systemInfrastructure.subdivisions
+                  .earlyPayoutSystem.description
+              }}
+            </p>
+          </div>
+          <div class="img-box">
+            <img [attr.data-src]="eps" alt="EPS" appLazyLoading />
+          </div>
         </div>
       </div>
-      <h4 appLazyLoadText>End Of Cycle Payout System (ECPS)</h4>
-      <div class="layout ecps">
-        <div>
-          <p appLazyLoadText>
-            {{
-              conceptOverview.systemInfrastructure.subdivisions
-                .endOfCyclePayoutSystem.description
-            }}
-          </p>
-        </div>
-        <div class="img-box">
-          <img [attr.data-src]="ecps" alt="ECPS" appLazyLoading />
+      <div id="ecps">
+        <h4 appLazyLoadText>End Of Cycle Payout System (ECPS)</h4>
+        <div class="layout ecps">
+          <div>
+            <p appLazyLoadText>
+              {{
+                conceptOverview.systemInfrastructure.subdivisions
+                  .endOfCyclePayoutSystem.description
+              }}
+            </p>
+          </div>
+          <div class="img-box">
+            <img [attr.data-src]="ecps" alt="ECPS" appLazyLoading />
+          </div>
         </div>
       </div>
     </section>
@@ -73,26 +77,28 @@
           appLazyLoading
         />
       </div>
-      <h4>Group Leaders</h4>
-      <div class="layout">
-        <div>
-          <p appLazyLoadText>
-            {{
-              conceptOverview.operationalInfrastructure.groupLeaders
-                .responsibilities
-            }}
-          </p>
-          <p appLazyLoadText>
-            {{
-              conceptOverview.operationalInfrastructure.groupLeaders.selection
-            }}
-          </p>
-          <p appLazyLoadText>
-            {{ conceptOverview.operationalInfrastructure.digitalManagement }}
-          </p>
-        </div>
-        <div class="img-box">
-          <img [attr.data-src]="leader" alt="Soll Leader" appLazyLoading />
+      <div id="leaders">
+        <h4>Group Leaders</h4>
+        <div class="layout">
+          <div>
+            <p appLazyLoadText>
+              {{
+                conceptOverview.operationalInfrastructure.groupLeaders
+                  .responsibilities
+              }}
+            </p>
+            <p appLazyLoadText>
+              {{
+                conceptOverview.operationalInfrastructure.groupLeaders.selection
+              }}
+            </p>
+            <p appLazyLoadText>
+              {{ conceptOverview.operationalInfrastructure.digitalManagement }}
+            </p>
+          </div>
+          <div class="img-box">
+            <img [attr.data-src]="leader" alt="Soll Leader" appLazyLoading />
+          </div>
         </div>
       </div>
     </section>

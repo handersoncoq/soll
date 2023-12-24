@@ -1,18 +1,27 @@
 <div class="component">
   <div class="spacing"></div>
-  
+
   <div class="header-tagline">
-    <h1 appLazyLoadText class="tagLine">{{slogan}}</h1>
+    <h1 appLazyLoadText class="tagLine">{{ slogan }}</h1>
   </div>
-  
+
   <div class="hero-container">
     <div class="hero">
       <div class="action">
         <h4>Discover Soll and start working on your financial goal today!</h4>
       </div>
       <div>
-        <div (swipeleft)="onSwipe('swipeleft')" (swiperight)="onSwipe('swiperight')">
-          <img class="heroImages" [src]="currentImage" alt="Promotional">
+        <div
+          class="swipe"
+          (swipeleft)="handleSwipeLeft($event)"
+          (swiperight)="handleSwipeRight('swiperight')"
+        >
+          <img
+            [class.current]="isCurrentImage(currentImage)"
+            class="heroImages"
+            [src]="currentImage"
+            alt="Promotional"
+          />
         </div>
         <div class="slide-buttons">
           <div class="image-indicators">
@@ -27,25 +36,42 @@
         </div>
       </div>
     </div>
-    <div class="get-started">
-      <input type="email" placeholder="Type your email" class="form-control">
-      <div routerLink="/get-started">
-        <button mat-raised-button class="primary-btn" type="button">Get Started</button>
+    <div class="get-started" [formGroup]="inputForm">
+      <input
+        formControlName="email"
+        type="email"
+        placeholder="Type your email"
+        class="form-control front-page"
+      />
+      <div>
+        <button
+          (click)="getStarted()"
+          mat-raised-button
+          class="primary-btn"
+          type="button"
+        >
+          Get Started
+        </button>
       </div>
     </div>
   </div>
-  
+
   <h1 appLazyLoadText class="tagline-header">What is Soll?</h1>
   <div class="main-content">
     <div class="call-to-action">
       <div class="learn-more" *ngIf="learnMore">
         <div appLazyLoadText class="learn-more-body">
-              {{ learnMore.body[0] }}
+          {{ learnMore.body[0] }}
         </div>
         <div class="branding">
           <div class="learn-more-content">
             <p class="img-p">
-              <img class="what-is-img" [attr.data-src]="frontPageLogo" alt="App Logo" appLazyLoading />
+              <img
+                class="what-is-img"
+                [attr.data-src]="frontPageLogo"
+                alt="App Logo"
+                appLazyLoading
+              />
             </p>
           </div>
           <div class="learn-more-content tag-words">
@@ -60,54 +86,64 @@
         </div>
       </div>
     </div>
-  
-    <h1 appLazyLoadText class="tagline-header">How it works: </h1>
+
+    <h1 appLazyLoadText class="tagline-header">How it works:</h1>
     <div class="content-video">
       <app-how-it-works></app-how-it-works>
     </div>
-  
-    <h1 appLazyLoadText class="tagline-header">Raise and Save with Friends and Loved Ones</h1>
+
+    <h1 appLazyLoadText class="tagline-header">
+      Raise and Save with Friends and Loved Ones
+    </h1>
     <div class="content-video video-even">
-      <div routerLink="/get-started">
-        <img [attr.data-src]="contentVideos[1]" alt="content"  appLazyLoading>
+      <div routerLink="/sign-in">
+        <img [attr.data-src]="contentVideos[1]" alt="content" appLazyLoading />
       </div>
     </div>
-  
+
     <h1 appLazyLoadText class="tagline-header">Saving at your Fingertips</h1>
     <div class="content-video video-odd">
       <div routerLink="/">
-        <img [attr.data-src]="contentVideos[0]" alt="content"  appLazyLoading>
+        <img [attr.data-src]="contentVideos[0]" alt="content" appLazyLoading />
       </div>
     </div>
-  
-    <h1 appLazyLoadText class="tagline-header">Get Excited when it's your Turn!</h1>
+
+    <h1 appLazyLoadText class="tagline-header">
+      Get Excited when it's your Turn!
+    </h1>
     <div class="content-video video-even">
       <div routerLink="/info/concept-overview">
-        <img [attr.data-src]="contentVideos[3]" alt="content" appLazyLoading>
+        <img [attr.data-src]="contentVideos[3]" alt="content" appLazyLoading />
       </div>
     </div>
-  
-    <h1 appLazyLoadText class="tagline-header">Not geared for online transactions? </h1>
+
+    <h1 appLazyLoadText class="tagline-header">
+      Not geared for online transactions?
+    </h1>
     <div class="content-video video-odd">
-      <div routerLink="/info/concept-overview">
-        <img [attr.data-src]="contentVideos[6]" alt="content" appLazyLoading>
+      <div routerLink="/info/concept-overview" fragment="leaders">
+        <img [attr.data-src]="contentVideos[6]" alt="content" appLazyLoading />
       </div>
     </div>
-  
-    <h1 appLazyLoadText class="tagline-header">Start Saving with Soll for a Better Future</h1>
+
+    <h1 appLazyLoadText class="tagline-header">
+      Start Saving with Soll for a Better Future
+    </h1>
     <div class="content-video video-even">
       <div routerLink="/get-started">
-        <img [attr.data-src]="contentVideos[4]" alt="content" appLazyLoading>
+        <img [attr.data-src]="contentVideos[4]" alt="content" appLazyLoading />
       </div>
     </div>
-  
-    <h1 appLazyLoadText class="tagline-header">Finally, Bring your Dream Project to Life</h1>
+
+    <h1 appLazyLoadText class="tagline-header">
+      Finally, Bring your Dream Project to Life
+    </h1>
     <div class="content-video video-odd last-video">
       <div routerLink="/info/concept-overview">
-        <img [attr.data-src]="contentVideos[2]" alt="content" appLazyLoading>
+        <img [attr.data-src]="contentVideos[2]" alt="content" appLazyLoading />
       </div>
     </div>
-  
+
     <div class="faqs" *ngIf="faqs">
       <h2>Frequently Asked Questions</h2>
       <mat-accordion *ngFor="let faqs of faqs">
@@ -123,7 +159,7 @@
         </mat-expansion-panel>
       </mat-accordion>
     </div>
-  
+
     <div class="ratings-partners">
       <div class="trustpilot-rating">
         <div>
@@ -133,16 +169,18 @@
           <img [attr.data-src]="fiveStars" alt="Stars" appLazyLoading />
         </div>
       </div>
-  
+
       <div class="partners">
         <div>
-          <h1 appLazyLoadText>Our partners<sup matTooltip="Our *potential partners">1</sup> are best in their fields</h1>
+          <h1 appLazyLoadText>
+            Our partners<sup matTooltip="Our *potential partners">1</sup> are
+            best in their fields
+          </h1>
         </div>
         <span *ngFor="let partner of partners">
           <img [attr.data-src]="partner" alt="Partner" appLazyLoading />
         </span>
       </div>
     </div>
-  
   </div>
 </div>

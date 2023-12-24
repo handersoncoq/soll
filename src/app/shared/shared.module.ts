@@ -11,6 +11,7 @@ import {MatDividerModule} from '@angular/material/divider';
 import { PublicNavComponent } from '../templates/public-nav/public-nav.component';
 import { LazyLoadingDirective } from '../utils/directives/lazy-loading.directive';
 import { LazyLoadTextDirective } from '../utils/directives/lazy-load-text.directive';
+import { PublicInteractionService } from '../services/public-interaction/public-interaction.service';
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import { LazyLoadTextDirective } from '../utils/directives/lazy-load-text.direct
     MatDialogModule,
     MatDividerModule
   ],
+  providers: [PublicInteractionService],
   exports: [ 
     PublicNavComponent, 
     LazyLoadingDirective,

@@ -15,11 +15,6 @@
               type="text"
               placeholder="First Name"
               class="form-control"
-              [ngClass]="{
-                isError:
-                  registrationForm.get('firstName')?.invalid &&
-                  registrationForm.get('firstName')?.touched
-              }"
               id="firstName"
               formControlName="firstName"
             />
@@ -29,11 +24,6 @@
               type="text"
               placeholder="Last Name"
               class="form-control"
-              [ngClass]="{
-                isError:
-                  registrationForm.get('lastName')?.invalid &&
-                  registrationForm.get('lastName')?.touched
-              }"
               id="lastName"
               formControlName="lastName"
             />
@@ -44,11 +34,6 @@
             type="email"
             placeholder="Email"
             class="form-control"
-            [ngClass]="{
-              isError:
-                registrationForm.get('email')?.invalid &&
-                registrationForm.get('email')?.touched
-            }"
             id="email"
             formControlName="email"
           />
@@ -84,11 +69,6 @@
               [matDatepicker]="dobPicker"
               placeholder="MM/DD/YYYY"
               class="form-control"
-              [ngClass]="{
-                isError:
-                  registrationForm.get('dob')?.invalid &&
-                  registrationForm.get('dob')?.touched
-              }"
               id="dob"
               formControlName="dob"
             />
@@ -113,11 +93,6 @@
             type="tel"
             class="form-control"
             placeholder="(xxx) xxx-xxxx"
-            [ngClass]="{
-              isError:
-                registrationForm.get('phone')?.invalid &&
-                registrationForm.get('phone')?.touched
-            }"
             id="phone"
             formControlName="phone"
           />
@@ -159,11 +134,6 @@
             type="text"
             placeholder="Street Name"
             class="form-control"
-            [ngClass]="{
-              isError:
-                registrationForm.get('street')?.invalid &&
-                registrationForm.get('street')?.touched
-            }"
             id="street"
             formControlName="street"
           />
@@ -179,11 +149,6 @@
                 type="text"
                 placeholder="City"
                 class="form-control"
-                [ngClass]="{
-                  isError:
-                    registrationForm.get('city')?.invalid &&
-                    registrationForm.get('city')?.touched
-                }"
                 id="city"
                 formControlName="city"
               />
@@ -191,11 +156,6 @@
             <div class="form-group col-md-6">
               <mat-select
                 class="form-control"
-                [ngClass]="{
-                  isError:
-                    registrationForm.get('state')?.invalid &&
-                    registrationForm.get('state')?.touched
-                }"
                 formControlName="state"
                 placeholder="Sate"
               >
@@ -211,11 +171,6 @@
                 type="text"
                 placeholder="Zip Code"
                 class="form-control"
-                [ngClass]="{
-                  isError:
-                    registrationForm.get('zipcode')?.invalid &&
-                    registrationForm.get('zipcode')?.touched
-                }"
                 id="zipcode"
                 formControlName="zipcode"
               />
@@ -242,11 +197,6 @@
             <input
               [type]="hidePassword ? 'password' : 'text'"
               class="form-control"
-              [ngClass]="{
-                isError:
-                  registrationForm.get('password')?.invalid &&
-                  registrationForm.get('password')?.touched
-              }"
               id="password"
               formControlName="password"
               placeholder="Password"

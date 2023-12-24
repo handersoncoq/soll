@@ -6,6 +6,7 @@ import { EmailJustificationComponent } from 'src/app/info/components/email-justi
 import { PhoneAgreementComponent } from 'src/app/info/components/phone-agreement/phone-agreement.component';
 import { CharMap } from 'src/app/interaces/CharMap';
 import { ContentManagerService } from 'src/app/services/content-manager/content-manager.service';
+import { PublicInteractionService } from 'src/app/services/public-interaction/public-interaction.service';
 import { TermsAndConditionsComponent } from 'src/app/templates/terms-and-conditions/terms-and-conditions.component';
 import { states } from 'src/app/utils/constants/UsStates';
 
@@ -27,7 +28,8 @@ export class GetStartedComponent implements OnInit{
   exitAnimationDuration = '200ms';
   usStates = states;
 
-  constructor(private formBuilder: FormBuilder, private contentManagerService: ContentManagerService, private dialog: MatDialog) {
+  constructor(private formBuilder: FormBuilder, private contentManagerService: ContentManagerService, 
+    private dialog: MatDialog, private publicInteractionService: PublicInteractionService) {
     this.appLogo = this.contentManagerService.getAppLogo6();
     this.registrationForm = this.formBuilder.group({
       firstName: ['', Validators.required],
@@ -47,6 +49,12 @@ export class GetStartedComponent implements OnInit{
    }
 
   ngOnInit() {
+    const email = this.publicInteractionService.getEmail();
+    if (email) {
+      this.registrationForm.get('email')?.setValue(email);
+      this.registrationForm.get('email')?.markAsDirty();
+      this.registrationForm.get('email')?.updateValueAndValidity();
+    }
 
     this.registrationForm.get('phone')?.valueChanges.subscribe(value => {
       const formatted = this.formatPhoneNumber(value);

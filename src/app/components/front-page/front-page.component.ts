@@ -1,8 +1,11 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { forkJoin } from 'rxjs';
 import { TitleBodyArrayType } from 'src/app/interaces/TitleBodyArrayType';
 import { TitleBodyType } from 'src/app/interaces/TitleBodyType';
 import { ContentManagerService } from 'src/app/services/content-manager/content-manager.service';
+import { PublicInteractionService } from 'src/app/services/public-interaction/public-interaction.service';
 
 @Component({
   selector: 'app-front-page',
@@ -21,7 +24,6 @@ export class FrontPageComponent implements OnInit, OnDestroy{
   faqs!: any[];
   keyWords!: any;
   contentVideos: string[];
-  activatedIconId: string | null = null;
 
   intervalId: any;
   currentImageIndex = 0;
@@ -34,16 +36,20 @@ export class FrontPageComponent implements OnInit, OnDestroy{
   ];
   currentImage!: string;
   $accentColor = '#35425B';
-  progessPercent = '20%';
 
-  constructor(private contentManagerService: ContentManagerService){
+  inputForm!: FormGroup;
+
+  constructor(private contentManagerService: ContentManagerService, private router: Router,
+    private formBuilder: FormBuilder, private publicInteractionService: PublicInteractionService){
     this.frontPageLogo = this.contentManagerService.getAppLogo6();
     this.trustPilot = this.contentManagerService.getTrustpilotAndStars()[0];
     this.fiveStars = this.contentManagerService.getTrustpilotAndStars()[1];
     this.partners = this.contentManagerService.getPartners();
     this.contentVideos = this.contentManagerService.getContentVideos();
     this.startSlideshow();
-
+    this.inputForm = this.formBuilder.group({
+      email: ['', [Validators.required, Validators.email, Validators.email]],
+    })
   }
 
   ngOnInit() {
@@ -74,7 +80,6 @@ export class FrontPageComponent implements OnInit, OnDestroy{
   }
 
   toggleBackground(index: number) {
-    this.moveProgess(index);
     const contentDiv = document.querySelector('.content');
     const heroImages = document.querySelector('.heroImages');
     contentDiv?.classList.add('transition');
@@ -82,14 +87,6 @@ export class FrontPageComponent implements OnInit, OnDestroy{
       heroImages?.classList.remove('heroImages');
       contentDiv?.classList.remove('transition');
     }, 500);
-  }
-
-  moveProgess(index: number){
-    if(index == 0) this.progessPercent = '20%'
-    if(index == 1) this.progessPercent = '40%'
-    if(index == 2) this.progessPercent = '60%'
-    if(index == 3) this.progessPercent = '80%'
-    if(index == 4) this.progessPercent = '100%'
   }
 
   ngOnDestroy() {
@@ -101,7 +98,6 @@ export class FrontPageComponent implements OnInit, OnDestroy{
   setCurrentImage(index: number): void {
     this.currentImageIndex = index;
     this.currentImage = this.images[index];
-    this.moveProgess(index);
     this.slogan = this.taglines.array[this.currentImageIndex];
   }
 
@@ -113,23 +109,30 @@ export class FrontPageComponent implements OnInit, OnDestroy{
     return 'white';
   }
 
-  keyWordsValid(): boolean{
-    return this.keyWords && this.keyWords.eps && 
-    this.keyWords.ecps && this.keyWords.leaders;
+  handleSwipeLeft(event: any) {
+    console.log(event)
+    this.currentImageIndex = (this.currentImageIndex + 1) % this.images.length;
+    this.setCurrentImage(this.currentImageIndex);
   }
 
-  trackTooltip(iconId: string) {
-    this.activatedIconId = this.activatedIconId === iconId ? null : iconId;
+  handleSwipeRight(event: any) {
+    console.log(event)
+    this.currentImageIndex = (this.currentImageIndex - 1 + this.images.length) % this.images.length;
+    this.setCurrentImage(this.currentImageIndex);
   }
 
-  onSwipe(action: string): void {
-    if (action === 'swipeleft') {
-      this.currentImageIndex = (this.currentImageIndex + 1) % this.images.length;
-      this.setCurrentImage(this.currentImageIndex);
-    } else if (action === 'swiperight') {
-      this.currentImageIndex = (this.currentImageIndex - 1 + this.images.length) % this.images.length;
-      this.setCurrentImage(this.currentImageIndex);
+  isCurrentImage(imageSrc: string): boolean {
+    return this.currentImage === imageSrc;
+  }
+
+  getStarted() {
+    console.log(this.inputForm.valid)
+    if (this.inputForm.invalid) return;
+    const emailValue = this.inputForm.get('email')?.value;
+    if (emailValue) {
+      this.publicInteractionService.setEmail(emailValue)
+      this.router.navigate(['/get-started']);
     }
-  }
+  }  
 
 }

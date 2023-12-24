@@ -2,11 +2,11 @@
   <mat-toolbar-row class="spacer-row"></mat-toolbar-row>
   <mat-toolbar-row>
     <div class="toolbar-content">
-      <span (click)="navigateTo('/')" class="company-name"
+      <span (click)="navigateToSimpleRoute('/')" class="company-name"
         >Soll<sup>&reg;</sup></span
       >
       <span class="spacer"></span>
-      <button mat-button (click)="navigateTo('/sign-in')">Sign in</button>
+      <button mat-button (click)="navigateToSimpleRoute('/sign-in')">Sign in</button>
       <mat-divider class="divider" [vertical]="true"></mat-divider>
       <button
         mat-button
@@ -43,14 +43,30 @@
       <button
         appLazyLoadText
         mat-menu-item
-        (click)="navigateTo('/info/concept-overview')"
+        (click)="navigateToSimpleRoute('/info/concept-overview')"
       >
         What is Soll?
+      </button>
+        <button
+          appLazyLoadText
+          mat-menu-item
+          (click)="navigateTo('/info/concept-overview', 'eps')"
+        >
+          EPS
+          <mat-icon color="primary">calendar_month</mat-icon>
       </button>
       <button
         appLazyLoadText
         mat-menu-item
-        (click)="navigateTo('/info/about-us')"
+        (click)="navigateTo('/info/concept-overview', 'ecps')"
+      >
+        ECPS
+        <mat-icon color="primary">linear_scale</mat-icon>
+      </button>
+      <button
+        appLazyLoadText
+        mat-menu-item
+        (click)="navigateToSimpleRoute('/info/about-us')"
       >
         About us
       </button>

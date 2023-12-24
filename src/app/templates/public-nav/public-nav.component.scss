@@ -88,8 +88,8 @@ sup {
 
 .menu-items{
   overflow: hidden;
+  margin-top: 0.5em;
   button{
-    font-weight: 450;
     color: $primary-color !important;
   }
 }
@@ -103,6 +103,7 @@ sup {
 :host .mat-divider.mat-divider-vertical {
   border-right-color: #35425b !important;
 }
+
 
 // *********************************************************************
 

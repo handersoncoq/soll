@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { TitleBodyArrayType } from 'src/app/interaces/TitleBodyArrayType';
 import { ContentManagerService } from 'src/app/services/content-manager/content-manager.service';
 
@@ -19,7 +20,7 @@ export class ConceptOverviewComponent implements OnInit{
   communityEngagement = '/assets/img/community-engagement.webp';
   transparency = '/assets/img/transparency.webp';
 
-  constructor(private contentManagerService: ContentManagerService){
+  constructor(private contentManagerService: ContentManagerService, private route: ActivatedRoute){
     this.appLogo = this.contentManagerService.getAppLogo3();
   }
 
@@ -27,6 +28,11 @@ export class ConceptOverviewComponent implements OnInit{
     this.contentManagerService.getConceptOverview().subscribe(
       data => this.conceptOverview = data
     );
+    this.route.fragment.subscribe(fragment => {
+      if (fragment) {
+        document.getElementById(fragment)?.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
   }
 
 }
