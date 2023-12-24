@@ -4,6 +4,7 @@ $box-shadow: 0px 0px 10px rgba(82, 104, 143, 0.5);
 $alt-font-color: #E3E7F1;
 $transparent-bgr: rgb(82, 104, 143, 0.1);
 
+
 .header-tagline {
   .tagLine {
     font-size: x-large;
@@ -35,8 +36,8 @@ $transparent-bgr: rgb(82, 104, 143, 0.1);
     margin-top: -4em;
     height: 14em;
     width: 14em;
-    border-radius: 1em;
-    box-shadow: 0 29px 52px rgba(0,0,0,0.40), 0 25px 16px rgba(0,0,0,0.20);
+    box-shadow: 0px 80px 50px -30px rgba(0, 0, 0, 0.15);
+    border-radius: 0.8em;
     opacity: 1;
   }
   .slide-buttons {
@@ -83,6 +84,7 @@ button{
   background: $accent-color;
   color: white;
   border-radius: 1.3em;
+  font-weight: bold;
   padding: 1.15em;
   box-shadow: $box-shadow;
   width: 100%;
@@ -133,12 +135,16 @@ button{
     }
 }
 
-.what-is-soll{
+.tagline-header {
   text-align: left;
   font-family: "Poppins", "Roboto", sans-serif;
   font-size: 24px;
   padding: 0 0.5em;
   padding-top: 1.5em;
+}
+
+.branding{
+  margin-top: -1.8em;
 }
 
 .learn-more-content{
@@ -149,8 +155,9 @@ button{
     text-align: center;
 
     img{
-      height: 6.5em;
-      width: 6.5em;
+      margin-bottom: -2em;
+      height: 6.2em;
+      width: 6.2em;
     }
     .img-p, .tag-p{
       text-align: center;
@@ -177,8 +184,8 @@ button{
 }
 
 .ratings-partners{
-  background-color: $transparent-bgr;
   margin-top: 0;
+  background-color: $transparent-bgr;
   img{
     transform: none !important;
   }
@@ -202,6 +209,7 @@ button{
   }
   
   .partners{
+    margin-bottom: 1em;
     span{
       img{
         width: 6.5em;
@@ -308,5 +316,179 @@ button{
     width: auto;
     display: block;
     justify-content: flex-end;
+  }
+}
+
+.content-video {
+  margin-bottom: 5em;
+}
+
+.last-video{
+  margin-bottom: 7em;
+}
+
+.component{
+  @media screen and (min-width: 768px){
+    padding: 2em 5em;
+    font-size: larger;
+    .header-tagline{
+      margin-bottom: 2em;
+      padding-bottom: 2em;
+    }
+    img:not(.call-to-action img, .branding img, .ratings-partners img, .hero img){
+      height: 30em;
+      width: 30em;
+    }
+    h1{
+      font-size: xx-large;
+    }
+    
+    .hero{
+      padding: 2em 4em;
+      padding-right: 1em;
+      .action h4{
+        font-size: x-large;
+      }
+      img{
+        margin-top: -6em;
+        height: 20em;
+        width: 20em;
+      }
+    }
+    .get-started{
+      padding-left: 3em;
+      padding-right: 3em;
+    }
+    .video-even, .video-odd{
+      display: flex;
+      width: 100%;
+    }
+    .video-even{
+      justify-content: flex-start;
+    }
+    .video-odd{
+      justify-content: flex-end;
+    }
+    .learn-more{
+      button{
+        font-size: x-large;
+        padding-top: 1.2em;
+        padding-bottom: 1.2em;
+      }
+    }
+    .learn-more-content.tag-words p{
+      font-size: large;
+    }
+  }
+  .faqs p{
+    font-size: large;
+  }
+}
+
+// Targeting standard iPads
+@media screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+  .component {
+    padding: 0.5em 3em;
+    font-size: larger;
+    .hero{
+      padding-left: 2.5em;
+    }
+    .get-started{
+      padding-left: 2em;
+      padding-right: 3em;
+    }
+    img:not(.call-to-action img, .branding img, .ratings-partners img, .hero img){
+      height: 25em;
+      width: 25em;
+    }
+    .header-tagline{
+      margin-bottom: 2em;
+      padding-bottom: 2em;
+    }
+    .learn-more{
+      button{
+        font-size: x-large;
+        padding-top: 1.2em;
+        padding-bottom: 1.2em;
+      }
+    }
+    .learn-more-content.tag-words p{
+      font-size: large;
+    }
+    .faqs p{
+      font-size: large;
+    }
+  }
+}
+
+// Targeting iPad Pro 10.5" and 11"
+@media screen and (min-device-width: 1112px) and (max-device-width: 1366px) {
+  .component {
+    padding: 0.5em 3em;
+    font-size: larger;
+    .hero{
+      padding-left: 2.5em;
+    }
+    .get-started{
+      padding-left: 2em;
+      padding-right: 3em;
+    }
+    img:not(.call-to-action img, .branding img, .ratings-partners img, .hero img){
+      height: 25em;
+      width: 25em;
+    }
+    .header-tagline{
+      margin-bottom: 2em;
+      padding-bottom: 2em;
+    }
+    .learn-more{
+      button{
+        font-size: x-large;
+        padding-top: 1.2em;
+        padding-bottom: 1.2em;
+      }
+    }
+    .learn-more-content.tag-words p{
+      font-size: large;
+    }
+    .faqs p{
+      font-size: large;
+    }
+  }
+}
+
+// Targeting iPad Pro 12.9"
+@media screen and (min-device-width: 1024px) and (max-device-width: 1366px) {
+  .component {
+    padding: 0.5em 3em;
+    font-size: larger;
+    .hero{
+      padding-left: 2.5em;
+    }
+    .get-started{
+      padding-left: 2em;
+      padding-right: 3em;
+    }
+    img:not(.call-to-action img, .branding img, .ratings-partners img, .hero img){
+      height: 25em;
+      width: 25em;
+    }
+    .header-tagline{
+      margin-bottom: 2em;
+      padding-bottom: 2em;
+    }
+    .learn-more{
+      button{
+        font-size: x-large;
+        padding-top: 1.2em;
+        padding-bottom: 1.2em;
+      }
+    }
+    .learn-more-content.tag-words p{
+      font-size: large;
+    }
+    .faqs p{
+      font-size: large;
+    }
   }
 }

@@ -6,6 +6,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatDialogModule } from '@angular/material/dialog';
+import {MatDividerModule} from '@angular/material/divider';
 
 import { PublicNavComponent } from '../templates/public-nav/public-nav.component';
 import { LazyLoadingDirective } from '../utils/directives/lazy-loading.directive';
@@ -20,7 +21,8 @@ import { LazyLoadTextDirective } from '../utils/directives/lazy-load-text.direct
     MatButtonModule,
     MatIconModule,
     MatMenuModule,
-    MatDialogModule
+    MatDialogModule,
+    MatDividerModule
   ],
   exports: [ 
     PublicNavComponent, 

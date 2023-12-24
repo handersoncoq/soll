@@ -102,6 +102,10 @@ $dark-dusty-blue: rgb(37 84 109);
   }
 
   @media (min-width: 600px){
+    .content{
+      margin-left: 5em !important;
+      margin-right: 5em !important;
+    }
     .header{
       height: 20em !important;
     }

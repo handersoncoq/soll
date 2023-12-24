@@ -33,6 +33,7 @@ export class ContentManagerService {
   getExcitedWhenItsYourTurn = './assets/img/get-excited.png';
   startSavingForTheirFuture = './assets/img/start-saving-for-their-future.png';
   howItWorks = './assets/img/how-it-works.png';
+  noOnlineTransaction = './assets/img/no-online-transaction.png';
 
   // partners
   trustpilot = './assets/partners/trustpilot.svg';
@@ -119,7 +120,8 @@ export class ContentManagerService {
       this.bringYourIdeaToLife,
       this.getExcitedWhenItsYourTurn,
       this.startSavingForTheirFuture,
-      this.howItWorks
+      this.howItWorks,
+      this.noOnlineTransaction
     ]
   }
 

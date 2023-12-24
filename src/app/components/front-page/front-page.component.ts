@@ -26,11 +26,11 @@ export class FrontPageComponent implements OnInit, OnDestroy{
   intervalId: any;
   currentImageIndex = 0;
   images: string[] = [
-    '/assets/img/hero-image2.webp',
-    '/assets/img/hero-image0.webp',
-    '/assets/img/hero-image1.webp',
-    '/assets/img/hero-image3.webp',
-    '/assets/img/hero-image4.webp',
+    '/assets/img/connect-and-thrive.webp',
+    '/assets/img/elevate-your-savings.webp',
+    '/assets/img/empower-with-soll-community.webp',
+    '/assets/img/unite-for-saving.webp',
+    '/assets/img/revive-community-saving.webp',
   ];
   currentImage!: string;
   $accentColor = '#35425B';
@@ -120,6 +120,16 @@ export class FrontPageComponent implements OnInit, OnDestroy{
 
   trackTooltip(iconId: string) {
     this.activatedIconId = this.activatedIconId === iconId ? null : iconId;
+  }
+
+  onSwipe(action: string): void {
+    if (action === 'swipeleft') {
+      this.currentImageIndex = (this.currentImageIndex + 1) % this.images.length;
+      this.setCurrentImage(this.currentImageIndex);
+    } else if (action === 'swiperight') {
+      this.currentImageIndex = (this.currentImageIndex - 1 + this.images.length) % this.images.length;
+      this.setCurrentImage(this.currentImageIndex);
+    }
   }
 
 }
