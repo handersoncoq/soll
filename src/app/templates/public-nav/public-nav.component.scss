@@ -104,6 +104,18 @@ sup {
   border-right-color: #35425b !important;
 }
 
+@keyframes shake {
+  0% { transform: translateX(0px); }
+  25% { transform: translateX(-3px); }
+  50% { transform: translateX(3px); }
+  75% { transform: translateX(-3px); }
+  100% { transform: translateX(0px); }
+}
+
+.shake-animation {
+  animation: shake 0.5s ease-in-out;
+  animation-iteration-count: 1;
+}
 
 // *********************************************************************
 

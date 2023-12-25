@@ -36,7 +36,8 @@ import { ScrollToSectionDirective } from '../utils/directives/scroll-to-section.
     LazyLoadTextDirective,
     MatDialogModule, 
     MatToolbarModule,
-    MatButtonModule
+    MatButtonModule,
+    MatDividerModule
   ]
 })
 export class SharedModule { }

@@ -11,10 +11,11 @@
       <button
         mat-button
         (click)="
+          shakeIcon();
           openDialog(infoDetails.inquireTitle, infoDetails.phoneNumber, false)
         "
       >
-        <mat-icon>phone</mat-icon>Inquire
+      Inquire<mat-icon [class.shake-animation]="shake" iconPositionEnd >support_agent</mat-icon>
       </button>
       <button
         mat-icon-button
