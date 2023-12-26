@@ -161,6 +161,14 @@ button{
   padding-top: 1.5em;
 }
 
+.sub-header{
+  font-size: small;
+  padding: 0 0.9em;
+  margin-top: -1em;
+  width: fit-content;
+  color: $accent-color;
+}
+
 .branding{
   margin-top: -1.8em;
 }
@@ -252,18 +260,18 @@ button{
 
 .faqs{
   margin: 4em 1em;
-  h2{
-    font-weight: normal;
-    color: $accent-color;
+  h1{
+    padding: 0;
   }
 
   mat-expansion-panel{
     box-shadow: none;
-    color: $primary-color;
+    color: $accent-color;
   }
 
   mat-panel-title{
     color: $accent-color;
+    color: $primary-color;
   }
 
   ::ng-deep .mat-expansion-panel-header:not([aria-disabled=true]) {
@@ -272,7 +280,7 @@ button{
   }
 
   p{
-    font-size: small;
+    font-size: 14px !important;
   }
 
   .panel-icon {

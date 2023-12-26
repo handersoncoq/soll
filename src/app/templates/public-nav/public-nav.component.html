@@ -6,22 +6,19 @@
         >Soll<sup>&reg;</sup></span
       >
       <span class="spacer"></span>
-      <button mat-button (click)="navigateToSimpleRoute('/sign-in')">Sign in</button>
-      <mat-divider class="divider" [vertical]="true"></mat-divider>
-      <button
-        mat-button
-        (click)="
-          shakeIcon();
-          openDialog(infoDetails.inquireTitle, infoDetails.phoneNumber, false)
-        "
+      <mat-icon [matMenuTriggerFor]="languageMenu" class="language-icon"
+        >public</mat-icon
       >
-      Inquire<mat-icon [class.shake-animation]="shake" iconPositionEnd >support_agent</mat-icon>
+      <mat-divider class="divider" [vertical]="true"></mat-divider>
+      <button mat-button (click)="navigateToSimpleRoute('/sign-in')">
+        Sign in
       </button>
       <button
         mat-icon-button
         [matMenuTriggerFor]="menu"
         #trigger="matMenuTrigger"
         class="menu-button"
+        (click)="shakeIcon(); startShakeInterval()"
       >
         <span *ngIf="trigger.menuOpen" class="material-symbols-outlined"
           >keyboard_arrow_down</span
@@ -38,23 +35,20 @@
   <mat-toolbar-row class="spacer-row"></mat-toolbar-row>
 </mat-toolbar>
 
-<mat-menu #menu="matMenu">
+<mat-menu #menu="matMenu" class="main-menu">
   <ng-template matMenuContent>
-    <div @accordion class="menu-items">
+    <mat-divider
+      class="menu-divider"
+      [ngStyle]="{ 'margin-top': marginTop }"
+    ></mat-divider>
+    <div @accordion-animation class="menu-items">
       <button
         appLazyLoadText
         mat-menu-item
-        (click)="navigateToSimpleRoute('/info/concept-overview')"
+        (click)="navigateTo('/info/concept-overview', 'eps')"
       >
-        What is Soll?
-      </button>
-        <button
-          appLazyLoadText
-          mat-menu-item
-          (click)="navigateTo('/info/concept-overview', 'eps')"
-        >
-          EPS
-          <mat-icon color="primary">calendar_month</mat-icon>
+        EPS
+        <mat-icon color="primary">calendar_month</mat-icon>
       </button>
       <button
         appLazyLoadText
@@ -67,16 +61,40 @@
       <button
         appLazyLoadText
         mat-menu-item
-        (click)="navigateToSimpleRoute('/info/about-us')"
+        (click)="shakeIcon(); openInquireDialog()"
       >
-        About us
+        <mat-icon color="primary" [class.shake-animation]="shake"
+          >support_agent</mat-icon
+        >Inquire
       </button>
+    </div>
+    <mat-divider class="menu-divider"></mat-divider>
+    <button
+      class="about-us"
+      appLazyLoadText
+      mat-menu-item
+      (click)="navigateToSimpleRoute('/info/about-us')"
+    >
+      About us
+    </button>
+  </ng-template>
+</mat-menu>
+
+<!-- menu for languages -->
+
+<mat-menu #languageMenu="matMenu" class="language-menu">
+  <ng-template matMenuContent>
+    <mat-divider
+    class="language-menu-divider"
+  ></mat-divider>
+    <div @accordion-animation class="menu-items">
       <button
         appLazyLoadText
         mat-menu-item
-        (click)="openDialog(infoDetails.feedbackTitle, infoDetails.email, true)"
+        *ngFor="let language of languages"
+        (click)="changeLanguage(language)"
       >
-        Feedback
+        {{ language }}
       </button>
     </div>
   </ng-template>

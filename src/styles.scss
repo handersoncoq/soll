@@ -201,6 +201,15 @@ img {
   opacity: 1;
 }
 
+.bottom-sheet-container{
+  max-height: 60vh !important;
+}
+
+.mat-bottom-sheet-container {
+  border-top: solid $primary-color 1px;
+  border-top-right-radius: 2em !important;
+  border-top-left-radius: 2em !important;
+}
 
 // *********************************************************************************
 

@@ -36,7 +36,6 @@ export class FrontPageComponent implements OnInit, OnDestroy{
   ];
   currentImage!: string;
   $accentColor = '#35425B';
-
   inputForm!: FormGroup;
 
   constructor(private contentManagerService: ContentManagerService, private router: Router,
@@ -92,6 +91,7 @@ export class FrontPageComponent implements OnInit, OnDestroy{
   ngOnDestroy() {
     if (this.intervalId) {
       clearInterval(this.intervalId);
+      this.intervalId = null;
     }
   }
 

@@ -3,8 +3,6 @@ import { MatDialog } from '@angular/material/dialog';
 import { InfoDetails } from 'src/app/interaces/Info';
 import { ContentManagerService } from 'src/app/services/content-manager/content-manager.service';
 import { DialogueComponent } from 'src/app/templates/dialogue/dialogue.component';
-import { PrivacyPolicyComponent } from 'src/app/templates/privacy-policy/privacy-policy.component';
-import { TermsAndConditionsComponent } from 'src/app/templates/terms-and-conditions/terms-and-conditions.component';
 
 @Component({
   selector: 'app-footer',
@@ -28,30 +26,22 @@ export class FooterComponent {
   }
 
   openPrivacyPolicy(): void {
-    this.dialog.open(PrivacyPolicyComponent,
-      {
-        width: '100%',
-        enterAnimationDuration: this.enterAnimationDuration,
-        exitAnimationDuration: this.exitAnimationDuration,
-      })
+    this.contentManagerService.openPrivacyPolicy()
   }
 
   openTermsAndConditions(): void {
-    this.dialog.open(TermsAndConditionsComponent,
-      {
-        width: '100%',
-        enterAnimationDuration: this.enterAnimationDuration,
-        exitAnimationDuration: this.exitAnimationDuration,
-      })
+    this.contentManagerService.openTermsAndConditions();
   }
 
-  openContactDialog(): void {
+  openFeedback(): void {
     this.dialog.open(DialogueComponent, {
       data: {
-        title: this.infoDetails.inquireTitle,
-        content: this.infoDetails.phoneNumber,
+        title: this.infoDetails.feedbackTitle,
+        content: this.infoDetails.email,
         copiable: true,
-        width: '100%',
+        isFeedback: true,
+        enterAnimationDuration: this.enterAnimationDuration,
+        exitAnimationDuration: this.exitAnimationDuration,
       },
     });
   }

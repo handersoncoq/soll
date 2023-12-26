@@ -1,4 +1,4 @@
-<div class="termsAndConditions" *ngIf="termsAndConditions">
+<div class="termsAndConditions" [class.mobile]="isMobile" *ngIf="termsAndConditions">
   <h2 mat-dialog-title>{{ termsAndConditions.termsAndConditionsTitle }}</h2>
   <mat-dialog-content class="mat-typography">
 
@@ -68,7 +68,7 @@
     </section> -->
 
   </mat-dialog-content>
-  <mat-dialog-actions align="end">
+  <mat-dialog-actions *ngIf="!isMobile">
     <button mat-button mat-dialog-close>Close</button>
   </mat-dialog-actions>
 </div>

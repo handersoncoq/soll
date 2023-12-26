@@ -7,12 +7,15 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatDialogModule } from '@angular/material/dialog';
 import {MatDividerModule} from '@angular/material/divider';
+import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
+import {MatStepperModule} from '@angular/material/stepper';
 
 import { PublicNavComponent } from '../templates/public-nav/public-nav.component';
 import { LazyLoadingDirective } from '../utils/directives/lazy-loading.directive';
 import { LazyLoadTextDirective } from '../utils/directives/lazy-load-text.directive';
 import { PublicInteractionService } from '../services/public-interaction/public-interaction.service';
 import { ScrollToSectionDirective } from '../utils/directives/scroll-to-section.directive';
+import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
 
 
 @NgModule({
@@ -27,9 +30,17 @@ import { ScrollToSectionDirective } from '../utils/directives/scroll-to-section.
     MatIconModule,
     MatMenuModule,
     MatDialogModule,
-    MatDividerModule
+    MatDividerModule,
+    MatBottomSheetModule,
+    MatStepperModule
   ],
-  providers: [PublicInteractionService],
+  providers: [
+    PublicInteractionService,
+    {
+      provide: STEPPER_GLOBAL_OPTIONS,
+      useValue: {displayDefaultIndicatorType: false},
+    },
+  ],
   exports: [ 
     PublicNavComponent, 
     LazyLoadingDirective,
@@ -37,7 +48,9 @@ import { ScrollToSectionDirective } from '../utils/directives/scroll-to-section.
     MatDialogModule, 
     MatToolbarModule,
     MatButtonModule,
-    MatDividerModule
+    MatDividerModule,
+    MatBottomSheetModule,
+    MatStepperModule
   ]
 })
 export class SharedModule { }

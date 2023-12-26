@@ -6,3 +6,10 @@ $primary-color: #52688F;
         color: $primary-color;
     }
 }
+
+.mobile{
+    font-size: small;
+    h1, h2, h3{
+      font-size: small !important;
+    }
+  }

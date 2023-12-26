@@ -1,7 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { MatBottomSheet } from '@angular/material/bottom-sheet';
+import { MatDialog } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
 import { InfoDetails } from 'src/app/interaces/Info';
+import { PrivacyPolicyComponent } from 'src/app/templates/privacy-policy/privacy-policy.component';
+import { TermsAndConditionsComponent } from 'src/app/templates/terms-and-conditions/terms-and-conditions.component';
+import { ScreenLayoutService } from 'src/app/utils/screen-layout/screen-layout.service';
 
 @Injectable({
   providedIn: 'root'
@@ -42,9 +47,19 @@ export class ContentManagerService {
   paypal = './assets/partners/paypal.svg';
   stripe = './assets/partners/stripe.svg';
 
+  // properties
+  isMobile = true;
+  enterAnimationDuration = '400ms';
+  exitAnimationDuration = '200ms';
 
-
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private screenService: ScreenLayoutService,
+    private _bottomSheet: MatBottomSheet, private dialog: MatDialog) {
+      this.screenService.isMobile$.subscribe(
+        isMobile =>{
+          this.isMobile = isMobile;
+        }
+      );
+    }
 
   getAboutUs(): Observable<any> {
     return this.http.get(this.aboutUs);
@@ -123,6 +138,36 @@ export class ContentManagerService {
       this.howItWorks,
       this.noOnlineTransaction
     ]
+  }
+
+  openPrivacyPolicy(): void {
+    if(this.isMobile) {
+      this._bottomSheet.open(PrivacyPolicyComponent, {
+        panelClass: 'bottom-sheet-container'
+      });
+    }else{
+      this.dialog.open(PrivacyPolicyComponent,
+        {
+          width: '100%',
+          enterAnimationDuration: this.enterAnimationDuration,
+          exitAnimationDuration: this.exitAnimationDuration,
+        })
+    }
+  }
+
+  openTermsAndConditions(): void {
+    if(this.isMobile){
+      this._bottomSheet.open(TermsAndConditionsComponent, {
+        panelClass: 'bottom-sheet-container'
+      });
+    }else{
+      this.dialog.open(TermsAndConditionsComponent,
+        {
+          width: '100%',
+          enterAnimationDuration: this.enterAnimationDuration,
+          exitAnimationDuration: this.exitAnimationDuration,
+        })
+    }
   }
 
 }

@@ -1,19 +1,35 @@
-<section appLazyLoadText class="how-it-works">
-    <ol>
-        <li appLazyLoadText >
-            <strong>Join a Group:</strong> Sign up and become part of a Soll group.
-        </li>
-        <li appLazyLoadText >
-            <strong>Contribute Regularly:</strong> Make regular contributions to the group fund.
-        </li>
-        <li appLazyLoadText >
-            <strong>Receive Sequential Payouts:</strong> Receive payouts in a sequential manner, with the algorithm determining the order based on the group's chosen payout system.
-        </li>
-        <li appLazyLoadText >
-            <strong>Benefit from Digital Management:</strong> Enjoy secure and transparent handling of funds.
-        </li>
-        <li appLazyLoadText >
-            <strong>Build Trust and Community:</strong> Engage with a reliable community, enhancing financial collaboration.
-        </li>
-    </ol>
+<section class="how-it-works">
+  <mat-stepper orientation="vertical">
+    <mat-step appLazyLoadText label="Join a Group:" state="app_registration">
+      <p appLazyLoadText>{{ steps[0] }}</p>
+    </mat-step>
+    <mat-step
+      appLazyLoadText
+      label="Contribute Regularly:"
+      state="calendar_month"
+    >
+      <p appLazyLoadText>{{ steps[1] }}</p>
+    </mat-step>
+    <mat-step
+      appLazyLoadText
+      label="Receive Sequential Payouts:"
+      state="payments"
+    >
+      <p appLazyLoadText>{{ steps[2] }}</p>
+    </mat-step>
+    <mat-step
+      appLazyLoadText
+      label="Benefit from Digital Management:"
+      state="app_settings_alt"
+    >
+      <p appLazyLoadText>{{ steps[3] }}</p>
+    </mat-step>
+    <mat-step
+      appLazyLoadText
+      label="Build Trust and Community:"
+      state="groups_3"
+    >
+      <p appLazyLoadText>{{ steps[4] }}</p>
+    </mat-step>
+  </mat-stepper>
 </section>

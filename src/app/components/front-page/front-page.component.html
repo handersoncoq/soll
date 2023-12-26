@@ -87,7 +87,8 @@
       </div>
     </div>
 
-    <h1 appLazyLoadText class="tagline-header">How it works:</h1>
+    <h1 appLazyLoadText class="tagline-header">How it works</h1>
+    <p appLazyLoadText class="sub-header">(click steps to reveal!)</p>
     <div class="content-video">
       <app-how-it-works></app-how-it-works>
     </div>
@@ -145,7 +146,9 @@
     </div>
 
     <div class="faqs" *ngIf="faqs">
-      <h2>Frequently Asked Questions</h2>
+      <h1 appLazyLoadText class="tagline-header">
+        Frequently Asked Questions
+      </h1>
       <mat-accordion *ngFor="let faqs of faqs">
         <mat-expansion-panel>
           <mat-expansion-panel-header>

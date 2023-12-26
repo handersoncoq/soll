@@ -1,5 +1,6 @@
 $primary-color: #52688f;
 $accent-color: #35425b;
+$alt-font-color: #E3E7F1;
 $text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 
 mat-toolbar {
@@ -20,7 +21,14 @@ mat-toolbar {
     align-items: center;
 
     .spacer {
-      flex: 1 1 auto;
+      flex: 2 1;
+    }
+
+    .language-icon{
+      font-size: x-large;
+      overflow: visible;
+      padding: 0 0.25em;
+      color: $primary-color;
     }
 
   }
@@ -78,6 +86,12 @@ sup {
   transform: rotate(180deg);
 }
 
+::ng-deep .mat-mdc-menu-panel {
+  position: relative !important;
+  right: -1em !important;
+  --mat-menu-container-shape: 10px !important;
+}
+
 ::ng-deep .mat-elevation-z8, .mat-mdc-elevation-specific.mat-elevation-z8 {
   box-shadow: rgba(0, 0, 0, 0.2) 0px 60px 40px -7px !important;
 }
@@ -94,15 +108,34 @@ sup {
   }
 }
 
-.divider{
+.divider, .menu-divider{
   height: 1.5em;
   font-weight: bold;
   color: $accent-color;
 }
 
+  .language-menu-divider{
+    margin-top: 1.7em;
+  }
+
+.menu-divider{
+  height: 0em;
+  transition: margin-top 0.5s ease-in-out;
+}
+
+.about-us{
+  font-size: medium;
+}
+
+::ng-deep .mat-divider{
+  border-top-color: #E3E7F1 !important;
+}
+
 :host .mat-divider.mat-divider-vertical {
   border-right-color: #35425b !important;
 }
+
+
 
 @keyframes shake {
   0% { transform: translateX(0px); }
@@ -127,5 +160,11 @@ sup {
     button{
       font-size: large;
     }
+  }
+  .menu-divider{
+    margin-top: 1.07em !important;
+  }
+  .language-menu-divider{
+    margin-top: 1.3em !important;
   }
 }

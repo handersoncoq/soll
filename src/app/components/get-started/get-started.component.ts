@@ -7,7 +7,6 @@ import { PhoneAgreementComponent } from 'src/app/info/components/phone-agreement
 import { CharMap } from 'src/app/interaces/CharMap';
 import { ContentManagerService } from 'src/app/services/content-manager/content-manager.service';
 import { PublicInteractionService } from 'src/app/services/public-interaction/public-interaction.service';
-import { TermsAndConditionsComponent } from 'src/app/templates/terms-and-conditions/terms-and-conditions.component';
 import { successMessage } from 'src/app/utils/constants/GetStartedSuccessMsg';
 import { states } from 'src/app/utils/constants/UsStates';
 
@@ -210,12 +209,7 @@ validateAge(control: AbstractControl): { [key: string]: boolean } | null {
   }
 
   openTermsAndConditions(): void {
-    this.dialog.open(TermsAndConditionsComponent,
-      {
-        width: '100%',
-        enterAnimationDuration: this.enterAnimationDuration,
-        exitAnimationDuration: this.exitAnimationDuration,
-      })
+    this.contentManagerService.openTermsAndConditions();
   }
 
 }
