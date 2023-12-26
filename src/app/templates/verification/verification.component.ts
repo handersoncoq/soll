@@ -62,7 +62,7 @@ export class VerificationComponent {
     const verificationCode = Object.values(this.verificationForm.value).join('');
     // TODO: Send the code to the server for verification
     this.verificationSucceeds = true;
-    this.navigateToHome();
+    this.navigateToUserDashboard();
   }
 
   throwError(){
@@ -83,9 +83,9 @@ export class VerificationComponent {
   }
 
 
-  navigateToHome(){
+  navigateToUserDashboard(){
     setTimeout(() =>{
-      this.router.navigate(['home']);
+      this.router.navigate(['my-dashboard']);
     }, 1000)
   }
 

@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -6,6 +7,9 @@ import { Injectable } from '@angular/core';
 export class StyleManagerService {
 
   private _isScrollEnabled = false;
+
+  private dashboardTheme = new BehaviorSubject<boolean>(window.matchMedia('(prefers-color-scheme: dark)').matches);
+  isDashboardTheme = this.dashboardTheme.asObservable();
 
   constructor() { }
 
@@ -21,6 +25,14 @@ export class StyleManagerService {
   disableScroll(): void {
     this._isScrollEnabled = false;
     document.body.classList.add('no-scroll');
+  }
+
+  toggleTheme() {
+    this.dashboardTheme.next(!this.dashboardTheme.value);
+  }
+
+  setDashboardTheme(value: boolean){
+    this.dashboardTheme.next(value);
   }
 
   loadMaterialSymbols() {

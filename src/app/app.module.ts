@@ -36,6 +36,7 @@ import { StyleManagerService } from './services/style-manager/style-manager.serv
 import { NoticeComponent } from './templates/notice/notice.component';
 import { SignInComponent } from './components/sign-in/sign-in.component';
 import { HowItWorksComponent } from './templates/how-it-works/how-it-works.component';
+import { UserDashboardComponent } from './components/user-dashboard/user-dashboard.component';
 
 
 @Injectable()
@@ -58,7 +59,8 @@ export class HammerConfig extends HammerGestureConfig {
     TermsAndConditionsComponent,
     NoticeComponent,
     SignInComponent,
-    HowItWorksComponent
+    HowItWorksComponent,
+    UserDashboardComponent
   ],
   imports: [
     ReactiveFormsModule,

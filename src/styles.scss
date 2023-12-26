@@ -213,6 +213,26 @@ img {
 
 // *********************************************************************************
 
+body.dashboard-theme{
+  background-color: $primary-color;
+  color: white !important;
+  
+  .app-footer {
+    color: white !important;          
+    .footer-content {      
+      .footer-links {
+        span {
+          color: white !important;          
+          &:hover {
+            color: $dark-dusty-blue !important;          
+          }
+        }
+      }
+    }
+  }
+
+}
+
 body.dark-mode {
   background-color: $sol-darker;
   color: $alt-font-color !important;
