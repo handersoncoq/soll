@@ -1,3 +1,74 @@
+<div class="nav-box">
+  <app-user-nav></app-user-nav>
+</div>
+
 <div class="component">
-    <p>user-dashboard works!</p>
+  <div class="spacing"></div>
+  <div class="current-saving">
+    <h3>Your Saving</h3>
+    <h2>{{ currentSaving | currency }}</h2>
+  </div>
+  <div class="header">
+    <div class="user-progress">
+      <div class="user-profile">
+        <div class="outer-circle">
+          <div class="inner-circle-dynamic-fill">
+            <div class="img-container">
+              <img
+                class="profile-img"
+                [attr.data-src]="profilePic"
+                appLazyLoading
+                alt="User Profile"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="payout-days">{{ daysUntilPayout }} days</p>
+    </div>
+
+    <div class="demographic">
+      <div class="reputation-score">
+        <div class="label">Reputation Score</div>
+        <div class="value">
+          {{ userReputation }} <mat-icon class="rep-score">star</mat-icon>
+        </div>
+      </div>
+
+      <div class="active-group">
+        <div class="label">Active Groups</div>
+        <div class="value">{{ activeGroupCount }}</div>
+      </div>
+
+      <div class="location">
+        <div class="label">Location</div>
+        <div class="value">{{ location }}</div>
+      </div>
+    </div>
+  </div>
+
+    <div class="group-details">
+        <div class="group-name">{{groupName}} ({{payoutSystem}})</div>
+        <mat-divider class="divider"></mat-divider>
+        <div class="section">
+          <span class="label">Savings Target: </span>
+          <span class="value">{{ savingsTarget | currency }}</span>
+        </div>
+        <div class="section">
+          <span class="label">Contribution Amount: </span>
+          <span class="value">{{ nextContributionAmount | currency }}</span>
+        </div>
+        <div class="section">
+            <span class="label">Group Size: </span>
+            <span class="value">{{ groupSize }}</span>
+        </div>
+        <div class="section">
+            <span class="label">Rank: </span>
+            <span class="value">{{ queu }}</span>
+        </div>
+        <div class="section">
+          <span class="label">Next Contribution: </span>
+          <span class="value">{{ nextContributionDate | date }}</span>
+        </div>
+    </div>
 </div>

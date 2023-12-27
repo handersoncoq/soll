@@ -1,3 +1,174 @@
+// Color variables
+$primary-color: #52688f;
+$accent-color: #35425b;
+$alt-font-color: #E3E7F1;
+$text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+$progress-color: #20a7db;
+$card-boxshadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+
+.nav-box{
+    display: flex;
+}
+.spacing{
+    margin: 0;
+    margin-bottom: 1em;
+    border: none;
+}
 .component{
-    margin: 0.6em;
+    position: relative;
+    margin: 1em 0.6em;
+    margin-top: 5em;
+
+    .current-saving{
+        color: bisque;
+        margin-bottom: 2em;
+        margin-left: 0.4em;
+        h2, h3{
+            font-weight: normal;
+            padding: 0;
+            margin: 0;
+        }
+        h2{
+            line-height: 1.5;
+            color: white;
+        }
+    }
+}
+
+.header, .group-details{
+    margin-bottom: 3em;
+    padding: 1em;
+    background-color: $accent-color;
+    border-radius: 1em;
+    box-shadow: $card-boxshadow;
+}
+
+.header {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    align-items: center;
+    gap: 1em;
+    color: white;
+    border-bottom: solid $progress-color 5px;
+    .user-progress{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        .payout-days{
+            font-size: medium;
+            text-align: center;
+            color: bisque;
+        }
+    }
+}
+
+.user-profile {
+    padding: 0 1em;
+    .outer-circle {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background-color: $accent-color;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+  
+      .inner-circle-dynamic-fill {
+        width: 6.3em;
+        height: 6.3em;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+  
+        &:after {
+          content: '';
+          width: 100%;
+          height: 100%;
+          border-radius: 50%;
+          position: absolute;
+          top: 0;
+          left: 0;
+        }
+
+        .img-container{
+            display: flex;
+            justify-content: center;
+            background-color: white;
+            border-radius: 50%;
+            height: 4.5em;
+            width: 4.5em;
+            overflow: hidden;
+            border: solid $accent-color 5px;
+            .profile-img {
+                width: 10em;
+                height: 5em;
+                margin-top: 0.1em;
+                border-radius: 50%;
+            }
+        }
+      }
+    }
+  }
+  
+
+.demographic {
+    display: flex;
+    flex-direction: column;
+    .reputation-score, .active-group, .location {
+        margin-bottom: 0.5em;
+        color: white;
+        padding: 0.5em 0;
+        border-radius: 8px;
+        width: auto;
+        border-bottom: solid $progress-color 1px;
+        .label{
+            font-size: larger;
+            font-weight: bold;
+        }
+        .value{            
+            font-size: medium;
+            color: bisque;
+            .rep-score{
+                display: inline-flex;
+                font-size: larger;
+                vertical-align: baseline;
+                height: 16px !important;
+                color: $progress-color;
+            }
+        }
+    }
+}
+
+.group-details{
+    font-size: larger;
+    .group-name {
+        padding-bottom: 0.5em;
+    }
+    .section:not(:last-child) {
+        border-bottom: solid $progress-color 1px;
+    }
+    .section{
+        margin-left: 1em;
+        padding: 0.5em 0;
+    }
+    .group-name{
+        font-weight: bold;
+    }
+    .value{
+        font-size: medium;
+        color: bisque;
+        padding: 0 1em;
+    }
+    .span{
+        margin-right: 1em;
+    }
+    .divider {
+        margin-bottom: 1em;
+        ::ng-deep .mat-divider{
+            border-top-color: #E3E7F1 !important;
+          }
+    }
 }

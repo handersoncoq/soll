@@ -29,6 +29,7 @@ export class ContentManagerService {
   // logo and images
   appLogo3 = './assets/logo/3.png';
   appLogo6 = './assets/logo/6.png';
+  appLogoDark = './assets/logo/logo-dark.png';
   five_stars = './assets/img/five-stars.svg';
 
   // videos
@@ -108,6 +109,10 @@ export class ContentManagerService {
 
   getAppLogo6(): string{
     return this.appLogo6;
+  }
+
+  getAppLogoDark(): string{
+    return this.appLogoDark;
   }
 
   getAppVersion(): string{
