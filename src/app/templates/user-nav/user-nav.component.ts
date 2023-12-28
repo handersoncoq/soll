@@ -1,5 +1,6 @@
 import { trigger, transition, style, animate } from '@angular/animations';
 import { Component, HostListener } from '@angular/core';
+import { Router } from '@angular/router';
 import { ContentManagerService } from 'src/app/services/content-manager/content-manager.service';
 import { supportedLanguages } from 'src/app/utils/constants/Languages';
 
@@ -24,9 +25,11 @@ export class UserNavComponent {
 
   languages = supportedLanguages;
   navLogo: string;
+  showSpinner = false;
 
   constructor(
     private contentManagerService: ContentManagerService,
+    private router: Router,
   ) {
     this.navLogo = this.contentManagerService.getAppLogoDark();
   }
@@ -43,6 +46,13 @@ export class UserNavComponent {
 
   changeLanguage(language: string){
     console.log(language)
+  }
+
+  signOut() {
+    setTimeout(() => {
+      this.showSpinner = true;
+    }, 1000);
+    this.router.navigate(['']);
   }
 
 }

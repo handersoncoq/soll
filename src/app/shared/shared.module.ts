@@ -9,6 +9,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
 import {MatStepperModule} from '@angular/material/stepper';
+import {MatBadgeModule} from '@angular/material/badge';
 
 import { PublicNavComponent } from '../templates/public-nav/public-nav.component';
 import { LazyLoadingDirective } from '../utils/directives/lazy-loading.directive';
@@ -32,7 +33,8 @@ import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
     MatDialogModule,
     MatDividerModule,
     MatBottomSheetModule,
-    MatStepperModule
+    MatStepperModule,
+    MatBadgeModule
   ],
   providers: [
     PublicInteractionService,
@@ -50,7 +52,8 @@ import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
     MatButtonModule,
     MatDividerModule,
     MatBottomSheetModule,
-    MatStepperModule
+    MatStepperModule,
+    MatBadgeModule
   ]
 })
 export class SharedModule { }

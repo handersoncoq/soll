@@ -4,9 +4,16 @@
 
 <div class="component">
   <div class="spacing"></div>
-  <div class="current-saving">
-    <h3>Your Saving</h3>
-    <h2>{{ currentSaving | currency }}</h2>
+  <div class="saving-alert">
+    <div class="current-saving">
+      <h3 appLazyLoadText>Your Savings</h3>
+      <h2 appLazyLoadText>{{ currentSaving | currency }}</h2>
+    </div>
+    <div class="alert-box">
+      <mat-icon appLazyLoadText aria-hidden="false" matBadge="2" matBadgeSize="small" class="alert"
+        >notifications</mat-icon
+      >
+    </div>
   </div>
   <div class="header">
     <div class="user-progress">
@@ -47,28 +54,43 @@
     </div>
   </div>
 
-    <div class="group-details">
-        <div class="group-name">{{groupName}} ({{payoutSystem}})</div>
-        <mat-divider class="divider"></mat-divider>
-        <div class="section">
-          <span class="label">Savings Target: </span>
-          <span class="value">{{ savingsTarget | currency }}</span>
-        </div>
-        <div class="section">
-          <span class="label">Contribution Amount: </span>
-          <span class="value">{{ nextContributionAmount | currency }}</span>
-        </div>
-        <div class="section">
-            <span class="label">Group Size: </span>
-            <span class="value">{{ groupSize }}</span>
-        </div>
-        <div class="section">
-            <span class="label">Rank: </span>
-            <span class="value">{{ queu }}</span>
-        </div>
-        <div class="section">
-          <span class="label">Next Contribution: </span>
-          <span class="value">{{ nextContributionDate | date }}</span>
-        </div>
+  <div class="active-groups" *ngFor="let group of activeGroups">
+    <div appLazyLoadText class="group-name">
+      <mat-icon class="group-icon">groups_3</mat-icon> {{ group.groupName }}
+      <span class="divide-vert">|</span> {{ group.payoutSystem }}
+      @if(group.payoutSystem === 'EPS') {<mat-icon class="styled-icon">calendar_month</mat-icon>}
+      @else {<mat-icon class="styled-icon">linear_scale</mat-icon>}
     </div>
+    <div class="group-details">
+      <div class="outer-progress">
+        <div
+          class="inner-progress"
+          [ngStyle]="{ width: (group.rank / group.groupSize) * 100 + '%' }"
+        ></div>
+      </div>
+      <div class="section">
+        <span class="label">Savings Target: </span>
+        <span class="value">{{ group.savingsTarget | currency }}</span>
+      </div>
+      <div class="section">
+        <span class="label">Contribution Amount: </span>
+        <span class="value">{{ group.nextContributionAmount | currency }}</span>
+      </div>
+      <div class="section">
+        <span class="label">Group Size: </span>
+        <span class="value">{{ group.groupSize }}</span>
+      </div>
+      <div class="section">
+        <span class="label">Rank: </span>
+        <span class="value">{{ group.rank }}</span>
+      </div>
+      <div class="section">
+        <span class="label">Next Contribution: </span>
+        <span class="value">{{ group.nextContributionDate | date }}</span>
+      </div>
+    </div>
+  </div>
+
+  <div appLazyLoadText class="trending-title">Trending Groups</div>
+  <div class="trending-groups"></div>
 </div>

@@ -14,7 +14,7 @@
           >public</mat-icon
         >
         <mat-divider class="divider" [vertical]="true"></mat-divider>
-        <button mat-button>
+        <button (click)="signOut()" mat-button>
           Sign out
         </button>
         <button
@@ -82,4 +82,8 @@
       </div>
     </ng-template>
   </mat-menu>
+
+  <div *ngIf="showSpinner">
+    <app-loading color="accent"></app-loading>
+  </div>
   
