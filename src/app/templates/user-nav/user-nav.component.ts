@@ -49,10 +49,11 @@ export class UserNavComponent {
   }
 
   signOut() {
+    this.showSpinner = true;
     setTimeout(() => {
-      this.showSpinner = true;
+      this.router.navigate(['']);
     }, 1000);
-    this.router.navigate(['']);
   }
+  
 
 }

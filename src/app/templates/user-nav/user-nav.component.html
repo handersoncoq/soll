@@ -83,7 +83,8 @@
     </ng-template>
   </mat-menu>
 
-  <div *ngIf="showSpinner">
-    <app-loading color="accent"></app-loading>
+  <div *ngIf="showSpinner" class="spinner-container">
+    <mat-progress-spinner color="accent" mode="indeterminate"></mat-progress-spinner>
+    <p>Signing you out...</p>
   </div>
   

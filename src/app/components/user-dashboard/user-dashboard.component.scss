@@ -159,8 +159,7 @@ $card-boxshadow: 0 25px 50px -12px rgba(0,0,0,0.25);
             .rep-score{
                 display: inline-flex;
                 font-size: larger;
-                vertical-align: baseline;
-                height: 16px !important;
+                vertical-align: sub;
                 color: $progress-color;
             }
         }

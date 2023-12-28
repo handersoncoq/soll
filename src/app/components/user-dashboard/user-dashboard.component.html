@@ -18,7 +18,13 @@
   <div class="header">
     <div class="user-progress">
       <div class="user-profile">
-        <div class="outer-circle">
+        <div 
+        class="outer-circle"
+        appProgressCircleAnimation
+        [nextPayoutDate]="nextPayoutDate" 
+        [cycleStartDate]="activeGroups[0].cycleStartDate"
+        (daysUntilPayoutChange)="daysUntilPayout = $event"
+        >
           <div class="inner-circle-dynamic-fill">
             <div class="img-container">
               <img
@@ -65,7 +71,9 @@
       <div class="outer-progress">
         <div
           class="inner-progress"
-          [ngStyle]="{ width: (group.rank / group.groupSize) * 100 + '%' }"
+          appProgressAnimation
+          [rank]="group.rank" 
+          [groupSize]="group.groupSize"
         ></div>
       </div>
       <div class="section">

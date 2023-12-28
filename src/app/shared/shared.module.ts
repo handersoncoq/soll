@@ -17,12 +17,14 @@ import { LazyLoadTextDirective } from '../utils/directives/lazy-load-text.direct
 import { PublicInteractionService } from '../services/public-interaction/public-interaction.service';
 import { ScrollToSectionDirective } from '../utils/directives/scroll-to-section.directive';
 import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
+import { ProgressAnimationDirective } from '../utils/directives/progress-animation.directive';
+import { ProgressCircleAnimationDirective } from '../utils/directives/progress-circle-animation.directive';
 
 
 @NgModule({
   declarations: [ 
     PublicNavComponent, LazyLoadingDirective, ScrollToSectionDirective,
-    LazyLoadTextDirective]
+    LazyLoadTextDirective, ProgressAnimationDirective, ProgressCircleAnimationDirective]
     ,
   imports: [
     CommonModule,
@@ -47,6 +49,8 @@ import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
     PublicNavComponent, 
     LazyLoadingDirective,
     LazyLoadTextDirective,
+    ProgressAnimationDirective,
+    ProgressCircleAnimationDirective,
     MatDialogModule, 
     MatToolbarModule,
     MatButtonModule,

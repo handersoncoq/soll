@@ -124,3 +124,23 @@ mat-toolbar {
   :host .mat-divider.mat-divider-vertical {
     border-right-color: white !important;
   }
+
+  .spinner-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    position: fixed; 
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 10000;
+    background-color: rgba(72, 94, 133, 0.8);
+    p{
+      font-size: smaller;
+      color: white;
+      text-align: center;
+    }
+  }
+  
