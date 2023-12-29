@@ -1,0 +1,59 @@
+$accent-color: #35425b;
+$progress-color: #20a7db;
+$card-boxshadow: rgba(0, 0, 0, 0.15) -12px 21px 24px -10px;
+
+.trending-groups{
+    display: flex;
+    width: 100%;
+}
+
+.group-details{
+    padding: 1em;
+    margin-bottom: 1em;
+    background-color: $accent-color;
+    border-radius: 1em;
+    box-shadow: $card-boxshadow;
+    &:hover{
+        cursor: pointer;
+        border: solid white 1px;
+        box-shadow: none;
+    }
+}
+
+.styled-icon{
+    font-size: medium;
+    height: 18px;
+    vertical-align: sub;
+    color: bisque;
+}
+
+.group-name {
+    font-size: medium;
+    padding-bottom: 0.5em;
+    .divide-vert{
+        font-weight: lighter;
+        color: $accent-color;
+        padding: 0 0.1em;
+    }
+    .group-icon, .divide-vert, .styled-icon{
+        box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+    }
+}
+
+.group-details{
+    .section:not(:last-child) {
+        border-bottom: solid $progress-color 1px;
+    }
+    .section{
+        font-size: small;
+        padding: 0.5em 0;
+    }
+    .value{
+        font-size: smaller;
+        color: bisque;
+        padding: 0 1em;
+    }
+    .span{
+        margin-right: 1em;
+    }
+}

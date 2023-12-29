@@ -7,6 +7,7 @@ export class ProgressCircleAnimationDirective implements AfterViewInit {
   @Input() nextPayoutDate!: Date;
   @Input() cycleStartDate!: Date;
   @Input() fillColor: string = '#20a7db';
+  @Input() nonFillColor: string = '#f5f5f5';
   @Output() daysUntilPayoutChange = new EventEmitter<number>();
 
   constructor(private el: ElementRef, private renderer: Renderer2) {}
@@ -64,7 +65,7 @@ export class ProgressCircleAnimationDirective implements AfterViewInit {
     this.renderer.setStyle(
       this.el.nativeElement,
       'background',
-      `conic-gradient(${this.fillColor} ${currentFill}%, #ddd ${currentFill}%)`
+      `conic-gradient(${this.fillColor} ${currentFill}%, ${this.nonFillColor} ${currentFill}%)`
     );
   }
 

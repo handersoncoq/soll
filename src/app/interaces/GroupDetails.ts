@@ -2,7 +2,7 @@ export interface GroupDetail {
     groupName: string;
     payoutSystem: string;
     savingsTarget: number;
-    nextContributionAmount: number;
+    contribution: string;
     groupSize: number;
     rank: number;
     nextContributionDate: Date;

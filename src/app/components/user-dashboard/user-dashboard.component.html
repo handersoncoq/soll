@@ -2,7 +2,7 @@
   <app-user-nav></app-user-nav>
 </div>
 
-<div class="component">
+<div class="user-stats">
   <div class="spacing"></div>
   <div class="saving-alert">
     <div class="current-saving">
@@ -10,7 +10,12 @@
       <h2 appLazyLoadText>{{ currentSaving | currency }}</h2>
     </div>
     <div class="alert-box">
-      <mat-icon appLazyLoadText aria-hidden="false" matBadge="2" matBadgeSize="small" class="alert"
+      <mat-icon
+        appLazyLoadText
+        aria-hidden="false"
+        matBadge="2"
+        matBadgeSize="small"
+        class="alert"
         >notifications</mat-icon
       >
     </div>
@@ -18,12 +23,12 @@
   <div class="header">
     <div class="user-progress">
       <div class="user-profile">
-        <div 
-        class="outer-circle"
-        appProgressCircleAnimation
-        [nextPayoutDate]="nextPayoutDate" 
-        [cycleStartDate]="activeGroups[0].cycleStartDate"
-        (daysUntilPayoutChange)="daysUntilPayout = $event"
+        <div
+          class="outer-circle"
+          appProgressCircleAnimation
+          [nextPayoutDate]="nextPayoutDate"
+          [cycleStartDate]="activeGroups[0].cycleStartDate"
+          (daysUntilPayoutChange)="daysUntilPayout = $event"
         >
           <div class="inner-circle-dynamic-fill">
             <div class="img-container">
@@ -63,16 +68,17 @@
   <div class="active-groups" *ngFor="let group of activeGroups">
     <div appLazyLoadText class="group-name">
       <mat-icon class="group-icon">groups_3</mat-icon> {{ group.groupName }}
-      <span class="divide-vert">|</span> {{ group.payoutSystem }}
-      @if(group.payoutSystem === 'EPS') {<mat-icon class="styled-icon">calendar_month</mat-icon>}
-      @else {<mat-icon class="styled-icon">linear_scale</mat-icon>}
+      <span class="divide-vert">|</span>
+      @if(group.payoutSystem === 'EPS') {<mat-icon class="styled-icon"
+        >calendar_month</mat-icon
+      >} @else {<mat-icon class="styled-icon">linear_scale</mat-icon>}
     </div>
     <div class="group-details">
       <div class="outer-progress">
         <div
           class="inner-progress"
           appProgressAnimation
-          [rank]="group.rank" 
+          [rank]="group.rank"
           [groupSize]="group.groupSize"
         ></div>
       </div>
@@ -81,8 +87,8 @@
         <span class="value">{{ group.savingsTarget | currency }}</span>
       </div>
       <div class="section">
-        <span class="label">Contribution Amount: </span>
-        <span class="value">{{ group.nextContributionAmount | currency }}</span>
+        <span class="label">Contribution: </span>
+        <span class="value">{{ group.contribution }}</span>
       </div>
       <div class="section">
         <span class="label">Group Size: </span>
@@ -93,12 +99,45 @@
         <span class="value">{{ group.rank }}</span>
       </div>
       <div class="section">
-        <span class="label">Next Contribution: </span>
+        <span class="label">Next Due Date: </span>
         <span class="value">{{ group.nextContributionDate | date }}</span>
       </div>
     </div>
   </div>
 
-  <div appLazyLoadText class="trending-title">Trending Groups</div>
-  <div class="trending-groups"></div>
+  <div *ngIf="prevGroups" class="slide-groups prev-groups">
+    <div appLazyLoadText class="slide-title">
+      <mat-icon class="group-icon clock">watch_later</mat-icon>
+      Previous Groups
+    </div>
+    <swiper-container
+      [slides-per-view]="5"
+      navigation="false"
+      pagination="true"
+      scrollbar="false"
+      speed="2000"
+      [spaceBetween]="20"
+    >
+    <swiper-slide class="prev-group-slide" *ngFor="let group of prevGroups">
+      <app-prev-groups [prevGroup]="group"></app-prev-groups>
+    </swiper-slide>
+    </swiper-container>
+  </div>
+
+</div>
+
+<div *ngIf="trendingGroups" class="slide-groups">
+  <div appLazyLoadText class="slide-title">Trending Groups</div>
+  <swiper-container
+    [slides-per-view]="5"
+    navigation="false"
+    pagination="true"
+    scrollbar="false"
+    speed="2000"
+    [spaceBetween]="20"
+  >
+    <swiper-slide *ngFor="let group of trendingGroups">
+      <app-trending-groups [trendingGroup]="group"></app-trending-groups>
+    </swiper-slide>
+  </swiper-container>
 </div>

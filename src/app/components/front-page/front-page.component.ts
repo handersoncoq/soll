@@ -3,7 +3,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { forkJoin } from 'rxjs';
 import { TitleBodyArrayType } from 'src/app/interaces/TitleBodyArrayType';
-import { TitleBodyType } from 'src/app/interaces/TitleBodyType';
 import { ContentManagerService } from 'src/app/services/content-manager/content-manager.service';
 import { PublicInteractionService } from 'src/app/services/public-interaction/public-interaction.service';
 

@@ -1,4 +1,4 @@
-import { Injectable, NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Injectable, NgModule } from '@angular/core';
 import { BrowserModule, HammerModule, HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
 import * as Hammer from 'hammerjs';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -38,6 +38,8 @@ import { SignInComponent } from './components/sign-in/sign-in.component';
 import { HowItWorksComponent } from './templates/how-it-works/how-it-works.component';
 import { UserDashboardComponent } from './components/user-dashboard/user-dashboard.component';
 import { UserNavComponent } from './templates/user-nav/user-nav.component';
+import { TrendingGroupsComponent } from './templates/trending-groups/trending-groups.component';
+import { PrevGroupsComponent } from './templates/prev-groups/prev-groups.component';
 
 
 @Injectable()
@@ -62,7 +64,9 @@ export class HammerConfig extends HammerGestureConfig {
     SignInComponent,
     HowItWorksComponent,
     UserDashboardComponent,
-    UserNavComponent
+    UserNavComponent,
+    TrendingGroupsComponent,
+    PrevGroupsComponent
   ],
   imports: [
     ReactiveFormsModule,
@@ -94,6 +98,7 @@ export class HammerConfig extends HammerGestureConfig {
       useClass: HammerConfig
     }
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
