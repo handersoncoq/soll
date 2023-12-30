@@ -7,5 +7,4 @@ export interface GroupDetail {
     rank: number;
     nextContributionDate: Date;
     cycleStartDate: Date;
-    frequency: number;
   }

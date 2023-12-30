@@ -40,6 +40,7 @@ import { UserDashboardComponent } from './components/user-dashboard/user-dashboa
 import { UserNavComponent } from './templates/user-nav/user-nav.component';
 import { TrendingGroupsComponent } from './templates/trending-groups/trending-groups.component';
 import { PrevGroupsComponent } from './templates/prev-groups/prev-groups.component';
+import { ActiveGroupsComponent } from './templates/active-groups/active-groups.component';
 
 
 @Injectable()
@@ -66,7 +67,8 @@ export class HammerConfig extends HammerGestureConfig {
     UserDashboardComponent,
     UserNavComponent,
     TrendingGroupsComponent,
-    PrevGroupsComponent
+    PrevGroupsComponent,
+    ActiveGroupsComponent
   ],
   imports: [
     ReactiveFormsModule,

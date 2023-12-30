@@ -17,6 +17,9 @@ export class UserDashboardComponent implements OnInit {
   
   profilePic = '/assets/img/profile.png';
 
+  firstName = 'Matgomory';
+  lastName = 'Creast';
+  useShortenedName = '';
   userReputation = 85;
   activeGroupCount = 2;
   location = 'Hartford, CT';
@@ -26,6 +29,8 @@ export class UserDashboardComponent implements OnInit {
   nextPayoutDate: Date;
   daysUntilPayout = 0;
   daysToAdd = 55;
+
+  inboxCount = 2;
 
   prevGroups = prevGroups
   trendingGroups = trendingGroups;
@@ -44,6 +49,18 @@ export class UserDashboardComponent implements OnInit {
       }
     );
     register()
+    this.shortenName(this.firstName, this.lastName);
   }
+
+  shortenName(firstName: string, lastName: string) {
+    let treatedFName = firstName;
+    let treatedLName = lastName.substring(0, 1);
+    if (firstName.length >= 12) {
+        treatedFName = firstName.substring(0, 8).concat('...');
+        this.useShortenedName = `${treatedFName} ${treatedLName}.`;
+    } else {
+        this.useShortenedName = `${treatedFName} ${treatedLName}.`;
+    }
+}
   
 }

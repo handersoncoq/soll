@@ -1,5 +1,5 @@
 <div class="container">
-  <form [formGroup]="loginForm" (ngSubmit)="nextStep()">
+  <form [formGroup]="loginForm" (ngSubmit)="nextStep()" id="sign-in-form">
     <div class="logo-div" routerLink="/">
       <img [attr.data-src]="appLogo" alt="App Logo" appLazyLoading />
     </div>

@@ -18,13 +18,13 @@ import { PublicInteractionService } from '../services/public-interaction/public-
 import { ScrollToSectionDirective } from '../utils/directives/scroll-to-section.directive';
 import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
 import { ProgressAnimationDirective } from '../utils/directives/progress-animation.directive';
-import { ProgressCircleAnimationDirective } from '../utils/directives/progress-circle-animation.directive';
+import { ConfigureDashboardHeaderDirective } from '../utils/directives/configure-dashboard-header.directive';
 
 
 @NgModule({
   declarations: [ 
-    PublicNavComponent, LazyLoadingDirective, ScrollToSectionDirective,
-    LazyLoadTextDirective, ProgressAnimationDirective, ProgressCircleAnimationDirective]
+    PublicNavComponent, LazyLoadingDirective, ScrollToSectionDirective, ConfigureDashboardHeaderDirective,
+    LazyLoadTextDirective, ProgressAnimationDirective]
     ,
   imports: [
     CommonModule,
@@ -50,7 +50,7 @@ import { ProgressCircleAnimationDirective } from '../utils/directives/progress-c
     LazyLoadingDirective,
     LazyLoadTextDirective,
     ProgressAnimationDirective,
-    ProgressCircleAnimationDirective,
+    ConfigureDashboardHeaderDirective,
     MatDialogModule, 
     MatToolbarModule,
     MatButtonModule,

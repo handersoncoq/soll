@@ -1,5 +1,5 @@
 <div class="container">
-  <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+  <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()" id="get-started-form">
     <div *ngIf="currentStep !== 5">
       <div class="logo-div" routerLink="/">
         <img [attr.data-src]="appLogo" alt="App Logo" appLazyLoading />

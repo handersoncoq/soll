@@ -16,7 +16,6 @@ export const userGroups: GroupDetail[] = [
       present.getDate() + 15
     ),
     cycleStartDate: new Date(present.getFullYear(), 10, 23),
-    frequency: 30,
   },
   {
     groupName: 'HAR-EPS-20231212-04',
@@ -31,6 +30,5 @@ export const userGroups: GroupDetail[] = [
       present.getDate() + 30
     ),
     cycleStartDate: new Date(present.getFullYear(), 10, 23),
-    frequency: 30,
   },
 ];
