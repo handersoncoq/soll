@@ -14,6 +14,9 @@ export class ProgressAnimationDirective implements AfterViewInit {
   }
 
   setupIntersectionObserver() {
+    
+    if(!this.rank || !this.groupSize) return;
+    
     const options = {
       root: null,
       threshold: 0.1

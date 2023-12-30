@@ -20,47 +20,46 @@
       >
     </div>
   </div>
-  <div class="header">
-    <div class="user-progress">
-      <div class="user-profile">
-        <div
-          class="outer-circle"
-          appConfigureDashboardHeader
-          [reputationScore]="userReputation"
-          [nextPayoutDate]="nextPayoutDate"
-          (daysUntilPayoutChange)="daysUntilPayout = $event"
-        >
-          <div class="inner-circle-dynamic-fill">
-            <div class="img-container">
-              <img
-                class="profile-img"
-                [attr.data-src]="profilePic"
-                appLazyLoading
-                alt="User Profile"
-              />
+  <div class="header-wrapper">
+    <div class="header">
+      <div class="user-progress">
+        <div class="user-profile">
+          <div
+            class="outer-circle"
+            appConfigureDashboardHeader
+            [reputationScore]="userReputation"
+            [nextPayoutDate]="nextPayoutDate"
+            (daysUntilPayoutChange)="daysUntilPayout = $event"
+          >
+            <div class="inner-circle-dynamic-fill">
+              <div class="img-container">
+                <img
+                  class="profile-img"
+                  [attr.data-src]="profilePic"
+                  appLazyLoading
+                  alt="User Profile"
+                />
+              </div>
             </div>
           </div>
         </div>
+        <p class="user-name">{{ useShortenedName }}</p>
       </div>
-      <p class="user-name">{{ useShortenedName }}</p>
-    </div>
-
-    <div class="demographic">
-      <div class="reputation-score">
-        <div class="label">Reputation Score</div>
-        <div class="value">
-          {{ userReputation }}
+      <div class="demographic">
+        <div class="reputation-score">
+          <div class="label">Reputation Score</div>
+          <div class="value">
+            {{ userReputation }}
+          </div>
         </div>
-      </div>
-
-      <div class="active-group">
-        <div class="label">Next Payout</div>
-        <div class="value">{{ nextPayoutDate | date }}</div>
-      </div>
-
-      <div class="location">
-        <div class="label">Group Location</div>
-        <div class="value">{{ location }}</div>
+        <div class="active-group">
+          <div class="label">Next Payout</div>
+          <div class="value">{{ nextPayoutDate | date }}</div>
+        </div>
+        <div class="location">
+          <div class="label">Group Location</div>
+          <div class="value">{{ location }}</div>
+        </div>
       </div>
     </div>
   </div>
@@ -78,7 +77,7 @@
       speed="2000"
       [spaceBetween]="20"
     >
-    <swiper-slide class="prev-group-slide" *ngFor="let group of activeGroups">
+    <swiper-slide class="user-group-slide" *ngFor="let group of activeGroups">
       <app-active-groups [activeGroup]="group" ></app-active-groups>
     </swiper-slide>
     </swiper-container>
@@ -86,7 +85,7 @@
 
   <div *ngIf="prevGroups" class="slide-groups user-groups">
     <div appLazyLoadText class="slide-title">
-      <mat-icon class="group-icon clock">watch_later</mat-icon>
+      <mat-icon class="clock-icon">watch_later</mat-icon>
       Previous Groups
     </div>
     <swiper-container
@@ -97,7 +96,7 @@
       speed="2000"
       [spaceBetween]="20"
     >
-    <swiper-slide class="prev-group-slide" *ngFor="let group of prevGroups">
+    <swiper-slide class="user-group-slide" *ngFor="let group of prevGroups">
       <app-prev-groups [prevGroup]="group"></app-prev-groups>
     </swiper-slide>
     </swiper-container>
@@ -112,11 +111,17 @@
     navigation="false"
     pagination="true"
     scrollbar="false"
-    speed="2000"
+    speed="500"
     [spaceBetween]="20"
   >
     <swiper-slide *ngFor="let group of trendingGroups">
       <app-trending-groups [trendingGroup]="group"></app-trending-groups>
     </swiper-slide>
   </swiper-container>
+</div>
+
+<div class="info">
+  <button mat-button>Join a group</button>
+  <button mat-button>Become a Group Leader</button>
+  <button class="help-btn" mat-button>Need help?</button>
 </div>

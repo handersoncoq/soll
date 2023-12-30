@@ -67,19 +67,10 @@ $Sol-theme: mat.define-light-theme((color: (primary: $Sol-primary,
 
 // *********************************************************************************
 
+// Overriding rules
+
 body.no-scroll {
   overflow: hidden;
-}
-
-a {
-  text-decoration: none;
-}
-
-.spacing{
-    margin: 2em 1em;
-    margin-bottom: 1em;
-    height: 1em;
-    border-bottom: solid $alt-font-color 1px;
 }
 
 html,
@@ -92,126 +83,10 @@ body {
   font-family: 'Poppins', 'Roboto', sans-serif;
 }
 
-input{
-  caret-color: $sol-darker !important;
-}
-
-input.ng-invalid.ng-touched:not(.front-page) {
-  border: none !important;
-  outline: 1px solid red;
-}
-
-.input-container {
-  position: relative;
-  display: flex;
-  align-items: center;
-
-  .form-control {
-    flex: 1;
-    padding-right: 2rem;
-  }
-
-  .toggle-password {
-    position: absolute;
-    right: 0;
-    border: none;
-    background: none;
-    cursor: pointer;
-    padding: 0 12px;
-
-    mat-icon {
-      color: $primary-color;
-    }
-  }
-}
-
-.primary-btn {
-  background-color: $accent-color;
-  color: white;
-  padding: 10px 20px;
-  padding: 0.7em 0;
-  width: 100%;
-  border-radius: 2.5em;
-  border: none;
-  font-size: larger;
-  cursor: pointer;
-  margin-top: 1em;
-  transition: background-color 0.3s ease;
-
-  &:hover {
-    background-color: darken($accent-color, 10%);
-  }
-
-  &[disabled] {
-    background-color: lighten($accent-color, 10%);
-    color: $alt-font-color;
-    cursor: default;
-  }
-}
-
-.agreement{
-  font-size: smaller;
-  a, span{
-      font-weight: bold;
-      color: $primary-color;
-  }
-  mat-checkbox{
-      height: 12px;
-      margin-left: -0.8em;
-  }
-}
-
-@keyframes floatUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-img {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: transform 0.8s ease-in-out, opacity 0.8s ease-in-out;
-
-  &.loaded {
-    animation: floatUp 0.8s ease-in-out forwards;
-  }
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.visible {
-  animation: fadeIn 1s ease-out;
-}
-
-@keyframes faded {
-  from { opacity: 0;}
-  to { opacity: 1;}
-}
-
-.simpleFadeAnimation{
-  animation: faded 0.5s ease-out;
-  opacity: 1;
-}
-
-.bottom-sheet-container{
-  max-height: 60vh !important;
-}
-
-.mat-bottom-sheet-container {
-  border-top: solid $primary-color 1px;
-  border-top-right-radius: 2em !important;
-  border-top-left-radius: 2em !important;
-}
 
 // *********************************************************************************
+
+// App modes
 
 body.dashboard-theme{
   background-color: $primary-color;
