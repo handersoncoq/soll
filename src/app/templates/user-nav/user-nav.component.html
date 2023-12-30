@@ -1,0 +1,84 @@
+<mat-toolbar class="nav-class">
+  <mat-toolbar-row class="spacer-row"></mat-toolbar-row>
+  <mat-toolbar-row>
+    <div class="toolbar-content">
+      <a href="/my-dashboard" class="company-logo">
+        <img [attr.data-src]="navLogo" alt="App Logo" appLazyLoading />
+      </a>
+      <span class="spacer"></span>
+      <mat-icon [matMenuTriggerFor]="languageMenu" class="language-icon"
+        >public</mat-icon
+      >
+      <mat-divider class="divider" [vertical]="true"></mat-divider>
+      <button (click)="signOut()" mat-button>Sign out</button>
+      <button
+        mat-icon-button
+        [matMenuTriggerFor]="menu"
+        #trigger="matMenuTrigger"
+        class="menu-button"
+      >
+        <span *ngIf="trigger.menuOpen" class="material-symbols-outlined"
+          >keyboard_arrow_down</span
+        >
+        <span
+          *ngIf="!trigger.menuOpen"
+          class="material-symbols-outlined rotated"
+          >menu</span
+        >
+      </button>
+    </div>
+  </mat-toolbar-row>
+  <mat-toolbar-row class="spacer-row"></mat-toolbar-row>
+</mat-toolbar>
+
+<mat-menu #menu="matMenu" class="main-menu">
+  <ng-template matMenuContent>
+    <div @accordion-animation class="menu-items">
+      <button appLazyLoadText mat-menu-item>
+        Profile
+        <mat-icon color="primary">person</mat-icon>
+      </button>
+      <button appLazyLoadText mat-menu-item>
+        Inbox
+        <mat-icon color="primary">email</mat-icon>
+      </button>
+      <button appLazyLoadText mat-menu-item>
+        Join a group
+        <mat-icon color="primary">group_add</mat-icon>
+      </button>
+      <button appLazyLoadText mat-menu-item>
+        Communities
+        <mat-icon color="primary">group_work</mat-icon>
+      </button>
+      <button appLazyLoadText mat-menu-item>
+        Resources
+        <mat-icon color="primary">menu_book</mat-icon>
+      </button>
+    </div>
+  </ng-template>
+</mat-menu>
+
+<!-- menu for languages -->
+
+<mat-menu #languageMenu="matMenu" class="language-menu">
+  <ng-template matMenuContent>
+    <div @accordion-animation class="menu-items">
+      <button
+        appLazyLoadText
+        mat-menu-item
+        *ngFor="let language of languages"
+        (click)="changeLanguage(language)"
+      >
+        {{ language }}
+      </button>
+    </div>
+  </ng-template>
+</mat-menu>
+
+<div *ngIf="showSpinner" class="spinner-container">
+  <mat-progress-spinner
+    color="accent"
+    mode="indeterminate"
+  ></mat-progress-spinner>
+  <p>Signing you out...</p>
+</div>

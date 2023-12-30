@@ -1,0 +1,520 @@
+$primary-color: #52688f;
+$accent-color: #35425b;
+$box-shadow: 0px 0px 10px rgba(82, 104, 143, 0.5);
+$alt-font-color: #E3E7F1;
+$transparent-bgr: rgb(82, 104, 143, 0.1);
+
+
+.header-tagline {
+  .tagLine {
+    font-size: x-large;
+    padding: 1.2em 0.75em;
+    padding-top: 0.3em;
+    padding-right: 0.5em;
+  }
+}
+
+.hero-container {
+  margin-top: 2em;
+  background-color: $primary-color;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 4fr 1fr;
+  gap: 0.7em;
+  margin: 1em 0.4em;
+  margin-bottom: 0;
+  .action{
+    padding-top: 1.7em;
+    h4{
+      color: $alt-font-color;
+      padding-left: 0.1em;
+      text-align: right;
+    }
+  }
+  img {
+    margin-top: -4em;
+    height: 14em;
+    width: 14em;
+    box-shadow: 0px 80px 50px -30px rgba(0, 0, 0, 0.15);
+    border-radius: 0.8em;
+    opacity: 1;
+  }
+  .slide-buttons {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding-top: 1.5em;
+    margin-bottom: 1.5em;
+    button{
+      cursor: pointer;
+      border: none;
+      border-radius: 50%;
+      width: 12px;
+      height: 12px;
+      padding: 0;
+      margin: 0 5px;
+      transition: background-color 0.3s;
+      box-shadow: $box-shadow;
+    }
+  }
+}
+
+
+
+.swipe {
+  position: relative;
+}
+
+.heroImages {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.heroImages.current {
+  opacity: 1;
+}
+
+
+.get-started {
+  align-items: center;
+  margin: 0 1em;
+  padding-bottom: 2em;
+.form-control {
+  width: 100%;
+  border: none;
+  border-radius: 12em;
+  text-indent: 1em;
+  padding: 0.75em 0;
+  margin-bottom: -1em;
+  font-size: medium;
+  &:focus {
+    border: none;
+    outline: none;
+    outline: 2px solid $accent-color;
+  }
+}
+input::placeholder {
+  font-size: medium;
+}
+button{
+  background: $accent-color;
+  color: white;
+  border-radius: 1.3em;
+  font-weight: bold;
+  padding: 1.17em;
+  box-shadow: $box-shadow;
+  width: 100%;
+}
+}
+
+// ******************************************* Old Style ****************************
+
+.transition {
+  background-image: none;
+  background-color: $accent-color;
+}
+
+
+.hero-btn-container{
+  display: flex;
+  max-width: 90%;
+  width: fit-content;
+  justify-content: flex-start;
+  margin: 0 2.5em;
+}
+
+.call-to-action{
+    display: flex;
+    justify-content: center;
+    vertical-align: middle;
+    margin-top: 1em;
+}
+
+.learn-more {
+        text-align: center;
+        width: 100%;
+        margin: 0;
+        padding: 1.5em 1em;
+        padding-top: 0;
+        margin-bottom: 0;
+        display: grid;
+        grid-template-columns: 2fr 2fr;
+        gap: 1em;
+    
+    button{
+        background: $accent-color;
+        color: white;
+        border-radius: 1.3em;
+        font-size: medium;
+        box-shadow: $box-shadow;
+        width: 100%;
+    }
+}
+
+.tagline-header {
+  text-align: left;
+  font-family: "Poppins", "Roboto", sans-serif;
+  font-size: 24px;
+  padding: 0 0.5em;
+  padding-top: 1.5em;
+}
+
+.sub-header{
+  font-size: small;
+  padding: 0 0.9em;
+  margin-top: -1em;
+  width: fit-content;
+  color: $accent-color;
+}
+
+.branding{
+  margin-top: -1.8em;
+}
+
+.learn-more-content{
+    padding: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+
+    img{
+      margin-bottom: -2em;
+      height: 6.2em;
+      width: 6.2em;
+    }
+    .img-p, .tag-p{
+      text-align: center;
+      font-family: "Inter", sans-serif;
+      color: $primary-color;
+    }
+}
+
+.learn-more-body{
+  font-size: medium;
+  color: $primary-color;
+  font-family: "Poppins", "Roboto", sans-serif;
+  text-align: start;
+  padding-top: 1em;
+}
+
+.learn-more-content.tag-words{
+  padding-top: 0.3em;
+  p {
+    color: lighten($accent-color, 10%);
+    font-weight: bold;
+    font-size: small;
+  }
+}
+
+.ratings-partners{
+  margin-top: 0;
+  background-color: $transparent-bgr;
+  img{
+    transform: none !important;
+  }
+
+  .trustpilot-rating, .partners{
+    text-align: center;
+    padding: 2em;
+    margin: 1em;
+    sup{
+      cursor: default;
+    }
+  }
+
+  .trustpilot-rating {
+    div{
+      img{
+        width: 11.5em;
+      }
+    }
+  
+  }
+  
+  .partners{
+    margin-bottom: 1em;
+    span{
+      img{
+        width: 6.5em;
+      }
+    }
+    h1{
+      font-size: x-large;
+      margin-top: -2em;
+    }
+    sup{
+      font-size: small;
+      font-weight: normal;
+      color: $primary-color;
+      font-family: sans-serif;
+    }
+    span:not(:last-child){
+      padding-right: 1.1em;
+    }
+  }
+}
+
+
+.faqs{
+  margin: 4em 1em;
+  h1{
+    padding: 0;
+  }
+
+  mat-expansion-panel{
+    box-shadow: none;
+    color: $accent-color;
+  }
+
+  mat-panel-title{
+    color: $accent-color;
+    color: $primary-color;
+  }
+
+  ::ng-deep .mat-expansion-panel-header:not([aria-disabled=true]) {
+    width: 100%;
+    padding: 1em 0;
+  }
+
+  p{
+    font-size: 14px !important;
+  }
+
+  .panel-icon {
+    float: right;
+  }
+
+
+}
+
+::ng-deep mat-expansion-panel-header .mat-expansion-indicator::after {
+  content: "+" !important;
+  border-radius: 50%;
+  background-color: $primary-color;
+  color: white;
+  width: 21px;
+  height: 21px;
+  justify-content: center;
+  display: flex;
+  vertical-align: middle;
+  border: 0;
+  transform: none;
+}
+::ng-deep .mat-expansion-panel-header.mat-expanded .mat-expansion-indicator::after {
+  content: "-" !important;
+  border-radius: 50%;
+  background-color: $primary-color;
+  color: white;
+  width: 21px;
+  height: 21px;
+  justify-content: center;
+  display: flex;
+  vertical-align: middle;
+}
+
+::ng-deep .mat-mdc-tooltip .mdc-tooltip__surface {
+  font-size: x-small !important;
+  background-color: white !important;
+  color: #636B74 !important;
+  border-radius: 1em !important;
+}
+
+::ng-deep .mat-mdc-tooltip{
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 60px 40px -7px !important;
+}
+
+.content-video {
+  margin: 0;
+  margin-top: 1em;
+  img{
+    height: auto;
+    width: 100%;
+  }
+  .video-even{
+    display: block;
+    width: auto;
+    justify-content: flex-start;
+  }
+  .video-odd{
+    width: auto;
+    display: block;
+    justify-content: flex-end;
+  }
+}
+
+.content-video {
+  margin-bottom: 5em;
+}
+
+.last-video{
+  margin-bottom: 7em;
+}
+
+.component{
+  @media screen and (min-width: 768px){
+    padding: 2em 5em;
+    font-size: larger;
+    .header-tagline{
+      margin-bottom: 2em;
+      padding-bottom: 2em;
+    }
+    img:not(.call-to-action img, .branding img, .ratings-partners img, .hero img){
+      height: 30em;
+      width: 30em;
+    }
+    h1{
+      font-size: xx-large;
+    }
+    
+    .hero{
+      padding: 2em 4em;
+      padding-right: 1em;
+      .action h4{
+        font-size: x-large;
+      }
+      img{
+        margin-top: -6em;
+        height: 20em;
+        width: 20em;
+      }
+    }
+    .get-started{
+      padding-left: 3em;
+      padding-right: 3em;
+    }
+    .video-even, .video-odd{
+      display: flex;
+      width: 100%;
+    }
+    .video-even{
+      justify-content: flex-start;
+    }
+    .video-odd{
+      justify-content: flex-end;
+    }
+    .learn-more{
+      button{
+        font-size: x-large;
+        padding-top: 1.2em;
+        padding-bottom: 1.2em;
+      }
+    }
+    .learn-more-content.tag-words p{
+      font-size: large;
+    }
+  }
+  .faqs p{
+    font-size: large;
+  }
+}
+
+// Targeting standard iPads
+@media screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+  .component {
+    padding: 0.5em 3em;
+    font-size: larger;
+    .hero{
+      padding-left: 2.5em;
+    }
+    .get-started{
+      padding-left: 2em;
+      padding-right: 3em;
+    }
+    img:not(.call-to-action img, .branding img, .ratings-partners img, .hero img){
+      height: 25em;
+      width: 25em;
+    }
+    .header-tagline{
+      margin-bottom: 2em;
+      padding-bottom: 2em;
+    }
+    .learn-more{
+      button{
+        font-size: x-large;
+        padding-top: 1.2em;
+        padding-bottom: 1.2em;
+      }
+    }
+    .learn-more-content.tag-words p{
+      font-size: large;
+    }
+    .faqs p{
+      font-size: large;
+    }
+  }
+}
+
+// Targeting iPad Pro 10.5" and 11"
+@media screen and (min-device-width: 1112px) and (max-device-width: 1366px) {
+  .component {
+    padding: 0.5em 3em;
+    font-size: larger;
+    .hero{
+      padding-left: 2.5em;
+    }
+    .get-started{
+      padding-left: 2em;
+      padding-right: 3em;
+    }
+    img:not(.call-to-action img, .branding img, .ratings-partners img, .hero img){
+      height: 25em;
+      width: 25em;
+    }
+    .header-tagline{
+      margin-bottom: 2em;
+      padding-bottom: 2em;
+    }
+    .learn-more{
+      button{
+        font-size: x-large;
+        padding-top: 1.2em;
+        padding-bottom: 1.2em;
+      }
+    }
+    .learn-more-content.tag-words p{
+      font-size: large;
+    }
+    .faqs p{
+      font-size: large;
+    }
+  }
+}
+
+// Targeting iPad Pro 12.9"
+@media screen and (min-device-width: 1024px) and (max-device-width: 1366px) {
+  .component {
+    padding: 0.5em 3em;
+    font-size: larger;
+    .hero{
+      padding-left: 2.5em;
+    }
+    .get-started{
+      padding-left: 2em;
+      padding-right: 3em;
+    }
+    img:not(.call-to-action img, .branding img, .ratings-partners img, .hero img){
+      height: 25em;
+      width: 25em;
+    }
+    .header-tagline{
+      margin-bottom: 2em;
+      padding-bottom: 2em;
+    }
+    .learn-more{
+      button{
+        font-size: x-large;
+        padding-top: 1.2em;
+        padding-bottom: 1.2em;
+      }
+    }
+    .learn-more-content.tag-words p{
+      font-size: large;
+    }
+    .faqs p{
+      font-size: large;
+    }
+  }
+}

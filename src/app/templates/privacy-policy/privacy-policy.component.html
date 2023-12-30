@@ -1,0 +1,59 @@
+<div class="privacyPolicy" [class.mobile]="isMobile" *ngIf="privacyPolicy">
+  <h2 mat-dialog-title>{{ privacyPolicy.privacyPolicyTitle }}</h2>
+  <mat-dialog-content class="mat-typography">
+    <section id="introduction" *ngIf="privacyPolicy.introduction">
+      <p>{{ privacyPolicy.introduction.policyOutline }}</p>
+    </section>
+
+    <section
+      id="informationCollection"
+      *ngIf="privacyPolicy.informationCollection"
+    >
+      <h3>Information Collection</h3>
+      <p>{{ privacyPolicy.informationCollection.personalDataCollected }}</p>
+      <p>{{ privacyPolicy.informationCollection.usageData }}</p>
+    </section>
+
+    <section id="useOfInformation" *ngIf="privacyPolicy.useOfInformation">
+      <h3>Use of Information</h3>
+      <p>{{ privacyPolicy.useOfInformation.purposeOfCollection }}</p>
+      <p>{{ privacyPolicy.useOfInformation.communication }}</p>
+    </section>
+
+    <section id="informationSharing" *ngIf="privacyPolicy.informationSharing">
+      <h3>Information Sharing</h3>
+      <p>{{ privacyPolicy.informationSharing.thirdPartySharing }}</p>
+      <p>{{ privacyPolicy.informationSharing.legalRequirements }}</p>
+    </section>
+
+    <section id="securityOfData" *ngIf="privacyPolicy.securityOfData">
+      <h3>Security of Data</h3>
+      <p>{{ privacyPolicy.securityOfData.dataSecurity }}</p>
+    </section>
+
+    <section id="serviceProviders" *ngIf="privacyPolicy.serviceProviders">
+      <h3>Service Providers</h3>
+      <p>{{ privacyPolicy.serviceProviders.thirdPartyServices }}</p>
+    </section>
+
+    <section id="childrensPrivacy" *ngIf="privacyPolicy.childrensPrivacy">
+      <h3>Children's Privacy</h3>
+      <p>{{ privacyPolicy.childrensPrivacy.childrenUnder18 }}</p>
+      <p>{{ privacyPolicy.childrensPrivacy.parentalControl }}</p>
+    </section>
+
+    <section id="changesToPolicy" *ngIf="privacyPolicy.changesToPolicy">
+      <h3>Changes to Policy</h3>
+      <p>{{ privacyPolicy.changesToPolicy.updateNotice }}</p>
+      <p>{{ privacyPolicy.changesToPolicy.changeDateNotice }}</p>
+    </section>
+
+    <section id="contactUs" *ngIf="privacyPolicy.contactUs">
+      <h3>Contact Us</h3>
+      <p>{{ privacyPolicy.contactUs.inquiries }}</p>
+    </section>
+  </mat-dialog-content>
+  <mat-dialog-actions *ngIf="!isMobile">
+    <button mat-button mat-dialog-close>Close</button>
+  </mat-dialog-actions>
+</div>

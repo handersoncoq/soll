@@ -1,0 +1,153 @@
+$primary-color: #52688f;
+$accent-color: #35425b;
+$alt-font-color: #E3E7F1;
+$swoosh-box-shadow: -5px 10px 20px -20px #111;
+
+mat-toolbar {
+    color: white;
+    position: fixed;
+    background-color: $primary-color;
+    z-index: 1000;
+
+    .company-logo {
+        img{
+         height: 4em;
+         width: 4em;
+         border-radius: 50%;
+         box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+        }
+        &:hover{
+          cursor: pointer;
+          box-shadow: none;
+        }
+     }
+  
+    .spacer-row {
+      height: 1.6em;
+    }
+  
+    .toolbar-content {
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+      align-items: center;
+  
+      .spacer {
+        flex: 2 1;
+      }
+  
+      .language-icon{
+        font-size: x-large;
+        overflow: visible;
+        padding: 0 0.25em;
+        color: $accent-color;
+      }
+  
+    }
+  
+  }
+  
+  button{
+    font-size: large;
+  }
+  
+  button:not(.menu-button){
+    font-family: "Poppins", "Roboto", sans-serif;
+  }
+
+  .material-symbols-outlined {
+    padding-top: 0.1em;
+    font-size: xx-large;
+    font-weight: bold;
+    font-variation-settings: "FILL" 0, "wght" 200, "GRAD" 0, "opsz" 40;
+    transition: transform 1s ease-in-out
+  }
+
+  .menu-button {
+    background-color: $accent-color;
+    color: white;
+    margin-left: 0.7em;
+    font-size: xx-large !important;
+    font-weight: bold !important;
+    padding: 1.1em;
+    height: 1.1em;
+    width: 1.1em;
+    box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+    &:hover{
+      cursor: pointer;
+      box-shadow: none;
+    }
+  }
+  
+  .bottom-shadow {
+    box-shadow: $swoosh-box-shadow;
+  }
+
+  
+  
+  ::ng-deep .mat-mdc-icon-button.mat-mdc-button-base {
+    --mdc-icon-button-state-layer-size: 30px !important;
+    padding: 0 !important;
+  }
+  
+  .rotated{
+    transform: rotate(180deg);
+  }
+  
+  ::ng-deep .mat-mdc-menu-panel {
+    position: relative !important;
+    --mat-menu-container-shape: 10px !important;
+  }
+  
+  ::ng-deep .mat-elevation-z8, .mat-mdc-elevation-specific.mat-elevation-z8 {
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 60px 40px -7px !important;
+  }
+  
+  ::ng-deep .mat-mdc-menu-item{
+    color: $accent-color !important;
+  }
+  
+  .menu-items{
+    overflow: hidden;
+    margin-top: 0.5em;
+    button{
+      color: $primary-color !important;
+    }
+  }
+
+  .language-icon{
+    font-size: x-large;
+    overflow: visible;
+    padding: 0 0.25em;
+    color: white !important;
+  }
+
+  .divider, .menu-divider{
+    height: 1.5em;
+    font-weight: bold;
+    color: white;
+  }
+  
+  :host .mat-divider.mat-divider-vertical {
+    border-right-color: white !important;
+  }
+
+  .spinner-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    position: fixed; 
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 10000;
+    background-color: rgba(72, 94, 133, 0.8);
+    p{
+      font-size: smaller;
+      color: white;
+      text-align: center;
+    }
+  }
+  

@@ -1,0 +1,24 @@
+<div class="component">
+  <div class="header">
+    <div class="inner-div">
+      <div class="hero-links">
+        <h2>The Soll Initiative Group</h2>
+      </div>
+    </div>
+  </div>
+  
+  <div *ngIf="aboutUs" class="content">
+    <h2 appLazyLoadText >{{ aboutUs.title }}</h2>
+    <p appLazyLoadText class="main-body">{{ aboutUs.body }}</p>
+    <h2>{{ aboutUs.header }}</h2>
+    <div div *ngFor="let member of aboutUs.members" class="member-container">
+      <div class="profile-picture">
+        <img [attr.data-src]="profilePic" alt="Member's Name" loading="lazy" appLazyLoading/>
+      </div>
+      <div class="profile-info">
+        <h4 appLazyLoadText >{{ member.name }}</h4>
+        <p appLazyLoadText >{{ member.description }}</p>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,35 @@
+$primary-color: #52688F;
+$cancel-btn-color: hsl(0, 20%, 98%);
+
+h1{
+    font-size: x-large;
+    color: $primary-color;
+}
+
+.title{
+    color: #000000;
+    margin: 1em;
+    margin-bottom: 0;
+}
+
+.content {
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+    gap: 1em;
+    h1{
+        margin-right: 0;
+    }
+    mat-icon{
+        margin-top: 0.7em;
+        cursor: pointer;
+    }
+}
+
+.feedback h1{
+    font-size: larger;
+    &:hover{
+        cursor: pointer;
+        width: fit-content;
+        text-decoration: underline;
+    }
+}
