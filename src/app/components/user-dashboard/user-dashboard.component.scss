@@ -6,7 +6,7 @@ $text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 $progress-color: #20a7db;
 $card-boxshadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
 $subtle-white: #f5f5f5;
-$swoosh-box-shadow: -5px 10px 20px -20px #111;
+$swoosh-box-shadow: 0px 10px 20px -20px #111;
 
 .nav-box {
   display: flex;
@@ -21,8 +21,6 @@ $swoosh-box-shadow: -5px 10px 20px -20px #111;
   padding: 1em 0.6em;
   margin-top: 5em;
   padding-bottom: 2em;
-  margin-bottom: 3em;
-  box-shadow: $swoosh-box-shadow;
 
   .saving-alert {
     display: grid;
@@ -64,9 +62,7 @@ $swoosh-box-shadow: -5px 10px 20px -20px #111;
 }
 
 .header-wrapper {
-  margin-bottom: 2.5em;
-  padding-bottom: 3.5em;
-  box-shadow: $swoosh-box-shadow;
+  padding-bottom: 2.5em;
 }
 
 .header {
@@ -185,9 +181,8 @@ $swoosh-box-shadow: -5px 10px 20px -20px #111;
 
 .trending-title{
   font-size: larger;
-  padding-left: 0.8em;
+  margin: 0 0.6em;
   padding-bottom: 0.5em;
-
 }
 
 .slide-title {
