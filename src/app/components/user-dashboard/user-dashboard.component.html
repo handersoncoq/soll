@@ -81,7 +81,7 @@
       [spaceBetween]="20"
     >
       <swiper-slide class="user-group-slide" *ngFor="let group of activeGroups">
-        <app-active-groups [activeGroup]="group"></app-active-groups>
+        <app-active-groups (click)="goToGroupDashboard(group.groupName)" [activeGroup]="group"></app-active-groups>
       </swiper-slide>
     </swiper-container>
   </div>

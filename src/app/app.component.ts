@@ -74,8 +74,11 @@ export class AppComponent implements OnInit {
 
   shouldShowNavbar(): boolean {
     const hideOnRoutes = ['/sign-in', '/get-started', '/my-dashboard'];
-    return !hideOnRoutes.includes(this.router.url);
+    const shouldHideNavbar = hideOnRoutes.some(route => this.router.url === route);
+    const isGroupRoute = this.router.url.startsWith('/group/');
+    return !(shouldHideNavbar || isGroupRoute);
   }
+  
 
   ngOnDestroy(): void {
     if (this.routerSubscription) {
@@ -83,13 +86,23 @@ export class AppComponent implements OnInit {
     }
   }
 
-  private isUserDashboard(): boolean {
-    const userDashboardRoutes = ['/my-dashboard'];
-    return userDashboardRoutes.includes(this.router.url);
+  private isPostLogin(): boolean {
+    const currentUrl = this.router.url;
+  
+    if (currentUrl === '/my-dashboard') {
+      return true;
+    }
+  
+    if (currentUrl.startsWith('/group/')) {
+      return true;
+    }
+  
+    return false;
   }
+  
 
   private applyDashboardTheme(): void {
-    if (this.isUserDashboard()) {
+    if (this.isPostLogin()) {
       this.renderer.addClass(document.body, 'dashboard-theme');
       this.styleManager.setDashboardTheme(true);
     } else {

@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Community } from 'src/app/interaces/Community';
+import { Group } from 'src/app/interaces/Group';
 import { GroupDetail } from 'src/app/interaces/GroupDetails';
 import { prevGroups } from 'src/app/utils/constants/PreviousGroups';
 import { trendingCommunities } from 'src/app/utils/constants/TrendingCommunities';
 import { trendingGroups } from 'src/app/utils/constants/TrendingGroups';
 import { userGroups } from 'src/app/utils/constants/UserGroupDetail';
-import { ScreenLayoutService } from 'src/app/utils/screen-layout/screen-layout.service';
 import { register } from 'swiper/element/bundle';
 
 @Component({
@@ -13,8 +15,6 @@ import { register } from 'swiper/element/bundle';
   styleUrls: ['./user-dashboard.component.scss'],
 })
 export class UserDashboardComponent implements OnInit {
-
-  isMobile = true;
   
   profilePic = '/assets/img/profile.png';
 
@@ -33,11 +33,11 @@ export class UserDashboardComponent implements OnInit {
 
   inboxCount = 2;
 
-  prevGroups = prevGroups
-  trendingGroups = trendingGroups;
-  trendingCommunities = trendingCommunities
+  prevGroups: Group[] = prevGroups
+  trendingGroups: Group[] = trendingGroups;
+  trendingCommunities: Community[] = trendingCommunities
 
-  constructor(private screenService: ScreenLayoutService) {
+  constructor(private router: Router) {
     this.nextPayoutDate = new Date(
       this.activeGroups[0].cycleStartDate.getTime() +
         this.daysToAdd * 24 * 60 * 60 * 1000
@@ -45,11 +45,6 @@ export class UserDashboardComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.screenService.isMobile$.subscribe(
-      isMobile =>{
-        this.isMobile = isMobile;
-      }
-    );
     register()
     this.shortenName(this.firstName, this.lastName);
   }
@@ -64,5 +59,10 @@ export class UserDashboardComponent implements OnInit {
         this.useShortenedName = `${treatedFName} ${treatedLName}.`;
     }
 }
+
+goToGroupDashboard(groupName: string) {
+  this.router.navigate(['/group', groupName.toLowerCase()]);
+}
+
   
 }

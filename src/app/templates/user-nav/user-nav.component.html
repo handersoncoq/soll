@@ -2,9 +2,9 @@
   <mat-toolbar-row class="spacer-row"></mat-toolbar-row>
   <mat-toolbar-row>
     <div class="toolbar-content">
-      <a href="/my-dashboard" class="company-logo">
+      <span routerLink="/my-dashboard" class="company-logo">
         <img [attr.data-src]="navLogo" alt="App Logo" appLazyLoading />
-      </a>
+      </span>
       <span class="spacer"></span>
       <mat-icon [matMenuTriggerFor]="languageMenu" class="language-icon"
         >public</mat-icon
