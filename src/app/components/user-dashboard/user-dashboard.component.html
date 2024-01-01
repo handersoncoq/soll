@@ -20,89 +20,92 @@
       >
     </div>
   </div>
-  <div class="header-wrapper">
-    <div class="header">
-      <div class="user-progress">
-        <div class="user-profile">
-          <div
-            class="outer-circle"
-            appConfigureDashboardHeader
-            [reputationScore]="userReputation"
-            [nextPayoutDate]="nextPayoutDate"
-            (daysUntilPayoutChange)="daysUntilPayout = $event"
-          >
-            <div class="inner-circle-dynamic-fill">
-              <div class="img-container">
-                <img
-                  class="profile-img"
-                  [attr.data-src]="profilePic"
-                  appLazyLoading
-                  alt="User Profile"
-                />
+  <div class="pre-stats">
+    <div class="header-wrapper">
+      <div class="header">
+        <div class="user-progress">
+          <div class="user-profile">
+            <div
+              class="outer-circle"
+              appConfigureDashboardHeader
+              [reputationScore]="userReputation"
+            >
+              <div class="inner-circle-dynamic-fill">
+                <div class="img-container">
+                  <img
+                    class="profile-img"
+                    [attr.data-src]="profilePic"
+                    appLazyLoading
+                    alt="User Profile"
+                  />
+                </div>
               </div>
             </div>
           </div>
+          <p class="user-name">{{ useShortenedName }}</p>
         </div>
-        <p class="user-name">{{ useShortenedName }}</p>
-      </div>
-      <div class="demographic">
-        <div class="reputation-score">
-          <div class="label">Reputation Score</div>
-          <div class="value">
-            {{ userReputation }}
+        <div class="demographic">
+          <div class="reputation-score">
+            <div class="label">Reputation Score</div>
+            <div class="value">
+              {{ userReputation }}
+            </div>
+          </div>
+          <div class="active-group">
+            <div class="label">Next Payout</div>
+            <div class="value">
+              <span *ngIf="daysUntilPayout, else badData">
+                <mat-icon class="clock-icon">watch_later</mat-icon>
+                {{ daysUntilPayout || '---' }} days
+              </span>
+              <ng-template #badData>
+               -- 
+              </ng-template>
+            </div>
+          </div>
+          <div class="location">
+            <div class="label">Group Location</div>
+            <div class="value">{{ location }}</div>
           </div>
         </div>
-        <div class="active-group">
-          <div class="label">Next Payout</div>
-          <div class="value">
-            <mat-icon class="clock-icon">watch_later</mat-icon>
-            {{ daysUntilPayout }} days
-          </div>
-        </div>
-        <div class="location">
-          <div class="label">Group Location</div>
-          <div class="value">{{ location }}</div>
-        </div>
       </div>
     </div>
-  </div>
-
-  <div *ngIf="prevGroups" class="slide-groups user-groups">
-    <div appLazyLoadText class="slide-title">
-      <mat-icon class="group-icon">groups_3</mat-icon>
-      Active Groups
+    <div *ngIf="prevGroups" class="slide-groups user-groups">
+      <div appLazyLoadText class="slide-title">
+        <mat-icon class="group-icon">groups_3</mat-icon>
+        Active Groups
+      </div>
+      <swiper-container
+        [slides-per-view]="5"
+        navigation="false"
+        pagination="true"
+        scrollbar="false"
+        speed="500"
+        [spaceBetween]="20"
+      >
+        <swiper-slide class="user-group-slide" *ngFor="let group of activeGroups">
+          <app-active-groups (click)="goToGroupDashboard(group.groupName)" [activeGroup]="group"></app-active-groups>
+        </swiper-slide>
+      </swiper-container>
     </div>
-    <swiper-container
-      [slides-per-view]="5"
-      navigation="false"
-      pagination="true"
-      scrollbar="false"
-      speed="500"
-      [spaceBetween]="20"
-    >
-      <swiper-slide class="user-group-slide" *ngFor="let group of activeGroups">
-        <app-active-groups (click)="goToGroupDashboard(group.groupName)" [activeGroup]="group"></app-active-groups>
-      </swiper-slide>
-    </swiper-container>
-  </div>
-
-  <div *ngIf="prevGroups" class="slide-groups user-groups">
-    <div appLazyLoadText class="slide-title">
-      <mat-icon class="history-icon">history</mat-icon>
-      Previous Groups
+    <div *ngIf="prevGroups" class="slide-groups user-groups">
+      <div appLazyLoadText class="slide-title">
+        <mat-icon class="history-icon">history</mat-icon>
+        Previous Groups
+      </div>
+      <swiper-container
+        [slides-per-view]="5"
+        navigation="false"
+        pagination="true"
+        scrollbar="false"
+        speed="500"
+        [spaceBetween]="20"
+      >
+        <swiper-slide class="user-group-slide" *ngFor="let group of prevGroups">
+          <app-prev-groups (click)="goToGroupDashboard(group.groupName)" [prevGroup]="group"></app-prev-groups>
+        </swiper-slide>
+      </swiper-container>
     </div>
-    <swiper-container
-      [slides-per-view]="5"
-      navigation="false"
-      pagination="true"
-      scrollbar="false"
-      speed="500"
-      [spaceBetween]="20"
-    >
-      <swiper-slide class="user-group-slide" *ngFor="let group of prevGroups">
-        <app-prev-groups [prevGroup]="group"></app-prev-groups>
-      </swiper-slide>
-    </swiper-container>
   </div>
 </div>
 

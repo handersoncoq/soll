@@ -13,7 +13,7 @@ export const trendingGroups: Group[] = [
       payoutSystem: 'EPS',
       savingsTarget: 10000,
       groupSize: 10,
-      cycleStartDate: new Date(present.getTime() + (daysfromTody1 * 24 * 60 * 60 * 1000)),
+      startDate: new Date(present.getTime() + (daysfromTody1 * 24 * 60 * 60 * 1000)),
       contribution: '$500/BI',
       endDate: new Date()
     },
@@ -22,7 +22,7 @@ export const trendingGroups: Group[] = [
       payoutSystem: 'EPS',
       savingsTarget: 15000,
       groupSize: 15,
-      cycleStartDate: new Date(present.getTime() + (daysfromTody2 * 24 * 60 * 60 * 1000)),
+      startDate: new Date(present.getTime() + (daysfromTody2 * 24 * 60 * 60 * 1000)),
       contribution: '$700/BI',
       endDate: new Date()
     },
@@ -31,7 +31,7 @@ export const trendingGroups: Group[] = [
       payoutSystem: 'ECPS',
       savingsTarget: 20000,
       groupSize: 8,
-      cycleStartDate: new Date(present.getTime() + (daysfromTody3 * 24 * 60 * 60 * 1000)),
+      startDate: new Date(present.getTime() + (daysfromTody3 * 24 * 60 * 60 * 1000)),
       contribution: '$1000/MO',
       endDate: new Date()
     },
@@ -40,7 +40,7 @@ export const trendingGroups: Group[] = [
       payoutSystem: 'EPS',
       savingsTarget: 12000,
       groupSize: 12,
-      cycleStartDate: new Date(present.getTime() + (daysfromTody4 * 24 * 60 * 60 * 1000)),
+      startDate: new Date(present.getTime() + (daysfromTody4 * 24 * 60 * 60 * 1000)),
       contribution: '$500/BI',
       endDate: new Date()
     },
@@ -49,7 +49,7 @@ export const trendingGroups: Group[] = [
       payoutSystem: 'ECPS',
       savingsTarget: 18000,
       groupSize: 20,
-      cycleStartDate: new Date(present.getTime() + (daysfromTody5 * 24 * 60 * 60 * 1000)),
+      startDate: new Date(present.getTime() + (daysfromTody5 * 24 * 60 * 60 * 1000)),
       contribution: '$1000/MO',
       endDate: new Date()
     },

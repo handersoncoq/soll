@@ -6,7 +6,7 @@ export const prevGroups: Group[] = [
       payoutSystem: 'EPS',
       savingsTarget: 7000,
       groupSize: 7,
-      cycleStartDate: new Date(2020, 10, 24),
+      startDate: new Date(2020, 10, 24),
       contribution: '$1000/MO',
       endDate: new Date(2021, 7, 24)
     },
@@ -15,7 +15,7 @@ export const prevGroups: Group[] = [
       payoutSystem: 'ECPS',
       savingsTarget: 5000,
       groupSize: 10,
-      cycleStartDate: new Date(2020, 10, 25),
+      startDate: new Date(2020, 10, 25),
       contribution: '$500/BI',
       endDate: new Date(2021, 2, 12)
     },

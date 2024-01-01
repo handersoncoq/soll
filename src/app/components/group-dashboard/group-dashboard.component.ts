@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { GroupDetail } from 'src/app/interaces/GroupDetails';
+import { Group } from 'src/app/interaces/Group';
+import { prevGroups } from 'src/app/utils/constants/PreviousGroups';
 import { userGroups } from 'src/app/utils/constants/UserGroupDetail';
 
 @Component({
@@ -11,8 +12,18 @@ import { userGroups } from 'src/app/utils/constants/UserGroupDetail';
 export class GroupDashboardComponent implements OnInit {
   
 groupName: string | null = null;
-groups: GroupDetail[] = userGroups;
-group?: GroupDetail;
+userActiveGroups: Group[] = userGroups.map(groupDetail => ({
+  groupName: groupDetail.groupName,
+  payoutSystem: groupDetail.payoutSystem,
+  savingsTarget: groupDetail.savingsTarget,
+  groupSize: groupDetail.groupSize,
+  startDate: groupDetail.startDate,
+  contribution: groupDetail.contribution,
+  endDate: new Date()
+}));
+
+userPrevGroups: Group[] = prevGroups
+group?: Group;
 
 constructor(private route: ActivatedRoute) {}
 
@@ -27,11 +38,18 @@ ngOnInit() {
 }
 
 findGroup() {
-  this.group = this.groups.find(group => this.groupName === group.groupName?.toUpperCase());
+
+  this.group = this.userActiveGroups.find(group => this.groupName === group.groupName);
+
+  if (!this.group) {
+    this.group = this.userPrevGroups.find(group => this.groupName === group.groupName);
+  }
+
   if (!this.group) {
     console.error(`Group not found: ${this.groupName}`);
   }
 }
+
 
 
 }

@@ -6,5 +6,6 @@ export interface GroupDetail {
     groupSize: number;
     rank: number;
     nextContributionDate: Date;
-    cycleStartDate: Date;
+    startDate: Date;
+    endDate: Date
   }

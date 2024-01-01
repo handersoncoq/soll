@@ -3,7 +3,7 @@ export interface Group {
     payoutSystem: string,
     savingsTarget: number,
     groupSize: number,
-    cycleStartDate: Date,
+    startDate: Date,
     contribution: string,
     endDate: Date
   }

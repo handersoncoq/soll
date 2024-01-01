@@ -5,16 +5,13 @@ import { Directive, ElementRef, EventEmitter, Input, Output, Renderer2 } from '@
 })
 export class ConfigureDashboardHeaderDirective {
 
-  @Input() nextPayoutDate!: Date;
   @Input() fillColor: string = '#20a7db';
   @Input() nonFillColor: string = '#f5f5f5';
   @Input() reputationScore: number = 0;
-  @Output() daysUntilPayoutChange = new EventEmitter<number>();
 
   constructor(private el: ElementRef, private renderer: Renderer2) {}
 
   ngOnInit(): void {
-    this.calculateNextPayout();
   }
 
   ngAfterViewInit() {
@@ -76,20 +73,6 @@ export class ConfigureDashboardHeaderDirective {
     // Convert back to hex and return
     return `#${newR.toString(16).padStart(2, '0')}${newG.toString(16).padStart(2, '0')}${newB.toString(16).padStart(2, '0')}`;
   } 
-  
-
-  calculateNextPayout(){
-    if(!this.nextPayoutDate){
-      this.daysUntilPayoutChange.emit(0);
-      return;
-    }
-    const currentTime = new Date().getTime();
-    const payoutTime = this.nextPayoutDate.getTime();
-
-    const timeDiff = payoutTime - currentTime;
-    const daysUntilPayout = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
-    this.daysUntilPayoutChange.emit(daysUntilPayout);
-  }
 
   resetCircleFill(): void {
     this.renderer.setStyle(this.el.nativeElement, 'background', 'transparent');

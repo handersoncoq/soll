@@ -1,3 +1,4 @@
+import { group } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Community } from 'src/app/interaces/Community';
@@ -26,10 +27,14 @@ export class UserDashboardComponent implements OnInit {
   location = 'Hartford, CT';
   currentSaving = 12000;
 
-  activeGroups: GroupDetail[] = userGroups;
-  nextPayoutDate: Date;
-  daysUntilPayout = 0;
-  daysToAdd = 55;
+  activeGroups: GroupDetail[] = userGroups.sort((a, b) => {
+    const dateA = new Date(a.nextContributionDate).getTime();
+    const dateB = new Date(b.nextContributionDate).getTime();
+    return dateA - dateB;
+  });
+  
+  nextPayoutDate!: Date | null;
+  daysUntilPayout!: number | null;
 
   inboxCount = 2;
 
@@ -38,15 +43,14 @@ export class UserDashboardComponent implements OnInit {
   trendingCommunities: Community[] = trendingCommunities
 
   constructor(private router: Router) {
-    this.nextPayoutDate = new Date(
-      this.activeGroups[0].cycleStartDate.getTime() +
-        this.daysToAdd * 24 * 60 * 60 * 1000
-    );
+    this.nextPayoutDate = this.determineEarliestPayoutDate();
   }
+  
 
   ngOnInit(): void {
     register()
     this.shortenName(this.firstName, this.lastName);
+    this.calculateDaysUntilPayout()
   }
 
   shortenName(firstName: string, lastName: string) {
@@ -59,6 +63,43 @@ export class UserDashboardComponent implements OnInit {
         this.useShortenedName = `${treatedFName} ${treatedLName}.`;
     }
 }
+
+calculateNextPayoutDate(group: GroupDetail): Date {
+  if(group.payoutSystem === 'EPS'){
+    const cycleStartDate = new Date(group.startDate);
+    const firstPayoutDate = new Date(cycleStartDate.getTime() + 4 * 7 * 24 * 60 * 60 * 1000);
+    return new Date(firstPayoutDate.getTime() + (group.rank - 1) * 2 * 7 * 24 * 60 * 60 * 1000);
+  }
+ 
+  return group.endDate;
+}
+
+calculateDaysUntilPayout(){
+  const today = new Date();
+  const diffInMilliseconds = this.nextPayoutDate!.getTime() - today.getTime();
+  const diffInDays = Math.ceil(diffInMilliseconds / (24 * 60 * 60 * 1000));
+  if(diffInDays <= 0){
+    this.daysUntilPayout = null;
+  }else 
+    this.daysUntilPayout = diffInDays;
+}
+
+determineEarliestPayoutDate(): Date | null{
+  let earliestNextPayoutDate: Date | null = null;
+  const currentDate = new Date();
+  userGroups.forEach(group => {
+    let groupNextPayoutDate = this.calculateNextPayoutDate(group);
+    if (groupNextPayoutDate > currentDate) {
+      if (!earliestNextPayoutDate || groupNextPayoutDate < earliestNextPayoutDate) {
+        earliestNextPayoutDate = groupNextPayoutDate;
+      }
+    }
+  });
+
+  return earliestNextPayoutDate;
+}
+
+
 
 goToGroupDashboard(groupName: string) {
   this.router.navigate(['/group', groupName.toLowerCase()]);

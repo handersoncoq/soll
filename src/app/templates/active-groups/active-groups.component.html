@@ -12,8 +12,8 @@
         <div
             class="inner-progress"
             appProgressAnimation
-            [rank]="activeGroup.rank"
-            [groupSize]="activeGroup.groupSize"
+            [startDate]="activeGroup.startDate"
+            [endDate]="activeGroup.endDate"
         ></div>
       </div>
       <div class="section">
@@ -30,7 +30,10 @@
       </div>
       <div class="section">
         <span class="label">Rank: </span>
-        <span class="value">{{ activeGroup.rank }}</span>
+        <span *ngIf="activeGroup.payoutSystem === 'EPS', else na" class="value">{{ activeGroup.rank }}</span>
+        <ng-template #na>
+          <span class="value">N/A</span>
+        </ng-template>
       </div>
       <div class="section">
         <span class="label">Next Due Date: </span>
