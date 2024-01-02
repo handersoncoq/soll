@@ -1,8 +1,8 @@
 import { GroupDetail } from 'src/app/interaces/GroupDetails';
 
 const present = new Date();
-const epsStartDate = new Date(present.getFullYear(), 9, 30);
-const ecpsStartDate = new Date(present.getFullYear(), 7, 23);
+const epsStartDate = new Date(present.getFullYear()-1, 9, 30);
+const ecpsStartDate = new Date(present.getFullYear()-1, 7, 23);
 const groupSize = 10;
 
 const ecpsSavingsTarget = 10000; 

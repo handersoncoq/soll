@@ -1,0 +1,48 @@
+<!-- Circle layout container -->
+<div class="circle-container">
+  <!-- Outer circle with member profiles -->
+  <div class="outer-circle">
+    <!-- Member profile pictures -->
+    <div
+      *ngFor="let member of groupMembers"
+      class="member-profile"
+      [ngStyle]="{ transform: member.transform }"
+    >
+      <div
+        class="img-container"
+        #tooltip="matTooltip"
+        [matTooltip]="getMemberInfo(member)"
+        (click)="tooltip.show()"
+        [ngClass]="{ 'paid-out': member.paidOut }"
+        matTooltipPosition="above"
+        matTooltipShowDelay="0"
+      >
+        <img
+          appLazyLoading
+          class="profile-img"
+          [attr.data-src]="member.profilePic"
+          alt="Member Profile"
+        />
+      </div>
+    </div>
+  </div>
+  <!-- Inner circle with group leader profile -->
+  <div class="inner-circle">
+    <div class="leader-profile">
+      <div
+        class="img-container leader-img-box"
+        #tooltip="matTooltip"
+        [matTooltip]="getGroupLeaderInfo()"
+        (click)="tooltip.show()"
+      >
+        <img
+          class="profile-img leader-img"
+          [attr.data-src]="profilePic"
+          appLazyLoading
+          matTooltip="Group Leader"
+          alt="Member Profile"
+        />
+      </div>
+    </div>
+  </div>
+</div>

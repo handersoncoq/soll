@@ -43,6 +43,9 @@ import { PrevGroupsComponent } from './templates/prev-groups/prev-groups.compone
 import { ActiveGroupsComponent } from './templates/active-groups/active-groups.component';
 import { TrendingCommunitiesComponent } from './templates/trending-communities/trending-communities.component';
 import { GroupDashboardComponent } from './components/group-dashboard/group-dashboard.component';
+import { GroupCircleComponent } from './templates/group-circle/group-circle.component';
+import { DashboardFooterComponent } from './templates/dashboard-footer/dashboard-footer.component';
+import { GroupStatsComponent } from './templates/group-stats/group-stats.component';
 
 
 @Injectable()
@@ -72,7 +75,10 @@ export class HammerConfig extends HammerGestureConfig {
     PrevGroupsComponent,
     ActiveGroupsComponent,
     TrendingCommunitiesComponent,
-    GroupDashboardComponent
+    GroupDashboardComponent,
+    GroupCircleComponent,
+    DashboardFooterComponent,
+    GroupStatsComponent,
   ],
   imports: [
     ReactiveFormsModule,

@@ -8,6 +8,7 @@ export const prevGroups: Group[] = [
       groupSize: 7,
       startDate: new Date(2020, 10, 24),
       contribution: '$1000/MO',
+      nextContribution: null,
       endDate: new Date(2021, 7, 24)
     },
     {
@@ -17,6 +18,7 @@ export const prevGroups: Group[] = [
       groupSize: 10,
       startDate: new Date(2020, 10, 25),
       contribution: '$500/BI',
+      nextContribution: null,
       endDate: new Date(2021, 2, 12)
     },
   ];

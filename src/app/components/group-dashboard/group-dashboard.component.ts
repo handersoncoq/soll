@@ -19,7 +19,8 @@ userActiveGroups: Group[] = userGroups.map(groupDetail => ({
   groupSize: groupDetail.groupSize,
   startDate: groupDetail.startDate,
   contribution: groupDetail.contribution,
-  endDate: new Date()
+  nextContribution: groupDetail.nextContributionDate,
+  endDate: groupDetail.endDate
 }));
 
 userPrevGroups: Group[] = prevGroups

@@ -5,5 +5,6 @@ export interface Group {
     groupSize: number,
     startDate: Date,
     contribution: string,
+    nextContribution: Date | null,
     endDate: Date
   }

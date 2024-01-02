@@ -57,6 +57,19 @@ input{
     }
   }
 
+  .mat-mdc-tooltip .mdc-tooltip__surface {
+    font-size: small !important;
+    line-height: 1.5;
+    white-space: pre-line;
+    text-align: left;
+    color: $accent-color !important;
+    background-color: white !important;
+    border-radius: 0.8em !important;
+    padding: 0.6em;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+
+   }
+
   // buttons  =================================================================
 
   .primary-btn {

@@ -15,6 +15,7 @@ export const trendingGroups: Group[] = [
       groupSize: 10,
       startDate: new Date(present.getTime() + (daysfromTody1 * 24 * 60 * 60 * 1000)),
       contribution: '$500/BI',
+      nextContribution: null,
       endDate: new Date()
     },
     {
@@ -24,6 +25,7 @@ export const trendingGroups: Group[] = [
       groupSize: 15,
       startDate: new Date(present.getTime() + (daysfromTody2 * 24 * 60 * 60 * 1000)),
       contribution: '$700/BI',
+      nextContribution: null,
       endDate: new Date()
     },
     {
@@ -33,6 +35,7 @@ export const trendingGroups: Group[] = [
       groupSize: 8,
       startDate: new Date(present.getTime() + (daysfromTody3 * 24 * 60 * 60 * 1000)),
       contribution: '$1000/MO',
+      nextContribution: null,
       endDate: new Date()
     },
     {
@@ -42,6 +45,7 @@ export const trendingGroups: Group[] = [
       groupSize: 12,
       startDate: new Date(present.getTime() + (daysfromTody4 * 24 * 60 * 60 * 1000)),
       contribution: '$500/BI',
+      nextContribution: null,
       endDate: new Date()
     },
     {
@@ -51,6 +55,7 @@ export const trendingGroups: Group[] = [
       groupSize: 20,
       startDate: new Date(present.getTime() + (daysfromTody5 * 24 * 60 * 60 * 1000)),
       contribution: '$1000/MO',
+      nextContribution: null,
       endDate: new Date()
     },
   ];
