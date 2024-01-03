@@ -1,4 +1,6 @@
 import { GroupDetail } from 'src/app/interaces/GroupDetails';
+import { activeEcpsGroupMembers, activeEpsGroupMembers, previousEcpsGroupMembers, previousEpsGroupMembers } from './GroupMembers';
+import { groupLeaders } from './GroupLeaders';
 
 const present = new Date();
 const epsStartDate = new Date(present.getFullYear()-1, 9, 30);
@@ -46,16 +48,50 @@ export const userGroups: GroupDetail[] = [
     nextContributionDate: getBINextContributionDate(epsStartDate),
     startDate: epsStartDate,
     endDate: getEPSendDate(epsStartDate),
+    isActive: true,
+    groupMembers: activeEpsGroupMembers,
+    groupLeader: groupLeaders[5]
   },
   {
-    groupName: 'HAR-EPS-20231212-04',
+    groupName: 'HAR-ECPS-20231212-04',
     payoutSystem: 'ECPS',
     savingsTarget: 10000,
     contribution: '$500/BI',
     groupSize: 10,
-    rank: 10,
+    rank: 'n/a',
     nextContributionDate: getBINextContributionDate(ecpsStartDate),
     startDate: ecpsStartDate,
     endDate: calculateECPSendDate(),
+    isActive: true,
+    groupMembers: activeEcpsGroupMembers,
+    groupLeader: groupLeaders[4]
+  },
+  {
+    groupName: 'HAR-EPS-20230929-07',
+    payoutSystem: 'EPS',
+    savingsTarget: 7000,
+    contribution: '$1000/MO',
+    groupSize: 7,
+    rank: 1,
+    nextContributionDate: null,
+    startDate: new Date(2020, 10, 24),
+    endDate: new Date(2021, 7, 24),
+    isActive: false,
+    groupMembers: previousEpsGroupMembers,
+    groupLeader: groupLeaders[3]
+  },
+  {
+    groupName: 'HAR-ECPS-20230929-03',
+    payoutSystem: 'ECPS',
+    savingsTarget: 5000,
+    groupSize: 10,
+    rank: 'n/a',
+    nextContributionDate: null,
+    startDate: new Date(2020, 10, 25),
+    contribution: '$500/BI',
+    endDate: new Date(2021, 2, 12),
+    isActive: false,
+    groupMembers: previousEcpsGroupMembers,
+    groupLeader: groupLeaders[2]
   },
 ];

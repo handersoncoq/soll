@@ -1,7 +1,7 @@
 export interface GroupMember {
     name: string;
     paidOut: boolean;
-    rank: number;
+    rank: any;
     reputationScore: number;
     profilePic: string;
     transform?: string;

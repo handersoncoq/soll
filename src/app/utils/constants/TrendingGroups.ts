@@ -1,4 +1,5 @@
 import { Group } from "src/app/interaces/Group";
+import { groupLeaders } from "./GroupLeaders";
 
 let present = new Date();
 let daysfromTody1 = 10;
@@ -16,7 +17,10 @@ export const trendingGroups: Group[] = [
       startDate: new Date(present.getTime() + (daysfromTody1 * 24 * 60 * 60 * 1000)),
       contribution: '$500/BI',
       nextContribution: null,
-      endDate: new Date()
+      isActive: false,
+      endDate: new Date(),
+      groupMembers: [],
+      groupLeader: groupLeaders[1]
     },
     {
       groupName: 'NYC-EPS-20230929-04',
@@ -26,7 +30,10 @@ export const trendingGroups: Group[] = [
       startDate: new Date(present.getTime() + (daysfromTody2 * 24 * 60 * 60 * 1000)),
       contribution: '$700/BI',
       nextContribution: null,
-      endDate: new Date()
+      isActive: false,
+      endDate: new Date(),
+      groupMembers: [],
+      groupLeader: groupLeaders[2]
     },
     {
       groupName: 'BOS-ECPS-20230929-03',
@@ -36,7 +43,10 @@ export const trendingGroups: Group[] = [
       startDate: new Date(present.getTime() + (daysfromTody3 * 24 * 60 * 60 * 1000)),
       contribution: '$1000/MO',
       nextContribution: null,
-      endDate: new Date()
+      isActive: false,
+      endDate: new Date(),
+      groupMembers: [],
+      groupLeader: groupLeaders[3]
     },
     {
       groupName: 'PHI-EPS-20230929-07',
@@ -46,7 +56,10 @@ export const trendingGroups: Group[] = [
       startDate: new Date(present.getTime() + (daysfromTody4 * 24 * 60 * 60 * 1000)),
       contribution: '$500/BI',
       nextContribution: null,
-      endDate: new Date()
+      isActive: false,
+      endDate: new Date(),
+      groupMembers: [],
+      groupLeader: groupLeaders[4]
     },
     {
       groupName: 'CHI-ECPS-20230929-05',
@@ -56,7 +69,10 @@ export const trendingGroups: Group[] = [
       startDate: new Date(present.getTime() + (daysfromTody5 * 24 * 60 * 60 * 1000)),
       contribution: '$1000/MO',
       nextContribution: null,
-      endDate: new Date()
+      isActive: false,
+      endDate: new Date(),
+      groupMembers: [],
+      groupLeader: groupLeaders[5]
     },
   ];
   

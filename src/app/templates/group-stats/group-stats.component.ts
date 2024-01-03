@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 
 declare var google: any;
 
@@ -10,6 +10,14 @@ declare var google: any;
 export class GroupStatsComponent implements OnInit, AfterViewInit{
 
   @ViewChild('barChart') barChart!: ElementRef;
+  @Input() groupStats: any[] = [['Contribution Period', 'Late Members', 'Trend'],
+  ['Jan', 0, 0],
+  ['Feb', 0, 0],
+  ['Mar', 0, 0], 
+  ['Apr', 0, 0],
+  ['May', 0, 0],
+  ['June', 0, 0],
+  ['July', 0, 0]];
 
   constructor() { }
 
@@ -22,21 +30,13 @@ export class GroupStatsComponent implements OnInit, AfterViewInit{
   }
 
   drawChart() {
-  var data = google.visualization.arrayToDataTable([
-    ['Contribution Period', 'Late Members', 'Trend'],
-    ['Jan', 2, 2],
-    ['Feb', 0, 0],
-    ['Mar', 0, 0], 
-    ['Apr', 3, 3],
-    ['May', 3, 3],
-    ['June', 1, 1],
-    ['July', 0, 0],
-  ]);
+  var data = google.visualization.arrayToDataTable(this.groupStats);
 
   var options = {
     title: 'Timeliness of User Contributions',
     hAxis: { title: 'Contribution Period' },
     vAxis: { title: 'Late Members'},
+    width: 370,
     seriesType: 'bars',
     series: {1: {type: 'line'}},
     legend: { position: 'none' },

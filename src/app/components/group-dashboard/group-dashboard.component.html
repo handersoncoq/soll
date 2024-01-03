@@ -5,7 +5,7 @@
 <div class="component">
   <div class="spacing"></div>
   <div class="pre-dashboard">
-    <div class="name-loaction">
+    <div class="name-location">
       <h2 appLazyLoadText>{{ groupName }}</h2>
       <h3 appLazyLoadText>
         <mat-icon class="location-icon">location_pin</mat-icon> Hartford, CT
@@ -14,9 +14,12 @@
     </div>
     <div class="alert-box">
       <mat-icon
+        #tooltip="matTooltip"
+        matTooltip="Go to group chat"
         appLazyLoadText
         aria-hidden="false"
-        [matBadge]="30"
+        [matBadge]="messageCount"
+        (click)="tooltip.show()"
         matBadgeSize="medium"
         class="alert"
         >forum</mat-icon
@@ -26,56 +29,88 @@
 
   <div class="group-dashboard">
     <div class="group-profile">
-      <div class="header">
-        <h1>Group Ratings</h1>
-        <div>
-          <button class="ratings-star">★</button>
-          <button class="ratings-star">★</button>
-          <button class="ratings-star">★</button>
-          <button class="ratings-star">★</button>
-          <button class="ratings-star no-star">★</button>
+      <div class="group-profile-top-half">
+        <div class="header">
+          <div class="group-status">
+            <mat-icon
+            #tooltip="matTooltip"
+              matTooltip="This group is active"
+              class="active-icon"
+              (click)="tooltip.show()"
+              *ngIf="group?.isActive; else inactiveIcon"
+              >toggle_on</mat-icon
+            >
+            <ng-template #inactiveIcon
+              ><mat-icon
+              #tooltip="matTooltip"
+              matTooltip="This group is inactive" 
+              class="inactive-icon"
+              (click)="tooltip.show()"
+                >toggle_off</mat-icon
+              ></ng-template
+            >
+          </div>
+          <h1>Group Ratings</h1>
+          <div>
+            <button class="ratings-star">★</button>
+            <button class="ratings-star">★</button>
+            <button class="ratings-star">★</button>
+            <button class="ratings-star">★</button>
+            <button class="ratings-star no-star">★</button>
+          </div>
+        </div>
+        <div class="group-circle">
+          <app-group-circle
+            [groupMembers]="group?.groupMembers"
+            [groupLeader]="group?.groupLeader"
+          ></app-group-circle>
         </div>
       </div>
-      <div class="group-circle">
-        <app-group-circle></app-group-circle>
-      </div>
-      <div class="group-details two-items">
-        <h2>Savings Target</h2>
-        <div class="outer-progress">
-          <div
-            class="inner-progress"
-            appProgressAnimation
-            [startDate]="group!.startDate"
-            [endDate]="group!.endDate"
-          ></div>
+      <div class="group-profile-bottom-half">
+        <div class="group-details two-items">
+          <h2>Savings Target</h2>
+          <div class="outer-progress">
+            <div
+              class="inner-progress"
+              appProgressAnimation
+              [startDate]="group!.startDate"
+              [endDate]="group!.endDate"
+            ></div>
+          </div>
+          <p>{{ group?.savingsTarget | currency }}</p>
         </div>
-        <p>{{ group?.savingsTarget | currency }}</p>
+        <div class="group-details two-items highlight">
+          <h2>Contribution</h2>
+          <mat-divider class="horiz-divider"></mat-divider>
+          <p>{{ group?.contribution }}</p>
+        </div>
+        <div class="group-details two-items">
+          <h2>Next Contribution</h2>
+          <mat-divider class="horiz-divider"></mat-divider>
+          <p *ngIf="group?.nextContribution; else noNextCont">
+            {{ group?.nextContribution | date }}
+          </p>
+          <ng-template #noNextCont>
+            <p>---</p>
+          </ng-template>
+        </div>
+        <div class="group-details two-items">
+          <h2>End Date</h2>
+          <mat-divider class="horiz-divider"></mat-divider>
+          <p>{{ group?.endDate | date }}</p>
+        </div>
       </div>
-
-      <div class="group-details two-items">
-        <h2>Contribution</h2>
-        <div class="slant"></div>
-        <p>{{ group?.contribution }}</p>
-      </div>
-      <div class="group-details two-items">
-        <h2>Next Contribution</h2>
-        <div class="slant"></div>
-        <p *ngIf="group?.nextContribution; else noNextCont">
-          {{ group?.nextContribution | date }}
-        </p>
-        <ng-template #noNextCont>
-          <p>---</p>
-        </ng-template>
-      </div>
+    </div>
+    <div class="performance">
       <div class="performance-section">
         <h2>Group Performance</h2>
         <div class="group-stats">
-            <app-group-stats></app-group-stats>
+          <app-group-stats [groupStats]="groupStats"></app-group-stats>
         </div>
       </div>
     </div>
   </div>
 </div>
 <div>
-    <app-dashboard-footer></app-dashboard-footer>
+  <app-dashboard-footer></app-dashboard-footer>
 </div>

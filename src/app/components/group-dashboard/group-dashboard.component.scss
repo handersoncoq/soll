@@ -21,27 +21,21 @@ $bottom-top-box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0
     margin-top: 5em;
   }
 
-  .pre-dashboard{
+
+  .pre-dashboard {
     margin: 1em 0;
-    padding: 1em 0.6em;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: 1em;
+    padding: 0 1em;
+    padding-right: 0.6em;
 
     .location-icon{
       vertical-align: sub;
       color: $progress-color;
       margin-left: -0.2em;
     }
-  }
-
-  .group-dashboard{
-    margin: 1em 0;
-  }
-
-  .pre-dashboard {
-    display: grid;
-    grid-template-columns: 3fr 1fr;
-    gap: 1em;
-    padding: 0 1em;
-    padding-left: 0.6em;
+    
     .vert-div{
       color: white;
     }
@@ -55,13 +49,16 @@ $bottom-top-box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0
       font-size: xx-large;
       overflow: visible;
       cursor: pointer;
+      &:hover{
+        color: $accent-color;
+      }
       ::ng-deep .mat-badge-content {
         background-color: $progress-color;
         color: white;
         font-size: 13px;
       }
     }
-    .name-loaction {
+    .name-location {
       color: bisque;
       margin-bottom: 2em;
       h3{
@@ -74,19 +71,36 @@ $bottom-top-box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0
       h2 {
         line-height: 1.5;
         color: white;
-        font-size: 1.3em;
+        font-size: 1.2em;
       }
     }
   }
 
 .group-profile {
-  border-top: solid white;
-  background-color: $primary-color;
-  color: #333;
-  padding: 0 0.6em;
+  border-bottom: solid white;
+  padding: 0;
   padding-bottom: 1em;
   border-radius: 2em;
   box-shadow: $bottom-top-box-shadow;
+}
+
+.group-profile-top-half{
+  border-top: solid white 1px;
+  background: linear-gradient(to top, $primary-color 67%, $accent-color 95%);
+  border-top-right-radius: 2em;
+  border-top-left-radius: 2em;
+}
+
+.group-profile-top-half, .group-profile-bottom-half{
+  padding: 0 0.6em;
+}
+
+.performance{
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
+  margin-top: 3em;
+  padding: 0 0.6em;
 }
 
 .header {
@@ -102,21 +116,29 @@ $bottom-top-box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0
   color: white;
 }
 
+.group-status{
+  display: flex;
+  justify-content: flex-end;
+  text-align: end;
+  margin-right: 1em;
+  .active-icon{
+    color: $progress-color;
+  }
+  .inactive-icon{
+    color: $primary-color;
+  }
+  .active-icon, .inactive-icon{
+    font-size: 2em;
+    overflow: visible;
+    vertical-align: sub;
+  }
+}
+
 .group-circle{
   display: flex;
   justify-content: center;
   width: 100%;
-  margin-bottom: 1em;
-}
-
-.slant{
-  background-color: #f0f4f8;
-  margin: 0 -1em;
-  padding: 0.3em 0.6em;
-}
-
-.outer-progress{
-  background-color: #f0f4f8;
+  margin-bottom: 3em;
 }
 
 .outer-progress, .inner-progress{
@@ -140,18 +162,20 @@ $bottom-top-box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0
   }
 }
 
-/* Group details section */
 .group-details {
   display: flex;
   flex-direction: column;
   padding: 1em;
-  background-color: #ffffff;
+  color: white;
+  ::ng-deep .mat-divider{
+    border-top-color: white !important;
+  }
 }
 
 .two-items{
   h2, p{
     margin: 0;
-    padding: 0.3em;
+    padding: 0.3em 0;
   }
   p{
     padding-top: 0.8em;
@@ -174,9 +198,13 @@ $bottom-top-box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0
 }
 
 .contribution-section {
-  background-color: #ffffff;
   padding: 1em;
   margin-top: 0.6em;
+}
+
+.highlight{
+  border: solid white 1px;
+  border-width: thin;
 }
 
 .contribution-detail {

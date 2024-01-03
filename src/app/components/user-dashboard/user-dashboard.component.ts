@@ -1,4 +1,3 @@
-import { group } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Community } from 'src/app/interaces/Community';
@@ -27,7 +26,13 @@ export class UserDashboardComponent implements OnInit {
   location = 'Hartford, CT';
   currentSaving = 12000;
 
-  activeGroups: GroupDetail[] = userGroups.sort((a, b) => {
+  activeGroups: GroupDetail[] = userGroups.filter(group => group.isActive).sort((a, b) => {
+    const dateA = new Date(a.nextContributionDate).getTime();
+    const dateB = new Date(b.nextContributionDate).getTime();
+    return dateA - dateB;
+  });
+
+  previousGroups: GroupDetail[] = userGroups.filter(group => !group.isActive).sort((a, b) => {
     const dateA = new Date(a.nextContributionDate).getTime();
     const dateB = new Date(b.nextContributionDate).getTime();
     return dateA - dateB;
@@ -38,7 +43,6 @@ export class UserDashboardComponent implements OnInit {
 
   inboxCount = 2;
 
-  prevGroups: Group[] = prevGroups
   trendingGroups: Group[] = trendingGroups;
   trendingCommunities: Community[] = trendingCommunities
 

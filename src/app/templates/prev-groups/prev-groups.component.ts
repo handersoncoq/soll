@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Group } from 'src/app/interaces/Group';
+import { GroupDetail } from 'src/app/interaces/GroupDetails';
 
 @Component({
   selector: 'app-prev-groups',
@@ -8,7 +8,7 @@ import { Group } from 'src/app/interaces/Group';
 })
 export class PrevGroupsComponent implements OnInit {
 
-  @Input() prevGroup!: Group;
+  @Input() prevGroup!: GroupDetail;
 
   ngOnInit(): void {}
 

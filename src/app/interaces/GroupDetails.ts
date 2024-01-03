@@ -1,11 +1,17 @@
+import { GroupLeader } from "./GroupLeader";
+import { GroupMember } from "./GroupMember";
+
 export interface GroupDetail {
     groupName: string;
     payoutSystem: string;
     savingsTarget: number;
     contribution: string;
     groupSize: number;
-    rank: number;
-    nextContributionDate: Date;
+    rank: any;
+    nextContributionDate: any;
     startDate: Date;
-    endDate: Date
+    endDate: Date,
+    isActive: boolean,
+    groupMembers: GroupMember[],
+    groupLeader: GroupLeader
   }

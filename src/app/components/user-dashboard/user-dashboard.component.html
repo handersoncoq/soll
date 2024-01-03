@@ -70,7 +70,7 @@
         </div>
       </div>
     </div>
-    <div *ngIf="prevGroups" class="slide-groups user-groups">
+    <div *ngIf="activeGroups" class="slide-groups user-groups">
       <div appLazyLoadText class="slide-title">
         <mat-icon class="group-icon">groups_3</mat-icon>
         Active Groups
@@ -88,7 +88,7 @@
         </swiper-slide>
       </swiper-container>
     </div>
-    <div *ngIf="prevGroups" class="slide-groups user-groups">
+    <div *ngIf="previousGroups" class="slide-groups user-groups">
       <div appLazyLoadText class="slide-title">
         <mat-icon class="history-icon">history</mat-icon>
         Previous Groups
@@ -101,7 +101,7 @@
         speed="500"
         [spaceBetween]="20"
       >
-        <swiper-slide class="user-group-slide" *ngFor="let group of prevGroups">
+        <swiper-slide class="user-group-slide" *ngFor="let group of previousGroups">
           <app-prev-groups (click)="goToGroupDashboard(group.groupName)" [prevGroup]="group"></app-prev-groups>
         </swiper-slide>
       </swiper-container>

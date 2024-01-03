@@ -17,7 +17,8 @@ $bottom-top-box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0
   border: none;
 }
 .pre-stats{
-  padding: 2em 0.6em;
+  padding: 0 0.6em;
+  padding-right: 0;
   padding-bottom: 1em;
   border-radius: 2em;
   box-shadow: $bottom-top-box-shadow;
@@ -71,13 +72,16 @@ $bottom-top-box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0
 }
 
 .header-wrapper {
+  padding-top: 2.5em;
   padding-bottom: 2.5em;
+  margin-right: 0.6em;
 }
 
 .header {
-  padding: 1em;
+  padding: 1.5em 0.6em;
   background-color: $accent-color;
   border-radius: 1.5em;
+  padding-bottom: 2em;
   box-shadow: $card-boxshadow;
 }
 
@@ -186,7 +190,6 @@ $bottom-top-box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0
 
 .slide-groups{
     padding-top: 1em;
-    margin-right: -0.6em;
 }
 
 .trending-title{
