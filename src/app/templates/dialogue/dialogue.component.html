@@ -1,4 +1,4 @@
-<h1 class="title">{{data.title}}</h1>
+<h2 class="title" [ngClass]="{'not-copiable': !data.copiable}">{{data.title}}</h2>
 <div mat-dialog-content>
     <div *ngIf="data.copiable || data.isFeedback, else normal">
         <div class="content" *ngIf="!data.isFeedback">

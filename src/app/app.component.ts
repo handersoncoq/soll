@@ -36,12 +36,12 @@ export class AppComponent implements OnInit {
 
     this.styleManager.disableScroll();
 
-    this.applyDashboardTheme();
-    this.routerSubscription = this.router.events.pipe(
-      filter(event => event instanceof NavigationEnd)
-    ).subscribe(() => {
-      this.applyDashboardTheme();
-    });
+    // this.applyDashboardTheme();
+    // this.routerSubscription = this.router.events.pipe(
+    //   filter(event => event instanceof NavigationEnd)
+    // ).subscribe(() => {
+    //   this.applyDashboardTheme();
+    // });
     
     const dialogRef = this.dialog.open(NoticeComponent, {
       disableClose: true

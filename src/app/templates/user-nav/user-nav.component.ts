@@ -31,7 +31,7 @@ export class UserNavComponent {
     private contentManagerService: ContentManagerService,
     private router: Router,
   ) {
-    this.navLogo = this.contentManagerService.getAppLogoDark();
+    this.navLogo = this.contentManagerService.getAppLogo6();
   }
 
   @HostListener('window:scroll', [])

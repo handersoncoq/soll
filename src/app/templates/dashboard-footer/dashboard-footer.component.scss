@@ -1,5 +1,7 @@
 $swoosh-box-shadow: 0px 10px 20px -20px #111;
 $progress-color: #20a7db;
+$primary-color: #52688f;
+$accent-color: #35425b;
 
 .info {
     box-shadow: $swoosh-box-shadow;
@@ -15,6 +17,7 @@ $progress-color: #20a7db;
       justify-content: flex-start;
       text-align: start;
       width: fit-content;
+      color: $accent-color;
       &:hover{
         color: $progress-color;
       }
@@ -22,7 +25,7 @@ $progress-color: #20a7db;
     .help-btn {
       margin-top: 1em;
       font-size: medium;
-      color: bisque;
+      color: $primary-color;
     }
   }
 

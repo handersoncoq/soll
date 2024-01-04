@@ -112,39 +112,47 @@
 <div class="trending">
   <div appLazyLoadText class="trending-title">What's Trending</div>
 
-  <div *ngIf="trendingGroups" class="slide-groups">
-    <div appLazyLoadText class="slide-title">Groups</div>
-    <swiper-container
-      [slides-per-view]="5"
-      navigation="false"
-      pagination="true"
-      scrollbar="false"
-      speed="500"
-      [spaceBetween]="20"
-    >
-      <swiper-slide *ngFor="let group of trendingGroups">
-        <app-trending-groups [trendingGroup]="group"></app-trending-groups>
-      </swiper-slide>
-    </swiper-container>
-  </div>
+  <mat-card class="trending-card">
+    <mat-card-content>
+      <div *ngIf="trendingGroups" class="slide-groups">
+        <div appLazyLoadText class="slide-title">Groups</div>
+        <swiper-container
+          [slides-per-view]="5"
+          navigation="false"
+          pagination="true"
+          scrollbar="false"
+          speed="500"
+          [spaceBetween]="20"
+        >
+          <swiper-slide *ngFor="let group of trendingGroups">
+            <app-trending-groups [trendingGroup]="group"></app-trending-groups>
+          </swiper-slide>
+        </swiper-container>
+      </div>
+    </mat-card-content>
+  </mat-card>
 
-  <div *ngIf="trendingGroups" class="slide-groups">
-    <div appLazyLoadText class="slide-title">Communities</div>
-    <swiper-container
-      [slides-per-view]="5"
-      navigation="false"
-      pagination="true"
-      scrollbar="false"
-      speed="500"
-      [spaceBetween]="20"
-    >
-      <swiper-slide *ngFor="let community of trendingCommunities">
-        <app-trending-communities
-          [trendingCommunity]="community"
-        ></app-trending-communities>
-      </swiper-slide>
-    </swiper-container>
-  </div>
+  <mat-card class="trending-card">
+    <mat-card-content>
+      <div *ngIf="trendingGroups" class="slide-groups">
+        <div appLazyLoadText class="slide-title">Communities</div>
+        <swiper-container
+          [slides-per-view]="5"
+          navigation="false"
+          pagination="true"
+          scrollbar="false"
+          speed="500"
+          [spaceBetween]="20"
+        >
+          <swiper-slide *ngFor="let community of trendingCommunities">
+            <app-trending-communities
+              [trendingCommunity]="community"
+            ></app-trending-communities>
+          </swiper-slide>
+        </swiper-container>
+      </div>
+    </mat-card-content>
+  </mat-card>
 </div>
 
 <div>

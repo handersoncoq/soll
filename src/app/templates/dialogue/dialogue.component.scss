@@ -7,9 +7,13 @@ h1{
 }
 
 .title{
-    color: #000000;
     margin: 1em;
     margin-bottom: 0;
+}
+
+.not-copiable{
+    color: $primary-color;
+    font-size: larger;
 }
 
 .content {

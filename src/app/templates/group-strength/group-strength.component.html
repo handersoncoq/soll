@@ -1,0 +1,13 @@
+<div class="group-strength-container">
+    <div class="grid-container">
+        <div class="battery-box">
+            <div class="battery">
+              <div class="battery-level" [style.height]="strengthPercent + '%'"></div>
+            </div>
+        </div>
+        <div class="strength-percentage">
+            <div (click)="openDialogue()">Group Strength<sup>1</sup></div>
+            <div class="value">{{ groupStrength | percent:'1.0-2'}}</div>
+        </div>
+    </div>
+</div>  

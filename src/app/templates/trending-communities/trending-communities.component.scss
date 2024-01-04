@@ -1,4 +1,10 @@
 
+$primary-color: #52688f;
+
+.community-details{
+    background-color: $primary-color;
+}
+
 :host .mat-divider {
     border-top-color: white !important;
   }

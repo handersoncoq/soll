@@ -30,40 +30,16 @@
   <div class="group-dashboard">
     <div class="group-profile">
       <div class="group-profile-top-half">
-        <div class="header">
-          <div class="group-status">
-            <mat-icon
-            #tooltip="matTooltip"
-              matTooltip="This group is active"
-              class="active-icon"
-              (click)="tooltip.show()"
-              *ngIf="group?.isActive; else inactiveIcon"
-              >toggle_on</mat-icon
-            >
-            <ng-template #inactiveIcon
-              ><mat-icon
-              #tooltip="matTooltip"
-              matTooltip="This group is inactive" 
-              class="inactive-icon"
-              (click)="tooltip.show()"
-                >toggle_off</mat-icon
-              ></ng-template
-            >
-          </div>
-          <h1>Group Ratings</h1>
-          <div>
-            <button class="ratings-star">★</button>
-            <button class="ratings-star">★</button>
-            <button class="ratings-star">★</button>
-            <button class="ratings-star">★</button>
-            <button class="ratings-star no-star">★</button>
-          </div>
-        </div>
         <div class="group-circle">
           <app-group-circle
             [groupMembers]="group?.groupMembers"
             [groupLeader]="group?.groupLeader"
           ></app-group-circle>
+        </div>
+        <div class="header">
+          <div>
+            <app-group-strength [group]="group!"></app-group-strength>
+          </div>
         </div>
       </div>
       <div class="group-profile-bottom-half">

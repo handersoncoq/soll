@@ -10,6 +10,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatBadgeModule } from '@angular/material/badge';
+import {MatCardModule} from '@angular/material/card';
 
 import { PublicNavComponent } from '../templates/public-nav/public-nav.component';
 import { LazyLoadingDirective } from '../utils/directives/lazy-loading.directive';
@@ -40,6 +41,7 @@ import { ConfigureDashboardHeaderDirective } from '../utils/directives/configure
     MatBottomSheetModule,
     MatStepperModule,
     MatBadgeModule,
+    MatCardModule
   ],
   providers: [
     PublicInteractionService,
@@ -61,6 +63,7 @@ import { ConfigureDashboardHeaderDirective } from '../utils/directives/configure
     MatBottomSheetModule,
     MatStepperModule,
     MatBadgeModule,
+    MatCardModule
   ],
 })
 export class SharedModule {}

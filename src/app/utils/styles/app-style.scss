@@ -209,6 +209,7 @@ input{
 .group-details, .community-details{
     padding: 1em;
     margin-bottom: 1em;
+    color: white;
     background-color: $accent-color;
     border-radius: 1em;
     box-shadow: $card-boxshadow;
@@ -228,6 +229,7 @@ input{
 
 .group-name, .community-name {
     font-size: large;
+    color: white;
     padding-bottom: 0.5em;
     .divide-vert{
         font-weight: lighter;
