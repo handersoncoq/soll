@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { differenceInYears, parseISO } from 'date-fns';
@@ -16,6 +16,8 @@ import { states } from 'src/app/utils/constants/UsStates';
   styleUrls: ['./get-started.component.scss']
 })
 export class GetStartedComponent implements OnInit{
+
+  @ViewChild('getStartedTop') getStartedTop!: ElementRef;
 
   registrationForm!: FormGroup;
   formHasError = true;
@@ -71,6 +73,11 @@ export class GetStartedComponent implements OnInit{
     window.scroll({
       top: 0,
       behavior: 'smooth'})
+  }
+
+  scrollBackToTop(){
+    if(this.getStartedTop)
+    this.getStartedTop.nativeElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
   togglePasswordVisibility(){
@@ -143,6 +150,7 @@ validateAge(control: AbstractControl): { [key: string]: boolean } | null {
       console.info('form is valid: ', this.registrationForm.valid);
       this.nextStep();
       this.showSpinner();
+      this.scrollBackToTop();
     }
   }
 
@@ -156,12 +164,14 @@ validateAge(control: AbstractControl): { [key: string]: boolean } | null {
     if (this.currentStep < 6) {
       this.currentStep++;
     }
+    this.scrollBackToTop()
   }
 
   previousStep() {
     if (this.currentStep > 1) {
       this.currentStep--;
     }
+    this.scrollBackToTop()
   }
 
   isStep1Valid(frm: FormGroup): boolean {

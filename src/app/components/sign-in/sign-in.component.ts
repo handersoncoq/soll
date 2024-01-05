@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -12,6 +12,8 @@ import { SnackBarComponent } from 'src/app/templates/snack-bar/snack-bar.compone
   styleUrl: './sign-in.component.scss'
 })
 export class SignInComponent implements OnInit{
+
+  @ViewChild('signInTop') signInTop!: ElementRef;
 
   isMobile!: boolean;
   loginForm!: FormGroup;
@@ -66,6 +68,7 @@ export class SignInComponent implements OnInit{
       }, 1000);
       setTimeout(() =>{
         this.currentStep++;
+        this.scrollBackToTop();
       }, 1000);
   }
 
@@ -101,6 +104,13 @@ export class SignInComponent implements OnInit{
       top: 0,
       behavior: 'smooth'})
   }
+
+  scrollBackToTop(){
+    if(this.signInTop){
+    this.signInTop.nativeElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+  }
+
   
 
 }

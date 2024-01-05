@@ -13,13 +13,11 @@ export class GroupStrengthComponent implements OnInit {
   @Input() group!: Group;
 
   groupStrength = 0;
-  strengthPercent = 0;
 
   constructor(private dialog: MatDialog) {}
 
   ngOnInit(): void {
     this.groupStrength = this.calculateGroupStrength();
-    this.strengthPercent = this.groupStrength*100;
   }
 
  calculateGroupStrength(): number {

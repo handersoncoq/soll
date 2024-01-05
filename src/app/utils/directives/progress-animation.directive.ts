@@ -38,6 +38,7 @@ export class ProgressAnimationDirective implements AfterViewInit {
     const progress = this.calculateProgress();
     const width = progress + '%';
     this.renderer.setStyle(this.el.nativeElement, 'width', width);
+    this.renderer.setStyle(this.el.nativeElement, 'transition', 'width 2s');
   }
 
   calculateProgress(): number {

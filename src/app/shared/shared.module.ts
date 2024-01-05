@@ -20,6 +20,7 @@ import { ScrollToSectionDirective } from '../utils/directives/scroll-to-section.
 import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
 import { ProgressAnimationDirective } from '../utils/directives/progress-animation.directive';
 import { ConfigureDashboardHeaderDirective } from '../utils/directives/configure-dashboard-header.directive';
+import { GroupStrengthAnimationDirective } from '../utils/directives/group-strength-animation.directive';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { ConfigureDashboardHeaderDirective } from '../utils/directives/configure
     ConfigureDashboardHeaderDirective,
     LazyLoadTextDirective,
     ProgressAnimationDirective,
+    GroupStrengthAnimationDirective
   ],
   imports: [
     CommonModule,
@@ -56,6 +58,7 @@ import { ConfigureDashboardHeaderDirective } from '../utils/directives/configure
     LazyLoadTextDirective,
     ProgressAnimationDirective,
     ConfigureDashboardHeaderDirective,
+    GroupStrengthAnimationDirective,
     MatDialogModule,
     MatToolbarModule,
     MatButtonModule,

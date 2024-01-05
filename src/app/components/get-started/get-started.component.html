@@ -1,5 +1,9 @@
-<div class="container">
-  <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()" id="get-started-form">
+<div class="container" #getStartedTop>
+  <form
+    [formGroup]="registrationForm"
+    (ngSubmit)="onSubmit()"
+    id="get-started-form"
+  >
     <div *ngIf="currentStep !== 5">
       <div class="logo-div" routerLink="/">
         <img [attr.data-src]="appLogo" alt="App Logo" appLazyLoading />
@@ -16,6 +20,7 @@
               placeholder="First Name"
               class="form-control"
               id="firstName"
+              autocomplete="given-name"
               formControlName="firstName"
             />
           </div>
@@ -25,6 +30,7 @@
               placeholder="Last Name"
               class="form-control"
               id="lastName"
+              autocomplete="family-name"
               formControlName="lastName"
             />
           </div>
@@ -35,6 +41,7 @@
             placeholder="Email"
             class="form-control"
             id="email"
+            autocomplete="email"
             formControlName="email"
           />
           <div
@@ -94,6 +101,7 @@
             class="form-control"
             placeholder="(xxx) xxx-xxxx"
             id="phone"
+            autocomplete="tel"
             formControlName="phone"
           />
           <div
@@ -135,6 +143,7 @@
             placeholder="Street Name"
             class="form-control"
             id="street"
+            autocomplete="street-address"
             formControlName="street"
           />
           <input
@@ -142,6 +151,7 @@
             placeholder="Apt/Floor ..."
             class="form-control"
             id="apt-floor"
+            autocomplete="address-line2"
           />
           <div class="form-row">
             <div class="form-group col-md-6">
@@ -150,6 +160,7 @@
                 placeholder="City"
                 class="form-control"
                 id="city"
+                autocomplete="address-level2"
                 formControlName="city"
               />
             </div>
@@ -159,7 +170,11 @@
                 formControlName="state"
                 placeholder="Sate"
               >
-                <mat-option class="state-options" *ngFor="let state of usStates" [value]="state">
+                <mat-option
+                  class="state-options"
+                  *ngFor="let state of usStates"
+                  [value]="state"
+                >
                   {{ state }}
                 </mat-option>
               </mat-select>
@@ -172,6 +187,7 @@
                 placeholder="Zip Code"
                 class="form-control"
                 id="zipcode"
+                autocomplete="postal-code"
                 formControlName="zipcode"
               />
             </div>
@@ -198,6 +214,7 @@
               [type]="hidePassword ? 'password' : 'text'"
               class="form-control"
               id="password"
+              autocomplete="new-password"
               formControlName="password"
               placeholder="Password"
             />

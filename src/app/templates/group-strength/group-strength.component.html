@@ -2,7 +2,7 @@
     <div class="grid-container">
         <div class="battery-box">
             <div class="battery">
-              <div class="battery-level" [style.height]="strengthPercent + '%'"></div>
+                <div class="battery-level" appGroupStrengthAnimation [targetHeight]="groupStrength"></div>
             </div>
         </div>
         <div class="strength-percentage">

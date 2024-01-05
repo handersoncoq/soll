@@ -29,52 +29,48 @@
 
   <div class="group-dashboard">
     <div class="group-profile">
-      <div class="group-profile-top-half">
-        <div class="group-circle">
-          <app-group-circle
-            [groupMembers]="group?.groupMembers"
-            [groupLeader]="group?.groupLeader"
-          ></app-group-circle>
-        </div>
-        <div class="header">
-          <div>
-            <app-group-strength [group]="group!"></app-group-strength>
-          </div>
+      <div class="group-circle">
+        <app-group-circle
+          [groupMembers]="group?.groupMembers"
+          [groupLeader]="group?.groupLeader"
+        ></app-group-circle>
+      </div>
+      <div class="header">
+        <div>
+          <app-group-strength [group]="group!"></app-group-strength>
         </div>
       </div>
-      <div class="group-profile-bottom-half">
-        <div class="group-details two-items">
-          <h2>Savings Target</h2>
-          <div class="outer-progress">
-            <div
-              class="inner-progress"
-              appProgressAnimation
-              [startDate]="group!.startDate"
-              [endDate]="group!.endDate"
-            ></div>
-          </div>
-          <p>{{ group?.savingsTarget | currency }}</p>
+      <div class="group-details two-items">
+        <h2>Savings Target</h2>
+        <div class="outer-progress">
+          <div
+            class="inner-progress"
+            appProgressAnimation
+            [startDate]="group!.startDate"
+            [endDate]="group!.endDate"
+          ></div>
         </div>
-        <div class="group-details two-items highlight">
-          <h2>Contribution</h2>
-          <mat-divider class="horiz-divider"></mat-divider>
-          <p>{{ group?.contribution }}</p>
-        </div>
-        <div class="group-details two-items">
-          <h2>Next Contribution</h2>
-          <mat-divider class="horiz-divider"></mat-divider>
-          <p *ngIf="group?.nextContribution; else noNextCont">
-            {{ group?.nextContribution | date }}
-          </p>
-          <ng-template #noNextCont>
-            <p>---</p>
-          </ng-template>
-        </div>
-        <div class="group-details two-items">
-          <h2>End Date</h2>
-          <mat-divider class="horiz-divider"></mat-divider>
-          <p>{{ group?.endDate | date }}</p>
-        </div>
+        <p>{{ group?.savingsTarget | currency }}</p>
+      </div>
+      <div class="group-details two-items highlight">
+        <h2>Contribution</h2>
+        <mat-divider class="horiz-divider"></mat-divider>
+        <p>{{ group?.contribution }}</p>
+      </div>
+      <div class="group-details two-items">
+        <h2>Next Contribution</h2>
+        <mat-divider class="horiz-divider"></mat-divider>
+        <p *ngIf="group?.nextContribution; else noNextCont">
+          {{ group?.nextContribution | date }}
+        </p>
+        <ng-template #noNextCont>
+          <p>---</p>
+        </ng-template>
+      </div>
+      <div class="group-details two-items">
+        <h2>End Date</h2>
+        <mat-divider class="horiz-divider"></mat-divider>
+        <p>{{ group?.endDate | date }}</p>
       </div>
     </div>
     <div class="performance">

@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" #signInTop>
   <form [formGroup]="loginForm" (ngSubmit)="nextStep()" id="sign-in-form">
     <div class="logo-div" routerLink="/">
       <img [attr.data-src]="appLogo" alt="App Logo" appLazyLoading />
@@ -12,6 +12,7 @@
           placeholder="Email"
           class="form-control"
           id="email"
+          autocomplete="email"
           formControlName="email"
         />
         <div class="input-container">
@@ -19,6 +20,7 @@
             [type]="hidePassword ? 'password' : 'text'"
             class="form-control"
             id="password"
+            autocomplete="current-password"
             formControlName="password"
             placeholder="Password"
           />

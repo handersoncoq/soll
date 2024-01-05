@@ -20,6 +20,8 @@ $progress-color: #20a7db;
     display: flex;
     justify-content: center;
     .battery {
+      display: flex;
+      justify-content: center;
       width: 2em;
       height: 50px;
       border: 1px solid $accent-color;
@@ -31,15 +33,19 @@ $progress-color: #20a7db;
       &::after {
         content: "";
         position: absolute;
-        top: -0.65em;
+        top: -0.6em;
         left: 0.55em;
         height: 0.4em;
         width: 1em;
+        border-bottom-left-radius: 2px;
+        border-bottom-right-radius: 2px;
         background: $accent-color;
       }
   
       .battery-level {
-        width: 100%;
+        width: 95%;
+        height: 0;
+        margin-bottom: 0.05em;
         background-color: $accent-color;
         border-bottom-left-radius: 4px;
         border-bottom-right-radius: 4px;
@@ -57,6 +63,7 @@ $progress-color: #20a7db;
     sup{
         font-size: small;
         color: bisque;
+        cursor: pointer;
     }
     .value{
         color: bisque;
