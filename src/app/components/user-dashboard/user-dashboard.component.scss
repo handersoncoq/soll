@@ -16,9 +16,9 @@ $swoosh-box-shadow: 0px 10px 20px -20px #111;
   margin-bottom: 1em;
   border: none;
 }
+
 .user-stats {
   position: relative;
-  padding: 1em 0.6em;
   margin-top: 5em;
   padding-bottom: 2em;
 
@@ -39,8 +39,9 @@ $swoosh-box-shadow: 0px 10px 20px -20px #111;
       overflow: visible;
       cursor: pointer;
       ::ng-deep .mat-badge-content {
-        background-color: $progress-color;
+        background-color: $accent-color;
         color: white;
+        padding: 0.1em;
         font-size: 13px;
       }
     }
@@ -61,15 +62,29 @@ $swoosh-box-shadow: 0px 10px 20px -20px #111;
   }
 }
 
+.posh-container{
+  margin-top: 1em;
+  background-color: $accent-color;
+  border-radius: 2em;
+  padding: 1em 0.6em;
+  border-top: solid white 1px;
+  border-bottom: solid white 1px;
+  box-shadow: $card-boxshadow;
+}
+
 .header-wrapper {
-  padding-bottom: 2.5em;
+  padding-top: 1.5em;
+  margin-bottom: 1em;
+  padding-bottom: 1em;
 }
 
 .header {
   padding: 1em;
+  padding-top: 0;
   background-color: $accent-color;
-  border-radius: 1em;
-  box-shadow: $card-boxshadow;
+  border-radius: 2em;
+  border-left: solid white 1px;
+  border-right: solid white 1px;
 }
 
 .header {
@@ -78,7 +93,6 @@ $swoosh-box-shadow: 0px 10px 20px -20px #111;
   align-items: center;
   gap: 1em;
   color: white;
-  border-bottom: solid $progress-color 5px;
   .user-progress {
     display: flex;
     align-items: center;
@@ -220,7 +234,7 @@ $swoosh-box-shadow: 0px 10px 20px -20px #111;
 }
 
 .group-icon, .history-icon{
-  color: $accent-color;
+  color: bisque;
   padding-right: 0.1em;
 }
 .history-icon {

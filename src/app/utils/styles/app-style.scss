@@ -196,7 +196,8 @@ input{
 .group-details, .community-details{
     padding: 1em;
     margin-bottom: 1em;
-    background-color: $accent-color;
+    background-color: white;
+    color: $accent-color;
     border-radius: 1em;
     box-shadow: $card-boxshadow;
     &:hover{
@@ -210,7 +211,7 @@ input{
     font-size: large;
     height: 20px !important;
     vertical-align: sub;
-    color: bisque;
+    color: $progress-color;
 }
 
 .group-name, .community-name {
@@ -237,7 +238,7 @@ input{
     }
     .value{
         font-size: small;
-        color: bisque;
+        color: $primary-color;
         padding: 0 1em;
     }
     .span{
