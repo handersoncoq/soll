@@ -1,0 +1,258 @@
+// imports
+@use "@angular/material" as mat;
+@import "src/app/utils/styles/app-style.scss";
+@include mat.core();
+
+// angular material custom palettes
+$Sol-primary-palette: (
+  50: #dbe2ed,
+  100: #bac6da,
+  200: #99a9c7,
+  300: #788cb4,
+  400: #6177a6,
+  500: #52688f,
+  600: #495f85,
+  700: #3f566c,
+  800: #354d53,
+  900: #2b444a,
+  contrast: (
+    50: rgba($sol-dark-color, 0.87),
+    100: rgba($sol-dark-color, 0.87),
+    200: rgba($sol-dark-color, 0.87),
+    300: $sol-light-color,
+    400: $sol-light-color,
+    500: $sol-light-color,
+    600: $sol-light-color,
+    700: $sol-light-color,
+    800: $sol-light-color,
+    900: $sol-light-color,
+  ),
+);
+
+$Sol-accent-palette: (
+  50: #677184,
+  100: #546275,
+  200: #435266,
+  300: #35425b,
+  400: #2e3b51,
+  500: #283447,
+  600: #bdc6d9,
+  700: #bdc6d9,
+  800: #bdc6d9,
+  900: #bdc6d9,
+  contrast: (
+    50: rgba($sol-dark-color, 0.87),
+    100: rgba($sol-dark-color, 0.87),
+    200: rgba($sol-dark-color, 0.87),
+    300: $sol-light-color,
+    400: $sol-light-color,
+    500: $sol-light-color,
+    600: $sol-light-color,
+    700: $sol-light-color,
+    800: $sol-light-color,
+    900: $sol-light-color,
+  ),
+);
+
+$Sol-primary: mat.define-palette($Sol-primary-palette);
+$Sol-accent: mat.define-palette($Sol-accent-palette);
+$Sol-warn: mat.define-palette(mat.$red-palette);
+
+$Sol-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $Sol-primary,
+      accent: $Sol-accent,
+      warn: $Sol-warn,
+    ),
+  )
+);
+
+@include mat.all-component-themes($Sol-theme);
+
+// *********************************************************************************
+
+// Overriding rules
+
+body.no-scroll {
+  overflow: hidden;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: "Poppins", "Roboto", sans-serif;
+}
+
+// *********************************************************************************
+
+// App modes
+
+$color-white: white;
+$color-bisque: bisque;
+$hover-color-dark-blue: $dark-dusty-blue;
+$hover-color-progress: $progress-color;
+$background-accent-color: $accent-color;
+
+body.dark-mode {
+  background-color: $primary-color !important;
+  color: $color-white !important;
+
+  // Footer
+  .app-footer {
+    color: $color-white !important;
+    .footer-content {
+      .footer-links {
+        span {
+          color: $color-white !important;
+          &:hover {
+            color: $hover-color-dark-blue !important;
+          }
+        }
+      }
+    }
+  }
+
+  // Info section
+  .info {
+    button {
+      color: $color-white !important;
+      &:hover {
+        color: $hover-color-progress !important;
+      }
+    }
+    .help-btn {
+      color: $color-bisque !important;
+    }
+  }
+
+  // User nav
+  .nav-class {
+    color: $color-white !important;
+    background-color: $primary-color !important;
+    .mat-divider.mat-divider-vertical {
+      border-right-color: $color-white !important;
+    }
+  }
+
+  .menu-button {
+    background-color: $background-accent-color !important;
+  }
+
+  .language-icon {
+    color: $color-white !important;
+  }
+
+  // Group related
+  .group-details,
+  .community-details {
+    border: solid $color-white 1px;
+    background-color: $background-accent-color !important;
+    color: $color-white !important;
+    &:hover {
+      border: solid $primary-color 1px !important;
+    }
+  }
+
+  .community-details, .trending-groups .group-details {
+    border: none !important;
+  }
+
+  .outer-progress {
+    background-color: #f5f5f5 !important;
+  }
+
+  // Dashboard related
+  .user-stats {
+    .saving-alert {
+      .alert {
+        color: $color-white !important;
+      }
+    }
+    .current-saving {
+      color: $color-bisque !important;
+      h2 {
+        color: $color-white !important;
+      }
+      h2, h3 {
+        font-weight: normal;
+      }
+    }
+  }
+
+  .posh-container {
+    background-color: $background-accent-color;
+    border-radius: 2em;
+    padding: 1em 0;
+    padding-left: 0.6em;
+    border-top: solid $color-white 1px;
+    border-bottom: solid $color-white 1px;
+  }
+
+  .pre-stats {
+    background-color: $background-accent-color;
+  }
+
+  .header {
+    border-left: solid $color-white 1px;
+    border-right: solid $color-white 1px;
+    border-bottom: none;
+    box-shadow: none;
+  }
+
+  .trending-title {
+    color: $color-white;
+  }
+
+  .trending-card {
+    background-color: transparent;
+    box-shadow: $dark-mode-boxshadow !important;
+  }
+
+  .trending .slide-title {
+    color: $color-bisque !important;
+  }
+
+  .group-icon,
+  .history-icon {
+    color: $color-bisque !important;
+  }
+
+  // Dashboard - group dashboard
+  .group-strength-container {
+    .battery-box .battery .battery-level {
+      background-color: $hover-color-progress !important;
+    }
+  }
+
+  .battery {
+    border-color: $hover-color-progress !important;
+    &::after {
+      background-color: $hover-color-progress !important;
+    }
+  }
+
+  .name-location {
+    h2 {
+      font-weight: normal;
+      color: $color-white !important;
+    }
+    h3 {
+      font-weight: normal;
+      color: $color-bisque;
+    }
+  }
+
+  .location-icon {
+    color: $color-white !important;
+  }
+
+  .pre-dashboard .vert-div, .pre-dashboard .alert, .performance-section {
+    color: $color-white !important;
+  }
+}
+

@@ -1,0 +1,288 @@
+// app variables =================================================================
+$primary-color: #52688F;
+$secondary-color: #35425B;
+$accent-color: #35425B;
+$background-color: #BDC6D9;
+$default-font-color: #35425B;
+$alt-font-color: #E3E7F1;
+$sol-logo-light-color: #d6dff3;
+$sol-dark-color: #353c4a;
+$sol-black: rgba(0, 0, 0, 0.87);
+$sol-light-color: #BDC6D9;
+$sol-transparent-bgr: rgb(82, 104, 143, 0.1);
+$sol-box-shadow: 0px 0px 10px rgb(82, 104, 143, 0.2);
+$third-color: #445470;
+$sol-subtle-backgound: #b4bfd6;
+$sol-glossy-background: #2a416b;
+$sol-thin-border: solid $secondary-color 1px;
+$sol-darker: #161B22;
+$dark-dusty-blue: rgb(37 84 109);
+$accent-color: #35425b;
+$progress-color: #20a7db;
+$card-boxshadow: rgba(0, 0, 0, 0.15) -12px 21px 24px -10px;
+$dark-mode-boxshadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+
+
+// inputs / labels  =================================================================
+
+input{
+    caret-color: $sol-darker !important;
+  }
+  
+  input.ng-invalid.ng-touched:not(.front-page) {
+    border: none !important;
+    outline: 1px solid red;
+  }
+  
+  .input-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+  
+    .form-control {
+      flex: 1;
+      padding-right: 2rem;
+    }
+  
+    .toggle-password {
+      position: absolute;
+      right: 0;
+      border: none;
+      background: none;
+      cursor: pointer;
+      padding: 0 12px;
+  
+      mat-icon {
+        color: $primary-color;
+      }
+    }
+  }
+
+  .mat-mdc-tooltip .mdc-tooltip__surface {
+    font-size: small !important;
+    line-height: 1.5;
+    white-space: pre-line;
+    text-align: left;
+    color: $accent-color !important;
+    background-color: white !important;
+    border-radius: 0.8em !important;
+    padding: 0.6em;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+
+   }
+
+   .mat-tooltip-arrow::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent white transparent;
+  }
+
+  .member-tooltip-arrow::after{
+    transform: rotate(180deg);
+    top: 100%;
+  }
+
+  .leader-tooltip-arrow::after{
+    bottom: 100%;
+  }
+
+  // buttons  =================================================================
+
+  .primary-btn {
+    background-color: $accent-color;
+    color: white;
+    padding: 10px 20px;
+    padding: 0.7em 0;
+    width: 100%;
+    border-radius: 2.5em;
+    border: none;
+    font-size: larger;
+    cursor: pointer;
+    margin-top: 1em;
+    transition: background-color 0.3s ease;
+  
+    &:hover {
+      background-color: darken($accent-color, 10%);
+    }
+  
+    &[disabled] {
+      background-color: lighten($accent-color, 10%);
+      color: $alt-font-color;
+      cursor: default;
+    }
+  }
+
+  // img and animations  =================================================================
+
+
+@keyframes floatUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  img {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: transform 0.8s ease-in-out, opacity 0.8s ease-in-out;
+  
+    &.loaded {
+      animation: floatUp 0.8s ease-in-out forwards;
+    }
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  .visible {
+    animation: fadeIn 1s ease-out;
+  }
+  
+  @keyframes faded {
+    from { opacity: 0;}
+    to { opacity: 1;}
+  }
+  
+  .simpleFadeAnimation{
+    animation: faded 0.5s ease-out;
+    opacity: 1;
+  }
+
+  // spacing and dividers  =================================================================
+
+  .spacing{
+    margin: 2em 1em;
+    margin-bottom: 1em;
+    height: 1em;
+    border-bottom: solid $alt-font-color 1px;
+}
+
+.divider{
+    border-top-color: $alt-font-color !important;
+}
+
+  // angular material + library components  =================================================================
+
+  .agreement{
+    font-size: smaller;
+    a, span{
+        font-weight: bold;
+        color: $primary-color;
+    }
+    mat-checkbox{
+        height: 12px;
+        margin-left: -0.8em;
+    }
+  }
+  
+  
+  .bottom-sheet-container{
+    max-height: 50vh !important;
+  }
+  
+  .mat-bottom-sheet-container {
+    border-top: solid $primary-color 1px;
+    border-top-right-radius: 2em !important;
+    border-top-left-radius: 2em !important;
+  }
+
+// dashboard- user groups - communties
+.outer-progress{
+    margin: 0.3em 0;
+    width: 100%;
+    height: 8px;
+    background-color: #ddd;
+    border-radius: 7px;
+    position: relative;
+    box-shadow: $card-boxshadow;
+    .inner-progress{
+        width: 0;
+        height: 8px;
+        background-color: $progress-color;
+        border-radius: 7px;
+        position: absolute;
+        transition: width 1s ease-in-out;
+  
+        &:after {
+          content: '';
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+        }
+    }
+}
+
+.group-details, .community-details{
+    padding: 1em;
+    margin-bottom: 1em;
+    color: white;
+    background-color: $accent-color;
+    border-radius: 1em;
+    box-shadow: $card-boxshadow;
+    &:hover{
+        cursor: pointer;
+        border: solid white 1px;
+        box-shadow: none;
+    }
+}
+
+.styled-icon{
+    font-size: large;
+    height: 20px !important;
+    vertical-align: sub;
+    color: bisque;
+}
+
+.group-name, .community-name {
+    font-size: large;
+    color: white;
+    padding-bottom: 0.5em;
+    .divide-vert{
+        font-weight: lighter;
+        color: $progress-color;
+        padding-left: 0.1em;
+        padding-right: 0.25em;
+    }
+    .group-icon, .divide-vert, .styled-icon{
+        box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+    }
+}
+
+.group-details, .community-details{
+    .section:not(:last-child) {
+        border-bottom: solid $progress-color 1px;
+    }
+    .section{
+        font-size: medium;
+        padding: 0.5em 0;
+    }
+    .value{
+        font-size: small;
+        color: bisque;
+        padding: 0 1em;
+    }
+    .span{
+        margin-right: 1em;
+    }
+
+}
+  
+
+// miscelaneous =================================================================
+
+a {
+    text-decoration: none;
+  }

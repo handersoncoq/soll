@@ -1,0 +1,101 @@
+<mat-toolbar class="nav-class">
+  <mat-toolbar-row class="spacer-row"></mat-toolbar-row>
+  <mat-toolbar-row>
+    <div class="toolbar-content">
+      <span (click)="navigateToSimpleRoute('/')" class="company-name"
+        >Soll<sup>&reg;</sup></span
+      >
+      <span class="spacer"></span>
+      <mat-icon [matMenuTriggerFor]="languageMenu" class="language-icon"
+        >public</mat-icon
+      >
+      <mat-divider class="divider" [vertical]="true"></mat-divider>
+      <button mat-button (click)="navigateToSimpleRoute('/sign-in')">
+        Sign in
+      </button>
+      <button
+        mat-icon-button
+        [matMenuTriggerFor]="menu"
+        #trigger="matMenuTrigger"
+        class="menu-button"
+        (click)="shakeIcon(); startShakeInterval()"
+      >
+        <span *ngIf="trigger.menuOpen" class="material-symbols-outlined"
+          >keyboard_arrow_down</span
+        >
+        <span
+          *ngIf="!trigger.menuOpen"
+          class="material-symbols-outlined rotated"
+          >menu</span
+        >
+      </button>
+    </div>
+  </mat-toolbar-row>
+  <mat-toolbar-row class="spacer-row"></mat-toolbar-row>
+  <mat-toolbar-row class="spacer-row"></mat-toolbar-row>
+</mat-toolbar>
+
+<mat-menu #menu="matMenu" class="main-menu">
+  <ng-template matMenuContent>
+    <mat-divider
+      class="menu-divider"
+      [ngStyle]="{ 'margin-top': marginTop }"
+    ></mat-divider>
+    <div @accordion-animation class="menu-items">
+      <button
+        appLazyLoadText
+        mat-menu-item
+        (click)="navigateTo('/info/concept-overview', 'eps')"
+      >
+        EPS
+        <mat-icon color="primary">calendar_month</mat-icon>
+      </button>
+      <button
+        appLazyLoadText
+        mat-menu-item
+        (click)="navigateTo('/info/concept-overview', 'ecps')"
+      >
+        ECPS
+        <mat-icon color="primary">linear_scale</mat-icon>
+      </button>
+      <button
+        appLazyLoadText
+        mat-menu-item
+        (click)="shakeIcon(); openInquireDialog()"
+      >
+        <mat-icon color="primary" [class.shake-animation]="shake"
+          >support_agent</mat-icon
+        >Inquire
+      </button>
+    </div>
+    <mat-divider class="menu-divider"></mat-divider>
+    <button
+      class="about-us"
+      appLazyLoadText
+      mat-menu-item
+      (click)="navigateToSimpleRoute('/info/about-us')"
+    >
+      About us
+    </button>
+  </ng-template>
+</mat-menu>
+
+<!-- menu for languages -->
+
+<mat-menu #languageMenu="matMenu" class="language-menu">
+  <ng-template matMenuContent>
+    <mat-divider
+    class="language-menu-divider"
+  ></mat-divider>
+    <div @accordion-animation class="menu-items">
+      <button
+        appLazyLoadText
+        mat-menu-item
+        *ngFor="let language of languages"
+        (click)="changeLanguage(language)"
+      >
+        {{ language }}
+      </button>
+    </div>
+  </ng-template>
+</mat-menu>

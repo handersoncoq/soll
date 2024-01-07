@@ -1,0 +1,30 @@
+<div class="trending-communities">
+    <div class="community-details">
+      <div class="community-name">
+        {{ trendingCommunity.communityName }}
+        <span class="divide-vert">|</span>
+        @if(trendingCommunity.type === 'Open')
+        {<mat-icon class="styled-icon">public</mat-icon>}
+        @else
+        {<mat-icon class="styled-icon">lock</mat-icon>}
+      </div>
+      <mat-divider></mat-divider>
+      <div class="section">
+        <span class="label">Interest: </span>
+        <span class="value">{{ trendingCommunity.interest }}</span>
+      </div>
+      <div class="section">
+        <span class="label">Members: </span>
+        <span class="value">{{ trendingCommunity.memberCount }}</span>
+      </div>
+      <div class="section">
+        <span class="label">Active Since: </span>
+        <span class="value">{{ trendingCommunity.activeSince | date }}</span>
+      </div>
+      <div class="section">
+        <span class="label">Posts This Week: </span>
+        <span class="value">{{ trendingCommunity.weeklyPostsCount }}</span>
+      </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,44 @@
+<div class="active-groups">
+    <div class="group-details">
+      <div class="group-name">
+        {{ activeGroup.groupName }}
+        <span class="divide-vert">|</span> @if(activeGroup.payoutSystem === 'EPS')
+        {<mat-icon class="styled-icon">calendar_month</mat-icon>} @else {<mat-icon
+          class="styled-icon"
+          >linear_scale</mat-icon
+        >}
+      </div>
+      <div class="outer-progress">
+        <div
+            class="inner-progress"
+            appProgressAnimation
+            [startDate]="activeGroup.startDate"
+            [endDate]="activeGroup.endDate"
+        ></div>
+      </div>
+      <div class="section">
+        <span class="label">Savings Target: </span>
+        <span class="value">{{ activeGroup.savingsTarget | currency }}</span>
+      </div>
+      <div class="section">
+        <span class="label">Contribution: </span>
+        <span class="value">{{ activeGroup.contribution }}</span>
+      </div>
+      <div class="section">
+        <span class="label">Group Size: </span>
+        <span class="value">{{ activeGroup.groupSize }}</span>
+      </div>
+      <div class="section">
+        <span class="label">Rank: </span>
+        <span *ngIf="activeGroup.payoutSystem === 'EPS', else na" class="value">{{ activeGroup.rank }}</span>
+        <ng-template #na>
+          <span class="value">N/A</span>
+        </ng-template>
+      </div>
+      <div class="section">
+        <span class="label">Next Due Date: </span>
+        <span class="value">{{ activeGroup.nextContributionDate | date }}</span>
+      </div>
+    </div>
+  </div>
+  

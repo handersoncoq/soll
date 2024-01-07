@@ -1,0 +1,97 @@
+$primary-color: #52688F;
+$accent-color: #35425B;
+$alt-font-color: #E3E7F1;
+$dark-dusty-blue: rgb(37, 84, 109);
+
+.verification-form {
+  font-family: 'Arial', sans-serif;
+  color: $primary-color;
+
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  .code-inputs {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 5px;
+    margin-bottom: 20px;
+
+    input {
+      width: 1em;
+      height: 1.5em;
+      text-align: center;
+      border: 1px solid $dark-dusty-blue;
+      border-radius: 5px;
+      color: $accent-color;
+      font-size: 1.5em;
+
+      &:focus {
+        outline: none;
+        border-color: darken($accent-color, 10%);
+        box-shadow: 0 0 5px $accent-color;
+      }
+    }
+  }
+
+  button {
+    background-color: $accent-color;
+    color: $alt-font-color;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    font-weight: bold;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: darken($accent-color, 10%);
+    }
+
+    &:disabled {
+      background-color: lighten($accent-color, 10%);
+      cursor: default;
+    }
+  }
+
+  span {
+    display: flex;
+    margin-top: 15px;
+    font-size: 0.9em;
+
+    p {
+        color: $primary-color;
+        text-decoration: underline;
+        margin: 0;
+        padding: 0 0.3em;
+        cursor: pointer;
+    
+        &:hover {
+          color: darken($primary-color, 10%);
+        }
+      }
+  }
+
+}
+
+::ng-deep .mat-mdc-snack-bar-container {
+  --mdc-snackbar-container-color: #35425B;
+  --mdc-snackbar-supporting-text-color: white;
+  font-size: small !important;
+}
+
+.spinner-container{
+  margin: 12em 0;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+@media (min-width: 600px) {
+  input{
+    width: 1.5em !important;
+    height: 1.8em !important;
+  }
+}

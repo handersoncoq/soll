@@ -1,0 +1,191 @@
+<div>
+  <div class="header">
+    <div class="inner-div">
+      <div class="hero-div">
+        <div *ngIf="conceptOverview">
+          <h2>{{ conceptOverview.subTitle }}</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="main-content" *ngIf="conceptOverview">
+    <h2>{{ conceptOverview.title }}</h2>
+
+    <h3>Empowering Communities with Unity, Access, Education, and Lifelong Impact</h3>
+    <section class="overview layout">
+      <div>
+        <p appLazyLoadText>{{ conceptOverview.overview.description }}</p>
+        <p appLazyLoadText>{{ conceptOverview.overview.innovation }}</p>
+      </div>
+      <div class="img-box">
+        <img [attr.data-src]="community" alt="Community" appLazyLoading />
+      </div>
+    </section>
+
+    <h3>System Infrastructure</h3>
+    <section>
+      <p appLazyLoadText>
+        {{ conceptOverview.systemInfrastructure.modelDescription }}
+      </p>
+      <div id="eps" appScrollToSection="eps" >
+        <h4 appLazyLoadText>Early Payout System (EPS)</h4>
+        <div class="layout">
+          <div>
+            <p appLazyLoadText>
+              {{
+                conceptOverview.systemInfrastructure.subdivisions
+                  .earlyPayoutSystem.description
+              }}
+            </p>
+          </div>
+          <div class="img-box">
+            <img [attr.data-src]="eps" alt="EPS" appLazyLoading />
+          </div>
+        </div>
+      </div>
+      <div id="ecps" appScrollToSection="ecps">
+        <h4 appLazyLoadText>End Of Cycle Payout System (ECPS)</h4>
+        <div class="layout ecps">
+          <div>
+            <p appLazyLoadText>
+              {{
+                conceptOverview.systemInfrastructure.subdivisions
+                  .endOfCyclePayoutSystem.description
+              }}
+            </p>
+          </div>
+          <div class="img-box">
+            <img [attr.data-src]="ecps" alt="ECPS" appLazyLoading />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h3>Operational Infrastructure</h3>
+      <div class="layout" id="operational-infrastructure">
+        <p appLazyLoadText>
+          {{ conceptOverview.operationalInfrastructure.groupStructure }}
+        </p>
+        <div style="width: 100%"></div>
+      </div>
+      <div class="img-box oprational">
+        <img
+          [attr.data-src]="overviewImg"
+          alt="Soll in mobile"
+          appLazyLoading
+        />
+      </div>
+      <div id="group-leaders" appScrollToSection="group-leaders">
+        <h4>Group Leaders</h4>
+        <div class="layout">
+          <div>
+            <p appLazyLoadText>
+              {{
+                conceptOverview.operationalInfrastructure.groupLeaders
+                  .responsibilities
+              }}
+            </p>
+            <p appLazyLoadText>
+              {{
+                conceptOverview.operationalInfrastructure.groupLeaders.selection
+              }}
+            </p>
+            <p appLazyLoadText>
+              {{ conceptOverview.operationalInfrastructure.digitalManagement }}
+            </p>
+          </div>
+          <div class="img-box">
+            <img [attr.data-src]="leader" alt="Soll Leader" appLazyLoading />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h3>Default Management</h3>
+      <p appLazyLoadText>{{ conceptOverview.defaultManagement }}</p>
+    </section>
+
+    <section>
+      <h3>Reputation and Exit System</h3>
+      <p appLazyLoadText>
+        {{ conceptOverview.reputationAndExitSystem.description }}
+      </p>
+      <p appLazyLoadText>
+        {{ conceptOverview.reputationAndExitSystem.gracePeriods }}
+      </p>
+      <p appLazyLoadText>
+        {{ conceptOverview.reputationAndExitSystem.defaultConsequences }}
+      </p>
+    </section>
+
+    <section>
+      <div>
+        <h3>Transparency Commitment</h3>
+        <p appLazyLoadText>{{ conceptOverview.transparencyCommitment }}</p>
+        <div class="img-box transparency">
+          <img
+            [attr.data-src]="transparency"
+            alt="Soll Leader"
+            appLazyLoading
+          />
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h3>Illustrative Example</h3>
+      <p appLazyLoadText>
+        <strong>Group Size:</strong>
+        {{ conceptOverview.illustrativeExample.groupSize }}
+      </p>
+      <p appLazyLoadText>
+        <strong>Contribution:</strong>
+        {{ conceptOverview.illustrativeExample.contribution }}
+      </p>
+      <div class="examples">
+        <h5>EPS</h5>
+        <ul
+          *ngFor="let point of conceptOverview.illustrativeExample.epsExample"
+        >
+          <li appLazyLoadText>{{ point }}</li>
+        </ul>
+        <h5>ECPS</h5>
+        <ul
+          *ngFor="let point of conceptOverview.illustrativeExample.ecpExample"
+        >
+          <li appLazyLoadText>{{ point }}</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h3>Legal and Regulatory Compliance</h3>
+      <p appLazyLoadText>{{ conceptOverview.legalAndRegulatoryCompliance }}</p>
+    </section>
+
+    <section>
+      <h3>Scalability and Adaptability</h3>
+      <p appLazyLoadText>{{ conceptOverview.scalabilityAndAdaptability }}</p>
+    </section>
+
+    <section>
+      <h3>Community Engagement</h3>
+      <p appLazyLoadText>{{ conceptOverview.communityEngagement }}</p>
+      <div class="img-box">
+        <img
+          [attr.data-src]="communityEngagement"
+          alt="Soll Leader"
+          appLazyLoading
+        />
+      </div>
+    </section>
+
+    <section>
+      <h3>Financial Sustainability</h3>
+      <p appLazyLoadText>{{ conceptOverview.financialSustainability }}</p>
+    </section>
+  </div>
+</div>
