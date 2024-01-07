@@ -1,6 +1,7 @@
 // imports
 @use "@angular/material" as mat;
 @import "src/app/utils/styles/app-style.scss";
+@import "src/app/utils/styles/media-styles.scss";
 @include mat.core();
 
 // angular material custom palettes
@@ -253,6 +254,12 @@ body.dark-mode {
 
   .pre-dashboard .vert-div, .pre-dashboard .alert, .performance-section {
     color: $color-white !important;
+  }
+
+  @media screen and (min-width: 768px) {
+    .posh-container{
+      padding: 2em 3em !important;
+    }
   }
 }
 

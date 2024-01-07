@@ -1,4 +1,4 @@
-<div class="component">
+<div class="front-page-component">
   <div class="spacing"></div>
 
   <div class="header-tagline">
@@ -57,133 +57,125 @@
     </div>
   </div>
 
-  <h1 appLazyLoadText class="tagline-header">What is Soll?</h1>
-  <div class="main-content">
-    <div class="call-to-action">
-      <div class="learn-more" *ngIf="learnMore">
-        <div appLazyLoadText class="learn-more-body">
-          {{ learnMore.body[0] }}
+  <div class="core-page">
+    <h1 appLazyLoadText class="tagline-header">What is Soll?</h1>
+    <div class="main-content">
+      <div class="call-to-action">
+        <div class="learn-more" *ngIf="learnMore">
+          <div appLazyLoadText class="learn-more-body">
+            {{ learnMore.body[0] }}
+          </div>
+          <div class="branding">
+            <div class="learn-more-content">
+              <p class="img-p">
+                <img
+                  class="what-is-img"
+                  [attr.data-src]="frontPageLogo"
+                  alt="App Logo"
+                  appLazyLoading
+                />
+              </p>
+            </div>
+            <div class="learn-more-content tag-words">
+              <p class="tag-p">{{ learnMore.body[1] }}</p>
+            </div>
+            <div routerLink="/info/concept-overview">
+              <button mat-raised-button>
+                <span>Learn More</span>
+                <mat-icon iconPositionEnd >open_in_new</mat-icon>
+              </button>
+            </div>
+          </div>
         </div>
-        <div class="branding">
-          <div class="learn-more-content">
-            <p class="img-p">
-              <img
-                class="what-is-img"
-                [attr.data-src]="frontPageLogo"
-                alt="App Logo"
-                appLazyLoading
-              />
-            </p>
-          </div>
-          <div class="learn-more-content tag-words">
-            <p class="tag-p">{{ learnMore.body[1] }}</p>
-          </div>
-          <div routerLink="/info/concept-overview">
-            <button mat-raised-button>
-              <span>Learn More</span>
-              <mat-icon iconPositionEnd >open_in_new</mat-icon>
-            </button>
-          </div>
-        </div>
       </div>
-    </div>
-
-    <h1 appLazyLoadText class="tagline-header">How it works</h1>
-    <p appLazyLoadText class="sub-header">(click steps to reveal!)</p>
-    <div class="content-video">
-      <app-how-it-works></app-how-it-works>
-    </div>
-
-    <h1 appLazyLoadText class="tagline-header">
-      Raise and Save with Friends and Loved Ones
-    </h1>
-    <div class="content-video video-even">
-      <div routerLink="/sign-in">
-        <img [attr.data-src]="contentVideos[1]" alt="content" appLazyLoading />
+      <h1 appLazyLoadText class="tagline-header">How it works</h1>
+      <p appLazyLoadText class="sub-header">(click steps to reveal!)</p>
+      <div class="content-video">
+        <app-how-it-works></app-how-it-works>
       </div>
-    </div>
-
-    <h1 appLazyLoadText class="tagline-header">Saving at your Fingertips</h1>
-    <div class="content-video video-odd">
-      <div routerLink="/info/concept-overview" fragment="operational-infrastructure">
-        <img [attr.data-src]="contentVideos[0]" alt="content" appLazyLoading />
-      </div>
-    </div>
-
-    <h1 appLazyLoadText class="tagline-header">
-      Get Excited when it's your Turn!
-    </h1>
-    <div class="content-video video-even">
-      <div routerLink="/get-started">
-        <img [attr.data-src]="contentVideos[3]" alt="content" appLazyLoading />
-      </div>
-    </div>
-
-    <h1 appLazyLoadText class="tagline-header">
-      Not geared for online transactions?
-    </h1>
-    <div class="content-video video-odd">
-      <div routerLink="/info/concept-overview" fragment="group-leaders">
-        <img [attr.data-src]="contentVideos[6]" alt="content" appLazyLoading />
-      </div>
-    </div>
-
-    <h1 appLazyLoadText class="tagline-header">
-      Start Saving with Soll for a Better Future
-    </h1>
-    <div class="content-video video-even">
-      <div routerLink="/get-started">
-        <img [attr.data-src]="contentVideos[4]" alt="content" appLazyLoading />
-      </div>
-    </div>
-
-    <h1 appLazyLoadText class="tagline-header">
-      Finally, Bring your Dream Project to Life
-    </h1>
-    <div class="content-video video-odd last-video">
-      <div routerLink="/info/concept-overview">
-        <img [attr.data-src]="contentVideos[2]" alt="content" appLazyLoading />
-      </div>
-    </div>
-
-    <div class="faqs" *ngIf="faqs">
       <h1 appLazyLoadText class="tagline-header">
-        Frequently Asked Questions
+        Raise and Save with Friends and Loved Ones
       </h1>
-      <mat-accordion *ngFor="let faqs of faqs">
-        <mat-expansion-panel>
-          <mat-expansion-panel-header>
-            <mat-panel-title>
-              {{ faqs.question }}
-            </mat-panel-title>
-          </mat-expansion-panel-header>
-          <ng-template matExpansionPanelContent>
-            <p appLazyLoadText>{{ faqs.body }}</p>
-          </ng-template>
-        </mat-expansion-panel>
-      </mat-accordion>
-    </div>
-
-    <div class="ratings-partners">
-      <div class="trustpilot-rating">
-        <div>
-          <img [attr.data-src]="trustPilot" alt="Trustpilot" appLazyLoading />
-        </div>
-        <div>
-          <img [attr.data-src]="fiveStars" alt="Stars" appLazyLoading />
+      <div class="content-video video-even">
+        <div routerLink="/sign-in">
+          <img [attr.data-src]="contentVideos[1]" alt="content" appLazyLoading />
         </div>
       </div>
-
-      <div class="partners">
-        <div>
-          <h1 appLazyLoadText>
-            Our partners<sup matTooltip="Our *potential partners">1</sup> are
-            best in their fields
-          </h1>
+      <h1 appLazyLoadText class="tagline-header">Saving at your Fingertips</h1>
+      <div class="content-video video-odd">
+        <div routerLink="/info/concept-overview" fragment="operational-infrastructure">
+          <img [attr.data-src]="contentVideos[0]" alt="content" appLazyLoading />
         </div>
-        <span *ngFor="let partner of partners">
-          <img [attr.data-src]="partner" alt="Partner" appLazyLoading />
-        </span>
+      </div>
+      <h1 appLazyLoadText class="tagline-header">
+        Get Excited when it's your Turn!
+      </h1>
+      <div class="content-video video-even">
+        <div routerLink="/get-started">
+          <img [attr.data-src]="contentVideos[3]" alt="content" appLazyLoading />
+        </div>
+      </div>
+      <h1 appLazyLoadText class="tagline-header">
+        Not geared for online transactions?
+      </h1>
+      <div class="content-video video-odd">
+        <div routerLink="/info/concept-overview" fragment="group-leaders">
+          <img [attr.data-src]="contentVideos[6]" alt="content" appLazyLoading />
+        </div>
+      </div>
+      <h1 appLazyLoadText class="tagline-header">
+        Start Saving with Soll for a Better Future
+      </h1>
+      <div class="content-video video-even">
+        <div routerLink="/get-started">
+          <img [attr.data-src]="contentVideos[4]" alt="content" appLazyLoading />
+        </div>
+      </div>
+      <h1 appLazyLoadText class="tagline-header">
+        Finally, Bring your Dream Project to Life
+      </h1>
+      <div class="content-video video-odd last-video">
+        <div routerLink="/info/concept-overview">
+          <img [attr.data-src]="contentVideos[2]" alt="content" appLazyLoading />
+        </div>
+      </div>
+      <div class="faqs" *ngIf="faqs">
+        <h1 appLazyLoadText class="tagline-header">
+          Frequently Asked Questions
+        </h1>
+        <mat-accordion *ngFor="let faqs of faqs">
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                {{ faqs.question }}
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <ng-template matExpansionPanelContent>
+              <p appLazyLoadText>{{ faqs.body }}</p>
+            </ng-template>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </div>
+      <div class="ratings-partners">
+        <div class="trustpilot-rating">
+          <div>
+            <img [attr.data-src]="trustPilot" alt="Trustpilot" appLazyLoading />
+          </div>
+          <div>
+            <img [attr.data-src]="fiveStars" alt="Stars" appLazyLoading />
+          </div>
+        </div>
+        <div class="partners">
+          <div>
+            <h1 appLazyLoadText>
+              Our partners<sup matTooltip="Our *potential partners">1</sup> are
+              best in their fields
+            </h1>
+          </div>
+          <span *ngFor="let partner of partners">
+            <img [attr.data-src]="partner" alt="Partner" appLazyLoading />
+          </span>
+        </div>
       </div>
     </div>
   </div>

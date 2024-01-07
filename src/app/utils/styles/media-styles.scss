@@ -1,0 +1,66 @@
+.front-page-component{
+  @media screen and (min-width: 768px) {
+      margin-top: 5em !important;
+      font-size: larger !important;
+      .core-page{
+        padding-top: 1em;
+        padding-left: 3em;
+        padding-right: 3em;
+      }
+      .header-tagline{
+        margin-bottom: 2em !important;
+        padding-bottom: 2em !important;
+      }
+      img:not(.call-to-action img, .branding img, .ratings-partners img, .hero img){
+        height: 30em !important;
+        width: 30em !important;
+      }
+      h1{
+        font-size: xx-large !important;
+      }
+      
+      .hero{
+        padding: 2em 4em !important;
+        padding-right: 2em !important;
+        .action h4{
+          font-size: x-large !important;
+        }
+        img{
+          margin-top: -6em !important;
+          height: 22em !important;
+          width: 22em !important;
+        }
+      }
+      .get-started{
+        padding-left: 1em !important;
+        padding-right: 1em !important;
+      }
+      .video-even, .video-odd{
+        display: flex !important;
+        width: 100% !important;
+      }
+      .video-even{
+        justify-content: flex-start !important;
+      }
+      .video-odd{
+        justify-content: flex-end !important;
+      }
+      .learn-more{
+        button{
+          font-size: x-large !important;
+          padding-top: 1.2em !important;
+          padding-bottom: 1.2em !important;
+        }
+      }
+      .learn-more-content.tag-words p{
+        font-size: large !important;
+      }
+    }
+    .faqs p{
+      font-size: large !important;
+    }
+    img:not(.call-to-action img, .branding img, .ratings-partners img, .hero img){
+      height: 25em !important;
+      width: 25em !important;
+    }
+  }

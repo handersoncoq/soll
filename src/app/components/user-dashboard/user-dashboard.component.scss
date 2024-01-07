@@ -270,23 +270,7 @@ $bottom-top-box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0
 // =========================================================
 
 @media screen and (min-width: 768px) {
-  .pre-stats{
-    padding: 3em;
-  }
-  .user-stats {
-    padding: 2em 5em;
-  }
-  :host swiper-slide:not(.user-group-slide) {
-    &:first-child {
-      padding-left: 0.6em !important;
-    }
-  }
-  .slide-title {
-    padding-left: 0 !important;
-  }
-
-  .trending{
-    padding-right: 5em;
-    padding-left: 5em;
+  .posh-container{
+    padding: 2em 3em;
   }
 }
