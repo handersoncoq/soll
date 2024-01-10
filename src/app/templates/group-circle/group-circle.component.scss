@@ -73,6 +73,7 @@ $subtle-white: #f5f5f5;
     width: auto;
     height: 4em;
     padding-top: 0.4em;
+    mix-blend-mode: luminosity;
     padding-left: 0.1em;
     border-radius: 50%;
     box-shadow: 0 25px 50px -12px rgb(0, 0, 0);

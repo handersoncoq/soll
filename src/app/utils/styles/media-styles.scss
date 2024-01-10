@@ -55,12 +55,24 @@
       .learn-more-content.tag-words p{
         font-size: large !important;
       }
+      .faqs p{
+        font-size: large !important;
+      }
+      img:not(.call-to-action img, .branding img, .ratings-partners img, .hero img){
+        height: 25em !important;
+        width: 25em !important;
+      }
+      mat-expansion-panel-header .mat-expansion-indicator::after {
+        padding: 0.2em 0.3em;
+        padding-bottom: 0.4em;
+      }
     }
-    .faqs p{
-      font-size: large !important;
-    }
-    img:not(.call-to-action img, .branding img, .ratings-partners img, .hero img){
-      height: 25em !important;
-      width: 25em !important;
+
+  }
+
+    @media screen and (min-width: 768px) {
+      .public-nav{
+        padding-left: 1em;
+        padding-right: 1em;
     }
   }

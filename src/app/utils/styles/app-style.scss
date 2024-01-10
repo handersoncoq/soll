@@ -54,6 +54,7 @@ input{
   
       mat-icon {
         color: $primary-color;
+        vertical-align: bottom;
       }
     }
   }
@@ -195,6 +196,17 @@ input{
     border-top: solid $primary-color 1px;
     border-top-right-radius: 2em !important;
     border-top-left-radius: 2em !important;
+  }
+
+  .bottom-sheet-title-close{
+      display: grid;
+      grid-template-columns: 12fr 1fr;
+      mat-icon{
+        margin-top: 0.6em;
+        margin-left: 1em;
+        font-size: 1.5em;
+        color: $primary-color;
+      }
   }
 
 // dashboard- user groups - communties

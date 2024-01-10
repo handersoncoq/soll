@@ -189,7 +189,6 @@ body.dark-mode {
     background-color: $background-accent-color;
     border-radius: 2em;
     padding: 1em 0;
-    padding-left: 0.6em;
     border-top: solid $color-white 1px;
     border-bottom: solid $color-white 1px;
   }
@@ -198,11 +197,16 @@ body.dark-mode {
     background-color: $background-accent-color;
   }
 
+  .header-wrapper {
+    margin-right: 0 !important;
+  }
+
   .header {
     border-left: solid $color-white 1px;
     border-right: solid $color-white 1px;
     border-bottom: none;
     box-shadow: none;
+    padding: 1.5em 0.8em !important;
   }
 
   .trending-title {

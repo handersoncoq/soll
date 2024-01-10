@@ -35,6 +35,10 @@ mat-toolbar {
 
 }
 
+:host .mat-toolbar-row, .mat-toolbar-single-row{
+  padding: 0 0.6em;
+}
+
 button{
   font-size: large;
 }
@@ -88,7 +92,8 @@ sup {
 
 ::ng-deep .mat-mdc-menu-panel {
   position: relative !important;
-  right: -1em !important;
+  overflow: hidden !important;
+  right: -0.22em !important;
   --mat-menu-container-shape: 10px !important;
 }
 

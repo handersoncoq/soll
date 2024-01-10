@@ -259,11 +259,13 @@ $bottom-top-box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0
 
 .trending-card{
   margin: 0.6em;
+  margin-left: 0;
   margin-bottom: 2em;
   border-radius: 1em;
   box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px;
   .mat-mdc-card-content {
     padding-right: 0;
+    padding-left: 0.4em;
   }
 }
 

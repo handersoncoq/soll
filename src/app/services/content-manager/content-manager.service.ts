@@ -175,4 +175,8 @@ export class ContentManagerService {
     }
   }
 
+  closeBottomSheet(){
+    this._bottomSheet.dismiss()
+  }
+
 }

@@ -24,7 +24,7 @@
             formControlName="password"
             placeholder="Password"
           />
-          <button
+          <span
             *ngIf="loginForm.get('password')?.dirty"
             class="toggle-password"
             (click)="togglePasswordVisibility()"
@@ -32,7 +32,7 @@
             <mat-icon>{{
               hidePassword ? "visibility_off" : "visibility"
             }}</mat-icon>
-          </button>
+          </span>
         </div>
         <span class="agreement" *ngIf="loginForm.get('password')?.valid"
           ><mat-checkbox

@@ -6,15 +6,6 @@ $primary-color: #52688F;
     h2, h3{
         color: $primary-color;
     }
-    .title-close{
-      display: grid;
-      grid-template-columns: 12fr 1fr;
-      mat-icon{
-        margin-top: 1em;
-        font-size: large;
-        color: $primary-color;
-      }
-    }
 }
 
 .mobile{

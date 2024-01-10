@@ -24,4 +24,9 @@ export class TermsAndConditionsComponent {
       }
     );
   }
+
+  closeBottomSheet(){
+    if(!this.isMobile) return;
+    this.contentManagerService.closeBottomSheet();
+  }
 }

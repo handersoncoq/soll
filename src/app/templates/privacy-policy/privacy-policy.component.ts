@@ -23,4 +23,9 @@ export class PrivacyPolicyComponent {
       }
     );
   }
+
+  closeBottomSheet(){
+    if(!this.isMobile) return;
+    this.contentManagerService.closeBottomSheet();
+  }
 }
