@@ -84,7 +84,7 @@
         [spaceBetween]="20"
       >
         <swiper-slide class="user-group-slide" *ngFor="let group of activeGroups">
-          <app-active-groups (click)="goToGroupDashboard(group.groupName)" [activeGroup]="group"></app-active-groups>
+          <app-active-groups routerLink="/group/{{group.groupName}}/dashboard" [activeGroup]="group"></app-active-groups>
         </swiper-slide>
       </swiper-container>
     </div>
@@ -102,7 +102,7 @@
         [spaceBetween]="20"
       >
         <swiper-slide class="user-group-slide" *ngFor="let group of previousGroups">
-          <app-prev-groups (click)="goToGroupDashboard(group.groupName)" [prevGroup]="group"></app-prev-groups>
+          <app-prev-groups routerLink="/group/{{group.groupName}}/dashboard" [prevGroup]="group"></app-prev-groups>
         </swiper-slide>
       </swiper-container>
     </div>
@@ -125,7 +125,7 @@
           [spaceBetween]="20"
         >
           <swiper-slide *ngFor="let group of trendingGroups">
-            <app-trending-groups [trendingGroup]="group"></app-trending-groups>
+            <app-trending-groups routerLink="/group/{{group.groupName}}/profile"  [trendingGroup]="group"></app-trending-groups>
           </swiper-slide>
         </swiper-container>
       </div>

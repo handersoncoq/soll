@@ -5,6 +5,7 @@ import { GetStartedComponent } from './components/get-started/get-started.compon
 import { SignInComponent } from './components/sign-in/sign-in.component';
 import { UserDashboardComponent } from './components/user-dashboard/user-dashboard.component';
 import { GroupDashboardComponent } from './components/group-dashboard/group-dashboard.component';
+import { GroupProfileComponent } from './components/group-profile/group-profile.component';
 
 const routes: Routes = [
   {
@@ -15,7 +16,8 @@ const routes: Routes = [
   { path: 'get-started', component: GetStartedComponent},
   { path: 'sign-in', component: SignInComponent},
   { path: 'my-dashboard', component: UserDashboardComponent},
-  { path: 'group/:groupName', component: GroupDashboardComponent },
+  { path: 'group/:groupName/dashboard', component: GroupDashboardComponent },
+  { path: 'group/:groupName/profile', component: GroupProfileComponent },
 
   {path: '**', redirectTo: ''}
 ];

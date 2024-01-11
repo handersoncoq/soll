@@ -46,7 +46,7 @@ export class UserDashboardComponent implements OnInit {
   trendingGroups: Group[] = trendingGroups;
   trendingCommunities: Community[] = trendingCommunities
 
-  constructor(private router: Router) {
+  constructor() {
     this.nextPayoutDate = this.determineEarliestPayoutDate();
   }
   
@@ -102,12 +102,5 @@ determineEarliestPayoutDate(): Date | null{
 
   return earliestNextPayoutDate;
 }
-
-
-
-goToGroupDashboard(groupName: string) {
-  this.router.navigate(['/group', groupName.toLowerCase()]);
-}
-
   
 }

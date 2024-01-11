@@ -47,6 +47,7 @@ import { GroupCircleComponent } from './templates/group-circle/group-circle.comp
 import { DashboardFooterComponent } from './templates/dashboard-footer/dashboard-footer.component';
 import { GroupStatsComponent } from './templates/group-stats/group-stats.component';
 import { GroupStrengthComponent } from './templates/group-strength/group-strength.component';
+import { GroupProfileComponent } from './components/group-profile/group-profile.component';
 
 
 @Injectable()
@@ -80,7 +81,8 @@ export class HammerConfig extends HammerGestureConfig {
     GroupCircleComponent,
     DashboardFooterComponent,
     GroupStatsComponent,
-    GroupStrengthComponent
+    GroupStrengthComponent,
+    GroupProfileComponent
   ],
   imports: [
     ReactiveFormsModule,
