@@ -1,11 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { Community } from 'src/app/interaces/Community';
 import { Group } from 'src/app/interaces/Group';
 import { GroupDetail } from 'src/app/interaces/GroupDetails';
-import { prevGroups } from 'src/app/utils/constants/PreviousGroups';
-import { trendingCommunities } from 'src/app/utils/constants/TrendingCommunities';
-import { trendingGroups } from 'src/app/utils/constants/TrendingGroups';
+import { GroupService } from 'src/app/services/group-service/group.service';
 import { userGroups } from 'src/app/utils/constants/UserGroupDetail';
 import { register } from 'swiper/element/bundle';
 
@@ -38,23 +35,25 @@ export class UserDashboardComponent implements OnInit {
     return dateA - dateB;
   });
   
-  nextPayoutDate!: Date | null;
+  nextPayoutDate: Date | null;
   daysUntilPayout!: number | null;
 
   inboxCount = 2;
 
-  trendingGroups: Group[] = trendingGroups;
-  trendingCommunities: Community[] = trendingCommunities
+  trendingGroups!: Group[];
+  trendingCommunities: Community[]
 
-  constructor() {
+  constructor(private groupService: GroupService) {
     this.nextPayoutDate = this.determineEarliestPayoutDate();
+    this.trendingGroups = this.groupService.getTrendingGroups();
+    this.trendingCommunities = this.groupService.getTrendingCommunities();
   }
   
 
   ngOnInit(): void {
     register()
     this.shortenName(this.firstName, this.lastName);
-    this.calculateDaysUntilPayout()
+    this.calculateDaysUntilPayout();
   }
 
   shortenName(firstName: string, lastName: string) {

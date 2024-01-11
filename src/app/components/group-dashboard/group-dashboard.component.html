@@ -1,15 +1,11 @@
-<div class="nav-box">
-  <app-user-nav></app-user-nav>
-</div>
-
-<div class="component">
+<div class="group-dash-c post-login-component">
   <div class="spacing"></div>
-  <div class="pre-dashboard">
+  <div class="pre-g-dashboard">
     <div class="name-location">
       <h2 appLazyLoadText>{{ groupName }}</h2>
       <h3 appLazyLoadText>
         <mat-icon class="location-icon">location_pin</mat-icon> Hartford, CT
-        <span class="vert-div">|</span> {{ group?.payoutSystem }}
+        <span class="vert-div">|</span> {{ group.payoutSystem }}
       </h3>
     </div>
     <div class="alert-box">
@@ -31,8 +27,8 @@
     <div class="group-profile posh-container">
       <div class="group-circle">
         <app-group-circle
-          [groupMembers]="group?.groupMembers"
-          [groupLeader]="group?.groupLeader"
+          [groupMembers]="group.groupMembers"
+          [groupLeader]="group.groupLeader"
         ></app-group-circle>
       </div>
       <div class="group-strength">
@@ -50,18 +46,18 @@
             [endDate]="group!.endDate"
           ></div>
         </div>
-        <p>{{ group?.savingsTarget | currency }}</p>
+        <p>{{ group.savingsTarget | currency }}</p>
       </div>
       <div class="group-details two-items highlight">
         <h2>Contribution</h2>
         <mat-divider class="horiz-divider"></mat-divider>
-        <p>{{ group?.contribution }}</p>
+        <p>{{ group.contribution }}</p>
       </div>
       <div class="group-details two-items">
         <h2>Next Contribution</h2>
         <mat-divider class="horiz-divider"></mat-divider>
         <p *ngIf="group?.nextContribution; else noNextCont">
-          {{ group?.nextContribution | date }}
+          {{ group.nextContribution | date }}
         </p>
         <ng-template #noNextCont>
           <p>---</p>
@@ -70,7 +66,7 @@
       <div class="group-details two-items">
         <h2>End Date</h2>
         <mat-divider class="horiz-divider"></mat-divider>
-        <p>{{ group?.endDate | date }}</p>
+        <p>{{ group.endDate | date }}</p>
       </div>
     </div>
     <div class="performance">

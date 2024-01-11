@@ -1,0 +1,30 @@
+
+$primary-color: #52688F;
+$accent-color: #35425B;
+$progress-color: #20a7db;
+
+.group-pro-c{
+    margin-top: 5em;
+}
+
+.spacing{
+    margin-bottom: 2em !important;
+}
+
+.pre-g-profile {
+    .icon-box {
+      display: flex;
+      justify-content: flex-end;
+      margin-right: 2em;
+    }
+    .add-icon {
+      margin-top: 0.55em;
+      font-size: xx-large;
+      overflow: visible;
+      cursor: pointer;
+      color: $primary-color;
+      &:hover{
+        color: $progress-color !important;
+      }
+    }
+  }

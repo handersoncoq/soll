@@ -252,11 +252,11 @@ body.dark-mode {
     }
   }
 
-  .location-icon {
+  .location-icon, .add-icon {
     color: $color-white !important;
   }
 
-  .pre-dashboard .vert-div, .pre-dashboard .alert, .performance-section {
+  .pre-g-dashboard .vert-div, .group-pro-c .vert-div, .pre-g-dashboard .alert, .performance-section {
     color: $color-white !important;
   }
 

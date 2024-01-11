@@ -48,6 +48,7 @@ import { DashboardFooterComponent } from './templates/dashboard-footer/dashboard
 import { GroupStatsComponent } from './templates/group-stats/group-stats.component';
 import { GroupStrengthComponent } from './templates/group-strength/group-strength.component';
 import { GroupProfileComponent } from './components/group-profile/group-profile.component';
+import { GroupService } from './services/group-service/group.service';
 
 
 @Injectable()
@@ -108,7 +109,7 @@ export class HammerConfig extends HammerGestureConfig {
   ],
   providers: [
     ContentManagerService, ScreenLayoutService, 
-    StyleManagerService, 
+    StyleManagerService, GroupService,
     {
       provide: HAMMER_GESTURE_CONFIG,
       useClass: HammerConfig

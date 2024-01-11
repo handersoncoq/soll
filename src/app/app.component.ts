@@ -1,4 +1,4 @@
-import { Component, HostBinding, HostListener, OnInit, Renderer2 } from '@angular/core';
+import { Component, HostBinding, HostListener, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { StyleManagerService } from './services/style-manager/style-manager.service';
 import { NoticeComponent } from './templates/notice/notice.component';
@@ -23,7 +23,6 @@ export class AppComponent implements OnInit {
     public dialog: MatDialog, 
     private styleManager: StyleManagerService, 
     public router: Router,
-    private renderer: Renderer2
   ) {
     this.router.events.pipe(
       filter(event => event instanceof NavigationEnd)
@@ -72,7 +71,7 @@ export class AppComponent implements OnInit {
       behavior: 'smooth'})
   }
 
-  shouldShowNavbar(): boolean {
+  shouldShowPublicNav(): boolean {
     const hideOnRoutes = ['/sign-in', '/get-started', '/my-dashboard'];
     const shouldHideNavbar = hideOnRoutes.some(route => this.router.url === route);
     const isGroupRoute = this.router.url.startsWith('/group/');
@@ -86,7 +85,7 @@ export class AppComponent implements OnInit {
     }
   }
 
-  private isPostLogin(): boolean {
+  isPostLogin(): boolean {
     const currentUrl = this.router.url;
   
     if (currentUrl === '/my-dashboard') {
@@ -96,7 +95,7 @@ export class AppComponent implements OnInit {
     if (currentUrl.startsWith('/group/')) {
       return true;
     }
-  
+
     return false;
   }
 
