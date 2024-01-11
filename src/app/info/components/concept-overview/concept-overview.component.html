@@ -65,39 +65,55 @@
     <section>
       <h3>Operational Infrastructure</h3>
       <div class="layout" id="operational-infrastructure">
-        <p appLazyLoadText>
-          {{ conceptOverview.operationalInfrastructure.groupStructure }}
-        </p>
+        <h4>Groups</h4>
+        <ul>
+          <li appLazyLoadText>
+            {{ conceptOverview.operationalInfrastructure.groupStructure }}
+          </li>
+          <li appLazyLoadText>
+            {{ conceptOverview.operationalInfrastructure.groupStrength }}
+          </li>
+        </ul>
         <div style="width: 100%"></div>
-      </div>
-      <div class="img-box oprational">
-        <img
-          [attr.data-src]="overviewImg"
-          alt="Soll in mobile"
-          appLazyLoading
-        />
       </div>
       <div id="group-leaders" appScrollToSection="group-leaders">
         <h4>Group Leaders</h4>
         <div class="layout">
-          <div>
-            <p appLazyLoadText>
+          <ul>
+            <li appLazyLoadText>
               {{
                 conceptOverview.operationalInfrastructure.groupLeaders
                   .responsibilities
               }}
-            </p>
-            <p appLazyLoadText>
+            </li>
+          </ul>
+          <div class="img-box">
+            <img [attr.data-src]="leader" alt="Soll Leader" appLazyLoading />
+          </div>
+          <ul>  
+            <li appLazyLoadText>
               {{
                 conceptOverview.operationalInfrastructure.groupLeaders.selection
               }}
-            </p>
+            </li>
+            <li appLazyLoadText>
+              {{
+                conceptOverview.operationalInfrastructure.groupLeaders.interview
+              }}
+            </li>
+          </ul>
+          <h4>Digital Management</h4>
+          <div>
             <p appLazyLoadText>
               {{ conceptOverview.operationalInfrastructure.digitalManagement }}
             </p>
           </div>
-          <div class="img-box">
-            <img [attr.data-src]="leader" alt="Soll Leader" appLazyLoading />
+          <div class="img-box oprational">
+            <img
+              [attr.data-src]="overviewImg"
+              alt="Soll in mobile"
+              appLazyLoading
+            />
           </div>
         </div>
       </div>
