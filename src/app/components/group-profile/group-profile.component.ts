@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Group } from 'src/app/interaces/Group';
+import { DialogService } from 'src/app/services/dialog-service/dialog.service';
 import { GroupService } from 'src/app/services/group-service/group.service';
 
 @Component({
@@ -12,8 +13,10 @@ export class GroupProfileComponent implements OnInit{
 
   groupName!: string;
   group!: Group;
+  joinWarning = 'Before joining this group, please make sure you have read and understood the group\'s Rules and Guidelines.';
 
-  constructor(private route: ActivatedRoute, private groupService: GroupService) {}
+  constructor(private route: ActivatedRoute, private dialogService: DialogService,
+    private groupService: GroupService) {}
 
   ngOnInit() {
     const routeGroupName = this.route.snapshot.paramMap.get('groupName');
@@ -23,6 +26,18 @@ export class GroupProfileComponent implements OnInit{
     } else {
       console.error('Group name is missing');
     }
+  }
+
+  joinGroup() {
+    const buttonClickCallback = () => {
+      console.log('You have joined', this.groupName);
+    };
+
+    this.dialogService.openGroupDialog(
+      this.groupName,
+      this.joinWarning,
+      buttonClickCallback
+      );
   }
 
 }

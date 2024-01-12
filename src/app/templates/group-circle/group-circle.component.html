@@ -1,8 +1,5 @@
-<!-- Circle layout container -->
 <div class="circle-container">
-  <!-- Outer circle with member profiles -->
   <div class="outer-circle">
-    <!-- Member profile pictures -->
     <div
       *ngFor="let member of groupMembers"
       class="member-profile"
@@ -27,7 +24,6 @@
       </div>
     </div>
   </div>
-  <!-- Inner circle with group leader profile -->
   <div class="inner-circle">
     <div class="leader-profile">
       <div
@@ -35,7 +31,7 @@
         #tooltip="matTooltip"
         [matTooltip]="getGroupLeaderInfo()"
         matTooltipClass="mat-tooltip-arrow leader-tooltip-arrow"
-        (click)="tooltip.show()"
+        (click)="openLeaderDialog()"
       >
         <img
           class="profile-img leader-img"

@@ -2,6 +2,7 @@
 $primary-color: #52688F;
 $accent-color: #35425B;
 $progress-color: #20a7db;
+$bottom-top-box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px 18px;
 
 .group-pro-c{
     margin-top: 5em;
@@ -27,4 +28,100 @@ $progress-color: #20a7db;
         color: $progress-color !important;
       }
     }
+  }
+
+  .group-profile {
+    background-color: $primary-color;
+    padding: 0 0.6em;
+    padding-bottom: 1em;
+    border-radius: 2em;
+    box-shadow: $bottom-top-box-shadow;
+  }
+  
+  .performance{
+    border: none;
+    box-shadow: none;
+    border-radius: 0;
+    margin-top: 3em;
+    padding: 0 0.6em;
+  }
+  
+  .group-strength {
+    align-items: center;
+    text-align: center;
+    padding: 1em 0;
+    margin-bottom: 1em;
+  }
+  
+  .group-strength h1 {
+    font-size: 1.5em;
+    margin-bottom: 0;
+    color: white;
+  }
+  
+  .group-circle{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 1em;
+  }
+  
+  .outer-progress, .inner-progress{
+    height: 10px;
+  }
+  
+  .group-details {
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+    color: white;
+    ::ng-deep .mat-divider{
+      border-top-color: white !important;
+    }
+  }
+  
+  .two-items{
+    h2, p{
+      margin: 0;
+      padding: 0.3em 0;
+    }
+    p{
+      padding-top: 0.8em;
+      color: bisque;
+    }
+  }
+  
+  .group-detail-item {
+    margin-bottom: 10px;
+  }
+  
+  .group-detail-item h2 {
+    font-size: 1.2em;
+    color: #333;
+  }
+  
+  .group-detail-item p {
+    font-size: 1em;
+    color: #555;
+  }
+  
+  .contribution-section {
+    padding: 1em;
+    margin-top: 0.6em;
+  }
+  
+  .contribution-detail {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .contribution-detail span {
+    font-size: 0.9em;
+    color: #888;
+  }
+  
+  .contribution-detail h3 {
+    font-size: 1.5em;
+    color: #333;
   }

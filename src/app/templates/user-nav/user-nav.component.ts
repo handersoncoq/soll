@@ -29,6 +29,7 @@ export class UserNavComponent implements OnInit{
   isDarkMode = false;
   theme!: string;
   showSpinner = false;
+  showGroupMenu = false;
 
   constructor(
     private contentManagerService: ContentManagerService,
@@ -40,7 +41,9 @@ export class UserNavComponent implements OnInit{
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.isGroupRoute();
+  }
 
   @HostListener('window:scroll', [])
   onWindowScroll() {
@@ -81,6 +84,13 @@ export class UserNavComponent implements OnInit{
       this.theme = 'Light Mode';
       this.navLogo = this.contentManagerService.getAppLogo6();
     }
+  }
+
+  isGroupRoute() {
+    const currentUrl = this.router.url;
+    if (currentUrl.startsWith('/group/')) {
+      this.showGroupMenu = true;
+    } else this.showGroupMenu = false;
   }
   
 

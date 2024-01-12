@@ -79,29 +79,6 @@ $bottom-top-box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0
   color: white;
 }
 
-.member-count{
-  font-weight: normal;
-  color: bisque;
-}
-
-.group-status{
-  display: flex;
-  justify-content: flex-end;
-  text-align: end;
-  margin-right: 1em;
-  .active-icon{
-    color: $progress-color;
-  }
-  .inactive-icon{
-    color: $primary-color;
-  }
-  .active-icon, .inactive-icon{
-    font-size: 2em;
-    overflow: visible;
-    vertical-align: sub;
-  }
-}
-
 .group-circle{
   display: flex;
   justify-content: center;
@@ -111,23 +88,6 @@ $bottom-top-box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0
 
 .outer-progress, .inner-progress{
   height: 10px;
-}
-
-.ratings-star {
-  background-color: transparent;
-  border: none;
-  font-size: 1.8em;
-  color: #ffcc00;
-  cursor: pointer;
-  padding-inline: 2px;
-}
-
-.no-star{
-  color: #f0f4f8;
-  &:hover{
-    color: #ffcc00;
-
-  }
 }
 
 .group-details {
@@ -168,11 +128,6 @@ $bottom-top-box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0
 .contribution-section {
   padding: 1em;
   margin-top: 0.6em;
-}
-
-.highlight{
-  border: solid white 1px;
-  border-width: thin;
 }
 
 .contribution-detail {

@@ -1,0 +1,23 @@
+$primary-color: #52688F;
+$accent-color: #35425B;
+$cancel-btn-color: hsl(32 6% 92% / 1);
+
+.content{
+    display: flex;
+    flex-direction: column;
+    font-size: large;
+    color: $primary-color;
+    button{
+        margin-top: 2em;
+        font-size: medium;
+    }
+}
+
+h2{
+    color: $accent-color;
+    font-size: larger !important;
+}
+
+.cancel-btn{
+    background-color: $cancel-btn-color;
+}

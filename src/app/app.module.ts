@@ -49,6 +49,8 @@ import { GroupStatsComponent } from './templates/group-stats/group-stats.compone
 import { GroupStrengthComponent } from './templates/group-strength/group-strength.component';
 import { GroupProfileComponent } from './components/group-profile/group-profile.component';
 import { GroupService } from './services/group-service/group.service';
+import { ActionDialogComponent } from './templates/action-dialog/action-dialog.component';
+import { DialogService } from './services/dialog-service/dialog.service';
 
 
 @Injectable()
@@ -83,7 +85,8 @@ export class HammerConfig extends HammerGestureConfig {
     DashboardFooterComponent,
     GroupStatsComponent,
     GroupStrengthComponent,
-    GroupProfileComponent
+    GroupProfileComponent,
+    ActionDialogComponent
   ],
   imports: [
     ReactiveFormsModule,
@@ -109,7 +112,7 @@ export class HammerConfig extends HammerGestureConfig {
   ],
   providers: [
     ContentManagerService, ScreenLayoutService, 
-    StyleManagerService, GroupService,
+    StyleManagerService, GroupService, DialogService,
     {
       provide: HAMMER_GESTURE_CONFIG,
       useClass: HammerConfig
