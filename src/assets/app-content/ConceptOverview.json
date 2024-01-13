@@ -17,7 +17,11 @@
     }
   },
   "operationalInfrastructure": {
-    "groupStructure": "Groups are meticulously formed with a fixed number of participants. The city-specific grouping ensures localized management and support through city-based group leaders. Depending on the contribution size, the system will automatically decide the required number of participants for the EPS system, and suggest a number of participants based on the duration and vice versa for the ECPS system. Each group will only be composed of participants of the same city and a group leader from the same city will be managing the group.",
+    "groupFormation": "Groups are meticulously formed with a fixed number of participants. The city-specific grouping ensures localized management and support through city-based group leaders.",
+    "cityDefaultGrouping": "By default, each city will have 10 groups, pending members and group leaders. However, these groups won’t be operational until group leaders are assigned to them.",
+    "leaderCreateGroup": "Group leaders can also create their own groups, given that they are not currently leading another group.",
+    "systemIntervention": "When group leaders create new groups, the system will automatically decide the required number of participants for the EPS system based on the given contribution size, and will suggest a number of participants for the ECPS system based on the selected duration of the cycle.",
+    "sameCityGrouping": "Each group will only be composed of participants of the same city and a group leader from the same city will be managing the group.",
     "groupStrength": "Group Strength reflects the collective financial health and commitment of a group. It's calculated by averaging the reputation scores of all members, taking into account the timeliness of their contributions. This metric gives you a clear picture of the group's overall reliability and cooperative spirit, encouraging timely participation and financial responsibility.",
     "groupLeaders": {
       "responsibilities": "Group Leaders ensure that participants from their group understand the systems and the rules of the Soll platform. They meet with participants on a monthly basis in a group meeting to ensure compliance and ease of use of the Soll digital platform. A key responsibility of groups leaders is to facilitate alternative contribution methods for participants unable to use electronic payments on the platform. This includes accepting money orders made payable to Soll, or utilizing transfer services like MoneyGram or WesternUnion.",

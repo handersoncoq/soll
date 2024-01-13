@@ -11,21 +11,42 @@ export class DialogService {
 
   constructor(private dialog: MatDialog) {}
 
-  openLeaderDialog(leaderName: string, reputationScore: number, buttonClickCallback?: () => void) {
+  openLeaderDialog(
+    leaderName: string,
+    reputationScore: number,
+    buttonClickCallback?: () => void
+  ) {
     this.dialogRef = this.dialog.open(ActionDialogComponent, {
       width: '400px',
-      data: { title: `Group Leader: ${leaderName}`, content: `Reputation Score: ${reputationScore}`, action: 'Contact Group Leader',  buttonClickCallback },
+      data: {
+        title: 'Group Leader',
+        value: `${leaderName}`,
+        content: `Reputation Score: ${reputationScore}`,
+        verified: true,
+        action: 'Contact Group Leader',
+        buttonClickCallback,
+      },
     });
 
     return this.dialogRef;
   }
 
-  openGroupDialog(groupName: string, warning: string, buttonClickCallback?: () => void) {
+  openGroupDialog(
+    groupName: string,
+    warning: string,
+    buttonClickCallback?: () => void
+  ) {
     this.dialogRef = this.dialog.open(ActionDialogComponent, {
       width: '400px',
-      data: { title: `Join ${groupName}?`, content: warning, action: 'Confirm',  buttonClickCallback },
+      data: {
+        title: `Join ${groupName}?`,
+        content: warning,
+        action: 'Confirm',
+        buttonClickCallback,
+      },
     });
 
     return this.dialogRef;
   }
+
 }

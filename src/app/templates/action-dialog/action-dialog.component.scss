@@ -14,8 +14,17 @@ $cancel-btn-color: hsl(32 6% 92% / 1);
 }
 
 h2{
-    color: $accent-color;
     font-size: larger !important;
+    mat-icon{
+        font-size: medium;
+        height: 1.1em;
+        padding-left: 0.2em;
+        vertical-align: text-bottom;
+    }
+}
+
+.title-value{
+    color: $primary-color !important;
 }
 
 .cancel-btn{

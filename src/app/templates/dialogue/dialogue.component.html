@@ -3,7 +3,8 @@
     <div *ngIf="data.copiable || data.isFeedback, else normal">
         <div class="content" *ngIf="!data.isFeedback">
             <h1>{{data.content}}</h1>
-            <div (click)="copyContent()"><mat-icon>content_copy</mat-icon></div>
+            <div *ngIf="!isCopied, else copied" (click)="copyContent()"><mat-icon>content_copy</mat-icon></div>
+            <ng-template #copied><p>copied</p></ng-template>
         </div>
         <div class="content feedback" *ngIf="data.isFeedback">
             <h1 (click)="sendFeedback()">{{data.content}}</h1>

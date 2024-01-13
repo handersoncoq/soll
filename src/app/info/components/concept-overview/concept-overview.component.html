@@ -68,8 +68,23 @@
         <h4>Groups</h4>
         <ul>
           <li appLazyLoadText>
-            {{ conceptOverview.operationalInfrastructure.groupStructure }}
+            {{ conceptOverview.operationalInfrastructure.groupFormation }}
           </li>
+          <li appLazyLoadText>
+            {{ conceptOverview.operationalInfrastructure.cityDefaultGrouping }}
+          </li>
+          <li appLazyLoadText>
+            {{ conceptOverview.operationalInfrastructure.leaderCreateGroup }}
+          </li>
+          <li appLazyLoadText>
+            {{ conceptOverview.operationalInfrastructure.systemIntervention }}
+          </li>
+          <li appLazyLoadText>
+            {{ conceptOverview.operationalInfrastructure.sameCityGrouping }}
+          </li>
+        </ul>
+        <h4>Group Strength</h4>
+        <ul>
           <li appLazyLoadText>
             {{ conceptOverview.operationalInfrastructure.groupStrength }}
           </li>
@@ -86,11 +101,6 @@
                   .responsibilities
               }}
             </li>
-          </ul>
-          <div class="img-box">
-            <img [attr.data-src]="leader" alt="Soll Leader" appLazyLoading />
-          </div>
-          <ul>  
             <li appLazyLoadText>
               {{
                 conceptOverview.operationalInfrastructure.groupLeaders.selection
@@ -102,6 +112,9 @@
               }}
             </li>
           </ul>
+          <div class="img-box">
+            <img [attr.data-src]="leader" alt="Soll Leader" appLazyLoading />
+          </div>
           <h4>Digital Management</h4>
           <div>
             <p appLazyLoadText>

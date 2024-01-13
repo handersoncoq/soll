@@ -32,11 +32,6 @@ export class GroupCircleComponent implements OnInit{
   getMemberInfo(member: GroupMember): string {
     return `${member.name}\nReputation Score: ${member.reputationScore}\nPaid Out: ${member.paidOut ? 'Yes' : 'No'}`;
   }
-  
-
-  getGroupLeaderInfo(){
-    return `Group Leader: ${this.groupLeader?.name}\nReputation Score: ${this.groupLeader?.reputationScore}`;
-  }
 
 
   openLeaderDialog() {

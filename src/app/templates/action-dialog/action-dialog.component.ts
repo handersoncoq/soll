@@ -14,6 +14,11 @@ export class ActionDialogComponent {
     if (this.data && this.data.buttonClickCallback) {
       this.data.buttonClickCallback();
     }
+    this.closeDialog();
+  }
+
+  closeDialog(){
+    this.dialogRef.close();
   }
 
 }

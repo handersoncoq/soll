@@ -14,6 +14,7 @@ export class DialogueComponent {
   userEmail = 'yourname@example.com';
   appVersion = '';
   feedbackMessage = '';
+  isCopied = false;
   
   constructor(
     public dialogRef: MatDialogRef<DialogueComponent>,
@@ -32,6 +33,7 @@ export class DialogueComponent {
     ).catch(err => {
       console.info('Failed to copy text: ', err);
     });
+    this.isCopied =true;
   }
 
   sendFeedback() {
