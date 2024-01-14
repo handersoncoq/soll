@@ -4,7 +4,6 @@ import { Group } from 'src/app/interaces/Group';
 import { GroupDetail } from 'src/app/interaces/GroupDetails';
 import { GroupService } from 'src/app/services/group-service/group.service';
 import { userGroups } from 'src/app/utils/constants/UserGroupDetail';
-import { register } from 'swiper/element/bundle';
 
 @Component({
   selector: 'app-user-dashboard',
@@ -51,7 +50,6 @@ export class UserDashboardComponent implements OnInit {
   
 
   ngOnInit(): void {
-    register()
     this.shortenName(this.firstName, this.lastName);
     this.calculateDaysUntilPayout();
   }

@@ -2,6 +2,7 @@
 $primary-color: #52688F;
 $accent-color: #35425B;
 $progress-color: #20a7db;
+$status-open-color: hsl(120, 100%, 50%);
 $bottom-top-box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px 18px;
 
 .group-pro-c{
@@ -13,7 +14,7 @@ $bottom-top-box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0
 }
 
 .pre-g-profile {
-    .icon-box {
+    .action-box {
       display: flex;
       justify-content: flex-end;
       margin-right: 2em;
@@ -36,6 +37,30 @@ $bottom-top-box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0
     padding-bottom: 1em;
     border-radius: 2em;
     box-shadow: $bottom-top-box-shadow;
+  }
+
+  .group-status{
+    width: 100%;
+    padding-top: 1em;
+    font-size: small;
+    text-align: right;
+    div{
+      padding-right: 1em;
+      color: white;
+    }
+    .open, .full{
+      cursor: pointer;
+      font-size: medium;
+      height: 1em;
+      vertical-align: text-bottom;
+      margin-left: -0.3em;
+    }
+    .open{
+      color: $status-open-color;
+    }
+    .full{
+      color: bisque;
+    }
   }
   
   .performance{

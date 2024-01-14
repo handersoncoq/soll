@@ -307,12 +307,6 @@ input{
   gap: 1em;
   padding: 0 1em;
   padding-right: 0.6em;
-
-  .location-icon{
-    vertical-align: sub;
-    color: $primary-color;
-    margin-left: -0.2em;
-  }
   
   .vert-div{
     color: $primary-color;
@@ -330,7 +324,14 @@ input{
       font-size: 1.2em;
     }
   }
+
 }
+
+  .location-icon{
+    vertical-align: sub;
+    color: $primary-color;
+    margin-left: -0.2em;
+  }
   
 
 // miscelaneous =================================================================

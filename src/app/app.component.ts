@@ -4,6 +4,7 @@ import { StyleManagerService } from './services/style-manager/style-manager.serv
 import { NoticeComponent } from './templates/notice/notice.component';
 import { NavigationEnd, Router } from '@angular/router';
 import { Subscription, filter } from 'rxjs';
+import { register } from 'swiper/element/bundle';
 
 @Component({
   selector: 'app-root',
@@ -50,6 +51,9 @@ export class AppComponent implements OnInit {
       this.disclaimerAccepted = true;
       this.styleManager.enableScroll();
     });
+
+    register()
+
   }
 
   @HostBinding('class.no-scroll') get noScroll() {
@@ -72,7 +76,7 @@ export class AppComponent implements OnInit {
   }
 
   shouldShowPublicNav(): boolean {
-    const hideOnRoutes = ['/sign-in', '/get-started', '/my-dashboard'];
+    const hideOnRoutes = ['/sign-in', '/get-started', '/my-dashboard', '/join-a-group'];
     const shouldHideNavbar = hideOnRoutes.some(route => this.router.url === route);
     const isGroupRoute = this.router.url.startsWith('/group/');
     return !(shouldHideNavbar || isGroupRoute);
@@ -86,18 +90,11 @@ export class AppComponent implements OnInit {
   }
 
   isPostLogin(): boolean {
+    const postLoginRoutes = ['/my-dashboard', '/group/', '/join-a-group'];
     const currentUrl = this.router.url;
-  
-    if (currentUrl === '/my-dashboard') {
-      return true;
-    }
-  
-    if (currentUrl.startsWith('/group/')) {
-      return true;
-    }
+    return postLoginRoutes.some(route => currentUrl.startsWith(route));
+}
 
-    return false;
-  }
 
   applyDashboardTheme(): void {
     if (this.isPostLogin()) {

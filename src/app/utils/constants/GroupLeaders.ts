@@ -4,7 +4,7 @@ const profilePic = '/assets/img/profile.png';
 
 export const groupLeaders: GroupLeader[] = [
     {
-        name: 'Joel Bell',
+        name: 'Joel Bellham',
         reputationScore: 90,
         profilePic: profilePic
     },
@@ -29,8 +29,13 @@ export const groupLeaders: GroupLeader[] = [
         profilePic: profilePic
     },
     {
-        name: 'Brist Fair',
+        name: 'Boris Watson',
         reputationScore: 91,
+        profilePic: profilePic
+    },
+    {
+        name: 'Matt Gonzales',
+        reputationScore: 92,
         profilePic: profilePic
     },
 ]

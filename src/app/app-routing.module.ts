@@ -6,6 +6,7 @@ import { SignInComponent } from './components/sign-in/sign-in.component';
 import { UserDashboardComponent } from './components/user-dashboard/user-dashboard.component';
 import { GroupDashboardComponent } from './components/group-dashboard/group-dashboard.component';
 import { GroupProfileComponent } from './components/group-profile/group-profile.component';
+import { GroupCatalogueComponent } from './components/group-catalogue/group-catalogue.component';
 
 const routes: Routes = [
   {
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'my-dashboard', component: UserDashboardComponent},
   { path: 'group/:groupName/dashboard', component: GroupDashboardComponent },
   { path: 'group/:groupName/profile', component: GroupProfileComponent },
+  { path: 'join-a-group', component: GroupCatalogueComponent },
 
   {path: '**', redirectTo: ''}
 ];

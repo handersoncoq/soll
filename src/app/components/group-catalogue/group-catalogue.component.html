@@ -1,0 +1,78 @@
+<div class="group-cat-c post-login-component">
+  <div class="spacing"></div>
+  <h2 class="title">Welcome to the group catalogue</h2>
+  <div class="group-cat-name-location">
+    <h3 appLazyLoadText>
+      <mat-icon class="group-cat-location-icon">location_pin</mat-icon> Hartford, CT
+    </h3>
+  </div>
+  <div class="sub-title">
+    Note: The catalogue has been filtered to match your current location. If you have recently moved, please update your location in your profile settings.
+  </div>
+</div>
+
+<mat-card *ngIf="trendingGroups" class="trending-card" appLazyLoadText>
+    <mat-card-content>
+      <div class="slide-groups">
+        <swiper-container
+          [slides-per-view]="5"
+          navigation="false"
+          pagination="true"
+          scrollbar="false"
+          speed="500"
+          [spaceBetween]="20"
+        >
+          <swiper-slide *ngFor="let group of groupArrays[0]">
+            <app-trending-groups
+              routerLink="/group/{{ group.groupName }}/profile"
+              [trendingGroup]="group"
+            ></app-trending-groups>
+          </swiper-slide>
+        </swiper-container>
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card *ngIf="trendingGroups" class="trending-card" appLazyLoadText>
+    <mat-card-content>
+      <div class="slide-groups">
+        <swiper-container
+          [slides-per-view]="5"
+          navigation="false"
+          pagination="true"
+          scrollbar="false"
+          speed="500"
+          [spaceBetween]="20"
+        >
+          <swiper-slide *ngFor="let group of groupArrays[1]">
+            <app-trending-groups
+              routerLink="/group/{{ group.groupName }}/profile"
+              [trendingGroup]="group"
+            ></app-trending-groups>
+          </swiper-slide>
+        </swiper-container>
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card *ngIf="trendingGroups" class="trending-card" appLazyLoadText>
+    <mat-card-content>
+      <div class="slide-groups">
+        <swiper-container
+          [slides-per-view]="5"
+          navigation="false"
+          pagination="true"
+          scrollbar="false"
+          speed="500"
+          [spaceBetween]="20"
+        >
+          <swiper-slide *ngFor="let group of groupArrays[2]">
+            <app-trending-groups
+              routerLink="/group/{{ group.groupName }}/profile"
+              [trendingGroup]="group"
+            ></app-trending-groups>
+          </swiper-slide>
+        </swiper-container>
+      </div>
+    </mat-card-content>
+  </mat-card>

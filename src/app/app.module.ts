@@ -51,7 +51,8 @@ import { GroupProfileComponent } from './components/group-profile/group-profile.
 import { GroupService } from './services/group-service/group.service';
 import { ActionDialogComponent } from './templates/action-dialog/action-dialog.component';
 import { DialogService } from './services/dialog-service/dialog.service';
-
+import { GroupCatalogueComponent } from './components/group-catalogue/group-catalogue.component';
+import { AuthGuard } from './guards/auth.guard';
 
 @Injectable()
 export class HammerConfig extends HammerGestureConfig {
@@ -86,7 +87,8 @@ export class HammerConfig extends HammerGestureConfig {
     GroupStatsComponent,
     GroupStrengthComponent,
     GroupProfileComponent,
-    ActionDialogComponent
+    ActionDialogComponent,
+    GroupCatalogueComponent
   ],
   imports: [
     ReactiveFormsModule,
@@ -111,7 +113,7 @@ export class HammerConfig extends HammerGestureConfig {
     HammerModule
   ],
   providers: [
-    ContentManagerService, ScreenLayoutService, 
+    ContentManagerService, ScreenLayoutService, AuthGuard,
     StyleManagerService, GroupService, DialogService,
     {
       provide: HAMMER_GESTURE_CONFIG,

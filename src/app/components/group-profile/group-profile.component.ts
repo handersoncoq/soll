@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Group } from 'src/app/interaces/Group';
+import { GroupMember } from 'src/app/interaces/GroupMember';
 import { DialogService } from 'src/app/services/dialog-service/dialog.service';
 import { GroupService } from 'src/app/services/group-service/group.service';
 
@@ -39,5 +40,10 @@ export class GroupProfileComponent implements OnInit{
       buttonClickCallback
       );
   }
+
+  isOpen(): boolean {
+    return this.group.groupMembers.length < this.group.groupSize;
+  }
+  
 
 }

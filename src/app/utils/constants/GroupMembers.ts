@@ -28,7 +28,6 @@ export const activeEpsGroupMembers: GroupMember[] = [
     { name: 'Pria Patti', paidOut: false, rank: 'n/a', reputationScore: 77, profilePic: profilePic  }
   ];
 
-  // Dummy data for a different set of Early Payout System (EPS) group members
 export const previousEpsGroupMembers: GroupMember[] = [
     { name: 'Matgomory Ckan', paidOut: true, rank: 1, reputationScore: 85, profilePic: profilePic },
     { name: 'David Sun', paidOut: true, rank: 2, reputationScore: 89, profilePic: profilePic },
@@ -51,4 +50,17 @@ export const previousEpsGroupMembers: GroupMember[] = [
     { name: 'Patricia Quick', paidOut: true, rank: 'n/a', reputationScore: 83, profilePic: profilePic },
     { name: 'Quentin Alves', paidOut: true, rank: 'n/a', reputationScore: 72, profilePic: profilePic },
     { name: 'Rachel Long', paidOut: true, rank: 'n/a', reputationScore: 81, profilePic: profilePic }
+];
+
+export const fullGroupMembers: GroupMember[] = [
+  { name: 'Elena Smith', paidOut: false, rank: 1, reputationScore: 95, profilePic: profilePic },
+  { name: 'Daniel Brown', paidOut: false, rank: 2, reputationScore: 88, profilePic: profilePic },
+  { name: 'Lucy Wilson', paidOut: false, rank: 3, reputationScore: 91, profilePic: profilePic },
+  { name: 'Max Johnson', paidOut: false, rank: 4, reputationScore: 82, profilePic: profilePic },
+  { name: 'Sophia Lee', paidOut: false, rank: 5, reputationScore: 87, profilePic: profilePic },
+  { name: 'Oliver Martin', paidOut: false, rank: 6, reputationScore: 89, profilePic: profilePic },
+  { name: 'Isabella Garcia', paidOut: false, rank: 7, reputationScore: 86, profilePic: profilePic },
+  { name: 'Noah Davis', paidOut: false, rank: 8, reputationScore: 90, profilePic: profilePic },
+  { name: 'Emma Rodriguez', paidOut: false, rank: 9, reputationScore: 85, profilePic: profilePic },
+  { name: 'Liam Hernandez', paidOut: false, rank: 10, reputationScore: 84, profilePic: profilePic }
 ];

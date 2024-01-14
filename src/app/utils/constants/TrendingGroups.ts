@@ -1,6 +1,6 @@
 import { Group } from 'src/app/interaces/Group';
 import { groupLeaders } from './GroupLeaders';
-import {activeEcpsGroupMembers} from './GroupMembers';
+import {activeEcpsGroupMembers, fullGroupMembers} from './GroupMembers';
 
 let present = new Date();
 let daysfromTody1 = 10;
@@ -34,6 +34,21 @@ export const trendingGroups: Group[] = [
   {
     groupName: 'HAR-EPS-20230929-05',
     payoutSystem: 'EPS',
+    savingsTarget: 16000,
+    groupSize: 10,
+    startDate: new Date(
+      present.getTime() + daysfromTody2 * 24 * 60 * 60 * 1000
+    ),
+    contribution: '$600/BI',
+    nextContribution: null,
+    isActive: false,
+    endDate: new Date(present.getTime() + 250 * 24 * 60 * 60 * 1000),
+    groupMembers: fullGroupMembers,
+    groupLeader: groupLeaders[6],
+  },
+  {
+    groupName: 'HAR-EPS-20230929-18',
+    payoutSystem: 'EPS',
     savingsTarget: 15000,
     groupSize: 15,
     startDate: new Date(
@@ -50,7 +65,7 @@ export const trendingGroups: Group[] = [
     groupName: 'HAR-ECPS-20230929-13',
     payoutSystem: 'ECPS',
     savingsTarget: 20000,
-    groupSize: 8,
+    groupSize: 12,
     startDate: new Date(
       present.getTime() + daysfromTody3 * 24 * 60 * 60 * 1000
     ),
@@ -65,7 +80,7 @@ export const trendingGroups: Group[] = [
     groupName: 'HAR-EPS-20230929-27',
     payoutSystem: 'EPS',
     savingsTarget: 12000,
-    groupSize: 12,
+    groupSize: 7,
     startDate: new Date(
       present.getTime() + daysfromTody4 * 24 * 60 * 60 * 1000
     ),
@@ -80,7 +95,7 @@ export const trendingGroups: Group[] = [
     groupName: 'HAR-ECPS-20230929-45',
     payoutSystem: 'ECPS',
     savingsTarget: 18000,
-    groupSize: 20,
+    groupSize: 12,
     startDate: new Date(
       present.getTime() + daysfromTody5 * 24 * 60 * 60 * 1000
     ),
