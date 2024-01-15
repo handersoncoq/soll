@@ -1,11 +1,13 @@
 $primary-color: #52688F;
+$accent-color: #35425B;
 $progress-color: #20a7db;
+$alt-font-color: #E3E7F1;
+$box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
 
 .group-cat-c {
   margin: 1em;
   margin-top: 5em;
-  border-bottom: solid $primary-color 1px;
-  margin-bottom: 1em;
+  margin-bottom: 0;
 }
 
 .spacing {
@@ -18,10 +20,32 @@ $progress-color: #20a7db;
 }
 
 .group-cat-name-location{
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 1em;
   margin-top: -1em;
   margin-bottom: 1em;
   color: $progress-color;
   font-size: smaller;
+}
+
+.pre-filter{
+  width: 100%;
+  margin-top: 0.5em;
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 1em;
+}
+
+.filter-sort{
+  width: fit-content;
+  border: solid $alt-font-color 1px;
+  border-radius: 7px;
+  height: fit-content;
+  color: $primary-color;
+  padding: 0 0.5em;
+  padding-top: 0.2em;
+  box-shadow: $box-shadow;
 }
 
 .group-cat-location-icon{
@@ -50,4 +74,100 @@ $progress-color: #20a7db;
   padding-left: 0 !important;
   padding-right: 0 !important;
   padding-top: 2em !important;
+}
+
+.group-search-bar {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border: 1px solid $primary-color;
+  border-radius: 0.6em;
+  padding: 0.2em 0.5em;
+
+  input[type="text"] {
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 0.6em;
+    padding-right: 1em;
+    font-size: 1rem;
+
+    ::placeholder {
+      color: darken($primary-color, 20%);
+    }
+  }
+}
+
+.search-icon{
+  margin-top: 0.2em;
+}
+
+::ng-deep .mat-mdc-select-arrow svg {
+  display: none !important;
+}
+
+::ng-deep .mat-mdc-select-value {
+  display: none !important;
+}
+
+::ng-deep div.mat-mdc-select-panel{
+  margin-top: -1.5em !important;
+}
+
+mat-card{
+  box-shadow: $box-shadow;
+}
+
+.search-results{
+  box-shadow: none !important;
+}
+
+.no-search-result{
+  font-size: smaller;
+  margin: 0.3em 1em;
+}
+
+.menu-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.3em;
+}
+
+.filter-form{
+  gap: 0.5em;
+}
+
+.menu-items{
+  border-radius: 1em;
+  border-top: solid $primary-color 1px;
+}
+
+mat-label{
+  color: $primary-color;
+}
+
+.filter-items{
+  padding: 0 1em;
+  button{
+    width: 100%;
+    margin: 0.5em 0;
+  }
+}
+
+.sort-items{
+  button{
+    width: 92%;
+    margin: 0.5em;
+    margin-left: 0.8em;
+  }
+}
+
+h4{
+  margin: 1em;
+  color: $primary-color;
+}
+
+.menu-form-field {
+  width: 100%;
+  font-size: small;
 }

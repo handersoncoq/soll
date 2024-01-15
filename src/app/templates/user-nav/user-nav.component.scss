@@ -102,8 +102,8 @@ mat-toolbar {
   
   
   ::ng-deep .mat-mdc-icon-button.mat-mdc-button-base {
-    --mdc-icon-button-state-layer-size: 30px !important;
-    padding: 0 !important;
+    --mdc-icon-button-state-layer-size: 30px;
+    padding: 0;
   }
   
   .rotated{

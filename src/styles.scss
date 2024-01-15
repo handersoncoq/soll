@@ -264,6 +264,15 @@ body.dark-mode {
     border-bottom-color: white !important;
   }
 
+  .filter-sort{
+    border-color: #6f8192;
+    color: $accent-color;
+  }
+
+  .menu-items{
+    border: none;
+  }
+
   @media screen and (min-width: 768px) {
     .posh-container{
       padding: 2em 3em !important;

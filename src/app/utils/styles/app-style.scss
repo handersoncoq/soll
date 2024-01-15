@@ -302,6 +302,9 @@ input{
 
 .pre-g-dashboard, .pre-g-profile {
   margin: 1em 0;
+  position: sticky;
+  top: 8em;
+  z-index: -1;
   display: grid;
   grid-template-columns: 3fr 1fr;
   gap: 1em;

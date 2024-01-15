@@ -52,6 +52,10 @@ export class GroupService {
     return this.trendingGroups;
   }
 
+  getGroups(): Group[]{
+    return trendingGroups;
+  }
+
   getTrendingCommunities(): Community[]{
     this.trendingCommunities = trendingCommunities;
     return this.trendingCommunities;

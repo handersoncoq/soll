@@ -1,78 +1,212 @@
 <div class="group-cat-c post-login-component">
   <div class="spacing"></div>
-  <h2 class="title">Welcome to the group catalogue</h2>
+
+  <h2 class="title">Welcome to the group catalog</h2>
   <div class="group-cat-name-location">
     <h3 appLazyLoadText>
-      <mat-icon class="group-cat-location-icon">location_pin</mat-icon> Hartford, CT
+      <mat-icon class="group-cat-location-icon">location_pin</mat-icon>
+      Hartford, CT
     </h3>
+    <div class="pre-filter">
+      <div class="filter-sort">
+        <button [matMenuTriggerFor]="filterMenu" mat-icon-button>
+          <mat-icon>filter_alt</mat-icon>
+        </button>
+        <button [matMenuTriggerFor]="sortMenu" mat-icon-button>
+          <mat-icon>sort</mat-icon>
+        </button>
+      </div>
+    </div>
   </div>
   <div class="sub-title">
-    Note: The catalogue has been filtered to match your current location. If you have recently moved, please update your location in your profile settings.
+    Note: The catalog has been filtered to match your current location. If you
+    have recently moved, please update your location in your profile settings.
   </div>
+
+  <div class="group-search-bar">
+    <input
+      type="text"
+      placeholder="Search groups"
+      [formControl]="searchControl"
+      (focus)="openPanel()"
+      (keyup.enter)="setResults()"
+    />
+    <button (click)="setResults()" mat-icon-button>
+      <mat-icon color="primary" class="search-icon">search</mat-icon>
+    </button>
+  </div>
+
+  <mat-select #groupSelect (selectionChange)="onSelect($event)">
+    <mat-option *ngFor="let group of filteredGroups" [value]="group.groupName">
+      <mat-icon color="primary">groups_3</mat-icon> {{ group.groupName }}
+    </mat-option>
+  </mat-select>
 </div>
 
-<mat-card *ngIf="trendingGroups" class="trending-card" appLazyLoadText>
-    <mat-card-content>
-      <div class="slide-groups">
-        <swiper-container
-          [slides-per-view]="5"
-          navigation="false"
-          pagination="true"
-          scrollbar="false"
-          speed="500"
-          [spaceBetween]="20"
-        >
-          <swiper-slide *ngFor="let group of groupArrays[0]">
-            <app-trending-groups
-              routerLink="/group/{{ group.groupName }}/profile"
-              [trendingGroup]="group"
-            ></app-trending-groups>
-          </swiper-slide>
-        </swiper-container>
-      </div>
-    </mat-card-content>
-  </mat-card>
+<mat-card
+  *ngIf="searchResults.length > 0"
+  class="trending-card search-results"
+  appLazyLoadText
+>
+  <mat-card-content>
+    <div class="slide-groups">
+      <swiper-container
+        [slides-per-view]="searchResults.length"
+        navigation="false"
+        pagination="true"
+        scrollbar="false"
+        speed="500"
+        [spaceBetween]="20"
+      >
+        <swiper-slide *ngFor="let group of filteredGroups">
+          <app-trending-groups
+            routerLink="/group/{{ group.groupName }}/profile"
+            [trendingGroup]="group"
+          ></app-trending-groups>
+        </swiper-slide>
+      </swiper-container>
+    </div>
+  </mat-card-content>
+</mat-card>
 
-  <mat-card *ngIf="trendingGroups" class="trending-card" appLazyLoadText>
-    <mat-card-content>
-      <div class="slide-groups">
-        <swiper-container
-          [slides-per-view]="5"
-          navigation="false"
-          pagination="true"
-          scrollbar="false"
-          speed="500"
-          [spaceBetween]="20"
-        >
-          <swiper-slide *ngFor="let group of groupArrays[1]">
-            <app-trending-groups
-              routerLink="/group/{{ group.groupName }}/profile"
-              [trendingGroup]="group"
-            ></app-trending-groups>
-          </swiper-slide>
-        </swiper-container>
-      </div>
-    </mat-card-content>
-  </mat-card>
+<p class="no-search-result" *ngIf="noSearchResult">Sorry, no group matches this search...<p>
 
-  <mat-card *ngIf="trendingGroups" class="trending-card" appLazyLoadText>
-    <mat-card-content>
-      <div class="slide-groups">
-        <swiper-container
-          [slides-per-view]="5"
-          navigation="false"
-          pagination="true"
-          scrollbar="false"
-          speed="500"
-          [spaceBetween]="20"
-        >
-          <swiper-slide *ngFor="let group of groupArrays[2]">
-            <app-trending-groups
-              routerLink="/group/{{ group.groupName }}/profile"
-              [trendingGroup]="group"
-            ></app-trending-groups>
-          </swiper-slide>
-        </swiper-container>
-      </div>
-    </mat-card-content>
-  </mat-card>
+<mat-card *ngIf="groupArrays[0]" class="trending-card" appLazyLoadText>
+  <mat-card-content>
+    <div class="slide-groups">
+      <swiper-container
+        [slides-per-view]="5"
+        navigation="false"
+        pagination="true"
+        scrollbar="false"
+        speed="500"
+        [spaceBetween]="20"
+      >
+        <swiper-slide *ngFor="let group of groupArrays[0]">
+          <app-trending-groups
+            routerLink="/group/{{ group.groupName }}/profile"
+            [trendingGroup]="group"
+          ></app-trending-groups>
+        </swiper-slide>
+      </swiper-container>
+    </div>
+  </mat-card-content>
+</mat-card>
+
+<mat-card *ngIf="groupArrays[1]" class="trending-card" appLazyLoadText>
+  <mat-card-content>
+    <div class="slide-groups">
+      <swiper-container
+        [slides-per-view]="5"
+        navigation="false"
+        pagination="true"
+        scrollbar="false"
+        speed="500"
+        [spaceBetween]="20"
+      >
+        <swiper-slide *ngFor="let group of groupArrays[1]">
+          <app-trending-groups
+            routerLink="/group/{{ group.groupName }}/profile"
+            [trendingGroup]="group"
+          ></app-trending-groups>
+        </swiper-slide>
+      </swiper-container>
+    </div>
+  </mat-card-content>
+</mat-card>
+
+<mat-card *ngIf="groupArrays[2]" class="trending-card" appLazyLoadText>
+  <mat-card-content>
+    <div class="slide-groups">
+      <swiper-container
+        [slides-per-view]="5"
+        navigation="false"
+        pagination="true"
+        scrollbar="false"
+        speed="500"
+        [spaceBetween]="20"
+      >
+        <swiper-slide *ngFor="let group of groupArrays[2]">
+          <app-trending-groups
+            routerLink="/group/{{ group.groupName }}/profile"
+            [trendingGroup]="group"
+          ></app-trending-groups>
+        </swiper-slide>
+      </swiper-container>
+    </div>
+  </mat-card-content>
+</mat-card>
+
+<!-- Filter Menu -->
+
+<mat-menu #filterMenu="matMenu" xPosition="after" class="post-login-menu">
+  <ng-template matMenuContent>
+    <div class="menu-items filter-items">
+      <h4>Filter By:</h4>
+      <form class="menu-form filter-form" (click)="preventDefaultClose($event)">
+        <mat-form-field class="menu-form-field">
+          <mat-label>Savings Target</mat-label>
+          <input matInput placeholder="15000" type="number">
+        </mat-form-field>
+      
+        <mat-form-field class="menu-form-field">
+          <mat-label>Contribution</mat-label>
+          <input matInput placeholder="500/bi" type="text">
+        </mat-form-field>
+
+        <mat-form-field class="menu-form-field">
+          <mat-label>Start Date</mat-label>
+          <input matInput type="date">
+        </mat-form-field>
+
+        <mat-form-field class="menu-form-field">
+          <mat-label>End Date</mat-label>
+          <input matInput type="date">
+        </mat-form-field>
+
+        <mat-form-field class="menu-form-field">
+          <mat-label>Group Size</mat-label>
+          <input matInput placeholder="10" type="number">
+        </mat-form-field>
+      </form>
+      <button mat-raised-button color="primary">Submit</button>
+    </div>
+  </ng-template>
+</mat-menu>
+
+<!-- Sort Menu -->
+
+<mat-menu #sortMenu="matMenu" xPosition="after" class="post-login-menu">
+  <ng-template matMenuContent>
+    <div class="menu-items sort-items">
+      <h4>Sort By:</h4>
+      <form class="menu-form" (click)="preventDefaultClose($event)">
+        <div class="menu-form-field">
+          <mat-checkbox color="primary"></mat-checkbox>
+          <mat-label>Savings Target</mat-label>
+        </div>
+      
+        <div class="menu-form-field">
+          <mat-checkbox color="primary"></mat-checkbox>
+          <mat-label>Contribution</mat-label>
+        </div>
+
+        <div class="menu-form-field">
+          <mat-checkbox color="primary"></mat-checkbox>
+          <mat-label>Start Date</mat-label>
+        </div>
+
+        <div class="menu-form-field">
+          <mat-checkbox color="primary"></mat-checkbox>
+          <mat-label>End Date</mat-label>
+        </div>
+
+        <div class="menu-form-field">
+          <mat-checkbox color="primary"></mat-checkbox>
+          <mat-label>Group Size</mat-label>
+        </div>
+      </form>
+      <button mat-raised-button color="primary">Submit</button>
+    </div>
+  </ng-template>
+</mat-menu>

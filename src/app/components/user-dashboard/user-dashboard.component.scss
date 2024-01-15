@@ -27,7 +27,10 @@ $bottom-top-box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0
   .saving-alert {
     display: grid;
     grid-template-columns: 2fr 1fr;
+    position: sticky;
+    top: 8em;
     gap: 1em;
+    z-index: -1;
     padding: 0 1em;
     .alert-box {
       display: flex;
