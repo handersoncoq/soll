@@ -54,6 +54,15 @@ $bottom-top-box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0
   border-top-left-radius: 2em;
 }
 
+.middle-line{
+  position: absolute;
+  width: 100%;
+  margin-top: -11em;
+  border-bottom: solid white 1px;
+  border-radius: 1em;
+  height: 1em;
+}
+
 .group-profile-top-half, .group-profile-bottom-half{
   padding: 0 0.6em;
 }
@@ -80,10 +89,12 @@ $bottom-top-box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0
 }
 
 .group-circle{
+  position: relative;
   display: flex;
   justify-content: center;
   width: 100%;
   margin-bottom: 1em;
+  z-index: 10;
 }
 
 .outer-progress, .inner-progress{

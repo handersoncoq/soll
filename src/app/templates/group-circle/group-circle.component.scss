@@ -20,9 +20,7 @@ $subtle-white: #f5f5f5;
   border-radius: 50%;
   background-color: $accent-color;
   border-top: solid white 1px;
-  border-bottom: solid white 1px;
-  border-width: thin;
-  box-shadow: $all-boxshadow;
+  box-shadow: 0px 80px 50px -30px rgba(0, 0, 0, 0.15);
 }
 
 .member-profile {
@@ -34,7 +32,6 @@ $subtle-white: #f5f5f5;
   left: 50%;
   margin-left: -30px;
   margin-top: -32px;
-  box-shadow: $all-boxshadow;
 }
 
 .inner-circle {
@@ -63,10 +60,10 @@ $subtle-white: #f5f5f5;
   width: 3.7em;
   overflow: hidden;
   background-color: $accent-color;
-  box-shadow: $img-boxshadow;
+  box-shadow: $all-boxshadow;
   transition: width 0.3s ease-out, height 0.3s ease-out;
     &:not(.leader-img-box, .paid-out):hover{
-      border: solid white 1px;
+      box-shadow: none;
     }
 
   .profile-img {
@@ -76,7 +73,6 @@ $subtle-white: #f5f5f5;
     mix-blend-mode: luminosity;
     padding-left: 0.1em;
     border-radius: 50%;
-    box-shadow: 0 25px 50px -12px rgb(0, 0, 0);
   }
 }
 
@@ -87,6 +83,7 @@ $subtle-white: #f5f5f5;
 .leader-img-box{
   width: 5em;
   height: 5em;
+  box-shadow: $all-boxshadow;
   .leader-img{
     height: 5em;
     width: 6em;

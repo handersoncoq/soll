@@ -21,6 +21,7 @@ import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
 import { ProgressAnimationDirective } from '../utils/directives/progress-animation.directive';
 import { ConfigureDashboardHeaderDirective } from '../utils/directives/configure-dashboard-header.directive';
 import { GroupStrengthAnimationDirective } from '../utils/directives/group-strength-animation.directive';
+import { StickyScrollDirective } from '../utils/directives/sticky-scroll.directive';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { GroupStrengthAnimationDirective } from '../utils/directives/group-stren
     ConfigureDashboardHeaderDirective,
     LazyLoadTextDirective,
     ProgressAnimationDirective,
-    GroupStrengthAnimationDirective
+    GroupStrengthAnimationDirective,
+    StickyScrollDirective,
   ],
   imports: [
     CommonModule,
@@ -59,6 +61,7 @@ import { GroupStrengthAnimationDirective } from '../utils/directives/group-stren
     ProgressAnimationDirective,
     ConfigureDashboardHeaderDirective,
     GroupStrengthAnimationDirective,
+    StickyScrollDirective,
     MatDialogModule,
     MatToolbarModule,
     MatButtonModule,

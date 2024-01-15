@@ -49,6 +49,12 @@ openPanel() {
   }
 }
 
+closePanel() {
+  if (this.groupSelect.panelOpen) {
+    this.groupSelect.close();
+  }
+}
+
 onSelect(event: MatSelectChange) {
   if(!event.value) {
     this.filteredGroups = [];
@@ -68,10 +74,11 @@ setResults(){
   this.searchResults = this.filteredGroups;
   this.noSearchResult = false;
   }
+  this.closePanel();
 }
 
 filterGroups(value: string): Group[] {
-  const lowerCaseValue = value.toLowerCase();
+  const lowerCaseValue = value.toLowerCase().trim();
   this.filteredGroups = this.groups.filter(group =>
     group.groupName.toLowerCase().includes(lowerCaseValue)
   );
@@ -82,7 +89,5 @@ preventDefaultClose(event: MouseEvent) {
   event.stopPropagation();
   console.log('Button clicked, but menu stays open');
 }
-
-
 
 }

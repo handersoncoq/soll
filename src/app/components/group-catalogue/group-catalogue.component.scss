@@ -122,6 +122,17 @@ mat-card{
   box-shadow: none !important;
 }
 
+.slide-groups{
+  h5{
+    margin: 0;
+    margin-top: -1em;
+    padding: 1em 1.5em;
+    padding-top: 0;
+    width: fit-content;
+    font-weight: normal;
+  }
+}
+
 .no-search-result{
   font-size: smaller;
   margin: 0.3em 1em;
@@ -131,43 +142,57 @@ mat-card{
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 0.3em;
+  
 }
 
 .filter-form{
   gap: 0.5em;
 }
 
-.menu-items{
-  border-radius: 1em;
+::ng-deep .post-login-menu .mat-mdc-menu-content {
+  border-radius: 10px;
   border-top: solid $primary-color 1px;
+}
+
+.menu-items{
+  color: $primary-color;
 }
 
 mat-label{
   color: $primary-color;
-}
-
-.filter-items{
-  padding: 0 1em;
-  button{
-    width: 100%;
-    margin: 0.5em 0;
-  }
-}
-
-.sort-items{
-  button{
-    width: 92%;
-    margin: 0.5em;
-    margin-left: 0.8em;
-  }
-}
-
-h4{
-  margin: 1em;
-  color: $primary-color;
+  font-size: small;
 }
 
 .menu-form-field {
   width: 100%;
   font-size: small;
+}
+
+.filter-items{
+  padding: 0 0.6em;
+  button{
+    width: 100%;
+    margin: 0.5em 0;
+    font-size: medium;
+  }
+  h4{
+    margin: 1em 0;
+  }
+}
+
+.filter-form .menu-form-field{
+  font-size: medium;
+  margin-bottom: -1em !important;
+}
+
+.sort-items{
+  button{
+    width: 93.5%;
+    margin: 0.5em;
+    margin-left: 0.6em;
+    font-size: medium;
+  }
+  h4{
+    margin: 1em 0.6em;
+  }
 }

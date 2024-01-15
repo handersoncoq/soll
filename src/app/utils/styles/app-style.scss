@@ -23,7 +23,7 @@ $card-boxshadow: rgba(0, 0, 0, 0.15) -12px 21px 24px -10px;
 $dark-mode-boxshadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
 
 
-// inputs / labels  =================================================================
+// inputs / forms / labels  =================================================================
 
 input{
     caret-color: $sol-darker !important;
@@ -89,6 +89,10 @@ input{
 
   .leader-tooltip-arrow::after{
     bottom: 100%;
+  }
+
+  form{
+    scroll-behavior: smooth;
   }
 
   // buttons  =================================================================
@@ -302,14 +306,13 @@ input{
 
 .pre-g-dashboard, .pre-g-profile {
   margin: 1em 0;
-  position: sticky;
-  top: 8em;
-  z-index: -1;
   display: grid;
   grid-template-columns: 3fr 1fr;
   gap: 1em;
   padding: 0 1em;
   padding-right: 0.6em;
+  top: 7em;
+  transition: top 1s ease-in-out;
   
   .vert-div{
     color: $primary-color;
