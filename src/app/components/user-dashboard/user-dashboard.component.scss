@@ -137,7 +137,7 @@ $bottom-top-box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0
       .img-container {
         display: flex;
         justify-content: center;
-        background-color: $subtle-white;
+        background-color: $accent-color;
         border-radius: 50%;
         height: 4.5em;
         width: 4.5em;
@@ -147,6 +147,7 @@ $bottom-top-box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0
         .profile-img {
           width: 10em;
           height: 5em;
+          mix-blend-mode: luminosity;
           margin-top: 0.1em;
           border-radius: 50%;
         }
