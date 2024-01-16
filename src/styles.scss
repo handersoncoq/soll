@@ -164,10 +164,6 @@ body.dark-mode {
     border: none !important;
   }
 
-  .outer-progress {
-    background-color: #f5f5f5 !important;
-  }
-
   // Dashboard related
   .user-stats {
     .saving-alert {
@@ -196,6 +192,9 @@ body.dark-mode {
 
   .pre-stats {
     background-color: $background-accent-color;
+    border: none;
+    border-top: solid white 1px;
+    border-bottom: solid white 1px;
   }
 
   .header-wrapper {
@@ -204,18 +203,20 @@ body.dark-mode {
 
   .header {
     box-shadow: none;
+    background-color: transparent;
+    border-bottom: solid white 1px;
     padding: 1.5em 0.8em !important;
     padding-bottom: 2.5em !important;
     margin-top: -2.5em;
   }
 
-  .trending-title {
-    color: $color-white;
-  }
-
   .trending-card {
     background-color: transparent;
     box-shadow: $dark-mode-boxshadow !important;
+  }
+
+  .slide-title{
+    color: white;
   }
 
   .trending .slide-title {
@@ -225,20 +226,6 @@ body.dark-mode {
   .group-icon,
   .history-icon {
     color: $color-bisque !important;
-  }
-
-  // Dashboard - group dashboard
-  .group-strength-container {
-    .battery-box .battery .battery-level {
-      background-color: $hover-color-progress !important;
-    }
-  }
-
-  .battery {
-    border-color: $hover-color-progress !important;
-    &::after {
-      background-color: $hover-color-progress !important;
-    }
   }
 
   .name-location {
@@ -260,13 +247,9 @@ body.dark-mode {
     color: $color-white !important;
   }
 
-  .group-cat-c{
-    border-bottom-color: white !important;
-  }
-
   .filter-sort{
     border-color: #6f8192;
-    color: $accent-color;
+    color: bisque;
   }
 
   .menu-items{
@@ -275,6 +258,13 @@ body.dark-mode {
 
   .outer-circle {
     background-color: $primary-color;
+    border-color: $accent-color;
+  }
+
+  .group-profile{
+    border: none;
+    border-top: solid white 1px;
+    border-bottom: solid white 1px;
   }
 
   @media screen and (min-width: 768px) {

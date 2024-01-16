@@ -1,5 +1,5 @@
 import { trigger, transition, style, animate } from '@angular/animations';
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ContentManagerService } from 'src/app/services/content-manager/content-manager.service';
 import { StyleManagerService } from 'src/app/services/style-manager/style-manager.service';
@@ -43,16 +43,6 @@ export class UserNavComponent implements OnInit{
 
   ngOnInit(): void {
     this.isGroupRoute();
-  }
-
-  @HostListener('window:scroll', [])
-  onWindowScroll() {
-    const contentDiv = document.querySelector('.nav-class');
-    if (window.scrollY > 20) {
-      contentDiv?.classList.add('bottom-shadow');
-    } else {
-      contentDiv?.classList.remove('bottom-shadow');
-    }
   }
 
   changeLanguage(language: string){

@@ -31,14 +31,6 @@ $bottom-top-box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0
     }
   }
 
-  .group-profile {
-    background-color: $primary-color;
-    padding: 0 0.6em;
-    padding-bottom: 1em;
-    border-radius: 2em;
-    box-shadow: $bottom-top-box-shadow;
-  }
-
   .group-status{
     width: 100%;
     padding-top: 1em;
@@ -46,7 +38,6 @@ $bottom-top-box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0
     text-align: right;
     div{
       padding-right: 1em;
-      color: white;
     }
     .open, .full{
       cursor: pointer;

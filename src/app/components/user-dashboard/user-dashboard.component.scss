@@ -16,11 +16,13 @@ $bottom-top-box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0
   border-radius: 2em;
   box-shadow: $bottom-top-box-shadow;
   margin-bottom: 1em;
-  background-color: $primary-color;
+  border: solid $primary-color 1px;
+  background-color: white;
 }
 .user-stats {
   position: relative;
   padding: 1em 0;
+  padding-top: 1.4em;
   margin-top: 5em;
   padding-bottom: 2em;
 
@@ -74,7 +76,7 @@ $bottom-top-box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0
 
 .header {
   padding: 1.5em 0.6em;
-  background-color: $accent-color;
+  background-color: $primary-color;
   border-radius: 1.5em;
   padding-bottom: 2em;
   box-shadow: $card-boxshadow;
@@ -86,7 +88,6 @@ $bottom-top-box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0
   align-items: center;
   gap: 1em;
   color: white;
-  border-bottom: solid white 1px;
   border-width: thin;
   .user-progress {
     display: flex;
@@ -108,7 +109,7 @@ $bottom-top-box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0
     width: 100px;
     height: 100px;
     border-radius: 50%;
-    background-color: $accent-color;
+    background-color: $primary-color;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -122,7 +123,6 @@ $bottom-top-box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0
       justify-content: center;
       align-items: center;
       position: absolute;
-      transition: background 1s ease-in-out;
 
       &:after {
         content: "";
@@ -142,7 +142,7 @@ $bottom-top-box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0
         height: 4.5em;
         width: 4.5em;
         overflow: hidden;
-        border: solid $accent-color 5px;
+        border: solid $primary-color 5px;
 
         .profile-img {
           width: 10em;
@@ -166,7 +166,7 @@ $bottom-top-box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0
     padding: 0.5em 0;
     border-radius: 8px;
     width: auto;
-    border-bottom: solid $progress-color 1px;
+    border-bottom: solid white 1px;
     .label {
       font-size: larger;
       font-weight: bold;
@@ -194,14 +194,14 @@ $bottom-top-box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0
 
 .trending-title{
   font-size: larger;
-  color: $accent-color;
   padding: 0 1em;
+  padding-bottom: 1em;
 }
 
 .slide-title {
   font-size: large;
   padding-bottom: 0.5em;
-  color: white;
+  color: $primary-color;
 }
 
 .trending .slide-title{
@@ -221,7 +221,7 @@ $bottom-top-box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0
 }
 
 .clock-icon{
-  color: $progress-color;
+  color: white;
   margin-right: -0.3em;
   height: 22px;
 }
@@ -262,7 +262,8 @@ $bottom-top-box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0
   border-radius: 1em;
   box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px;
   .mat-mdc-card-content {
-    padding-right: 0;
+    padding: 0;
+    padding-bottom: 0.5em;
     padding-left: 0.4em;
   }
 }

@@ -19,5 +19,10 @@ export class StickyScrollDirective {
       this.renderer.setStyle(this.el.nativeElement, 'top', '7em');
       this.renderer.removeStyle(this.el.nativeElement, 'z-index');
     }
+
+    if(scrollPosition > 100){
+      this.renderer.setStyle(this.el.nativeElement, 'opacity', '0');
+    }else this.renderer.setStyle(this.el.nativeElement, 'opacity', '1');
   }
+
 }

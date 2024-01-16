@@ -6,7 +6,7 @@ import { Directive, ElementRef, EventEmitter, Input, Output, Renderer2 } from '@
 export class ConfigureDashboardHeaderDirective {
 
   @Input() fillColor: string = '#20a7db';
-  @Input() nonFillColor: string = '#f5f5f5';
+  @Input() nonFillColor: string = '#ffff';
   @Input() reputationScore: number = 0;
 
   constructor(private el: ElementRef, private renderer: Renderer2) {}

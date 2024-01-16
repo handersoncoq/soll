@@ -77,6 +77,12 @@ setResults(){
   this.closePanel();
 }
 
+handleKeyUp(event: KeyboardEvent): void {
+  if (event.key === 'Enter') {
+    this.setResults();
+  }
+}
+
 filterGroups(value: string): Group[] {
   const lowerCaseValue = value.toLowerCase().trim();
   this.filteredGroups = this.groups.filter(group =>

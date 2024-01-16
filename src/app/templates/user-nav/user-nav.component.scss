@@ -8,6 +8,7 @@ mat-toolbar {
     position: fixed;
     z-index: 1000;
     background-color: white;
+    box-shadow: $swoosh-box-shadow;
 
     .company-logo {
         img{
@@ -94,13 +95,7 @@ mat-toolbar {
       box-shadow: none;
     }
   }
-  
-  .bottom-shadow {
-    box-shadow: $swoosh-box-shadow;
-  }
-
-  
-  
+ 
   ::ng-deep .mat-mdc-icon-button.mat-mdc-button-base {
     --mdc-icon-button-state-layer-size: 30px;
     padding: 0;

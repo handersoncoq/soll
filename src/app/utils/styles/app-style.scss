@@ -21,6 +21,8 @@ $accent-color: #35425b;
 $progress-color: #20a7db;
 $card-boxshadow: rgba(0, 0, 0, 0.15) -12px 21px 24px -10px;
 $dark-mode-boxshadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+$bottom-top-box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px 18px;
+
 
 
 // inputs / forms / labels  =================================================================
@@ -226,7 +228,7 @@ input{
     margin: 0.3em 0;
     width: 100%;
     height: 8px;
-    background-color: #ddd;
+    background-color: white;
     border-radius: 7px;
     position: relative;
     box-shadow: $card-boxshadow;
@@ -253,7 +255,7 @@ input{
     padding: 1em;
     margin-bottom: 1em;
     color: white;
-    background-color: $accent-color;
+    background-color: $primary-color;
     border-radius: 1em;
     box-shadow: $card-boxshadow;
     &:hover{
@@ -261,6 +263,15 @@ input{
         border: solid white 1px;
         box-shadow: none;
     }
+}
+
+.group-profile {
+  background-color: white;
+  padding: 0 0.6em;
+  padding-bottom: 1em;
+  border-radius: 2em;
+  box-shadow: $bottom-top-box-shadow;
+  border: solid $primary-color 1px;
 }
 
 .styled-icon{
@@ -276,7 +287,7 @@ input{
     padding-bottom: 0.5em;
     .divide-vert{
         font-weight: lighter;
-        color: $progress-color;
+        color: bisque;
         padding-left: 0.1em;
         padding-right: 0.25em;
     }
@@ -287,7 +298,7 @@ input{
 
 .group-details, .community-details{
     .section:not(:last-child) {
-        border-bottom: solid $progress-color 1px;
+        border-bottom: solid white 1px;
     }
     .section{
         font-size: medium;
@@ -305,11 +316,12 @@ input{
 }
 
 .pre-g-dashboard, .pre-g-profile {
-  margin: 1em 0;
+  margin: 0;
   display: grid;
   grid-template-columns: 3fr 1fr;
   gap: 1em;
   padding: 0 1em;
+  padding-top: 0.3em;
   padding-right: 0.6em;
   top: 7em;
   transition: top 1s ease-in-out;

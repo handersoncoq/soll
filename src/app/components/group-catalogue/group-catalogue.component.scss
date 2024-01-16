@@ -156,6 +156,14 @@ mat-card{
 
 .menu-items{
   color: $primary-color;
+  button{
+    margin: 0.5em;
+    font-size: medium;
+  }
+  .clear-btn{
+    background-color: transparent;
+    color: $primary-color;
+  }
 }
 
 mat-label{
@@ -170,10 +178,11 @@ mat-label{
 
 .filter-items{
   padding: 0 0.6em;
-  button{
-    width: 100%;
+  button:not(.clear-btn){
     margin: 0.5em 0;
-    font-size: medium;
+  }
+  .clear-btn{
+    margin-left: 1em;
   }
   h4{
     margin: 1em 0;
@@ -186,12 +195,6 @@ mat-label{
 }
 
 .sort-items{
-  button{
-    width: 93.5%;
-    margin: 0.5em;
-    margin-left: 0.6em;
-    font-size: medium;
-  }
   h4{
     margin: 1em 0.6em;
   }

@@ -29,7 +29,7 @@
       placeholder="Search groups"
       [formControl]="searchControl"
       (focus)="openPanel()"
-      (keyup.enter)="setResults()"
+      (keyup)="handleKeyUp($event)"
     />
     <button (click)="setResults()" mat-icon-button>
       <mat-icon color="primary" class="search-icon">search</mat-icon>
@@ -170,7 +170,10 @@
           <input matInput placeholder="10" type="number">
         </mat-form-field>
       </form>
-      <button mat-raised-button color="primary">Submit</button>
+      <span>
+        <button mat-raised-button color="primary">Apply</button>
+        <button class="clear-btn" mat-raised-button color="primary">Clear</button>
+      </span>
     </div>
   </ng-template>
 </mat-menu>
@@ -207,7 +210,10 @@
           <mat-label>Group Size</mat-label>
         </div>
       </form>
-      <button mat-raised-button color="primary">Submit</button>
+      <span>
+        <button mat-raised-button color="primary">Apply</button>
+        <button class="clear-btn" mat-raised-button color="primary">Clear</button>
+      </span>
     </div>
   </ng-template>
 </mat-menu>

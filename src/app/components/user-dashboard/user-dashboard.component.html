@@ -52,7 +52,7 @@
               <div class="label">Next Payout</div>
               <div class="value">
                 <span *ngIf="daysUntilPayout, else badData">
-                  <mat-icon class="clock-icon">watch_later</mat-icon>
+                  <mat-icon class="clock-icon">access_alarm</mat-icon>
                   {{ daysUntilPayout || '---' }} days
                 </span>
                 <ng-template #badData>
@@ -62,7 +62,7 @@
             </div>
             <div class="location">
               <div class="label">Group Location</div>
-              <div class="value">{{ location }}</div>
+              <div class="value"> {{ location }}</div>
             </div>
           </div>
         </div>
