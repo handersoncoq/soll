@@ -159,10 +159,13 @@ mat-card{
   button{
     margin: 0.5em;
     font-size: medium;
+    height: 2em;
   }
   .clear-btn{
     background-color: transparent;
     color: $primary-color;
+    border: solid $alt-font-color 1px;
+    float: inline-end;
   }
 }
 

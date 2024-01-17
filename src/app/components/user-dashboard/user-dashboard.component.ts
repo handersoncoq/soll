@@ -17,7 +17,7 @@ export class UserDashboardComponent implements OnInit {
   firstName = 'Matgomory';
   lastName = 'Creast';
   useShortenedName = '';
-  userReputation = 85;
+  userReputation = 86;
   activeGroupCount = 2;
   location = 'Hartford, CT';
   currentSaving = 12000;

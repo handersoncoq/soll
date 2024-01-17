@@ -3,8 +3,8 @@ import { activeEcpsGroupMembers, activeEpsGroupMembers, previousEcpsGroupMembers
 import { groupLeaders } from './GroupLeaders';
 
 const present = new Date();
-const epsStartDate = new Date(present.getFullYear()-1, 9, 30);
-const ecpsStartDate = new Date(present.getFullYear()-1, 7, 23);
+const epsStartDate = new Date(present.getFullYear()-1, 10, 30);
+const ecpsStartDate = new Date(present.getFullYear()-1, 8, 23);
 const groupSize = 10;
 
 const ecpsSavingsTarget = 10000; 
@@ -74,8 +74,8 @@ export const userGroups: GroupDetail[] = [
     groupSize: 7,
     rank: 1,
     nextContributionDate: null,
-    startDate: new Date(2020, 10, 24),
-    endDate: new Date(2021, 7, 24),
+    startDate: new Date(2021, 1, 24),
+    endDate: new Date(2022, 7, 24),
     isActive: false,
     groupMembers: previousEpsGroupMembers,
     groupLeader: groupLeaders[3]
@@ -87,9 +87,9 @@ export const userGroups: GroupDetail[] = [
     groupSize: 10,
     rank: 'n/a',
     nextContributionDate: null,
-    startDate: new Date(2020, 10, 25),
+    startDate: new Date(2021, 10, 25),
     contribution: '$500/BI',
-    endDate: new Date(2021, 2, 12),
+    endDate: new Date(2022, 2, 12),
     isActive: false,
     groupMembers: previousEcpsGroupMembers,
     groupLeader: groupLeaders[2]
