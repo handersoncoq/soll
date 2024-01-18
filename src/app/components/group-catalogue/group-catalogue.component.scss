@@ -84,13 +84,14 @@ $box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
   border-radius: 0.6em;
   padding: 0.2em 0.5em;
 
-  input[type="text"] {
+  input[type="text"], input[type="search"] {
     flex: 1;
     border: none;
     outline: none;
     padding: 0.6em;
     padding-right: 1em;
     font-size: 1rem;
+    background-color: white;
 
     ::placeholder {
       color: darken($primary-color, 20%);
@@ -136,6 +137,7 @@ mat-card{
 .no-search-result{
   font-size: smaller;
   margin: 0.3em 1em;
+  margin-bottom: 1.5em;
 }
 
 .menu-form {

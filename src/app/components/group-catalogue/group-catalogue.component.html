@@ -25,10 +25,9 @@
 
   <div class="group-search-bar">
     <input
-      type="text"
+      type="search"
       placeholder="Search groups"
       [formControl]="searchControl"
-      (focus)="openPanel()"
       (keyup)="handleKeyUp($event)"
     />
     <button (click)="setResults()" mat-icon-button>
@@ -36,7 +35,11 @@
     </button>
   </div>
 
-  <mat-select #groupSelect (selectionChange)="onSelect($event)">
+  <mat-select
+    [disableOptionCentering]="true"
+    #groupSelect
+    (selectionChange)="onSelect($event)"
+  >
     <mat-option *ngFor="let group of filteredGroups" [value]="group.groupName">
       <mat-icon color="primary">groups_3</mat-icon> {{ group.groupName }}
     </mat-option>
@@ -44,7 +47,7 @@
 </div>
 
 <mat-card
-  *ngIf="searchResults.length > 0"
+  *ngIf="searchResults.length > 0 && filteredGroups.length > 0"
   class="trending-card search-results"
   appLazyLoadText
 >
@@ -59,7 +62,7 @@
         speed="500"
         [spaceBetween]="20"
       >
-        <swiper-slide *ngFor="let group of filteredGroups">
+        <swiper-slide *ngFor="let group of searchResults">
           <app-trending-groups
             routerLink="/group/{{ group.groupName }}/profile"
             [trendingGroup]="group"
@@ -70,73 +73,75 @@
   </mat-card-content>
 </mat-card>
 
-<p class="no-search-result" *ngIf="noSearchResult">Sorry, no group matches this search...<p>
+<p class="no-search-result" *ngIf="noSearchResult">
+  Sorry, no group matches this search...
+</p>
 
-<mat-card *ngIf="groupArrays[0]" class="trending-card" appLazyLoadText>
-  <mat-card-content>
-    <div class="slide-groups">
-      <swiper-container
-        [slides-per-view]="5"
-        navigation="false"
-        pagination="true"
-        scrollbar="false"
-        speed="500"
-        [spaceBetween]="20"
-      >
-        <swiper-slide *ngFor="let group of groupArrays[0]">
-          <app-trending-groups
-            routerLink="/group/{{ group.groupName }}/profile"
-            [trendingGroup]="group"
-          ></app-trending-groups>
-        </swiper-slide>
-      </swiper-container>
-    </div>
-  </mat-card-content>
-</mat-card>
-
-<mat-card *ngIf="groupArrays[1]" class="trending-card" appLazyLoadText>
-  <mat-card-content>
-    <div class="slide-groups">
-      <swiper-container
-        [slides-per-view]="5"
-        navigation="false"
-        pagination="true"
-        scrollbar="false"
-        speed="500"
-        [spaceBetween]="20"
-      >
-        <swiper-slide *ngFor="let group of groupArrays[1]">
-          <app-trending-groups
-            routerLink="/group/{{ group.groupName }}/profile"
-            [trendingGroup]="group"
-          ></app-trending-groups>
-        </swiper-slide>
-      </swiper-container>
-    </div>
-  </mat-card-content>
-</mat-card>
-
-<mat-card *ngIf="groupArrays[2]" class="trending-card" appLazyLoadText>
-  <mat-card-content>
-    <div class="slide-groups">
-      <swiper-container
-        [slides-per-view]="5"
-        navigation="false"
-        pagination="true"
-        scrollbar="false"
-        speed="500"
-        [spaceBetween]="20"
-      >
-        <swiper-slide *ngFor="let group of groupArrays[2]">
-          <app-trending-groups
-            routerLink="/group/{{ group.groupName }}/profile"
-            [trendingGroup]="group"
-          ></app-trending-groups>
-        </swiper-slide>
-      </swiper-container>
-    </div>
-  </mat-card-content>
-</mat-card>
+<div *ngIf="searchResults.length === 0 && noSearchResult == false">
+  <mat-card *ngIf="groupArrays[0]" class="trending-card" appLazyLoadText>
+    <mat-card-content>
+      <div class="slide-groups">
+        <swiper-container
+          [slides-per-view]="5"
+          navigation="false"
+          pagination="true"
+          scrollbar="false"
+          speed="500"
+          [spaceBetween]="20"
+        >
+          <swiper-slide *ngFor="let group of groupArrays[0]">
+            <app-trending-groups
+              routerLink="/group/{{ group.groupName }}/profile"
+              [trendingGroup]="group"
+            ></app-trending-groups>
+          </swiper-slide>
+        </swiper-container>
+      </div>
+    </mat-card-content>
+  </mat-card>
+  <mat-card *ngIf="groupArrays[1]" class="trending-card" appLazyLoadText>
+    <mat-card-content>
+      <div class="slide-groups">
+        <swiper-container
+          [slides-per-view]="5"
+          navigation="false"
+          pagination="true"
+          scrollbar="false"
+          speed="500"
+          [spaceBetween]="20"
+        >
+          <swiper-slide *ngFor="let group of groupArrays[1]">
+            <app-trending-groups
+              routerLink="/group/{{ group.groupName }}/profile"
+              [trendingGroup]="group"
+            ></app-trending-groups>
+          </swiper-slide>
+        </swiper-container>
+      </div>
+    </mat-card-content>
+  </mat-card>
+  <mat-card *ngIf="groupArrays[2]" class="trending-card" appLazyLoadText>
+    <mat-card-content>
+      <div class="slide-groups">
+        <swiper-container
+          [slides-per-view]="5"
+          navigation="false"
+          pagination="true"
+          scrollbar="false"
+          speed="500"
+          [spaceBetween]="20"
+        >
+          <swiper-slide *ngFor="let group of groupArrays[2]">
+            <app-trending-groups
+              routerLink="/group/{{ group.groupName }}/profile"
+              [trendingGroup]="group"
+            ></app-trending-groups>
+          </swiper-slide>
+        </swiper-container>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
 
 <!-- Filter Menu -->
 
@@ -147,27 +152,27 @@
       <form class="menu-form filter-form" (click)="preventDefaultClose($event)">
         <mat-form-field class="menu-form-field">
           <mat-label>Savings Target</mat-label>
-          <input matInput placeholder="15000" type="number">
+          <input matInput placeholder="15000" type="number" />
         </mat-form-field>
-      
+
         <mat-form-field class="menu-form-field">
           <mat-label>Contribution</mat-label>
-          <input matInput placeholder="500/bi" type="text">
+          <input matInput placeholder="500/bi" type="text" />
         </mat-form-field>
 
         <mat-form-field class="menu-form-field">
           <mat-label>Start Date</mat-label>
-          <input placeholder="mm/dd/yy" matInput>
+          <input placeholder="mm/dd/yy" matInput />
         </mat-form-field>
 
         <mat-form-field class="menu-form-field">
           <mat-label>End Date</mat-label>
-          <input placeholder="mm/dd/yy" matInput>
+          <input placeholder="mm/dd/yy" matInput />
         </mat-form-field>
 
         <mat-form-field class="menu-form-field">
           <mat-label>Group Size</mat-label>
-          <input matInput placeholder="10" type="number">
+          <input matInput placeholder="10" type="number" />
         </mat-form-field>
       </form>
       <span>
@@ -189,7 +194,7 @@
           <mat-checkbox color="primary"></mat-checkbox>
           <mat-label>Savings Target</mat-label>
         </div>
-      
+
         <div class="menu-form-field">
           <mat-checkbox color="primary"></mat-checkbox>
           <mat-label>Contribution</mat-label>
