@@ -117,9 +117,9 @@ input:focus {
 }
 
 ::ng-deep .mat-mdc-snack-bar-container {
-    --mdc-snackbar-container-color: #35425B;
-    --mdc-snackbar-supporting-text-color: white;
-    font-size: small !important;
+    --mdc-snackbar-container-color: white;
+    border: solid $primary-color 1px;
+    border-radius: 4px;
 }
 
 // *************************************************

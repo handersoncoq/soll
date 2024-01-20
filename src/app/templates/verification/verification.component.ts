@@ -54,7 +54,8 @@ export class VerificationComponent {
     }
   }
   
-  onSubmit() {
+  onSubmit(event: Event) {
+    event.preventDefault();
     if(this.verificationForm.invalid){
       this.throwError();
       return;
@@ -92,6 +93,5 @@ export class VerificationComponent {
   resendCode(){
     console.log("Resend Code")
   }
-  
 
 }

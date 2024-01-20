@@ -23,17 +23,17 @@
     have recently moved, please update your location in your profile settings.
   </div>
 
-  <div class="group-search-bar">
+  <form class="group-search-bar" (submit)="handleSubmit($event)">
     <input
       type="search"
       placeholder="Search groups"
       [formControl]="searchControl"
       (keyup)="handleKeyUp($event)"
     />
-    <button (click)="setResults()" mat-icon-button>
+    <button type="button" (click)="setResults()" mat-icon-button>
       <mat-icon color="primary" class="search-icon">search</mat-icon>
     </button>
-  </div>
+  </form>
 
   <mat-select
     [disableOptionCentering]="true"

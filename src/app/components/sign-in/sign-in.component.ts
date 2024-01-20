@@ -46,7 +46,8 @@ export class SignInComponent implements OnInit{
     this.hidePassword = !this.hidePassword;
   }
 
-  nextStep() {
+  nextStep(event: Event) {
+    event.preventDefault();
     if(!this.validateEmailDomain(this.loginForm.controls['email'].value)){
       this.snackBar.openFromComponent(SnackBarComponent, {
         data: {

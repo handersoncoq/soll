@@ -1,8 +1,9 @@
-<div class="layout">
-    <div class="msg-container">{{ data.message }}</div>
-    <div class="btn-container">
-        <button mat-icon-button aria-label="Close" class="small-icon-button" (click)="closeSnackbar()">
-            <mat-icon class="small-icon" [ngClass]="data.type">{{ getIconName(data.type) }}</mat-icon>
-        </button>
-    </div>
+<div matSnackBarActions>
+  <div class="snack-logo-box"><img [src]="appLogo" alt="Soll" /></div>
+  <div class="msg-container" matSnackBarLabel>{{ data.message }}</div>
+  <button mat-button matSnackBarAction (click)="closeSnackbar()">
+    <mat-icon class="small-icon" [ngClass]="data.type">{{
+      getIconName(data.type)
+    }}</mat-icon>
+  </button>
 </div>

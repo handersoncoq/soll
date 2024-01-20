@@ -1,45 +1,75 @@
+$primary-color: #52688F;
+$accent-color: #35425b;
 $success-color: #4CAF50;
-$error-color: rgb(234, 159, 172);
+$error-color: rgb(174, 38, 14);
 
 .layout {
     display: grid;
-    grid-template-columns: 4fr 1fr;
-    gap: 1em;
+    vertical-align: middle;
+    grid-template-columns: 1fr 6fr;
+}
+
+.snack-logo-box{
+    margin-top: -2.5em !important;
+    display: flex;
+    padding-left: 1em;
+    width: fit-content;
+}
+
+img{
+    padding: 0;
+    height: 1.8em;
+    width: 1.8em;
+    opacity: 1;
+    border-radius: 50%;
 }
 
 .msg-container{
     display: flex;
     justify-content: flex-start;
     width: 100%;
+    color: $accent-color;
+    font-size: small !important;
 }
 
-.btn-container{
-    display: flex;
-    justify-content: flex-end;
-}
-
-.small-icon-button {
-    height: 24px;
-    width: 24px;
-    line-height: 24px;
+button{
     padding: 0;
+    margin: 0;
+    width: fit-content;
 }
 
 .small-icon {
     font-size: 24px;
     height: 24px;
     width: 24px;
+    margin-right: -2em;
+}
+
+.error, .success, .warn{
+    border-radius: 50%;
+    display: flex;
+    font-size: medium;
+    justify-content: center;
+    position: absolute;
+    color: white;
+
 }
 
 .error {
+    margin-top: -0.2em;
+    margin-right: -1.3em !important;
     color: $error-color;
+    overflow: visible;
+    font-size: 1.7em !important;
   }
   
   .success {
-    color: $success-color;
+    height: 18px;
+    width: 18px;
+    background-color: green;
   }
   
   .warn {
-    color: orange;
+    background-color: darkorange;
   }
   

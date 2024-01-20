@@ -1,5 +1,5 @@
 <div class="container" #signInTop>
-  <form [formGroup]="loginForm" (ngSubmit)="nextStep()" id="sign-in-form">
+  <form [formGroup]="loginForm" (ngSubmit)="nextStep($event)" id="sign-in-form">
     <div class="logo-div" routerLink="/">
       <img [attr.data-src]="appLogo" alt="App Logo" appLazyLoading />
     </div>
@@ -47,7 +47,7 @@
         [disabled]="!isStep1Valid(loginForm)"
         class="primary-btn"
         type="button"
-        (click)="nextStep()"
+        (click)="nextStep($event)"
       >
         Sign In
       </button>

@@ -1,6 +1,6 @@
 <div class="verification-form" [formGroup]="verificationForm">
     <div *ngIf="!verificationSucceeds">
-      <form (ngSubmit)="onSubmit()">
+      <form (ngSubmit)="onSubmit($event)">
         <div id="mobileVerification" class="code-inputs">
           <input type="tel" autocomplete="off" formControlName="digit1" maxlength="1" (keyup)="onKeyUp($event, 0)" #digitInput>
           <input type="tel" autocomplete="off" formControlName="digit2" maxlength="1" (keyup)="onKeyUp($event, 1)" #digitInput>
@@ -9,7 +9,7 @@
           <input type="tel" autocomplete="off" formControlName="digit5" maxlength="1" (keyup)="onKeyUp($event, 4)" #digitInput>
           <input type="tel" autocomplete="off" formControlName="digit6" maxlength="1" (keyup)="onKeyUp($event, 5)" #digitInput>
         </div>
-        <button type="submit" [disabled]="!allFiledsFilled()" (click)="onSubmit()">Verify</button>
+        <button type="submit" [disabled]="!allFiledsFilled()" (click)="onSubmit($event)">Verify</button>
       </form>
       <span>Don't receive the code? <p (click)="resendCode()">Resend</p></span>
     </div>

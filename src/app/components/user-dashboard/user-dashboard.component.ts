@@ -15,7 +15,7 @@ export class UserDashboardComponent implements OnInit {
   profilePic = '/assets/img/profile.png';
 
   firstName = 'Matgomory';
-  lastName = 'Creast';
+  lastName = 'Ckan';
   useShortenedName = '';
   userReputation = 86;
   activeGroupCount = 2;

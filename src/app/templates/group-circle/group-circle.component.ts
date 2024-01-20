@@ -15,6 +15,8 @@ export class GroupCircleComponent implements OnInit{
   @Input() groupMembers!: GroupMember[] | undefined;
   @Input() groupLeader!: GroupLeader | undefined;
 
+  currentUser = 'Matgomory Ckan';
+
   constructor(private dialogService: DialogService) {}
   
   ngOnInit(): void {
@@ -30,7 +32,8 @@ export class GroupCircleComponent implements OnInit{
   }
 
   getMemberInfo(member: GroupMember): string {
-    return `${member.name}\nReputation Score: ${member.reputationScore}\nPaid Out: ${member.paidOut ? 'Yes' : 'No'}`;
+    let displayedName = member.name === this.currentUser ? 'You' : member.name
+    return `${displayedName}\nReputation Score: ${member.reputationScore}\nPaid Out: ${member.paidOut ? 'Yes' : 'No'}`;
   }
 
 

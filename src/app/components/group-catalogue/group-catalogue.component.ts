@@ -76,7 +76,6 @@ onSelect(event: MatSelectChange) {
 }
 
 setResults(){
-  
   if(!this.searchControl.value || this.searchControl.value.trim() === '') {
     this.searchResults = [];
     return;
@@ -99,6 +98,11 @@ handleKeyUp(event: KeyboardEvent): void {
     this.setResults();
   }
 }
+
+handleSubmit(event: Event): void {
+  event.preventDefault();
+}
+
 
 filterGroups(value: string): Group[] {
   const lowerCaseValue = value.toLowerCase().trim();
