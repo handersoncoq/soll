@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 import { InfoDetails } from 'src/app/interaces/Info';
 import { PrivacyPolicyComponent } from 'src/app/templates/privacy-policy/privacy-policy.component';
 import { TermsAndConditionsComponent } from 'src/app/templates/terms-and-conditions/terms-and-conditions.component';
+import { UnsuccessfulJoinComponent } from 'src/app/templates/unsuccessful-join/unsuccessful-join.component';
 import { ScreenLayoutService } from 'src/app/utils/screen-layout/screen-layout.service';
 
 @Injectable({
@@ -173,6 +174,15 @@ export class ContentManagerService {
           exitAnimationDuration: this.exitAnimationDuration,
         })
     }
+  }
+
+  openUnsuccessfulJoin(){
+    this.dialog.open(UnsuccessfulJoinComponent,
+      {
+        width: '100%',
+        enterAnimationDuration: this.enterAnimationDuration,
+        exitAnimationDuration: this.exitAnimationDuration,
+      })
   }
 
   closeBottomSheet(){

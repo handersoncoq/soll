@@ -11,7 +11,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { ReactiveFormsModule } from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
-import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MAT_SNACK_BAR_DEFAULT_OPTIONS, MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import {MatSelectModule} from '@angular/material/select';
 import {MatTooltipModule} from '@angular/material/tooltip';
@@ -53,6 +53,9 @@ import { ActionDialogComponent } from './templates/action-dialog/action-dialog.c
 import { DialogService } from './services/dialog-service/dialog.service';
 import { GroupCatalogueComponent } from './components/group-catalogue/group-catalogue.component';
 import { AuthGuard } from './guards/auth.guard';
+import { GroupLayoutComponent } from './templates/group-layout/group-layout.component';
+import { UserService } from './services/user-service/user.service';
+import { UnsuccessfulJoinComponent } from './templates/unsuccessful-join/unsuccessful-join.component';
 
 @Injectable()
 export class HammerConfig extends HammerGestureConfig {
@@ -88,7 +91,9 @@ export class HammerConfig extends HammerGestureConfig {
     GroupStrengthComponent,
     GroupProfileComponent,
     ActionDialogComponent,
-    GroupCatalogueComponent
+    GroupCatalogueComponent,
+    GroupLayoutComponent,
+    UnsuccessfulJoinComponent
   ],
   imports: [
     ReactiveFormsModule,
@@ -110,15 +115,21 @@ export class HammerConfig extends HammerGestureConfig {
     MatNativeDateModule,
     MatDatepickerModule,
     MatCheckboxModule,
-    HammerModule
+    HammerModule,
   ],
   providers: [
     ContentManagerService, ScreenLayoutService, AuthGuard,
-    StyleManagerService, GroupService, DialogService,
+    StyleManagerService, GroupService, DialogService, UserService,
     {
       provide: HAMMER_GESTURE_CONFIG,
       useClass: HammerConfig
-    }
+    },
+    {provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: {
+      duration: 3000,
+      panelClass: ['app-snackbar-success', 'app-snackbar-error'],
+      verticalPosition: 'top',
+      horizontalPosition: 'right',
+    }}
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent]

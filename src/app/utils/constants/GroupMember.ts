@@ -54,13 +54,13 @@ export const previousEpsGroupMembers: GroupMember[] = [
 
 export const fullGroupMembers: GroupMember[] = [
   { name: 'Elena Smith', paidOut: false, rank: 1, reputationScore: 95, profilePic: profilePic },
-  { name: 'Daniel Brown', paidOut: false, rank: 2, reputationScore: 88, profilePic: profilePic },
-  { name: 'Lucy Wilson', paidOut: false, rank: 3, reputationScore: 91, profilePic: profilePic },
-  { name: 'Max Johnson', paidOut: false, rank: 4, reputationScore: 82, profilePic: profilePic },
-  { name: 'Sophia Lee', paidOut: false, rank: 5, reputationScore: 87, profilePic: profilePic },
-  { name: 'Oliver Martin', paidOut: false, rank: 6, reputationScore: 89, profilePic: profilePic },
-  { name: 'Isabella Garcia', paidOut: false, rank: 7, reputationScore: 86, profilePic: profilePic },
-  { name: 'Noah Davis', paidOut: false, rank: 8, reputationScore: 90, profilePic: profilePic },
-  { name: 'Emma Rodriguez', paidOut: false, rank: 9, reputationScore: 85, profilePic: profilePic },
+  { name: 'Daniel Brown', paidOut: false, rank: 2, reputationScore: 93, profilePic: profilePic },
+  { name: 'Lucy Wilson', paidOut: false, rank: 3, reputationScore: 94, profilePic: profilePic },
+  { name: 'Max Johnson', paidOut: false, rank: 4, reputationScore: 94, profilePic: profilePic },
+  { name: 'Sophia Lee', paidOut: false, rank: 5, reputationScore: 93, profilePic: profilePic },
+  { name: 'Oliver Martin', paidOut: false, rank: 6, reputationScore: 93, profilePic: profilePic },
+  { name: 'Isabella Garcia', paidOut: false, rank: 7, reputationScore: 92, profilePic: profilePic },
+  { name: 'Noah Davis', paidOut: false, rank: 8, reputationScore: 92, profilePic: profilePic },
+  { name: 'Emma Rodriguez', paidOut: false, rank: 9, reputationScore: 93, profilePic: profilePic },
   { name: 'Liam Hernandez', paidOut: false, rank: 10, reputationScore: 84, profilePic: profilePic }
 ];

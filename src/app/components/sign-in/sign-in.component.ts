@@ -54,9 +54,7 @@ export class SignInComponent implements OnInit{
           message: this.errorMsg,
           type: 'error'
         },
-        duration: 3000,
-        verticalPosition: 'top',
-        horizontalPosition: 'right'
+        panelClass: 'app-snackbar-error',
       });
     }
     else this.toVerification();

@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Community } from 'src/app/interaces/Community';
 import { Group } from 'src/app/interaces/Group';
 import { GroupDetail } from 'src/app/interaces/GroupDetails';
+import { User } from 'src/app/interaces/User';
 import { GroupService } from 'src/app/services/group-service/group.service';
+import { UserService } from 'src/app/services/user-service/user.service';
 import { userGroups } from 'src/app/utils/constants/UserGroupDetail';
 
 @Component({
@@ -13,26 +15,11 @@ import { userGroups } from 'src/app/utils/constants/UserGroupDetail';
 export class UserDashboardComponent implements OnInit {
   
   profilePic = '/assets/img/profile.png';
-
-  firstName = 'Matgomory';
-  lastName = 'Ckan';
   useShortenedName = '';
-  userReputation = 86;
-  activeGroupCount = 2;
-  location = 'Hartford, CT';
-  currentSaving = 12000;
+  currentUser: User; 
 
-  activeGroups: GroupDetail[] = userGroups.filter(group => group.isActive).sort((a, b) => {
-    const dateA = new Date(a.nextContributionDate).getTime();
-    const dateB = new Date(b.nextContributionDate).getTime();
-    return dateA - dateB;
-  });
-
-  previousGroups: GroupDetail[] = userGroups.filter(group => !group.isActive).sort((a, b) => {
-    const dateA = new Date(a.nextContributionDate).getTime();
-    const dateB = new Date(b.nextContributionDate).getTime();
-    return dateA - dateB;
-  });
+  activeGroups: GroupDetail[];
+  previousGroups: GroupDetail[];
   
   nextPayoutDate: Date | null;
   daysUntilPayout!: number | null;
@@ -42,7 +29,18 @@ export class UserDashboardComponent implements OnInit {
   trendingGroups!: Group[];
   trendingCommunities: Community[]
 
-  constructor(private groupService: GroupService) {
+  constructor(private groupService: GroupService, private userService: UserService) {
+    this.currentUser = this.userService.getCurrentUser();
+    this.activeGroups = this.currentUser.groups.filter(group => group.isActive).sort((a, b) => {
+      const dateA = new Date(a.nextContributionDate).getTime();
+      const dateB = new Date(b.nextContributionDate).getTime();
+      return dateA - dateB;
+    });
+    this.previousGroups = this.currentUser.groups.filter(group => !group.isActive).sort((a, b) => {
+      const dateA = new Date(a.nextContributionDate).getTime();
+      const dateB = new Date(b.nextContributionDate).getTime();
+      return dateA - dateB;
+    });
     this.nextPayoutDate = this.determineEarliestPayoutDate();
     this.trendingGroups = this.groupService.getTrendingGroups();
     this.trendingCommunities = this.groupService.getTrendingCommunities();
@@ -50,7 +48,7 @@ export class UserDashboardComponent implements OnInit {
   
 
   ngOnInit(): void {
-    this.shortenName(this.firstName, this.lastName);
+    this.shortenName(this.currentUser.firstName, this.currentUser.lastName);
     this.calculateDaysUntilPayout();
   }
 
@@ -98,6 +96,14 @@ determineEarliestPayoutDate(): Date | null{
   });
 
   return earliestNextPayoutDate;
+}
+
+getGroupProfileRoute(groupName: string): string {
+  return this.groupService.getGroupProfileRoute(groupName);
+}
+
+getGroupDashboardRoute(groupName: string): string {
+  return this.groupService.getGroupDashboardRoute(groupName);
 }
   
 }

@@ -13,8 +13,6 @@ import { userGroups } from 'src/app/utils/constants/UserGroupDetail';
 })
 export class GroupDashboardComponent implements OnInit {
   
-groupName!: string;
-
 userPrevGroups: Group[] = prevGroups
 group!: Group;
 groupStats: any[] = [];
@@ -25,12 +23,12 @@ constructor(private route: ActivatedRoute, private groupService: GroupService) {
 
 ngOnInit() {
   const routeGroupName = this.route.snapshot.paramMap.get('groupName');
-  if (routeGroupName) {
-    this.groupName = routeGroupName.toUpperCase();
-    this.group = this.groupService.findUserGroup(this.groupName)
-  } else {
-    console.error('Group name is missing');
-  }
+    if (routeGroupName) {
+      const groupName = routeGroupName.replace(/-/g, ' ');
+      this.group = this.groupService.findUserGroup(groupName);
+    } else {
+      console.error('Group name is missing');
+    }
   this.setData()
   this.messageCount = Math.floor(Math.random() * 98);
 }

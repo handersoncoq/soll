@@ -1,6 +1,11 @@
 <div matSnackBarActions>
   <div class="snack-logo-box"><img [src]="appLogo" alt="Soll" /></div>
-  <div class="msg-container" matSnackBarLabel>{{ data.message }}</div>
+  <div class="msg-container" matSnackBarLabel>
+    <span>
+      <span>{{ data.message }}</span>
+      <span class="learn-more" *ngIf="data.learnMore" (click)="performAction()" >Learn More</span>
+    </span>
+  </div>
   <button mat-button matSnackBarAction (click)="closeSnackbar()">
     <mat-icon class="small-icon" [ngClass]="data.type">{{
       getIconName(data.type)

@@ -19,7 +19,7 @@
     </div>
   </div>
   <div class="sub-title">
-    Note: The catalog has been filtered to match your current location. If you
+    Note: The catalog may have been filtered to match your current location. If you
     have recently moved, please update your location in your profile settings.
   </div>
 
@@ -63,10 +63,10 @@
         [spaceBetween]="20"
       >
         <swiper-slide *ngFor="let group of searchResults">
-          <app-trending-groups
-            routerLink="/group/{{ group.groupName }}/profile"
-            [trendingGroup]="group"
-          ></app-trending-groups>
+          <app-group-layout
+            [routerLink]="getGroupProfileRoute(group.groupName)"
+            [group]="group"
+          ></app-group-layout>
         </swiper-slide>
       </swiper-container>
     </div>
@@ -78,69 +78,30 @@
 </p>
 
 <div *ngIf="searchResults.length === 0 && noSearchResult == false">
-  <mat-card *ngIf="groupArrays[0]" class="trending-card" appLazyLoadText>
-    <mat-card-content>
-      <div class="slide-groups">
-        <swiper-container
-          [slides-per-view]="5"
-          navigation="false"
-          pagination="true"
-          scrollbar="false"
-          speed="500"
-          [spaceBetween]="20"
-        >
-          <swiper-slide *ngFor="let group of groupArrays[0]">
-            <app-trending-groups
-              routerLink="/group/{{ group.groupName }}/profile"
-              [trendingGroup]="group"
-            ></app-trending-groups>
-          </swiper-slide>
-        </swiper-container>
-      </div>
-    </mat-card-content>
-  </mat-card>
-  <mat-card *ngIf="groupArrays[1]" class="trending-card" appLazyLoadText>
-    <mat-card-content>
-      <div class="slide-groups">
-        <swiper-container
-          [slides-per-view]="5"
-          navigation="false"
-          pagination="true"
-          scrollbar="false"
-          speed="500"
-          [spaceBetween]="20"
-        >
-          <swiper-slide *ngFor="let group of groupArrays[1]">
-            <app-trending-groups
-              routerLink="/group/{{ group.groupName }}/profile"
-              [trendingGroup]="group"
-            ></app-trending-groups>
-          </swiper-slide>
-        </swiper-container>
-      </div>
-    </mat-card-content>
-  </mat-card>
-  <mat-card *ngIf="groupArrays[2]" class="trending-card" appLazyLoadText>
-    <mat-card-content>
-      <div class="slide-groups">
-        <swiper-container
-          [slides-per-view]="5"
-          navigation="false"
-          pagination="true"
-          scrollbar="false"
-          speed="500"
-          [spaceBetween]="20"
-        >
-          <swiper-slide *ngFor="let group of groupArrays[2]">
-            <app-trending-groups
-              routerLink="/group/{{ group.groupName }}/profile"
-              [trendingGroup]="group"
-            ></app-trending-groups>
-          </swiper-slide>
-        </swiper-container>
-      </div>
-    </mat-card-content>
-  </mat-card>
+  <ng-container *ngFor="let cityGroups of groupArrays">
+    <mat-card *ngIf="cityGroups.length > 0" class="trending-card" appLazyLoadText>
+      <mat-card-content>
+        <div class="slide-groups">
+          <swiper-container
+            [slides-per-view]="5"
+            navigation="false"
+            pagination="true"
+            scrollbar="false"
+            speed="500"
+            [spaceBetween]="20"
+          >
+            <swiper-slide *ngFor="let group of cityGroups">
+              <app-group-layout
+              [routerLink]="getGroupProfileRoute(group.groupName)"
+              [group]="group"
+              ></app-group-layout>
+            </swiper-slide>
+          </swiper-container>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </ng-container>
+  
 </div>
 
 <!-- Filter Menu -->

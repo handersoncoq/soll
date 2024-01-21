@@ -3,9 +3,11 @@ import { GroupMember } from "./GroupMember";
 
 export interface GroupDetail {
     groupName: string;
+    groupLocation: string,
     payoutSystem: string;
     savingsTarget: number;
-    contribution: string;
+    contribution: number,
+    frequency: string,
     groupSize: number;
     rank: any;
     nextContributionDate: any;

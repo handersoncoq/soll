@@ -61,29 +61,6 @@ input{
     }
   }
 
-  .mat-mdc-tooltip .mdc-tooltip__surface {
-    font-size: small !important;
-    line-height: 1.5;
-    white-space: pre-line;
-    text-align: left;
-    color: $accent-color !important;
-    background-color: white !important;
-    border-radius: 0.8em !important;
-    padding: 0.6em;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
-
-   }
-
-   .mat-tooltip-arrow::after {
-    content: '';
-    position: absolute;
-    left: 50%;
-    margin-left: -5px;
-    border-width: 5px;
-    border-style: solid;
-    border-color: transparent transparent white transparent;
-  }
-
   .member-tooltip-arrow::after{
     transform: rotate(180deg);
     top: 100%;
@@ -223,6 +200,29 @@ input{
       }
   }
 
+  .mat-mdc-tooltip .mdc-tooltip__surface {
+    font-size: small !important;
+    line-height: 1.5;
+    white-space: pre-line;
+    text-align: left;
+    color: $accent-color !important;
+    background-color: white !important;
+    border-radius: 0.8em !important;
+    padding: 0.6em;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+
+   }
+
+   .mat-tooltip-arrow::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent white transparent;
+  }
+
 // dashboard- user groups - communties
 .outer-progress{
     margin: 0.3em 0;
@@ -318,7 +318,7 @@ input{
 .pre-g-dashboard, .pre-g-profile {
   margin: 0;
   display: grid;
-  grid-template-columns: 3fr 1fr;
+  grid-template-columns: 4fr 1fr;
   gap: 1em;
   padding: 0 1em;
   padding-top: 0.3em;
@@ -327,18 +327,21 @@ input{
   transition: top 1s ease-in-out;
   
   .vert-div{
-    color: $primary-color;
+    color: $accent-color;
   }
   .name-location {
-    color: $accent-color;
     margin-bottom: 2em;
     h3, h2 {
       padding: 0;
       margin: 0;
+      width: fit-content;
+    }
+    h3{
+      font-size: medium;
+      color: $progress-color;
     }
     h2 {
       line-height: 1.5;
-      color: $primary-color;
       font-size: 1.2em;
     }
   }
@@ -346,8 +349,9 @@ input{
 }
 
   .location-icon{
-    vertical-align: sub;
-    color: $primary-color;
+    vertical-align: text-bottom;
+    color: $progress-color;
+    font-size: 1.4em;
     margin-left: -0.2em;
   }
   

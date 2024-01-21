@@ -1,5 +1,5 @@
 import { GroupDetail } from 'src/app/interaces/GroupDetails';
-import { activeEcpsGroupMembers, activeEpsGroupMembers, previousEcpsGroupMembers, previousEpsGroupMembers } from './GroupMembers';
+import { activeEcpsGroupMembers, activeEpsGroupMembers, previousEcpsGroupMembers, previousEpsGroupMembers } from './GroupMember';
 import { groupLeaders } from './GroupLeaders';
 
 const present = new Date();
@@ -39,10 +39,12 @@ function getBINextContributionDate(startDate: Date): Date {
 
 export const userGroups: GroupDetail[] = [
   {
-    groupName: 'HAR-EPS-20230929-01',
+    groupName: 'Hartford Wealth Circle',
+    groupLocation: 'Hartford, CT',
     payoutSystem: 'EPS',
     savingsTarget: 10000,
-    contribution: '$500/BI',
+    contribution: 500,
+    frequency: 'Bi',
     groupSize: 10,
     rank: 5,
     nextContributionDate: getBINextContributionDate(epsStartDate),
@@ -53,10 +55,12 @@ export const userGroups: GroupDetail[] = [
     groupLeader: groupLeaders[5]
   },
   {
-    groupName: 'HAR-ECPS-20231212-04',
+    groupName: 'Hartford Savings Builders',
+    groupLocation: 'Hartford, CT',
     payoutSystem: 'ECPS',
     savingsTarget: 10000,
-    contribution: '$500/BI',
+    contribution: 500,
+    frequency: 'Bi',
     groupSize: 10,
     rank: 'n/a',
     nextContributionDate: getBINextContributionDate(ecpsStartDate),
@@ -67,10 +71,12 @@ export const userGroups: GroupDetail[] = [
     groupLeader: groupLeaders[4]
   },
   {
-    groupName: 'HAR-EPS-20230929-07',
+    groupName: 'Hartford Trust Alliance',
+    groupLocation: 'Hartford, CT',
     payoutSystem: 'EPS',
     savingsTarget: 7000,
-    contribution: '$1000/MO',
+    contribution: 1000,
+    frequency: 'Mo',
     groupSize: 7,
     rank: 1,
     nextContributionDate: null,
@@ -81,14 +87,16 @@ export const userGroups: GroupDetail[] = [
     groupLeader: groupLeaders[3]
   },
   {
-    groupName: 'HAR-ECPS-20230929-03',
+    groupName: 'Hartford Heritage Union',
+    groupLocation: 'Hartford, CT',
     payoutSystem: 'ECPS',
     savingsTarget: 5000,
     groupSize: 10,
     rank: 'n/a',
     nextContributionDate: null,
     startDate: new Date(2021, 10, 25),
-    contribution: '$500/BI',
+    contribution: 500,
+    frequency: 'Bi',
     endDate: new Date(2022, 2, 12),
     isActive: false,
     groupMembers: previousEcpsGroupMembers,

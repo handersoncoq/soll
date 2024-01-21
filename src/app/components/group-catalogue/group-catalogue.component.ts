@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { MatSelect, MatSelectChange } from '@angular/material/select';
+import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { debounceTime, takeUntil } from 'rxjs/operators';
 import { Group } from 'src/app/interaces/Group';
@@ -25,7 +26,7 @@ searchResults: Group[] = [];
 
 noSearchResult = false;
 
-constructor(private groupService: GroupService) {
+constructor(private groupService: GroupService, private router: Router) {
   this.searchControl.valueChanges.pipe(
     debounceTime(300),
     takeUntil(this.destroy$)
@@ -42,16 +43,24 @@ constructor(private groupService: GroupService) {
 
 ngOnInit() {
   this.groups = this.groupService.getGroups();
-  this.splitIntoSubArrays()
+  this.groupArrays = this.groupByCity(this.groups);
 }
 
-splitIntoSubArrays(): void {
-  for (let i = 0; i < this.groups.length; i += 2) {
-    const groupPair = this.groups.slice(i, i + 2);
-    if (groupPair.length > 0) {
-      this.groupArrays.push(groupPair);
+groupByCity(groups: any[]): any[] {
+  const grouped = groups.reduce((accumulator, group) => {
+    const key = group.groupLocation;
+    if (!accumulator[key]) {
+      accumulator[key] = [];
     }
-  }
+    accumulator[key].push(group);
+    return accumulator;
+  }, {});
+
+  return Object.values(grouped);
+}
+
+getGroupProfileRoute(groupName: string): string {
+  return this.groupService.getGroupProfileRoute(groupName);
 }
 
 openPanel() {

@@ -29,13 +29,22 @@ img{
     justify-content: flex-start;
     width: 100%;
     color: $accent-color;
-    font-size: small !important;
+    font-size: 14px;
 }
 
 button{
     padding: 0;
     margin: 0;
     width: fit-content;
+}
+
+.learn-more{
+    display: inline-flex;
+    width: fit-content;
+    font-size: 12px !important;
+    font-weight: bold;
+    padding-left: 0.5em;
+    color: $primary-color !important;
 }
 
 .small-icon {
@@ -56,11 +65,11 @@ button{
 }
 
 .error {
-    margin-top: -0.2em;
-    margin-right: -1.3em !important;
+    margin-top: -0.13em;
+    margin-right: -1.1em !important;
     color: $error-color;
     overflow: visible;
-    font-size: 1.7em !important;
+    font-size: 1.8em !important;
   }
   
   .success {

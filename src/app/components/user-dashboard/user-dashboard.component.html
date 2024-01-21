@@ -4,7 +4,7 @@
     <div class="saving-alert" appStickyScroll>
       <div class="current-saving">
         <h3 appLazyLoadText>Your Savings</h3>
-        <h2 appLazyLoadText>{{ currentSaving | currency }}</h2>
+        <h2 appLazyLoadText>{{ currentUser.totalSavings| currency }}</h2>
       </div>
       <div class="alert-box">
         <mat-icon
@@ -25,7 +25,7 @@
               <div
                 class="outer-circle"
                 appConfigureDashboardHeader
-                [reputationScore]="userReputation"
+                [reputationScore]="currentUser.reputationScore"
               >
                 <div class="inner-circle-dynamic-fill">
                   <div class="img-container">
@@ -45,7 +45,7 @@
             <div class="reputation-score">
               <div class="label">Reputation Score</div>
               <div class="value">
-                {{ userReputation }}
+                {{ currentUser.reputationScore }}
               </div>
             </div>
             <div class="active-group">
@@ -62,7 +62,7 @@
             </div>
             <div class="location">
               <div class="label">Group Location</div>
-              <div class="value"> {{ location }}</div>
+              <div class="value"> {{ currentUser.address }}</div>
             </div>
           </div>
         </div>
@@ -81,7 +81,7 @@
           [spaceBetween]="20"
         >
           <swiper-slide class="user-group-slide" *ngFor="let group of activeGroups">
-            <app-active-groups routerLink="/group/{{group.groupName}}/dashboard" [activeGroup]="group"></app-active-groups>
+            <app-active-groups [routerLink]="getGroupDashboardRoute(group.groupName)" [activeGroup]="group"></app-active-groups>
           </swiper-slide>
         </swiper-container>
       </div>
@@ -99,7 +99,7 @@
           [spaceBetween]="20"
         >
           <swiper-slide class="user-group-slide" *ngFor="let group of previousGroups">
-            <app-prev-groups routerLink="/group/{{group.groupName}}/dashboard" [prevGroup]="group"></app-prev-groups>
+            <app-prev-groups [routerLink]="getGroupDashboardRoute(group.groupName)" [prevGroup]="group"></app-prev-groups>
           </swiper-slide>
         </swiper-container>
       </div>
@@ -122,7 +122,7 @@
             [spaceBetween]="20"
           >
             <swiper-slide *ngFor="let group of trendingGroups">
-              <app-trending-groups routerLink="/group/{{group.groupName}}/profile"  [trendingGroup]="group"></app-trending-groups>
+              <app-trending-groups [routerLink]="getGroupProfileRoute(group.groupName)" [trendingGroup]="group"></app-trending-groups>
             </swiper-slide>
           </swiper-container>
         </div>

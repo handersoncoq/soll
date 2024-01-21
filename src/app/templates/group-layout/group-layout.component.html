@@ -1,0 +1,32 @@
+<div class="group-layout">
+    <div class="group-details">
+      <div class="group-name">
+        {{ group.groupName }}
+        <span class="divide-vert">|</span> @if(group.payoutSystem === 'EPS')
+        {<mat-icon class="styled-icon">calendar_month</mat-icon>} @else {<mat-icon
+          class="styled-icon"
+          >linear_scale</mat-icon
+        >}
+      </div>
+      <div class="outer-progress">
+        <div class="inner-progress"></div>
+      </div>
+      <div class="section">
+        <span class="label">Savings Target: </span>
+        <span class="value">{{ group.savingsTarget | currency:'USD':'symbol':'1.0-0' }}</span>
+      </div>
+      <div class="section">
+        <span class="label">Contribution: </span>
+        <span class="value">{{ group.contribution | currency:'USD':'symbol':'1.0-0' }}/{{group.frequency}}</span>
+      </div>
+      <div class="section">
+        <span class="label">Group Size: </span>
+        <span class="value">{{ group.groupSize }}</span>
+      </div>
+      <div class="section">
+        <span class="label">Start Date: </span>
+        <span class="value">{{ group.startDate | date }}</span>
+      </div>
+    </div>
+  </div>
+  

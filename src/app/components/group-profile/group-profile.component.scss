@@ -141,9 +141,3 @@ $bottom-top-box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0
     font-size: 1.5em;
     color: #333;
   }
-
-  ::ng-deep .mat-mdc-snack-bar-container {
-    --mdc-snackbar-container-color: white;
-    border: solid $primary-color 1px;
-    border-radius: 4px;
-}

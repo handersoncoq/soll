@@ -21,6 +21,11 @@ export class SnackBarComponent {
     this.snackBarRef.dismiss();
   }
 
+  performAction(){
+    this.data.learnMore();
+    this.closeSnackbar();
+  }
+
   getIconName(type: string): string {
     switch (type) {
       case 'success': return 'check';
