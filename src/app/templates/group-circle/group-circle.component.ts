@@ -1,8 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
-import { GroupLeader } from 'src/app/interaces/GroupLeader';
+import { Group } from 'src/app/interaces/Group';
 import { GroupMember } from 'src/app/interaces/GroupMember';
-import { ActionDialogComponent } from '../action-dialog/action-dialog.component';
 import { DialogService } from 'src/app/services/dialog-service/dialog.service';
 
 @Component({
@@ -12,8 +10,7 @@ import { DialogService } from 'src/app/services/dialog-service/dialog.service';
 })
 export class GroupCircleComponent implements OnInit{
 
-  @Input() groupMembers!: GroupMember[] | undefined;
-  @Input() groupLeader!: GroupLeader | undefined;
+  @Input() group!: Group | undefined;
 
   currentUser = 'Matgomory Ckan';
 
@@ -21,10 +18,10 @@ export class GroupCircleComponent implements OnInit{
   
   ngOnInit(): void {
     // Calculate rotation and translation for each member based on their rank
-    const totalMembers = this.groupMembers?.length;
+    const totalMembers = this.group?.groupMembers.length;
     const angleStep = 360 / totalMembers!;
 
-    this.groupMembers?.forEach((member, index) => {
+    this.group?.groupMembers.forEach((member, index) => {
       const angle = angleStep * index;
       member['transform'] = `rotate(${angle}deg) translate(100px) rotate(-${angle}deg)`;
     });
@@ -39,15 +36,14 @@ export class GroupCircleComponent implements OnInit{
 
   openLeaderDialog() {
     const buttonClickCallback = () => {
-      console.log('Contact', this.groupLeader!.name);
+      console.log('Contact', this.group!.groupLeader.name);
     };
 
     this.dialogService.openLeaderDialog(
-      this.groupLeader!.name,
-      this.groupLeader!.reputationScore,
+      this.group!.groupLeader.name,
+      this.group!.groupLeader.reputationScore,
       buttonClickCallback
       );
   }
-  
 
 }

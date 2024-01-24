@@ -26,10 +26,7 @@
   <div class="group-dashboard">
     <div class="group-profile posh-container">
       <div class="group-circle">
-        <app-group-circle
-          [groupMembers]="group.groupMembers"
-          [groupLeader]="group.groupLeader"
-        ></app-group-circle>
+        <app-group-circle [group]="group"></app-group-circle>
       </div>
       <div class="group-strength">
         <div>

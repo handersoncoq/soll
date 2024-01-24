@@ -10,17 +10,61 @@ $subtle-white: #f5f5f5;
   width: 18em;
   height: 18em;
   margin: auto;
-  margin-top: 3em;
+  margin-left: -0.7em;
+  margin-top: 2.5em;
 }
 
 .outer-circle {
+  display: flex;
+  justify-content: center;
   position: relative;
   width: 100%;
   height: 100%;
   border-radius: 50%;
   background-color: $primary-color;
   border: double white 8px;
-  box-shadow: 0px 80px 50px -30px rgba(0, 0, 0, 0.15);
+}
+
+.icon-top, .icon-left, .icon-right, .icon-bottom{
+  display: flex;
+  justify-content: center;
+  background-color: white;
+  position: relative;
+  overflow: visible;
+  font-size: xx-large;
+  padding: 0 4px;
+  border-radius: 50%;
+}
+
+.icon-top{
+  margin-top: -0.6em;
+  padding-bottom: 8px;
+  border: solid white 2px;
+  background-color: $primary-color;
+  color: white;
+}
+
+.icon-left, .icon-right{
+  position: absolute;
+  padding: 0 0.12em;
+  padding-bottom: 0.25em;
+  top: 50%;
+}
+
+.icon-left{
+  left: -0.5em;
+}
+
+.icon-right{
+  right: -0.5em;
+  top: 50%;
+}
+
+.icon-bottom{
+  position: absolute;
+  bottom: -0.53em;
+  vertical-align: sub;
+  padding-bottom: 0.25em;
 }
 
 .member-profile {
@@ -37,13 +81,10 @@ $subtle-white: #f5f5f5;
 .inner-circle {
   position: absolute;
   top: 50%;
-  left: 50%;
   width: 5em;
   height: 5em;
-  margin-top: -2.2em;
-  margin-left: -1.95em;
+  margin-top: -2.6em;
   border-radius: 50%;
-  // border: solid white 1px;
   z-index: 1;
   box-shadow: $all-boxshadow;
 }

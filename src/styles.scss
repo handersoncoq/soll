@@ -194,19 +194,21 @@ body.dark-mode {
     }
   }
 
+  .group-profile, .pre-stats{
+    border: none;
+    border-bottom: solid white 1px;
+    border-top: solid white 1px;
+  }
+
   .posh-container {
     background-color: $background-accent-color;
     border-radius: 2em;
     padding: 1em 0;
-    border-top: solid $color-white 1px;
-    border-bottom: solid $color-white 1px;
+    padding-top: 0;
   }
 
   .pre-stats {
     background-color: $background-accent-color;
-    border: none;
-    border-top: solid white 1px;
-    border-bottom: solid white 1px;
   }
 
   .header-wrapper {
@@ -258,6 +260,10 @@ body.dark-mode {
     color: $color-white !important;
   }
 
+  .icon-top, .icon-left, .icon-right, .icon-bottom{
+    border: solid $accent-color 3px;
+  }
+
   .filter-sort{
     border-color: #6f8192;
     color: bisque;
@@ -270,12 +276,6 @@ body.dark-mode {
   .outer-circle {
     background-color: $primary-color;
     border-color: $accent-color;
-  }
-
-  .group-profile{
-    border: none;
-    border-top: solid white 1px;
-    border-bottom: solid white 1px;
   }
 
   @media screen and (min-width: 768px) {

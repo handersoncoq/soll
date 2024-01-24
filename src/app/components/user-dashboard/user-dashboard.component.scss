@@ -14,9 +14,9 @@ $bottom-top-box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0
   padding-right: 0;
   padding-bottom: 1em;
   border-radius: 2em;
+  border: solid $primary-color 1px;
   box-shadow: $bottom-top-box-shadow;
   margin-bottom: 1em;
-  border: solid $primary-color 1px;
   background-color: white;
 }
 .user-stats {

@@ -1,7 +1,17 @@
 <div class="circle-container">
   <div class="outer-circle">
+    <mat-icon
+      *ngIf="group?.payoutSystem === 'EPS'; else ecps"
+      class="icon-top"
+      color="primary"
+      >calendar_month</mat-icon
+    >
+    <ng-template #ecps>
+      <mat-icon class="icon-top" color="primary">savings</mat-icon>
+    </ng-template>
+    <mat-icon class="icon-left" color="primary">monetization_on</mat-icon>
     <div
-      *ngFor="let member of groupMembers"
+      *ngFor="let member of group!.groupMembers"
       class="member-profile"
       [ngStyle]="{ transform: member.transform }"
     >
@@ -24,20 +34,19 @@
         <mat-icon *ngIf="member.paidOut" class="paid-check">check</mat-icon>
       </div>
     </div>
-  </div>
-  <div class="inner-circle">
-    <div class="leader-profile">
-      <div
-        class="img-container leader-img-box"
-        (click)="openLeaderDialog()"
-      >
-        <img
-          class="profile-img leader-img"
-          [attr.data-src]="groupLeader?.profilePic"
-          appLazyLoading
-          alt="Member Profile"
-        />
+    <div class="inner-circle">
+      <div class="leader-profile">
+        <div class="img-container leader-img-box" (click)="openLeaderDialog()">
+          <img
+            class="profile-img leader-img"
+            [attr.data-src]="group!.groupLeader.profilePic"
+            appLazyLoading
+            alt="Member Profile"
+          />
+        </div>
       </div>
     </div>
+    <mat-icon class="icon-right" color="primary">check_circle</mat-icon>
+    <mat-icon class="icon-bottom" color="primary">change_circle</mat-icon>
   </div>
 </div>

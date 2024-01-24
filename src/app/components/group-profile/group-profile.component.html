@@ -22,33 +22,8 @@
 
   <div class="group-dashboard">
     <div class="group-profile posh-container">
-      <div class="group-status">
-        <div>
-          Status:
-          <mat-icon
-            *ngIf="isOpen(); else full"
-            class="open"
-            #tooltip="matTooltip"
-            matTooltip="This group is open"
-            (click)="tooltip.show()"
-            >circle</mat-icon
-          >
-        </div>
-        <ng-template #full>
-          <mat-icon
-            class="full"
-            #tooltip="matTooltip"
-            matTooltip="This group is full"
-            (click)="tooltip.show()"
-            >lock</mat-icon
-          >
-        </ng-template>
-      </div>
       <div class="group-circle">
-        <app-group-circle
-          [groupMembers]="group.groupMembers"
-          [groupLeader]="group.groupLeader"
-        ></app-group-circle>
+        <app-group-circle [group]="group"></app-group-circle>
       </div>
       <div class="group-strength">
         <div>
