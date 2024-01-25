@@ -273,9 +273,17 @@ body.dark-mode {
     border: none;
   }
 
+  .group-layout .group-details {
+    border: none !important;
+  }
+
   .outer-circle {
     background-color: $primary-color;
     border-color: $accent-color;
+  }
+
+  .add-it-icon{
+    background-color: $primary-color;
   }
 
   @media screen and (min-width: 768px) {

@@ -52,7 +52,8 @@ export const userGroups: GroupDetail[] = [
     endDate: getEPSendDate(epsStartDate),
     isActive: true,
     groupMembers: activeEpsGroupMembers,
-    groupLeader: groupLeaders[5]
+    groupLeader: groupLeaders[5],
+    cycle: 2
   },
   {
     groupName: 'Hartford Savings Builders',
@@ -68,7 +69,8 @@ export const userGroups: GroupDetail[] = [
     endDate: calculateECPSendDate(),
     isActive: true,
     groupMembers: activeEcpsGroupMembers,
-    groupLeader: groupLeaders[4]
+    groupLeader: groupLeaders[4],
+    cycle: 3
   },
   {
     groupName: 'Hartford Trust Alliance',
@@ -84,7 +86,8 @@ export const userGroups: GroupDetail[] = [
     endDate: new Date(2022, 7, 24),
     isActive: false,
     groupMembers: previousEpsGroupMembers,
-    groupLeader: groupLeaders[3]
+    groupLeader: groupLeaders[3],
+    cycle: 1
   },
   {
     groupName: 'Hartford Heritage Union',
@@ -100,6 +103,7 @@ export const userGroups: GroupDetail[] = [
     endDate: new Date(2022, 2, 12),
     isActive: false,
     groupMembers: previousEcpsGroupMembers,
-    groupLeader: groupLeaders[2]
+    groupLeader: groupLeaders[2],
+    cycle: 1
   },
 ];

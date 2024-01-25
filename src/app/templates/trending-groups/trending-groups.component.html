@@ -17,7 +17,7 @@
     </div>
     <div class="section">
       <span class="label">Contribution: </span>
-      <span class="value">{{ trendingGroup.contribution }}</span>
+      <span class="value">{{ trendingGroup.contribution | currency:'USD':'symbol':'1.0-0' }}/{{trendingGroup.frequency}}</span>
     </div>
     <div class="section">
       <span class="label">Group Size: </span>

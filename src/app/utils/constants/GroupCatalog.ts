@@ -18,7 +18,8 @@ export const groups: Group[] = [
         isActive: true,
         groupMembers: fullGroupMembers,
         groupLeader: groupLeaders[0],
-        minReputationScore: 92
+        minReputationScore: 92,
+        cycle: 3
       },
       {
         groupName: "Elm City Network",
@@ -34,7 +35,8 @@ export const groups: Group[] = [
         isActive: true,
         groupMembers: groupMembers[0],
         groupLeader: groupLeaders[1],
-        minReputationScore: 90
+        minReputationScore: 90,
+        cycle: 2
       },
       {
         groupName: "New Haven Trust",
@@ -50,7 +52,8 @@ export const groups: Group[] = [
         isActive: true,
         groupMembers: groupMembers[1],
         groupLeader: groupLeaders[2],
-        minReputationScore: 82
+        minReputationScore: 82,
+        cycle: 1
       },
     {
       groupName: "Bluegrass Savers",
@@ -66,7 +69,8 @@ export const groups: Group[] = [
       isActive: true,
       groupMembers: groupMembers[2],
       groupLeader: groupLeaders[3],
-      minReputationScore: 75
+      minReputationScore: 75,
+      cycle: 1
     },
     {
       groupName: "Lexington Legends",
@@ -82,7 +86,8 @@ export const groups: Group[] = [
       isActive: true,
       groupMembers: groupMembers[3],
       groupLeader: groupLeaders[4],
-      minReputationScore: 95
+      minReputationScore: 95,
+      cycle: 2
     },
     {
       groupName: "Kentucky Pioneers",
@@ -98,7 +103,8 @@ export const groups: Group[] = [
       isActive: true,
       groupMembers: groupMembers[4],
       groupLeader: groupLeaders[5],
-      minReputationScore: 75
+      minReputationScore: 75,
+      cycle: 1
     },
     {
       groupName: "Dallas Dreamers",
@@ -114,7 +120,8 @@ export const groups: Group[] = [
       isActive: true,
       groupMembers: groupMembers[5],
       groupLeader: groupLeaders[6],
-      minReputationScore: 95
+      minReputationScore: 95,
+      cycle: 3
     },
     {
       groupName: "Lone Star Savers",
@@ -130,7 +137,8 @@ export const groups: Group[] = [
       isActive: true,
       groupMembers: groupMembers[6],
       groupLeader: groupLeaders[7],
-      minReputationScore: 75
+      minReputationScore: 75,
+      cycle: 1
     },
     {
       groupName: "Texan Treasurers",
@@ -146,7 +154,8 @@ export const groups: Group[] = [
       isActive: true,
       groupMembers: groupMembers[7],
       groupLeader: groupLeaders[8],
-      minReputationScore: 82
+      minReputationScore: 82,
+      cycle: 1
     },
     {
       groupName: "Big Apple Savers",
@@ -162,7 +171,8 @@ export const groups: Group[] = [
       isActive: true,
       groupMembers: groupMembers[8],
       groupLeader: groupLeaders[9],
-      minReputationScore: 98
+      minReputationScore: 98,
+      cycle: 2
     },
     {
       groupName: "Empire State Investors",
@@ -178,7 +188,8 @@ export const groups: Group[] = [
       isActive: true,
       groupMembers: groupMembers[9],
       groupLeader: groupLeaders[10],
-      minReputationScore: 98
+      minReputationScore: 98,
+      cycle: 1
     },
     {
       groupName: "NYC Finance Circle",
@@ -194,7 +205,8 @@ export const groups: Group[] = [
       isActive: true,
       groupMembers: groupMembers[10],
       groupLeader: groupLeaders[11],
-      minReputationScore: 92
+      minReputationScore: 92,
+      cycle: 2
     },
     {
       groupName: "Tampa Bay Trust",
@@ -210,7 +222,8 @@ export const groups: Group[] = [
       isActive: true,
       groupMembers: groupMembers[11],
       groupLeader: groupLeaders[12],
-      minReputationScore: 80
+      minReputationScore: 80,
+      cycle: 2
     },
     {
       groupName: "Florida Finance Guild",
@@ -226,7 +239,8 @@ export const groups: Group[] = [
       isActive: true,
       groupMembers: groupMembers[12],
       groupLeader: groupLeaders[13],
-      minReputationScore: 70
+      minReputationScore: 70,
+      cycle: 1
     },
     {
       groupName: "Sunshine Savers",
@@ -242,6 +256,7 @@ export const groups: Group[] = [
       isActive: true,
       groupMembers: groupMembers[13],
       groupLeader: groupLeaders[14],
-      minReputationScore: 95
+      minReputationScore: 95,
+      cycle: 2
     }
 ];

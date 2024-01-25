@@ -119,6 +119,7 @@ mat-card{
   box-shadow: $box-shadow;
 }
 
+
 .search-results{
   box-shadow: none !important;
 }
@@ -203,4 +204,8 @@ mat-label{
   h4{
     margin: 1em 0.6em;
   }
+}
+
+swiper-slide {
+  padding-top: 0.6em !important;
 }

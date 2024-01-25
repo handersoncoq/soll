@@ -81,7 +81,7 @@
           [spaceBetween]="20"
         >
           <swiper-slide class="user-group-slide" *ngFor="let group of activeGroups">
-            <app-active-groups [routerLink]="getGroupDashboardRoute(group.groupName)" [activeGroup]="group"></app-active-groups>
+            <app-active-groups [routerLink]="getGroupDashboardRoute(group)" [activeGroup]="group"></app-active-groups>
           </swiper-slide>
         </swiper-container>
       </div>
@@ -99,7 +99,7 @@
           [spaceBetween]="20"
         >
           <swiper-slide class="user-group-slide" *ngFor="let group of previousGroups">
-            <app-prev-groups [routerLink]="getGroupDashboardRoute(group.groupName)" [prevGroup]="group"></app-prev-groups>
+            <app-prev-groups [routerLink]="getGroupDashboardRoute(group)" [prevGroup]="group"></app-prev-groups>
           </swiper-slide>
         </swiper-container>
       </div>
@@ -122,6 +122,7 @@
             [spaceBetween]="20"
           >
             <swiper-slide *ngFor="let group of trendingGroups">
+              <mat-icon [routerLink]="getGroupProfileRoute(group.groupName)" class="add-it-icon">add_circle</mat-icon>
               <app-trending-groups [routerLink]="getGroupProfileRoute(group.groupName)" [trendingGroup]="group"></app-trending-groups>
             </swiper-slide>
           </swiper-container>
@@ -142,9 +143,8 @@
             [spaceBetween]="20"
           >
             <swiper-slide *ngFor="let community of trendingCommunities">
-              <app-trending-communities
-                [trendingCommunity]="community"
-              ></app-trending-communities>
+              <mat-icon class="add-it-icon">add_circle</mat-icon>
+              <app-trending-communities [trendingCommunity]="community"></app-trending-communities>
             </swiper-slide>
           </swiper-container>
         </div>

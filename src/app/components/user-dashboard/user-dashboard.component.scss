@@ -243,11 +243,6 @@ $bottom-top-box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0
   vertical-align: text-bottom;
 }
 
-:host swiper-container {
-  .swiper-pagination-bullet-active {
-    background-color: $progress-color !important;
-  }
-}
 
 :host swiper-slide {
   width: auto !important;
@@ -267,6 +262,9 @@ $bottom-top-box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0
     padding: 0;
     padding-bottom: 0.5em;
     padding-left: 0.4em;
+  }
+  swiper-slide {
+    padding-top: 0.6em !important;
   }
 }
 

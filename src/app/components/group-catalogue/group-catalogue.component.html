@@ -63,7 +63,8 @@
         [spaceBetween]="20"
       >
         <swiper-slide *ngFor="let group of searchResults">
-          <app-group-layout
+          <mat-icon [routerLink]="getGroupProfileRoute(group.groupName)" class="add-it-icon">add_circle</mat-icon>
+          <app-group-layout class="group-layout"
             [routerLink]="getGroupProfileRoute(group.groupName)"
             [group]="group"
           ></app-group-layout>
@@ -91,7 +92,7 @@
             [spaceBetween]="20"
           >
             <swiper-slide *ngFor="let group of cityGroups">
-              <app-group-layout
+              <app-group-layout class="group-layout"
               [routerLink]="getGroupProfileRoute(group.groupName)"
               [group]="group"
               ></app-group-layout>

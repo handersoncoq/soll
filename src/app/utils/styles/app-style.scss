@@ -362,3 +362,37 @@ input{
 a {
     text-decoration: none;
   }
+
+.highlighted-link{
+  color: $progress-color;
+  width: fit-content;
+  cursor: pointer;
+  &:hover{
+    text-decoration: overline;
+  }
+}
+
+.no-group-fallback{
+  margin: 1em;
+  margin-top: 10em;
+  mat-icon{
+    color: rgb(174, 38, 14);
+    vertical-align: text-bottom;
+  }
+}
+
+.add-it-icon{
+  margin-top: -0.4em;
+  font-size: xx-large;
+  position: relative;
+  z-index: 100;
+  color: $progress-color;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.15) -12px 21px 24px -10px;
+  overflow: visible !important;
+  display: flex !important;
+  float: right;
+  border-radius: 50%;
+  justify-content: center;
+  margin-right: 0.4em;
+}

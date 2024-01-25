@@ -46,4 +46,10 @@ export class GroupCircleComponent implements OnInit{
       );
   }
 
+  getPaidMembersCount(): number{
+    return this.group!.groupMembers.filter(
+      member =>member.paidOut
+      ).length
+  }
+
 }

@@ -34,6 +34,7 @@ $subtle-white: #f5f5f5;
   font-size: xx-large;
   padding: 0 4px;
   border-radius: 50%;
+  cursor: pointer;
 }
 
 .icon-top{
@@ -86,6 +87,7 @@ $subtle-white: #f5f5f5;
   margin-top: -2.6em;
   border-radius: 50%;
   z-index: 1;
+  cursor: pointer;
   box-shadow: $all-boxshadow;
 }
 

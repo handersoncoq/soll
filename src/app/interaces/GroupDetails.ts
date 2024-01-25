@@ -15,5 +15,6 @@ export interface GroupDetail {
     endDate: Date,
     isActive: boolean,
     groupMembers: GroupMember[],
-    groupLeader: GroupLeader
+    groupLeader: GroupLeader,
+    cycle: number
   }

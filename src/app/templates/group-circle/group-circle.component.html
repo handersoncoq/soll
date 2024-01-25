@@ -1,15 +1,26 @@
 <div class="circle-container">
   <div class="outer-circle">
     <mat-icon
-      *ngIf="group?.payoutSystem === 'EPS'; else ecps"
+      *ngIf="group!.payoutSystem === 'EPS'; else ecps"
       class="icon-top"
       color="primary"
+      #tooltip1="matTooltip"
+      matTooltip="Payout System: {{group!.payoutSystem}}"
+      (click)="tooltip1.show()"
       >calendar_month</mat-icon
     >
     <ng-template #ecps>
-      <mat-icon class="icon-top" color="primary">savings</mat-icon>
+      <mat-icon 
+      #tooltip1="matTooltip"
+      matTooltip="Payout System: {{group!.payoutSystem}}"
+      (click)="tooltip1.show()"
+      class="icon-top" color="primary">savings</mat-icon>
     </ng-template>
-    <mat-icon class="icon-left" color="primary">monetization_on</mat-icon>
+    <mat-icon 
+    #tooltip2="matTooltip"
+    matTooltip="Savings Target: {{group!.savingsTarget | currency:'USD':'symbol':'1.0-0'}}"
+    (click)="tooltip2.show()"
+    class="icon-left" color="primary">monetization_on</mat-icon>
     <div
       *ngFor="let member of group!.groupMembers"
       class="member-profile"
@@ -17,10 +28,10 @@
     >
       <div
         class="img-container"
-        #tooltip="matTooltip"
+        #tooltip3="matTooltip"
         [matTooltip]="getMemberInfo(member)"
         matTooltipClass="mat-tooltip-arrow member-tooltip-arrow"
-        (click)="tooltip.show()"
+        (click)="tooltip3.show()"
         [ngClass]="{ 'paid-out': member.paidOut }"
         matTooltipPosition="above"
         matTooltipShowDelay="0"
@@ -46,7 +57,15 @@
         </div>
       </div>
     </div>
-    <mat-icon class="icon-right" color="primary">check_circle</mat-icon>
-    <mat-icon class="icon-bottom" color="primary">change_circle</mat-icon>
+    <mat-icon
+    #tooltip4="matTooltip"
+    matTooltip="Paid Members: {{getPaidMembersCount()}}"
+    (click)="tooltip4.show()"
+    class="icon-right" color="primary">check_circle</mat-icon>
+    <mat-icon 
+    #tooltip5="matTooltip"
+    matTooltip="cycle {{ group!.cycle.toString() }}"
+    (click)="tooltip5.show()"
+    class="icon-bottom" color="primary">change_circle</mat-icon>
   </div>
 </div>

@@ -7,7 +7,7 @@ export const activeEpsGroupMembers: GroupMember[] = [
     { name: 'Bob Just', paidOut: true, rank: 2, reputationScore: 84, profilePic: profilePic  },
     { name: 'Charlie Pierre', paidOut: true, rank: 3, reputationScore: 82, profilePic: profilePic  },
     { name: 'Pedro Ross', paidOut: true, rank: 4, reputationScore: 81, profilePic: profilePic  },
-    { name: 'Matgomory Ckan', paidOut: false, rank: 5, reputationScore: 85, profilePic: profilePic  },
+    { name: 'Matgomory Ckan', paidOut: false, rank: 5, reputationScore: 90, profilePic: profilePic  },
     { name: 'Fiona Bel', paidOut: false, rank: 6, reputationScore: 90, profilePic: profilePic  },
     { name: 'George Bertin', paidOut: false, rank: 7, reputationScore: 89, profilePic: profilePic  },
     { name: 'Augustina Buen', paidOut: false, rank: 8, reputationScore: 80, profilePic: profilePic  },
@@ -22,14 +22,14 @@ export const activeEpsGroupMembers: GroupMember[] = [
     { name: 'Lewis Julien', paidOut: false, rank: 'n/a', reputationScore: 76, profilePic: profilePic  },
     { name: 'Ian White', paidOut: false, rank: 'n/a', reputationScore: 72, profilePic: profilePic  },
     { name: 'Morgan Morse', paidOut: false, rank: 'n/a', reputationScore: 82, profilePic: profilePic  },
-    { name: 'Matgomory Ckan', paidOut: false, rank: 'n/a', reputationScore: 85, profilePic: profilePic  },
+    { name: 'Matgomory Ckan', paidOut: false, rank: 'n/a', reputationScore: 90, profilePic: profilePic  },
     { name: 'Alana Coin', paidOut: false, rank: 'n/a', reputationScore: 74, profilePic: profilePic  },
     { name: 'Lacosse Force', paidOut: false, rank: 'n/a', reputationScore: 82, profilePic: profilePic  },
     { name: 'Pria Patti', paidOut: false, rank: 'n/a', reputationScore: 77, profilePic: profilePic  }
   ];
 
 export const previousEpsGroupMembers: GroupMember[] = [
-    { name: 'Matgomory Ckan', paidOut: true, rank: 1, reputationScore: 85, profilePic: profilePic },
+    { name: 'Matgomory Ckan', paidOut: true, rank: 1, reputationScore: 90, profilePic: profilePic },
     { name: 'David Sun', paidOut: true, rank: 2, reputationScore: 89, profilePic: profilePic },
     { name: 'Emily River', paidOut: true, rank: 3, reputationScore: 87, profilePic: profilePic },
     { name: 'Frank Ocean', paidOut: true, rank: 4, reputationScore: 85, profilePic: profilePic },
@@ -44,7 +44,7 @@ export const previousEpsGroupMembers: GroupMember[] = [
     { name: 'Isabel Young', paidOut: true, rank: 'n/a', reputationScore: 85, profilePic: profilePic },
     { name: 'Kevin Tailor', paidOut: true, rank: 'n/a', reputationScore: 68, profilePic: profilePic },
     { name: 'Linda Beam', paidOut: true, rank: 'n/a', reputationScore: 65, profilePic: profilePic },
-    { name: 'Matgomory Ckan', paidOut: true, rank: 'n/a', reputationScore: 85, profilePic: profilePic },
+    { name: 'Matgomory Ckan', paidOut: true, rank: 'n/a', reputationScore: 90, profilePic: profilePic },
     { name: 'Nancy Dream', paidOut: true, rank: 'n/a', reputationScore: 71, profilePic: profilePic },
     { name: 'Oscar King', paidOut: true, rank: 'n/a', reputationScore: 73, profilePic: profilePic },
     { name: 'Patricia Quick', paidOut: true, rank: 'n/a', reputationScore: 83, profilePic: profilePic },

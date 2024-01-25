@@ -8,6 +8,8 @@ import { ActionDialogComponent } from 'src/app/templates/action-dialog/action-di
 })
 export class DialogService {
   private dialogRef: any;
+  enterAnimationDuratio= '500ms';
+  exitAnimationDuration='500ms';
 
   constructor(private dialog: MatDialog) {}
 
@@ -26,6 +28,8 @@ export class DialogService {
         action: 'Contact Group Leader',
         buttonClickCallback,
       },
+      enterAnimationDuration: this.enterAnimationDuratio,
+      exitAnimationDuration: this.exitAnimationDuration
     });
 
     return this.dialogRef;
@@ -44,6 +48,8 @@ export class DialogService {
         action: 'Confirm',
         buttonClickCallback,
       },
+      enterAnimationDuration: this.enterAnimationDuratio,
+      exitAnimationDuration: this.exitAnimationDuration
     });
 
     return this.dialogRef;

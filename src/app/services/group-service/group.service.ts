@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Community } from 'src/app/interaces/Community';
 import { Group } from 'src/app/interaces/Group';
-import { GroupMember } from 'src/app/interaces/GroupMember';
 import { User } from 'src/app/interaces/User';
 import { groups } from 'src/app/utils/constants/GroupCatalog';
 import { prevGroups } from 'src/app/utils/constants/PreviousGroups';
@@ -27,7 +26,8 @@ export class GroupService {
     isActive: groupDetail.isActive,
     groupMembers: groupDetail.groupMembers,
     groupLeader: groupDetail.groupLeader,
-    minReputationScore: 80
+    minReputationScore: 80,
+    cycle: groupDetail.cycle
   }));
   
   userPrevGroups: Group[] = prevGroups
@@ -71,9 +71,9 @@ getUserPreviousGroups(): Group[]{
     return `/group/${formattedName}/profile`;
   }
 
-  getGroupDashboardRoute(groupName: string): string {
+  getGroupDashboardRoute(groupName: string, cycleNumber: number): string {
     let formattedName = this.formatGroupName(groupName);
-    return `/group/${formattedName}/dashboard`;
+    return `/group/${formattedName}/cycle/${cycleNumber}/dashboard`;
   }
 
   formatGroupName(groupName: string): string{

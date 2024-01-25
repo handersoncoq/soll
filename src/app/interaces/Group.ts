@@ -15,5 +15,6 @@ export interface Group {
     isActive: boolean,
     groupMembers: GroupMember[],
     groupLeader: GroupLeader,
-    minReputationScore: number
+    minReputationScore: number,
+    cycle: number
   }

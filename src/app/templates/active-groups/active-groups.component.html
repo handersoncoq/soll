@@ -22,7 +22,7 @@
       </div>
       <div class="section">
         <span class="label">Contribution: </span>
-        <span class="value">{{ activeGroup.contribution }}</span>
+        <span class="value">{{ activeGroup.contribution | currency:'USD':'symbol':'1.0-0' }}/{{activeGroup.frequency}}</span>
       </div>
       <div class="section">
         <span class="label">Group Size: </span>

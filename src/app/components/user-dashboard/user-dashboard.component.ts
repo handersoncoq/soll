@@ -102,8 +102,8 @@ getGroupProfileRoute(groupName: string): string {
   return this.groupService.getGroupProfileRoute(groupName);
 }
 
-getGroupDashboardRoute(groupName: string): string {
-  return this.groupService.getGroupDashboardRoute(groupName);
+getGroupDashboardRoute(group: GroupDetail): string {
+  return this.groupService.getGroupDashboardRoute(group.groupName, group.cycle);
 }
   
 }
