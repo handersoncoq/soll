@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { GroupDetail } from 'src/app/interaces/GroupDetails';
+import { StyleManagerService } from 'src/app/services/style-manager/style-manager.service';
 
 @Component({
   selector: 'app-active-groups',
@@ -9,5 +10,13 @@ import { GroupDetail } from 'src/app/interaces/GroupDetails';
 export class ActiveGroupsComponent {
 
   @Input() activeGroup!: GroupDetail;
+
+  constructor(private styleManager: StyleManagerService){}
+
+  ngOnInit(): void {}
+
+  getPayoutSystemIcon(): string{
+    return this.styleManager.getPayoutSystemIcon(this.activeGroup)
+  }
 
 }

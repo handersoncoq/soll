@@ -1,21 +1,13 @@
 <div class="circle-container">
   <div class="outer-circle">
     <mat-icon
-      *ngIf="group!.payoutSystem === 'EPS'; else ecps"
       class="icon-top"
       color="primary"
       #tooltip1="matTooltip"
       matTooltip="Payout System: {{group!.payoutSystem}}"
       (click)="tooltip1.show()"
-      >calendar_month</mat-icon
+      >{{getPayoutSystemIcon()}}</mat-icon
     >
-    <ng-template #ecps>
-      <mat-icon 
-      #tooltip1="matTooltip"
-      matTooltip="Payout System: {{group!.payoutSystem}}"
-      (click)="tooltip1.show()"
-      class="icon-top" color="primary">savings</mat-icon>
-    </ng-template>
     <mat-icon 
     #tooltip2="matTooltip"
     matTooltip="Savings Target: {{group!.savingsTarget | currency:'USD':'symbol':'1.0-0'}}"

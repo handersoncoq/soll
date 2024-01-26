@@ -30,6 +30,21 @@ $bottom-top-box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0
       }
     }
   }
+
+  .group-status{
+    display: flex;
+    float: inline-end;
+    padding: 1em;
+    padding-bottom: 0;
+    width: fit-content;
+    margin-bottom: -3em;
+    font-size: small;
+    mat-icon{
+      padding-left: 3px;
+      font-size: large;
+      vertical-align: sub;
+    }
+  }
   
   .performance{
     border: none;

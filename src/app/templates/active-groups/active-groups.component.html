@@ -2,11 +2,8 @@
     <div class="group-details">
       <div class="group-name">
         {{ activeGroup.groupName }}
-        <span class="divide-vert">|</span> @if(activeGroup.payoutSystem === 'EPS')
-        {<mat-icon class="styled-icon">calendar_month</mat-icon>} @else {<mat-icon
-          class="styled-icon"
-          >savings</mat-icon
-        >}
+        <span class="divide-vert">|</span>
+        <mat-icon class="styled-icon">{{getPayoutSystemIcon()}}</mat-icon>
       </div>
       <div class="outer-progress">
         <div

@@ -110,36 +110,54 @@
 <mat-menu #filterMenu="matMenu" xPosition="after" class="post-login-menu">
   <ng-template matMenuContent>
     <div class="menu-items filter-items">
-      <h4>Filter By:</h4>
-      <form class="menu-form filter-form" (click)="preventDefaultClose($event)">
+        <h4>Filter By:
+          <mat-icon class="close-menu-icon" color="primary">close</mat-icon>
+        </h4> 
+      <form [formGroup]="filterForm" class="menu-form filter-form" (click)="preventDefaultClose($event)">
         <mat-form-field class="menu-form-field">
           <mat-label>Savings Target</mat-label>
-          <input matInput placeholder="15000" type="number" />
+          <input #savingTargetInput matInput placeholder="$ 10000" type="number" formControlName="savingsTarget"/>
+        </mat-form-field>
+
+        <mat-form-field class="menu-form-field">
+          <mat-label>Payout System</mat-label>
+          <input matInput placeholder="EPS" type="text" formControlName="payoutSystem"/>
         </mat-form-field>
 
         <mat-form-field class="menu-form-field">
           <mat-label>Contribution</mat-label>
-          <input matInput placeholder="500/bi" type="text" />
+          <input matInput placeholder="$ 500" type="number" formControlName="contribution"/>
         </mat-form-field>
+
+        <mat-form-field class="menu-form-field">
+          <mat-label>Frequency</mat-label>
+          <input matInput placeholder="Bi or Mo" type="text" formControlName="frequency"/>
+        </mat-form-field>
+
 
         <mat-form-field class="menu-form-field">
           <mat-label>Start Date</mat-label>
-          <input placeholder="mm/dd/yy" matInput />
-        </mat-form-field>
+          <input matInput [matDatepicker]="startDatePicker" formControlName="startDate" placeholder="mm/dd/yyyy">
+          <mat-datepicker-toggle class="date-picker" matSuffix [for]="startDatePicker"></mat-datepicker-toggle>
+          <mat-datepicker #startDatePicker></mat-datepicker>
+        </mat-form-field>        
 
         <mat-form-field class="menu-form-field">
           <mat-label>End Date</mat-label>
-          <input placeholder="mm/dd/yy" matInput />
-        </mat-form-field>
+          <input matInput [matDatepicker]="endDatePicker" formControlName="endDate" placeholder="mm/dd/yyyy">
+          <mat-datepicker-toggle class="date-picker" matSuffix [for]="endDatePicker"></mat-datepicker-toggle>
+          <mat-datepicker #endDatePicker></mat-datepicker>
+        </mat-form-field>  
 
         <mat-form-field class="menu-form-field">
           <mat-label>Group Size</mat-label>
-          <input matInput placeholder="10" type="number" />
+          <input matInput placeholder="10" type="number" formControlName="groupSize"/>
         </mat-form-field>
+
       </form>
       <span>
-        <button mat-flat-button color="primary">Apply</button>
-        <button class="clear-btn" mat-flat-button color="primary">Clear</button>
+        <button (click)="applyFilter()" mat-flat-button color="primary">Apply</button>
+        <button (click)="clearFilter($event)" class="clear-btn" mat-flat-button color="primary">Clear</button>
       </span>
     </div>
   </ng-template>
@@ -150,7 +168,9 @@
 <mat-menu #sortMenu="matMenu" xPosition="after" class="post-login-menu">
   <ng-template matMenuContent>
     <div class="menu-items sort-items">
-      <h4>Sort By:</h4>
+      <h4>Sort Filter Results By:
+        <mat-icon class="close-menu-icon" color="primary">close</mat-icon>
+      </h4>
       <form class="menu-form" (click)="preventDefaultClose($event)">
         <div class="menu-form-field">
           <mat-checkbox color="primary"></mat-checkbox>

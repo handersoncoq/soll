@@ -1,7 +1,7 @@
-$primary-color: #52688F;
-$accent-color: #35425B;
+$primary-color: #52688f;
+$accent-color: #35425b;
 $progress-color: #20a7db;
-$alt-font-color: #E3E7F1;
+$alt-font-color: #e3e7f1;
 $box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
 
 .group-cat-c {
@@ -14,12 +14,13 @@ $box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
   margin-bottom: 2em !important;
 }
 
-.h3, h2{
-    margin-bottom: 0;
-    padding-bottom: 0;
+.h3,
+h2 {
+  margin-bottom: 0;
+  padding-bottom: 0;
 }
 
-.group-cat-name-location{
+.group-cat-name-location {
   display: grid;
   grid-template-columns: 3fr 1fr;
   gap: 1em;
@@ -29,7 +30,7 @@ $box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
   font-size: smaller;
 }
 
-.pre-filter{
+.pre-filter {
   width: 100%;
   margin-top: 0.5em;
   display: flex;
@@ -37,7 +38,7 @@ $box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
   margin-right: 1em;
 }
 
-.filter-sort{
+.filter-sort {
   width: fit-content;
   border: solid $alt-font-color 1px;
   border-radius: 7px;
@@ -48,15 +49,15 @@ $box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
   box-shadow: $box-shadow;
 }
 
-.group-cat-location-icon{
-    vertical-align: middle;
-    margin-left: -0.2em;
-    font-size: larger;
-    margin-right: -0.3em;
-    color: $progress-color;
+.group-cat-location-icon {
+  vertical-align: middle;
+  margin-left: -0.2em;
+  font-size: larger;
+  margin-right: -0.3em;
+  color: $progress-color;
 }
 
-.sub-title{
+.sub-title {
   margin: 1.5em 0;
   padding-bottom: 1em;
   font-size: small;
@@ -84,7 +85,8 @@ $box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
   border-radius: 0.6em;
   padding: 0.2em 0.5em;
 
-  input[type="text"], input[type="search"] {
+  input[type="text"],
+  input[type="search"] {
     flex: 1;
     border: none;
     outline: none;
@@ -99,7 +101,7 @@ $box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
   }
 }
 
-.search-icon{
+.search-icon {
   margin-top: 0.2em;
 }
 
@@ -111,21 +113,20 @@ $box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
   display: none !important;
 }
 
-::ng-deep div.mat-mdc-select-panel{
+::ng-deep div.mat-mdc-select-panel {
   margin-top: -1.5em !important;
 }
 
-mat-card{
+mat-card {
   box-shadow: $box-shadow;
 }
 
-
-.search-results{
+.search-results {
   box-shadow: none !important;
 }
 
-.slide-groups{
-  h5{
+.slide-groups {
+  h5 {
     margin: 0;
     margin-top: -1em;
     padding: 1em 1.5em;
@@ -135,7 +136,7 @@ mat-card{
   }
 }
 
-.no-search-result{
+.no-search-result {
   font-size: smaller;
   margin: 0.3em 1em;
   margin-bottom: 1.5em;
@@ -145,10 +146,9 @@ mat-card{
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 0.3em;
-  
 }
 
-.filter-form{
+.filter-form {
   gap: 0.5em;
 }
 
@@ -157,14 +157,14 @@ mat-card{
   border-top: solid $primary-color 1px;
 }
 
-.menu-items{
+.menu-items {
   color: $primary-color;
-  button{
+  button:not(.close-menu-btn) {
     margin: 0.5em;
     font-size: medium;
     height: 2em;
   }
-  .clear-btn{
+  .clear-btn {
     background-color: transparent;
     color: $primary-color;
     border: solid $alt-font-color 1px;
@@ -172,7 +172,7 @@ mat-card{
   }
 }
 
-mat-label{
+mat-label {
   color: $primary-color;
   font-size: small;
 }
@@ -182,30 +182,56 @@ mat-label{
   font-size: small;
 }
 
-.filter-items{
+.menu-items button:not(.clear-btn, .close-menu-btn) {
+  width: 10em;
+}
+
+.filter-items {
   padding: 0 0.6em;
-  button:not(.clear-btn){
+  button:not(.clear-btn, .close-menu-btn) {
     margin: 0.5em 0;
   }
-  .clear-btn{
-    margin-left: 1em;
+  .clear-btn {
+    margin-right: -0.1em;
   }
-  h4{
+  h4 {
     margin: 1em 0;
   }
 }
 
-.filter-form .menu-form-field{
+.filter-form .menu-form-field {
   font-size: medium;
   margin-bottom: -1em !important;
 }
 
-.sort-items{
-  h4{
+.sort-items {
+  h4 {
     margin: 1em 0.6em;
   }
 }
 
+.filter-form input::placeholder {
+  font-size: small;
+}
+
+.filter-form input {
+  color: $accent-color;
+}
+
 swiper-slide {
-  padding-top: 0.6em !important;
+  padding-top: 0.7em !important;
+}
+
+.date-picker {
+  color: $primary-color;
+  font-size: small;
+}
+
+::ng-deep:not(.close-menu-btn) .mat-mdc-icon-button svg {
+  vertical-align: middle;
+  height: 0.8em;
+}
+
+.close-menu-icon {
+  float: inline-end;
 }

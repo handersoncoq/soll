@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Group } from 'src/app/interaces/Group';
 import { GroupMember } from 'src/app/interaces/GroupMember';
 import { DialogService } from 'src/app/services/dialog-service/dialog.service';
+import { StyleManagerService } from 'src/app/services/style-manager/style-manager.service';
 
 @Component({
   selector: 'app-group-circle',
@@ -14,7 +15,7 @@ export class GroupCircleComponent implements OnInit{
 
   currentUser = 'Matgomory Ckan';
 
-  constructor(private dialogService: DialogService) {}
+  constructor(private dialogService: DialogService, private styleManager: StyleManagerService) {}
   
   ngOnInit(): void {
     // Calculate rotation and translation for each member based on their rank
@@ -30,7 +31,10 @@ export class GroupCircleComponent implements OnInit{
 
   getMemberInfo(member: GroupMember): string {
     let displayedName = member.name === this.currentUser ? 'You' : member.name
-    return `${displayedName}\nReputation Score: ${member.reputationScore}\nPaid Out: ${member.paidOut ? 'Yes' : 'No'}`;
+    if(member.paidOut)
+      return `${displayedName}\nReputation Score: ${member.reputationScore}\nPaid Out`;
+    return `${displayedName}\nReputation Score: ${member.reputationScore}`;
+
   }
 
 
@@ -50,6 +54,10 @@ export class GroupCircleComponent implements OnInit{
     return this.group!.groupMembers.filter(
       member =>member.paidOut
       ).length
+  }
+
+  getPayoutSystemIcon(): string{
+    return this.styleManager.getPayoutSystemIcon(this.group!)
   }
 
 }

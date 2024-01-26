@@ -1,10 +1,15 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { Group } from 'src/app/interaces/Group';
+import { GroupDetail } from 'src/app/interaces/GroupDetails';
 
 @Injectable({
   providedIn: 'root'
 })
 export class StyleManagerService {
+
+  EPS_ICON = 'calendar_month';
+  ECPS_ICON = 'savings';
 
   private _isScrollEnabled = false;
 
@@ -45,5 +50,10 @@ export class StyleManagerService {
     link.rel = 'stylesheet';
     link.href = 'https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200';
     document.head.appendChild(link);
+  }
+
+  getPayoutSystemIcon(group: Group | GroupDetail): string{
+    if(group.payoutSystem === 'EPS') return this.EPS_ICON;
+    return this.ECPS_ICON;
   }
 }

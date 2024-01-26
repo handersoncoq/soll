@@ -1,7 +1,6 @@
 import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 import { MatSelect, MatSelectChange } from '@angular/material/select';
-import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { debounceTime, takeUntil } from 'rxjs/operators';
 import { Group } from 'src/app/interaces/Group';
@@ -25,8 +24,9 @@ filteredGroups: Group[] = [];
 searchResults: Group[] = [];
 
 noSearchResult = false;
+filterForm!: FormGroup;
 
-constructor(private groupService: GroupService, private router: Router) {
+constructor(private groupService: GroupService) {
   this.searchControl.valueChanges.pipe(
     debounceTime(300),
     takeUntil(this.destroy$)
@@ -44,6 +44,17 @@ constructor(private groupService: GroupService, private router: Router) {
 ngOnInit() {
   this.groups = this.groupService.getGroups();
   this.groupArrays = this.groupByCity(this.groups);
+
+  this.filterForm = new FormGroup({
+    savingsTarget: new FormControl(''),
+    contribution: new FormControl(''),
+    frequency: new FormControl(''),
+    startDate: new FormControl(''),
+    endDate: new FormControl(''),
+    groupSize: new FormControl(''),
+    payoutSystem: new FormControl('')
+  });
+
 }
 
 groupByCity(groups: any[]): any[] {
@@ -91,15 +102,17 @@ setResults(){
   }
     
   this.filterGroups(this.searchControl.value);
-     
+  this.updateSearchResultVariable();
+  this.closePanel();
+}
+
+updateSearchResultVariable(){
   if(this.filteredGroups.length === 0) {
     this.noSearchResult = true;
   }else {
     this.searchResults = this.filteredGroups;
     this.noSearchResult = false;
   }
-
-  this.closePanel();
 }
 
 handleKeyUp(event: KeyboardEvent): void {
@@ -139,5 +152,39 @@ ngOnDestroy() {
   this.destroy$.complete();
 }
 
+updateSearchResultArray(){
+  if(this.filteredGroups.length !== 0)
+  this.searchResults = this.filteredGroups;
+}
+
+applyFilter() {
+  const formValues = this.filterForm.value;
+  if (!formValues) return;
+
+  this.filteredGroups = this.groups.filter(group => {
+    let formStartDate = formValues.startDate ? new Date(formValues.startDate).setHours(0, 0, 0, 0) : null;
+    let formEndDate = formValues.endDate ? new Date(formValues.endDate).setHours(0, 0, 0, 0) : null;
+
+    let groupStartDate = group.startDate ? new Date(group.startDate).setHours(0, 0, 0, 0) : null;
+    let groupEndDate = group.endDate ? new Date(group.endDate).setHours(0, 0, 0, 0) : null;
+
+    return (formValues.savingsTarget ? group.savingsTarget === formValues.savingsTarget : true) &&
+           (formValues.contribution ? group.contribution === formValues.contribution : true) &&
+           (formValues.frequency ? group.frequency.toLowerCase().includes(formValues.frequency.toLowerCase()) : true) &&
+           (formStartDate ? groupStartDate === formStartDate : true) &&
+           (formEndDate ? groupEndDate === formEndDate : true) &&
+           (formValues.groupSize ? group.groupSize === formValues.groupSize : true) &&
+           (formValues.payoutSystem ? group.payoutSystem.toLowerCase().includes(formValues.payoutSystem.toLowerCase()) : true);
+  });
+  this.updateSearchResultArray();
+  this.updateSearchResultVariable();
+}
+
+
+clearFilter(event: MouseEvent){
+  this.filterForm.reset();
+  this.resetAll();
+  this.preventDefaultClose(event)
+}
 
 }

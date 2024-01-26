@@ -1,19 +1,24 @@
-<div *ngIf="group, else noGroupFallback" class="group-pro-c post-login-component">
+<div
+  *ngIf="group; else noGroupFallback"
+  class="group-pro-c post-login-component"
+>
   <div class="spacing"></div>
 
   <div class="pre-g-profile" id="groupProfile" appStickyScroll>
     <div class="name-location">
       <h2 appLazyLoadText>{{ group.groupName }}</h2>
       <h3 appLazyLoadText>
-        <mat-icon class="location-icon">location_pin</mat-icon>{{group.groupLocation}}
-        <span class="vert-div">|</span> {{ group.payoutSystem }}
+        <mat-icon class="location-icon">location_pin</mat-icon
+        >{{ group.groupLocation }} <span class="vert-div">|</span>
+        {{ group.payoutSystem }}
       </h3>
     </div>
     <div class="action-box">
-      <button 
-      #tooltip="matTooltip"
-      [matTooltip]="isOpen() ? '' : 'Sorry, this group is full'"
-      mat-icon-button (click)="tooltip.show(); joinGroup()"
+      <button
+        #tooltip1="matTooltip"
+        [matTooltip]="isOpen() ? '' : 'Sorry, this group is full'"
+        mat-icon-button
+        (click)="tooltip1.show(); joinGroup()"
       >
         <mat-icon class="add-icon">group_add</mat-icon>
       </button>
@@ -22,6 +27,12 @@
 
   <div class="group-dashboard">
     <div class="group-profile posh-container">
+      <div class="group-status"
+      #tooltip2="matTooltip"
+      [matTooltip]="isOpen() ? 'This group is open' : 'This group is full'"
+      (click)="tooltip2.show()"
+      >status: <mat-icon color="primary" >{{getGroupStatusIcon()}}</mat-icon>
+      </div>
       <div class="group-circle">
         <app-group-circle [group]="group"></app-group-circle>
       </div>
@@ -30,31 +41,33 @@
           <app-group-strength [group]="group!"></app-group-strength>
         </div>
       </div>
-      <div class="group-details two-items">
+      <div class="group-details two-items" appLazyLoadText>
         <h2>Savings Target</h2>
         <div class="outer-progress">
-          <div
-            class="inner-progress"
-          ></div>
+          <div class="inner-progress"></div>
         </div>
         <p>{{ group.savingsTarget | currency }}</p>
       </div>
-      <div class="group-details two-items highlight">
+      <div class="group-details two-items highlight" appLazyLoadText>
         <h2>Contribution</h2>
         <mat-divider class="horiz-divider"></mat-divider>
-        <p>{{ group.contribution | currency:'USD':'symbol':'1.0-0' }}/{{group.frequency}}</p>
+        <p>
+          {{ group.contribution | currency : "USD" : "symbol" : "1.0-0" }}/{{
+            group.frequency
+          }}
+        </p>
       </div>
-      <div class="group-details two-items">
+      <div class="group-details two-items" appLazyLoadText>
         <h2>Group Size</h2>
         <mat-divider class="horiz-divider"></mat-divider>
         <p>{{ group.groupSize }}</p>
       </div>
-      <div class="group-details two-items">
+      <div class="group-details two-items" appLazyLoadText>
         <h2>Start Date</h2>
         <mat-divider class="horiz-divider"></mat-divider>
         <p>{{ group.startDate | date }}</p>
       </div>
-      <div class="group-details two-items">
+      <div class="group-details two-items" appLazyLoadText>
         <h2>End Date</h2>
         <mat-divider class="horiz-divider"></mat-divider>
         <p>{{ group.endDate | date }}</p>
@@ -66,7 +79,10 @@
 <ng-template #noGroupFallback>
   <div class="no-group-fallback">
     <mat-icon>block</mat-icon>
-    Oops! The group you are looking for may have been discontinued or may not exist. Please try another group from the 
-    <span class="highlighted-link" routerLink="/join-a-group">Group Catalog</span>
+    Sorry, the group you're searching for might have been discontinued or does
+    not exist. Please explore other options in the
+    <span class="highlighted-link" routerLink="/join-a-group"
+      >Group Catalog</span
+    >.
   </div>
 </ng-template>

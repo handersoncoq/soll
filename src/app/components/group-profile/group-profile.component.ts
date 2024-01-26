@@ -84,6 +84,11 @@ export class GroupProfileComponent implements OnInit{
   isOpen(): boolean {
     return this.group.groupMembers.length < this.group.groupSize;
   }
+
+  getGroupStatusIcon(): string {
+    if(this.isOpen()) return 'lock_open'
+    return 'lock'
+  }
   
 
 }
