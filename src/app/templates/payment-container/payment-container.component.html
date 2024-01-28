@@ -1,0 +1,66 @@
+<div class="payment-container" [class.mobile]="isMobile">
+  <div class="bottom-sheet-title-close">
+    <h2>Make A Contrbution</h2>
+    <mat-icon *ngIf="isMobile" (click)="closeBottomSheet()">close</mat-icon>
+  </div>
+  <mat-dialog-content class="mat-typography">
+    <div class="contributions-form">
+      <form [formGroup]="contributionForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="groupName">Group Name</label>
+          <input class="form-control" type="text" id="groupName" formControlName="groupName"/>
+        </div>
+
+        <div class="form-group">
+          <label for="contributionAmount">Contribution Amount</label>
+          <input
+            class="form-control"
+            type="text"
+            id="contributionAmount"
+            formControlName="contributionAmount"
+          />
+        </div>
+
+        <div class="form-group">
+            <label>Payment Method</label>
+            <mat-select
+              class="form-control state-select"
+              id="paymentMethod"
+              formControlName="paymentMethod"
+            >
+            <mat-option value="blank">--- choose a payment option ---</mat-option>
+              <mat-option value="bank">
+                <mat-icon color="primary">account_balance</mat-icon> Bank
+                Transfer</mat-option
+              >
+              <mat-option value="card">
+                <mat-icon color="primary">credit_card</mat-icon>Credit/Debit Card</mat-option
+              >
+              <mat-option value="paypal">
+                <mat-icon color="primary">paypal</mat-icon> PayPal</mat-option
+              >
+              <mat-option value="groupLeader">
+                <mat-icon color="primary">verified</mat-icon>Group Leader ({{group.groupLeader.name}})</mat-option
+              >
+            </mat-select>
+        </div>
+
+        <div class="form-group">
+          <label for="note">Note (Optional)</label>
+          <textarea class="form-control" id="note" formControlName="note"></textarea>
+        </div>
+
+        <button
+          mat-flat-button
+          type="submit"
+          [disabled]="!contributionForm.valid"
+        >
+          Submit
+        </button>
+      </form>
+    </div>
+  </mat-dialog-content>
+  <mat-dialog-actions align="end" *ngIf="!isMobile">
+    <button mat-button mat-dialog-close right-align>Close</button>
+  </mat-dialog-actions>
+</div>

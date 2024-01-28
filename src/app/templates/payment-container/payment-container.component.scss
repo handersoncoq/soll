@@ -1,0 +1,115 @@
+$primary-color: #52688F;
+$accent-color: #35425B;
+
+.payment-container{
+    overflow-x: hidden;
+    border-radius: 1.5em;
+    h2, h3{
+        color: $primary-color;
+        padding: 0 0.5em;
+    }
+}
+
+.bottom-sheet-title-close{
+    border-bottom: solid $primary-color 1px;
+    margin-bottom: 2em;
+    mat-icon{
+      cursor: pointer;
+    }
+}
+
+.mobile{
+    font-size: small;
+    h3{
+      font-size: small !important;
+    }
+  }
+
+
+.contributions-form {
+  display: flex;
+  flex-direction: column;
+  padding: 0 0.5em;
+  padding-bottom: 1em;
+
+  .form-group {
+    margin-bottom: 20px;
+
+    label {
+      color: $primary-color;
+      display: block;
+      margin-bottom: 5px;
+    }
+  }
+
+  button {
+    background-color: $primary-color;
+    color: white;
+    font-size: large;
+    padding: 1.2em;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: darken($primary-color, 10%);
+    }
+
+    &:disabled {
+      background-color: lighten($primary-color, 10%);
+      cursor: default;
+    }
+  }
+}
+
+input, textarea{
+  width: 100%;
+  padding: 1em 0;
+  margin: 5px 0;
+  border: 1px solid $accent-color;
+  border-radius: 0.6em;
+  text-indent: 1em;
+  color: $accent-color;
+  font-size: medium;
+  &:focus {
+    border: none;
+    outline: none;
+    outline: 2px solid $accent-color;
+}
+}
+
+.form-group{
+    mat-select.form-control {
+        width: 100%;
+        padding: 0.8em 0;
+        margin: 5px 0;
+        border: 1px solid $accent-color;
+        border-radius: 0.6em;
+        color: $accent-color;
+        font-size: medium;
+        text-indent: 0.5em;
+        font-family: Roboto, "Helvetica Neue", sans-serif;
+        background-color: white;
+    
+        &:focus {
+            border: none;
+            outline: none;
+            outline: 2px solid $accent-color;
+        }
+      }
+}
+
+input:disabled,
+textarea:disabled {
+  opacity: 1;
+}
+
+::ng-deep .mat-mdc-select-arrow svg {
+    padding-right: 2em !important;
+}
+
+::ng-deep div.mat-mdc-select-panel{
+    border-bottom-left-radius: 1em !important;
+    border-bottom-right-radius: 1em !important;
+    margin-left: -0.44em !important;
+}
+
+

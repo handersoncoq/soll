@@ -50,6 +50,32 @@ $bottom-top-box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0
   padding: 0 0.6em;
 }
 
+.pay-btn{
+  display: flex;
+  justify-content: center;
+  float: inline-end;
+  margin-top: 1.3em;
+  font-size: small;
+  margin-right: 1.3em;
+  background-color: #52688f;
+  border-radius: 4px;
+  height: 1.7em;
+  vertical-align: middle;
+  margin-bottom: -3.5em;
+  color: white;
+  padding: 8px 0px;
+    mat-icon{
+      color: bisque;
+      padding: 0;
+      font-size: medium;
+      text-align: center;
+    }
+    &:hover{
+      color: $progress-color;
+      cursor: pointer;
+    }
+}
+
 .performance{
   background-color: inherit;
   border: none;
@@ -73,12 +99,10 @@ $bottom-top-box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0
 }
 
 .group-circle{
-  position: relative;
   display: flex;
   justify-content: center;
   width: 100%;
   margin-bottom: 1em;
-  z-index: 10;
 }
 
 .outer-progress, .inner-progress{

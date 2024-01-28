@@ -56,6 +56,8 @@ import { AuthGuard } from './guards/auth.guard';
 import { GroupLayoutComponent } from './templates/group-layout/group-layout.component';
 import { UserService } from './services/user-service/user.service';
 import { UnsuccessfulJoinComponent } from './templates/unsuccessful-join/unsuccessful-join.component';
+import { PaymentService } from './services/payment.service';
+import { PaymentContainerComponent } from './templates/payment-container/payment-container.component';
 
 @Injectable()
 export class HammerConfig extends HammerGestureConfig {
@@ -93,7 +95,8 @@ export class HammerConfig extends HammerGestureConfig {
     ActionDialogComponent,
     GroupCatalogueComponent,
     GroupLayoutComponent,
-    UnsuccessfulJoinComponent
+    UnsuccessfulJoinComponent,
+    PaymentContainerComponent
   ],
   imports: [
     ReactiveFormsModule,
@@ -118,7 +121,7 @@ export class HammerConfig extends HammerGestureConfig {
     HammerModule,
   ],
   providers: [
-    ContentManagerService, ScreenLayoutService, AuthGuard,
+    ContentManagerService, ScreenLayoutService, AuthGuard, PaymentService,
     StyleManagerService, GroupService, DialogService, UserService,
     {
       provide: HAMMER_GESTURE_CONFIG,

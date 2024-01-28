@@ -25,6 +25,7 @@
 
   <div class="group-dashboard">
     <div class="group-profile posh-container">
+      <button [disabled]="!canMakeContribution()" (click)="makeContribution()" mat-button class="pay-btn" color="primary">Pay<mat-icon iconPositionEnd>payment</mat-icon></button>
       <div class="group-circle">
         <app-group-circle [group]="group"></app-group-circle>
       </div>
@@ -33,7 +34,7 @@
           <app-group-strength [group]="group!"></app-group-strength>
         </div>
       </div>
-      <div class="group-details two-items" appLazyLoadText>
+      <div class="group-details two-items">
         <h2>Savings Target</h2>
         <div class="outer-progress">
           <div
@@ -45,12 +46,12 @@
         </div>
         <p>{{ group.savingsTarget | currency }}</p>
       </div>
-      <div class="group-details two-items highlight" appLazyLoadText>
+      <div class="group-details two-items highlight">
         <h2>Contribution</h2>
         <mat-divider class="horiz-divider"></mat-divider>
         <p>{{ group.contribution | currency:'USD':'symbol':'1.0-0' }}/{{group.frequency}}</p>
       </div>
-      <div class="group-details two-items" appLazyLoadText>
+      <div class="group-details two-items">
         <h2>Next Contribution</h2>
         <mat-divider class="horiz-divider"></mat-divider>
         <p *ngIf="group.nextContribution; else noNextCont">
@@ -60,12 +61,12 @@
           <p>---</p>
         </ng-template>
       </div>
-      <div class="group-details two-items" appLazyLoadText>
+      <div class="group-details two-items">
         <h2>Start Date</h2>
         <mat-divider class="horiz-divider"></mat-divider>
         <p>{{ group.startDate | date }}</p>
       </div>
-      <div class="group-details two-items" appLazyLoadText>
+      <div class="group-details two-items">
         <h2>End Date</h2>
         <mat-divider class="horiz-divider"></mat-divider>
         <p>{{ group.endDate | date }}</p>

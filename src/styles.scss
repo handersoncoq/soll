@@ -261,7 +261,19 @@ body.dark-mode {
   }
 
   .icon-top, .icon-left, .icon-right, .icon-bottom{
-    border: solid $accent-color 3px;
+    border: solid #35425b 2px;
+    background-color: #35425b;
+    color: white;
+  }
+
+  .pay-btn{
+    margin-top: 1.5em;
+    margin-right: 2.1em;
+  }
+
+  .icon-top{
+    background-color: $primary-color;
+    border-width: 4px;
   }
 
   .filter-sort{

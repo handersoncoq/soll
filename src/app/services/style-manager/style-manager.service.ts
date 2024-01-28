@@ -10,6 +10,7 @@ export class StyleManagerService {
 
   EPS_ICON = 'calendar_month';
   ECPS_ICON = 'savings';
+  GROUP_ICON = 'supervised_user_circle'
 
   private _isScrollEnabled = false;
 
