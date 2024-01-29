@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 import { Community } from 'src/app/interaces/Community';
 import { Group } from 'src/app/interaces/Group';
 import { User } from 'src/app/interaces/User';
@@ -105,4 +106,47 @@ getUserPreviousGroups(): Group[]{
     this.trendingCommunities = trendingCommunities;
     return this.trendingCommunities;
   }
+
+  filterGroups(groups: Group[], filterForm: FormGroup): Group[]{
+    const formValues = filterForm.value;
+  if (!formValues) return [];
+
+  return groups.filter(group => {
+    let formStartDate = formValues.startDate ? new Date(formValues.startDate).setHours(0, 0, 0, 0) : null;
+    let formEndDate = formValues.endDate ? new Date(formValues.endDate).setHours(0, 0, 0, 0) : null;
+
+    let groupStartDate = group.startDate ? new Date(group.startDate).setHours(0, 0, 0, 0) : null;
+    let groupEndDate = group.endDate ? new Date(group.endDate).setHours(0, 0, 0, 0) : null;
+
+    return (formValues.savingsTarget ? group.savingsTarget === formValues.savingsTarget : true) &&
+           (formValues.contribution ? group.contribution === formValues.contribution : true) &&
+           (formValues.frequency ? group.frequency.toLowerCase().includes(formValues.frequency.toLowerCase()) : true) &&
+           (formStartDate ? groupStartDate === formStartDate : true) &&
+           (formEndDate ? groupEndDate === formEndDate : true) &&
+           (formValues.groupSize ? group.groupSize === formValues.groupSize : true) &&
+           (formValues.payoutSystem ? group.payoutSystem.toLowerCase().includes(formValues.payoutSystem.toLowerCase()) : true);
+  });
+  }
+
+  sortGroups(filteredGroups: Group[], sortForm: FormGroup) {
+    const formValues = sortForm.value;
+    if (!formValues || filteredGroups.length == 0) return;
+
+    if (formValues.savingsTarget) {
+      filteredGroups.sort((a, b) => b.savingsTarget - a.savingsTarget);
+    }
+    if (formValues.contribution) {
+      filteredGroups.sort((a, b) => a.contribution - b.contribution);
+    }
+    if (formValues.groupSize) {
+      filteredGroups.sort((a, b) => b.groupSize - a.groupSize);
+    }
+    if (formValues.startDate) {
+      filteredGroups.sort((a, b) => new Date(a.startDate).getTime() - new Date(b.startDate).getTime());
+    }
+    if (formValues.endDate) {
+      filteredGroups.sort((a, b) => new Date(a.endDate).getTime() - new Date(b.endDate).getTime());
+    }
+  }
+
 }

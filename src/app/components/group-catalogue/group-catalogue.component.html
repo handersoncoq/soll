@@ -171,35 +171,35 @@
       <h4>Sort Filter Results By:
         <mat-icon class="close-menu-icon" color="primary">close</mat-icon>
       </h4>
-      <form class="menu-form" (click)="preventDefaultClose($event)">
+      <form [formGroup]="sortForm" class="menu-form" (click)="preventDefaultClose($event)">
         <div class="menu-form-field">
-          <mat-checkbox color="primary"></mat-checkbox>
+          <mat-checkbox color="primary" formControlName="savingsTarget"></mat-checkbox>
           <mat-label>Savings Target</mat-label>
         </div>
 
         <div class="menu-form-field">
-          <mat-checkbox color="primary"></mat-checkbox>
+          <mat-checkbox color="primary" formControlName="contribution"></mat-checkbox>
           <mat-label>Contribution</mat-label>
         </div>
 
         <div class="menu-form-field">
-          <mat-checkbox color="primary"></mat-checkbox>
+          <mat-checkbox color="primary" formControlName="startDate"></mat-checkbox>
           <mat-label>Start Date</mat-label>
         </div>
 
         <div class="menu-form-field">
-          <mat-checkbox color="primary"></mat-checkbox>
+          <mat-checkbox color="primary" formControlName="endDate"></mat-checkbox>
           <mat-label>End Date</mat-label>
         </div>
 
         <div class="menu-form-field">
-          <mat-checkbox color="primary"></mat-checkbox>
+          <mat-checkbox color="primary" formControlName="groupSize"></mat-checkbox>
           <mat-label>Group Size</mat-label>
         </div>
       </form>
       <span>
-        <button mat-flat-button color="primary">Apply</button>
-        <button class="clear-btn" mat-flat-button color="primary">Clear</button>
+        <button (click)="applySort()" mat-flat-button color="primary">Apply</button>
+        <button (click)="clearSort()" class="clear-btn" mat-flat-button color="primary">Clear</button>
       </span>
     </div>
   </ng-template>

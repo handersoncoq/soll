@@ -25,6 +25,7 @@ searchResults: Group[] = [];
 
 noSearchResult = false;
 filterForm!: FormGroup;
+sortForm!: FormGroup;
 
 constructor(private groupService: GroupService) {
   this.searchControl.valueChanges.pipe(
@@ -32,7 +33,7 @@ constructor(private groupService: GroupService) {
     takeUntil(this.destroy$)
   ).subscribe(value => {
     if(value && value.trim() !== ''){
-      this.filterGroups(value);
+      this.searchGroup(value);
       setTimeout(() => this.openPanel(), 0);
     }else {
       this.resetAll();
@@ -44,7 +45,11 @@ constructor(private groupService: GroupService) {
 ngOnInit() {
   this.groups = this.groupService.getGroups();
   this.groupArrays = this.groupByCity(this.groups);
+  this.createFilterForm();
+  this.createSortForm();
+}
 
+createFilterForm(){
   this.filterForm = new FormGroup({
     savingsTarget: new FormControl(''),
     contribution: new FormControl(''),
@@ -54,7 +59,16 @@ ngOnInit() {
     groupSize: new FormControl(''),
     payoutSystem: new FormControl('')
   });
+}
 
+createSortForm() {
+  this.sortForm = new FormGroup({
+    savingsTarget: new FormControl(false),
+    contribution: new FormControl(false),
+    startDate: new FormControl(false),
+    endDate: new FormControl(false),
+    groupSize: new FormControl(false)
+  });
 }
 
 groupByCity(groups: any[]): any[] {
@@ -92,7 +106,7 @@ onSelect(event: MatSelectChange) {
     return;
   }
   this.searchControl.setValue(event.value, { emitEvent: false });
-  this.searchResults = this.filterGroups(event.value);
+  this.searchResults = this.searchGroup(event.value);
 }
 
 setResults(){
@@ -101,7 +115,7 @@ setResults(){
     return;
   }
     
-  this.filterGroups(this.searchControl.value);
+  this.searchGroup(this.searchControl.value);
   this.updateSearchResultVariable();
   this.closePanel();
 }
@@ -126,7 +140,7 @@ handleSubmit(event: Event): void {
 }
 
 
-filterGroups(value: string): Group[] {
+searchGroup(value: string): Group[] {
   const lowerCaseValue = value.toLowerCase().trim();
   this.filteredGroups = this.groups.filter(group =>
     group.groupName.toLowerCase().includes(lowerCaseValue)
@@ -158,26 +172,15 @@ updateSearchResultArray(){
 }
 
 applyFilter() {
-  const formValues = this.filterForm.value;
-  if (!formValues) return;
-
-  this.filteredGroups = this.groups.filter(group => {
-    let formStartDate = formValues.startDate ? new Date(formValues.startDate).setHours(0, 0, 0, 0) : null;
-    let formEndDate = formValues.endDate ? new Date(formValues.endDate).setHours(0, 0, 0, 0) : null;
-
-    let groupStartDate = group.startDate ? new Date(group.startDate).setHours(0, 0, 0, 0) : null;
-    let groupEndDate = group.endDate ? new Date(group.endDate).setHours(0, 0, 0, 0) : null;
-
-    return (formValues.savingsTarget ? group.savingsTarget === formValues.savingsTarget : true) &&
-           (formValues.contribution ? group.contribution === formValues.contribution : true) &&
-           (formValues.frequency ? group.frequency.toLowerCase().includes(formValues.frequency.toLowerCase()) : true) &&
-           (formStartDate ? groupStartDate === formStartDate : true) &&
-           (formEndDate ? groupEndDate === formEndDate : true) &&
-           (formValues.groupSize ? group.groupSize === formValues.groupSize : true) &&
-           (formValues.payoutSystem ? group.payoutSystem.toLowerCase().includes(formValues.payoutSystem.toLowerCase()) : true);
-  });
+  this.filteredGroups = this.groupService.filterGroups(this.groups, this.filterForm);
   this.updateSearchResultArray();
   this.updateSearchResultVariable();
+}
+
+applySort() {
+  this.groupService.sortGroups(
+    this.filteredGroups, this.sortForm
+  );
 }
 
 
@@ -185,6 +188,11 @@ clearFilter(event: MouseEvent){
   this.filterForm.reset();
   this.resetAll();
   this.preventDefaultClose(event)
+}
+
+clearSort() {
+  this.sortForm.reset();
+  this.applyFilter();
 }
 
 }

@@ -1,7 +1,8 @@
 // imports
 @use "@angular/material" as mat;
-@import "src/app/utils/styles/app-style.scss";
-@import "src/app/utils/styles/media-styles.scss";
+@import "src/app/utils/styles/global-rules.scss";
+@import "src/app/utils/styles/dark-mode.scss";
+@import "src/app/utils/styles/media-rules.scss";
 @include mat.core();
 
 // angular material custom palettes
@@ -17,16 +18,16 @@ $Sol-primary-palette: (
   800: #354d53,
   900: #2b444a,
   contrast: (
-    50: rgba($sol-dark-color, 0.87),
-    100: rgba($sol-dark-color, 0.87),
-    200: rgba($sol-dark-color, 0.87),
-    300: $sol-light-color,
-    400: $sol-light-color,
-    500: $sol-light-color,
-    600: $sol-light-color,
-    700: $sol-light-color,
-    800: $sol-light-color,
-    900: $sol-light-color,
+    50: rgba($soll-dark-color, 0.87),
+    100: rgba($soll-dark-color, 0.87),
+    200: rgba($soll-dark-color, 0.87),
+    300: $soll-light-color,
+    400: $soll-light-color,
+    500: $soll-light-color,
+    600: $soll-light-color,
+    700: $soll-light-color,
+    800: $soll-light-color,
+    900: $soll-light-color,
   ),
 );
 
@@ -42,16 +43,16 @@ $Sol-accent-palette: (
   800: #bdc6d9,
   900: #bdc6d9,
   contrast: (
-    50: rgba($sol-dark-color, 0.87),
-    100: rgba($sol-dark-color, 0.87),
-    200: rgba($sol-dark-color, 0.87),
-    300: $sol-light-color,
-    400: $sol-light-color,
-    500: $sol-light-color,
-    600: $sol-light-color,
-    700: $sol-light-color,
-    800: $sol-light-color,
-    900: $sol-light-color,
+    50: rgba($soll-dark-color, 0.87),
+    100: rgba($soll-dark-color, 0.87),
+    200: rgba($soll-dark-color, 0.87),
+    300: $soll-light-color,
+    400: $soll-light-color,
+    500: $soll-light-color,
+    600: $soll-light-color,
+    700: $soll-light-color,
+    800: $soll-light-color,
+    900: $soll-light-color,
   ),
 );
 
@@ -90,218 +91,14 @@ body {
   font-family: "Poppins", "Roboto", sans-serif;
 }
 
-.app-snackbar-success{
+.app-snackbar-success {
   --mdc-snackbar-container-color: white;
-    border: solid #4CAF50 1px;
-    border-radius: 4px;
+  border: solid #4caf50 1px;
+  border-radius: 4px;
 }
 
-.app-snackbar-error{
+.app-snackbar-error {
   --mdc-snackbar-container-color: white;
   border: solid rgb(174, 38, 14) 1px;
   border-radius: 4px;
 }
-
-// *********************************************************************************
-
-// App modes
-
-$color-white: white;
-$color-bisque: bisque;
-$hover-color-dark-blue: $dark-dusty-blue;
-$hover-color-progress: $progress-color;
-$background-accent-color: $accent-color;
-
-body.dark-mode {
-  background-color: $primary-color !important;
-  color: $color-white !important;
-
-  // Footer
-  .app-footer {
-    color: $color-white !important;
-    .footer-content {
-      .footer-links {
-        span {
-          color: $color-white !important;
-          &:hover {
-            color: $hover-color-dark-blue !important;
-          }
-        }
-      }
-    }
-  }
-
-  // Info section
-  .info {
-    button {
-      color: $color-white !important;
-      &:hover {
-        color: $hover-color-progress !important;
-      }
-    }
-    .help-btn {
-      color: $color-bisque !important;
-    }
-  }
-
-  // User nav
-  .nav-class {
-    color: $color-white !important;
-    background-color: $primary-color !important;
-    .mat-divider.mat-divider-vertical {
-      border-right-color: $color-white !important;
-    }
-  }
-
-  .menu-button {
-    background-color: $background-accent-color !important;
-  }
-
-  .language-icon {
-    color: $color-white !important;
-  }
-
-  // Group related
-  .group-details,
-  .community-details {
-    border: solid $color-white 1px;
-    background-color: $background-accent-color !important;
-    color: $color-white !important;
-    &:hover {
-      border: solid $primary-color 1px !important;
-    }
-  }
-
-  .community-details, .trending-groups .group-details {
-    border: none !important;
-  }
-
-  // Dashboard related
-  .user-stats {
-    .saving-alert {
-      .alert {
-        color: $color-white !important;
-      }
-    }
-    .current-saving {
-      color: $color-bisque !important;
-      h2 {
-        color: $color-white !important;
-      }
-      h2, h3 {
-        font-weight: normal;
-      }
-    }
-  }
-
-  .group-profile, .pre-stats{
-    border: none;
-    border-bottom: solid white 1px;
-    border-top: solid white 1px;
-  }
-
-  .posh-container {
-    background-color: $background-accent-color;
-    border-radius: 2em;
-    padding: 1em 0;
-    padding-top: 0;
-  }
-
-  .pre-stats {
-    background-color: $background-accent-color;
-  }
-
-  .header-wrapper {
-    margin-right: 0 !important;
-  }
-
-  .header {
-    box-shadow: none;
-    background-color: transparent;
-    border-bottom: solid white 1px;
-    padding: 1.5em 0.8em !important;
-    padding-bottom: 2.5em !important;
-    margin-top: -2.5em;
-  }
-
-  .trending-card {
-    background-color: transparent;
-    box-shadow: $dark-mode-boxshadow !important;
-  }
-
-  .slide-title{
-    color: white;
-  }
-
-  .trending .slide-title {
-    color: $color-bisque !important;
-  }
-
-  .group-icon,
-  .history-icon {
-    color: $color-bisque !important;
-  }
-
-  .name-location {
-    h2 {
-      font-weight: normal;
-      color: $color-white !important;
-    }
-    h3 {
-      font-weight: normal;
-    }
-  }
-
-  .add-icon {
-    color: $color-white !important;
-  }
-
-  .pre-g-dashboard .vert-div, .pre-g-dashboard .alert, .performance-section {
-    color: $color-white !important;
-  }
-
-  .icon-top, .icon-left, .icon-right, .icon-bottom{
-    border: solid #35425b 2px;
-    background-color: #35425b;
-    color: white;
-  }
-
-  .pay-btn{
-    margin-top: 1.5em;
-    margin-right: 2.1em;
-  }
-
-  .icon-top{
-    background-color: $primary-color;
-    border-width: 4px;
-  }
-
-  .filter-sort{
-    border-color: #6f8192;
-    color: bisque;
-  }
-
-  .menu-items{
-    border: none;
-  }
-
-  .group-layout .group-details {
-    border: none !important;
-  }
-
-  .outer-circle {
-    background-color: $primary-color;
-    border-color: $accent-color;
-  }
-
-  .add-it-icon{
-    background-color: $primary-color;
-  }
-
-  @media screen and (min-width: 768px) {
-    .posh-container{
-      padding: 2em 3em !important;
-    }
-  }
-}
-

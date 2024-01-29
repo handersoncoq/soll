@@ -46,7 +46,8 @@ $accent-color: #35425B;
     background-color: $primary-color;
     color: white;
     font-size: large;
-    padding: 1.2em;
+    padding: 1em;
+    width: 100%;
     transition: background-color 0.3s ease;
 
     &:hover {

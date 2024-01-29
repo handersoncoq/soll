@@ -1,0 +1,207 @@
+$primary-color: #52688F;
+$accent-color: #35425B;
+$dark-dusty-blue: rgb(37 84 109);
+$progress-color: #20a7db;
+$dark-mode-boxshadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+
+
+body.dark-mode {
+    background-color: $primary-color !important;
+    color: white !important;
+  
+    // Footer
+    .app-footer {
+      color: white !important;
+      .footer-content {
+        .footer-links {
+          span {
+            color: white !important;
+            &:hover {
+              color: $dark-dusty-blue !important;
+            }
+          }
+        }
+      }
+    }
+  
+    // Info section
+    .info {
+      button {
+        color: white !important;
+        &:hover {
+          color: $progress-color !important;
+        }
+      }
+      .help-btn {
+        color: bisque !important;
+      }
+    }
+  
+    // User nav
+    .nav-class {
+      color: white !important;
+      background-color: $primary-color !important;
+      .mat-divider.mat-divider-vertical {
+        border-right-color: white !important;
+      }
+    }
+  
+    .menu-button {
+      background-color: $accent-color !important;
+    }
+  
+    .language-icon {
+      color: white !important;
+    }
+  
+    // Group related
+    .group-details,
+    .community-details {
+      border: solid white 1px;
+      background-color: $accent-color !important;
+      color: white !important;
+      &:hover {
+        border: solid $primary-color 1px !important;
+      }
+    }
+  
+    .community-details,
+    .trending-groups .group-details {
+      border: none !important;
+    }
+  
+    // Dashboard related
+    .user-stats {
+      .saving-alert {
+        .alert {
+          color: white !important;
+        }
+      }
+      .current-saving {
+        color: bisque !important;
+        h2 {
+          color: white !important;
+        }
+        h2,
+        h3 {
+          font-weight: normal;
+        }
+      }
+    }
+  
+    .group-profile,
+    .pre-stats {
+      border: none;
+      border-bottom: solid white 1px;
+      border-top: solid white 1px;
+    }
+  
+    .posh-container {
+      background-color: $accent-color;
+      border-radius: 2em;
+      padding: 1em 0;
+      padding-top: 0;
+    }
+  
+    .pre-stats {
+      background-color: $accent-color;
+    }
+  
+    .header-wrapper {
+      margin-right: 0 !important;
+    }
+  
+    .header {
+      box-shadow: none;
+      background-color: transparent;
+      border-bottom: solid white 1px;
+      padding: 1.5em 0.8em !important;
+      padding-bottom: 2.5em !important;
+      margin-top: -2.5em;
+    }
+  
+    .trending-card {
+      background-color: transparent;
+      box-shadow: $dark-mode-boxshadow !important;
+    }
+  
+    .slide-title {
+      color: white;
+    }
+  
+    .trending .slide-title {
+      color: bisque !important;
+    }
+  
+    .group-icon,
+    .history-icon {
+      color: bisque !important;
+    }
+  
+    .name-location {
+      h2 {
+        font-weight: normal;
+        color: white !important;
+      }
+      h3 {
+        font-weight: normal;
+      }
+    }
+  
+    .add-icon {
+      color: white !important;
+    }
+  
+    .pre-g-dashboard .vert-div,
+    .pre-g-dashboard .alert,
+    .performance-section {
+      color: white !important;
+    }
+  
+    .icon-top,
+    .icon-left,
+    .icon-right,
+    .icon-bottom {
+      border: solid #35425b 2px;
+      background-color: #35425b;
+      color: white;
+    }
+  
+    .pay-btn {
+      margin-top: 1.5em;
+      margin-right: 2.1em;
+    }
+  
+    .icon-top {
+      background-color: $primary-color;
+      border-width: 4px;
+    }
+  
+    .filter-sort {
+      border-color: #6f8192;
+      color: bisque;
+    }
+  
+    .menu-items {
+      border: none;
+    }
+  
+    .group-layout .group-details {
+      border: none !important;
+    }
+  
+    .outer-circle {
+      background-color: $primary-color;
+      border-color: $accent-color;
+    }
+  
+    .add-it-icon {
+      background-color: $primary-color;
+    }
+  
+    @media screen and (min-width: 768px) {
+      .posh-container {
+        padding: 2em 3em !important;
+      }
+    }
+  }
