@@ -108,9 +108,7 @@ getUserPreviousGroups(): Group[]{
   }
 
   filterGroups(groups: Group[], filterForm: FormGroup): Group[]{
-    const formValues = filterForm.value;
-  if (!formValues) return [];
-
+  const formValues = filterForm.value;
   return groups.filter(group => {
     let formStartDate = formValues.startDate ? new Date(formValues.startDate).setHours(0, 0, 0, 0) : null;
     let formEndDate = formValues.endDate ? new Date(formValues.endDate).setHours(0, 0, 0, 0) : null;

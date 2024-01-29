@@ -172,6 +172,10 @@ updateSearchResultArray(){
 }
 
 applyFilter() {
+  const formValues = this.filterForm.value;
+  const hasRealValue = Object.values(formValues).some(value => value !== null && value !== '');
+  if (!hasRealValue) return;
+
   this.filteredGroups = this.groupService.filterGroups(this.groups, this.filterForm);
   this.updateSearchResultArray();
   this.updateSearchResultVariable();
@@ -190,9 +194,10 @@ clearFilter(event: MouseEvent){
   this.preventDefaultClose(event)
 }
 
-clearSort() {
+clearSort(event: MouseEvent) {
   this.sortForm.reset();
   this.applyFilter();
+  this.preventDefaultClose(event)
 }
 
 }
