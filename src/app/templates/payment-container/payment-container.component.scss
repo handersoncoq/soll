@@ -1,5 +1,6 @@
 $primary-color: #52688F;
 $accent-color: #35425B;
+$alt-font-color: #E3E7F1;
 
 .payment-container{
     overflow-x: hidden;
@@ -47,7 +48,6 @@ $accent-color: #35425B;
     color: white;
     font-size: large;
     padding: 1em;
-    width: 100%;
     transition: background-color 0.3s ease;
 
     &:hover {
@@ -63,11 +63,11 @@ $accent-color: #35425B;
 
 input, textarea{
   width: 100%;
-  padding: 1em 0;
+  padding: 1em;
+  box-sizing: border-box;
   margin: 5px 0;
   border: 1px solid $accent-color;
   border-radius: 0.6em;
-  text-indent: 1em;
   color: $accent-color;
   font-size: medium;
   &:focus {
@@ -98,9 +98,22 @@ input, textarea{
       }
 }
 
+.note-form{
+  display: flex;
+  flex-direction: column;
+  textarea{
+    font-family: "Poppins", "Roboto", sans-serif;
+  }
+  mat-hint{
+    text-align: right;
+    color: lightgray;
+  }
+}
+
 input:disabled,
 textarea:disabled {
   opacity: 1;
+  background-color: hsl(218.36deg 18.3% 96%);
 }
 
 ::ng-deep .mat-mdc-select-arrow svg {

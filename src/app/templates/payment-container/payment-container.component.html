@@ -45,9 +45,10 @@
             </mat-select>
         </div>
 
-        <div class="form-group">
+        <div class="form-group note-form">
           <label for="note">Note (Optional)</label>
-          <textarea class="form-control" id="note" formControlName="note"></textarea>
+          <textarea #input class="form-control" maxlength="150" id="note" formControlName="note"></textarea>
+          <mat-hint *ngIf="input.value" align="end">{{input.value.length}}/150</mat-hint>
         </div>
 
         <button

@@ -199,9 +199,14 @@ mat-label {
   }
 }
 
+::ng-deep .filter-form .mat-mdc-text-field-wrapper {
+  width: 7.6em;
+}
+
 .filter-form .menu-form-field {
   font-size: medium;
   margin-bottom: -1em !important;
+  width: 52%;
 }
 
 .sort-items {
@@ -225,6 +230,22 @@ swiper-slide {
 .date-picker {
   color: $primary-color;
   font-size: small;
+}
+
+.date-range{
+  margin-bottom: 0.5em;
+  mat-hint{
+    font-size: 8px;
+    padding: 0 !important;
+    margin: 0 -1.5em!important;
+    text-wrap: nowrap;
+    width: 100%;
+    display: inline-flex;
+    color: gray;
+  }
+  input::placeholder{
+    font-size: x-small !important;
+  }
 }
 
 ::ng-deep:not(.close-menu-btn) .mat-mdc-icon-button svg {

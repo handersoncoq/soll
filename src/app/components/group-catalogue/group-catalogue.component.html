@@ -53,7 +53,7 @@
 >
   <mat-card-content>
     <div class="slide-groups">
-      <h5>Results:</h5>
+      <h5>Results: {{getResultsData()}}</h5>
       <swiper-container
         [slides-per-view]="searchResults.length"
         navigation="false"
@@ -116,7 +116,7 @@
       <form [formGroup]="filterForm" class="menu-form filter-form" (click)="preventDefaultClose($event)">
         <mat-form-field class="menu-form-field">
           <mat-label>Savings Target</mat-label>
-          <input #savingTargetInput matInput placeholder="$ 10000" type="number" formControlName="savingsTarget"/>
+          <input #savingTargetInput matInput placeholder="$ 10000" type="number" pattern="[0-9]*" formControlName="savingsTarget"/>
         </mat-form-field>
 
         <mat-form-field class="menu-form-field">
@@ -126,7 +126,7 @@
 
         <mat-form-field class="menu-form-field">
           <mat-label>Contribution</mat-label>
-          <input matInput placeholder="$ 500" type="number" formControlName="contribution"/>
+          <input matInput placeholder="$ 500" type="number" pattern="[0-9]*" formControlName="contribution"/>
         </mat-form-field>
 
         <mat-form-field class="menu-form-field">
@@ -134,24 +134,40 @@
           <input matInput placeholder="Bi or Mo" type="text" formControlName="frequency"/>
         </mat-form-field>
 
-
-        <mat-form-field class="menu-form-field">
-          <mat-label>Start Date</mat-label>
-          <input matInput [matDatepicker]="startDatePicker" formControlName="startDate" placeholder="mm/dd/yyyy">
-          <mat-datepicker-toggle class="date-picker" matSuffix [for]="startDatePicker"></mat-datepicker-toggle>
-          <mat-datepicker #startDatePicker></mat-datepicker>
-        </mat-form-field>        
-
-        <mat-form-field class="menu-form-field">
-          <mat-label>End Date</mat-label>
-          <input matInput [matDatepicker]="endDatePicker" formControlName="endDate" placeholder="mm/dd/yyyy">
-          <mat-datepicker-toggle class="date-picker" matSuffix [for]="endDatePicker"></mat-datepicker-toggle>
-          <mat-datepicker #endDatePicker></mat-datepicker>
-        </mat-form-field>  
-
+        <div formGroupName="groupStartDateRange" class="date-range">
+          <mat-form-field class="menu-form-field">
+            <mat-label>Start Date</mat-label>
+            <mat-date-range-input [rangePicker]="groupStartRangePicker">
+              <input matStartDate formControlName="startDate" placeholder="/">
+              <input matEndDate formControlName="endDate" placeholder="/">
+            </mat-date-range-input>
+            <mat-hint>MM/DD/YYYY - MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle class="date-picker" matSuffix [for]="groupStartRangePicker"></mat-datepicker-toggle>
+            <mat-date-range-picker #groupStartRangePicker></mat-date-range-picker>
+          </mat-form-field>
+        </div>
+        
+        <div formGroupName="groupEndDateRange" class="date-range">
+          <mat-form-field class="menu-form-field">
+            <mat-label>End Date</mat-label>
+            <mat-date-range-input [rangePicker]="groupEndRangePicker">
+              <input matStartDate formControlName="startDate" placeholder="/">
+              <input matEndDate formControlName="endDate" placeholder="/">
+            </mat-date-range-input>
+            <mat-hint>MM/DD/YYYY - MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle class="date-picker" matSuffix [for]="groupEndRangePicker"></mat-datepicker-toggle>
+            <mat-date-range-picker #groupEndRangePicker></mat-date-range-picker>
+          </mat-form-field>
+        </div>
+        
         <mat-form-field class="menu-form-field">
           <mat-label>Group Size</mat-label>
           <input matInput placeholder="10" type="number" formControlName="groupSize"/>
+        </mat-form-field>
+        
+        <mat-form-field class="menu-form-field">
+          <mat-label>Rep. Score</mat-label>
+          <input matInput placeholder="80" type="number" formControlName="minReputationScore"/>
         </mat-form-field>
 
       </form>
@@ -195,6 +211,11 @@
         <div class="menu-form-field">
           <mat-checkbox color="primary" formControlName="groupSize"></mat-checkbox>
           <mat-label>Group Size</mat-label>
+        </div>
+
+        <div class="menu-form-field">
+          <mat-checkbox color="primary" formControlName="minReputationScore"></mat-checkbox>
+          <mat-label>Rep. Size</mat-label>
         </div>
       </form>
       <span>

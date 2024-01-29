@@ -107,24 +107,34 @@ getUserPreviousGroups(): Group[]{
     return this.trendingCommunities;
   }
 
-  filterGroups(groups: Group[], filterForm: FormGroup): Group[]{
-  const formValues = filterForm.value;
-  return groups.filter(group => {
-    let formStartDate = formValues.startDate ? new Date(formValues.startDate).setHours(0, 0, 0, 0) : null;
-    let formEndDate = formValues.endDate ? new Date(formValues.endDate).setHours(0, 0, 0, 0) : null;
-
-    let groupStartDate = group.startDate ? new Date(group.startDate).setHours(0, 0, 0, 0) : null;
-    let groupEndDate = group.endDate ? new Date(group.endDate).setHours(0, 0, 0, 0) : null;
-
-    return (formValues.savingsTarget ? group.savingsTarget === formValues.savingsTarget : true) &&
-           (formValues.contribution ? group.contribution === formValues.contribution : true) &&
-           (formValues.frequency ? group.frequency.toLowerCase().includes(formValues.frequency.toLowerCase()) : true) &&
-           (formStartDate ? groupStartDate === formStartDate : true) &&
-           (formEndDate ? groupEndDate === formEndDate : true) &&
-           (formValues.groupSize ? group.groupSize === formValues.groupSize : true) &&
-           (formValues.payoutSystem ? group.payoutSystem.toLowerCase().includes(formValues.payoutSystem.toLowerCase()) : true);
-  });
+  filterGroups(groups: Group[], filterForm: FormGroup): Group[] {
+    const formValues = filterForm.value;
+  
+    function getDateRangeValues(rangeGroup: any): { start: Date | null, end: Date | null } {
+      return {
+        start: rangeGroup.startDate ? new Date(new Date(rangeGroup.startDate).setHours(0, 0, 0, 0)) : null,
+        end: rangeGroup.endDate ? new Date(new Date(rangeGroup.endDate).setHours(0, 0, 0, 0)) : null
+      };
+    }
+  
+    const groupStartRange = getDateRangeValues(formValues.groupStartDateRange);
+    const groupEndRange = getDateRangeValues(formValues.groupEndDateRange);
+  
+    return groups.filter(group => {
+      let groupStartDate = group.startDate ? new Date(new Date(group.startDate).setHours(0, 0, 0, 0)) : null;
+      let groupEndDate = group.endDate ? new Date(new Date(group.endDate).setHours(0, 0, 0, 0)) : null;
+  
+      return (formValues.savingsTarget ? group.savingsTarget === formValues.savingsTarget : true) &&
+             (formValues.contribution ? group.contribution === formValues.contribution : true) &&
+             (formValues.frequency ? group.frequency.toLowerCase().includes(formValues.frequency.toLowerCase()) : true) &&
+             (!groupStartRange.start || (groupStartDate! >= groupStartRange.start && (!groupStartRange.end || groupStartDate! <= groupStartRange.end))) &&
+             (!groupEndRange.start || (groupEndDate! >= groupEndRange.start && (!groupEndRange.end || groupEndDate! <= groupEndRange.end))) &&
+             (formValues.groupSize ? group.groupSize === formValues.groupSize : true) &&
+             (formValues.minReputationScore ? group.minReputationScore === formValues.minReputationScore : true) &&
+             (formValues.payoutSystem ? group.payoutSystem.toLowerCase().includes(formValues.payoutSystem.toLowerCase()) : true);
+    });
   }
+  
 
   sortGroups(filteredGroups: Group[], sortForm: FormGroup) {
     const formValues = sortForm.value;
@@ -144,6 +154,9 @@ getUserPreviousGroups(): Group[]{
     }
     if (formValues.endDate) {
       filteredGroups.sort((a, b) => new Date(a.endDate).getTime() - new Date(b.endDate).getTime());
+    }
+    if (formValues.minReputationScore) {
+      filteredGroups.sort((a, b) => a.minReputationScore - b.minReputationScore);
     }
   }
 

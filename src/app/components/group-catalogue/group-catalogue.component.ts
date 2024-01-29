@@ -27,6 +27,9 @@ noSearchResult = false;
 filterForm!: FormGroup;
 sortForm!: FormGroup;
 
+groupStartDateRange!: FormGroup;
+groupEndDateRange!: FormGroup;
+
 constructor(private groupService: GroupService) {
   this.searchControl.valueChanges.pipe(
     debounceTime(300),
@@ -45,21 +48,35 @@ constructor(private groupService: GroupService) {
 ngOnInit() {
   this.groups = this.groupService.getGroups();
   this.groupArrays = this.groupByCity(this.groups);
+  this.createStartAndEndDateRange();
   this.createFilterForm();
   this.createSortForm();
 }
 
-createFilterForm(){
+createStartAndEndDateRange(){
+  this.groupStartDateRange = new FormGroup({
+    startDate: new FormControl(null),
+    endDate: new FormControl(null)
+  }),
+  this.groupEndDateRange = new FormGroup({
+    startDate: new FormControl(null),
+    endDate: new FormControl(null)
+  })
+}
+
+createFilterForm() {
   this.filterForm = new FormGroup({
     savingsTarget: new FormControl(''),
     contribution: new FormControl(''),
     frequency: new FormControl(''),
-    startDate: new FormControl(''),
-    endDate: new FormControl(''),
+    groupStartDateRange: this.groupStartDateRange,
+    groupEndDateRange: this.groupEndDateRange,
     groupSize: new FormControl(''),
-    payoutSystem: new FormControl('')
+    payoutSystem: new FormControl(''),
+    minReputationScore: new FormControl('')
   });
 }
+
 
 createSortForm() {
   this.sortForm = new FormGroup({
@@ -67,7 +84,8 @@ createSortForm() {
     contribution: new FormControl(false),
     startDate: new FormControl(false),
     endDate: new FormControl(false),
-    groupSize: new FormControl(false)
+    groupSize: new FormControl(false),
+    minReputationScore: new FormControl(false)
   });
 }
 
@@ -175,7 +193,6 @@ applyFilter() {
   const formValues = this.filterForm.value;
   const hasRealValue = Object.values(formValues).some(value => value !== null && value !== '');
   if (!hasRealValue) return;
-
   this.filteredGroups = this.groupService.filterGroups(this.groups, this.filterForm);
   this.updateSearchResultArray();
   this.updateSearchResultVariable();
@@ -198,6 +215,11 @@ clearSort(event: MouseEvent) {
   this.sortForm.reset();
   this.applyFilter();
   this.preventDefaultClose(event)
+}
+
+getResultsData(): string{
+  if(this.searchResults.length == 1) return '1 group'
+  return `${this.searchResults.length} groups`
 }
 
 }
