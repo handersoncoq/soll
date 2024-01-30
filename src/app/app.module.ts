@@ -58,6 +58,7 @@ import { UserService } from './services/user-service/user.service';
 import { UnsuccessfulJoinComponent } from './templates/unsuccessful-join/unsuccessful-join.component';
 import { PaymentService } from './services/payment.service';
 import { PaymentContainerComponent } from './templates/payment-container/payment-container.component';
+import { StatusCircleComponent } from './templates/status-circle/status-circle.component';
 
 @Injectable()
 export class HammerConfig extends HammerGestureConfig {
@@ -96,7 +97,8 @@ export class HammerConfig extends HammerGestureConfig {
     GroupCatalogueComponent,
     GroupLayoutComponent,
     UnsuccessfulJoinComponent,
-    PaymentContainerComponent
+    PaymentContainerComponent,
+    StatusCircleComponent
   ],
   imports: [
     ReactiveFormsModule,

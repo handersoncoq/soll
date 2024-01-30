@@ -57,7 +57,7 @@ createStartAndEndDateRange(){
   this.groupStartDateRange = new FormGroup({
     startDate: new FormControl(null),
     endDate: new FormControl(null)
-  }),
+  });
   this.groupEndDateRange = new FormGroup({
     startDate: new FormControl(null),
     endDate: new FormControl(null)
@@ -66,14 +66,14 @@ createStartAndEndDateRange(){
 
 createFilterForm() {
   this.filterForm = new FormGroup({
-    savingsTarget: new FormControl(''),
-    contribution: new FormControl(''),
-    frequency: new FormControl(''),
+    savingsTarget: new FormControl(null),
+    contribution: new FormControl(null),
+    frequency: new FormControl(null),
     groupStartDateRange: this.groupStartDateRange,
     groupEndDateRange: this.groupEndDateRange,
-    groupSize: new FormControl(''),
-    payoutSystem: new FormControl(''),
-    minReputationScore: new FormControl('')
+    groupSize: new FormControl(null),
+    payoutSystem: new FormControl(null),
+    minReputationScore: new FormControl(null)
   });
 }
 
@@ -189,14 +189,32 @@ updateSearchResultArray(){
   this.searchResults = this.filteredGroups;
 }
 
+hasRealValue = (obj: any): boolean => {
+  for (const key in obj) {
+    const value = obj[key];
+    if (value instanceof Date) {
+      return true;
+    } else if (typeof value === 'object' && value !== null) {
+      if (value.startDate || value.endDate) {
+        return true;
+      } else if (this.hasRealValue(value)) {
+        return true;
+      }
+    } else if (value !== null && value !== '') {
+      return true;
+    }
+  }
+  return false;
+};
+
 applyFilter() {
   const formValues = this.filterForm.value;
-  const hasRealValue = Object.values(formValues).some(value => value !== null && value !== '');
-  if (!hasRealValue) return;
+  if (!this.hasRealValue(formValues)) return;
   this.filteredGroups = this.groupService.filterGroups(this.groups, this.filterForm);
   this.updateSearchResultArray();
   this.updateSearchResultVariable();
 }
+
 
 applySort() {
   this.groupService.sortGroups(

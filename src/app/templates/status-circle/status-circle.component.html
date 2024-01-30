@@ -1,0 +1,10 @@
+<!-- app/status-circle/status-circle.component.html -->
+
+<svg viewBox="0 0 100 100">
+  <ng-container *ngFor="let segment of segments">
+    <path 
+      [attr.d]="describeArc(50, 50, 45, segment.startAngle, segment.endAngle)"
+      fill="none"
+    />
+  </ng-container>
+</svg>

@@ -1,0 +1,14 @@
+$primary-color: #52688f;
+$progress-color: #20a7db;
+
+svg{
+  width: 22em;
+  height: 22em
+}
+
+:host {
+    display: block;
+    stroke: $progress-color;
+    stroke-width: 2px
+  }
+  

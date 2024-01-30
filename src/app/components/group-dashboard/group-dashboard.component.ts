@@ -10,7 +10,7 @@ import { userGroups } from 'src/app/utils/constants/UserGroupDetail';
 @Component({
   selector: 'app-group-dashboard',
   templateUrl: './group-dashboard.component.html',
-  styleUrl: './group-dashboard.component.scss',
+  styleUrl: './group-dashboard.component.scss'
 })
 export class GroupDashboardComponent implements OnInit {
   
@@ -41,10 +41,14 @@ setData(){
 }
 
 canMakeContribution(): boolean{
-  let totalPaidMembers = this.group!.groupMembers.filter(
+  let totalPaidMembers = this.getTotalPaidMembers();
+  return totalPaidMembers < this.group.groupSize;
+}
+
+getTotalPaidMembers(): number{
+  return this.group!.groupMembers.filter(
     member =>member.paidOut
     ).length
-  return totalPaidMembers < this.group.groupSize;
 }
 
 makeContribution(){

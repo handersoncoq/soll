@@ -46,7 +46,7 @@ export const userGroups: GroupDetail[] = [
     contribution: 500,
     frequency: 'Bi',
     groupSize: 10,
-    rank: 5,
+    rank: 6,
     nextContributionDate: getBINextContributionDate(epsStartDate),
     startDate: epsStartDate,
     endDate: getEPSendDate(epsStartDate),

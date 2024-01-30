@@ -14,6 +14,7 @@ export class GroupCircleComponent implements OnInit{
   @Input() group!: Group | undefined;
 
   currentUser = 'Matgomory Ckan';
+  paidMembersCount = 0;
 
   constructor(private dialogService: DialogService, private styleManager: StyleManagerService) {}
   
@@ -26,6 +27,8 @@ export class GroupCircleComponent implements OnInit{
       const angle = angleStep * index;
       member['transform'] = `rotate(${angle}deg) translate(100px) rotate(-${angle}deg)`;
     });
+
+    this.paidMembersCount = this.getPaidMembersCount();
     
   }
 

@@ -1,6 +1,7 @@
 <div class="circle-container">
   <div class="outer-circle">
     <mat-icon
+      *ngIf="paidMembersCount == 0"
       class="icon-top"
       color="primary"
       #tooltip1="matTooltip"
@@ -8,7 +9,8 @@
       (click)="tooltip1.show()"
       >{{getPayoutSystemIcon()}}</mat-icon
     >
-    <mat-icon 
+    <mat-icon
+    *ngIf="paidMembersCount == 0"
     #tooltip2="matTooltip"
     matTooltip="Savings Target: {{group!.savingsTarget | currency:'USD':'symbol':'1.0-0'}}"
     (click)="tooltip2.show()"
@@ -50,11 +52,13 @@
       </div>
     </div>
     <mat-icon
+    *ngIf="paidMembersCount == 0"
     #tooltip4="matTooltip"
-    matTooltip="Paid Members: {{getPaidMembersCount()}}"
+    matTooltip="Group Size: {{group!.groupSize}}"
     (click)="tooltip4.show()"
-    class="icon-right" color="primary">check_circle</mat-icon>
-    <mat-icon 
+    class="icon-right" color="primary">supervised_user_circle</mat-icon>
+    <mat-icon
+    *ngIf="paidMembersCount == 0"
     #tooltip5="matTooltip"
     matTooltip="cycle {{ group!.cycle.toString() }}"
     (click)="tooltip5.show()"

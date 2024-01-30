@@ -27,7 +27,10 @@
     <div class="group-profile posh-container">
       <button [disabled]="!canMakeContribution()" (click)="makeContribution()" mat-button class="pay-btn" color="primary">Pay<mat-icon iconPositionEnd>payment</mat-icon></button>
       <div class="group-circle">
-        <app-group-circle [group]="group"></app-group-circle>
+        <div>
+          <app-status-circle [statuses]="getTotalPaidMembers()"></app-status-circle>
+          <app-group-circle [group]="group"></app-group-circle>
+        </div>
       </div>
       <div class="group-strength">
         <div>

@@ -13,11 +13,14 @@ export class GroupStrengthComponent implements OnInit {
   @Input() group!: Group;
 
   groupStrength = 0;
+  showSpark = false;
+  sparkTarget = 85;
 
   constructor(private dialog: MatDialog) {}
 
   ngOnInit(): void {
     this.groupStrength = this.calculateGroupStrength();
+    this.showSpark = this.groupStrength * 100 >= this.sparkTarget;
   }
 
  calculateGroupStrength(): number {
@@ -39,5 +42,6 @@ export class GroupStrengthComponent implements OnInit {
       },
     });
   }
+  
 
 }
