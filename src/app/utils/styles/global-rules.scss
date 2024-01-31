@@ -141,6 +141,7 @@ input{
 
   // angular material + library components  =================================================================
 
+ 
   .agreement{
     font-size: smaller;
     a, span{
@@ -243,10 +244,22 @@ input{
 .group-profile {
   background-color: white;
   padding: 0 0.6em;
-  padding-bottom: 1em;
   border-radius: 2em;
-  border: solid $primary-color 1px;
   box-shadow: $bottom-top-box-shadow;
+}
+
+.group-basic-info{
+  margin-top: 4em;
+  padding: 0 0.6em;
+}
+
+.details-wrapper{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1em;
+  .two-items h2{
+    font-size: medium;
+  }
 }
 
 .styled-icon{
@@ -269,6 +282,19 @@ input{
     .group-icon, .divide-vert, .styled-icon{
         box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
     }
+}
+
+.group-strength-wrapper {
+  align-items: center;
+  text-align: center;
+  padding: 1em 0;
+  padding-top: 1.5em;
+}
+
+.group-strength-wrapper h1 {
+  font-size: 1.5em;
+  margin-bottom: 0;
+  color: white;
 }
 
 .group-details, .community-details{

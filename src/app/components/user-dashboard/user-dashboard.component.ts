@@ -15,6 +15,7 @@ import { userGroups } from 'src/app/utils/constants/UserGroupDetail';
 export class UserDashboardComponent implements OnInit {
   
   profilePic = '/assets/img/profile.png';
+  isRealPic = false;
   useShortenedName = '';
   currentUser: User; 
 
@@ -96,6 +97,18 @@ determineEarliestPayoutDate(): Date | null{
   });
 
   return earliestNextPayoutDate;
+}
+
+onFileSelected(event: any): void {
+  const file = event.target.files[0];
+  if (file) {
+    const reader = new FileReader();
+    reader.onload = (e: any) => {
+      this.profilePic = e.target.result;
+    };
+    reader.readAsDataURL(file);
+    this.isRealPic = true;
+  }
 }
 
 getGroupProfileRoute(groupName: string): string {

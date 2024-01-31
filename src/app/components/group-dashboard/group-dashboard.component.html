@@ -1,11 +1,15 @@
-<div *ngIf="group, else noGroupFallback" class="group-dash-c post-login-component">
+<div
+  *ngIf="group; else noGroupFallback"
+  class="group-dash-c post-login-component"
+>
   <div class="spacing"></div>
-  <div class="pre-g-dashboard" appStickyScroll>
+  <div class="pre-g-dashboard">
     <div class="name-location">
       <h2 appLazyLoadText>{{ group.groupName }}</h2>
       <h3 appLazyLoadText>
-        <mat-icon class="location-icon">location_pin</mat-icon>{{group.groupLocation}}
-        <span class="vert-div">|</span> {{ group.payoutSystem }}
+        <mat-icon class="location-icon">location_pin</mat-icon
+        >{{ group.groupLocation }} <span class="vert-div">●</span>
+        {{ group.payoutSystem }}
       </h3>
     </div>
     <div class="alert-box">
@@ -23,72 +27,165 @@
     </div>
   </div>
 
-  <div class="group-dashboard">
-    <div class="group-profile posh-container">
-      <button [disabled]="!canMakeContribution()" (click)="makeContribution()" mat-button class="pay-btn" color="primary">Pay<mat-icon iconPositionEnd>payment</mat-icon></button>
-      <div class="group-circle">
-        <div>
-          <app-status-circle [statuses]="getTotalPaidMembers()"></app-status-circle>
-          <app-group-circle [group]="group"></app-group-circle>
-        </div>
-      </div>
-      <div class="group-strength">
-        <div>
-          <app-group-strength [group]="group!"></app-group-strength>
-        </div>
-      </div>
-      <div class="group-details two-items">
-        <h2>Savings Target</h2>
-        <div class="outer-progress">
-          <div
-            class="inner-progress"
-            appProgressAnimation
-            [startDate]="group!.startDate"
-            [endDate]="group!.endDate"
-          ></div>
-        </div>
-        <p>{{ group.savingsTarget | currency }}</p>
-      </div>
-      <div class="group-details two-items highlight">
-        <h2>Contribution</h2>
-        <mat-divider class="horiz-divider"></mat-divider>
-        <p>{{ group.contribution | currency:'USD':'symbol':'1.0-0' }}/{{group.frequency}}</p>
-      </div>
-      <div class="group-details two-items">
-        <h2>Next Contribution</h2>
-        <mat-divider class="horiz-divider"></mat-divider>
-        <p *ngIf="group.nextContribution; else noNextCont">
-          {{ group.nextContribution | date }}
-        </p>
-        <ng-template #noNextCont>
-          <p>---</p>
-        </ng-template>
-      </div>
-      <div class="group-details two-items">
-        <h2>Start Date</h2>
-        <mat-divider class="horiz-divider"></mat-divider>
-        <p>{{ group.startDate | date }}</p>
-      </div>
-      <div class="group-details two-items">
-        <h2>End Date</h2>
-        <mat-divider class="horiz-divider"></mat-divider>
-        <p>{{ group.endDate | date }}</p>
-      </div>
-    </div>
-    <div class="performance">
-      <div class="performance-section" appLazyLoadText>
-        <h2>Group Performance</h2>
-        <div class="group-stats">
-          <app-group-stats [groupStats]="groupStats"></app-group-stats>
-        </div>
+  <div
+    class="g-d-header"
+    [ngStyle]="{ 'background-image': 'url(' + groupProfilePic + ')' }"
+  >
+    <div class="inner-div">
+      <div class="hero-div">
+        <button
+          [disabled]="!isGroupActive"
+          class="edit-btn"
+          mat-icon-button
+          (click)="fileInput.click()"
+        >
+          <mat-icon>edit</mat-icon>
+        </button>
+        <input
+          type="file"
+          #fileInput
+          style="display: none"
+          (change)="onFileSelected($event)"
+          accept="image/*"
+        />
+        <button
+          class="sub-btn active-button"
+          [class.inactive-btn]="!isGroupActive"
+          mat-raised-button
+        >
+          status: {{ getGroupStatus() }} <i>i</i>
+        </button>
       </div>
     </div>
   </div>
+
+  <mat-tab-group dynamicHeight>
+    <mat-tab class="first-tab">
+      <ng-template mat-tab-label>
+        <mat-icon>dashboard</mat-icon> &nbsp; Dashboard &nbsp;
+        <mat-icon>arrow_drop_down</mat-icon>
+      </ng-template>
+
+      <div class="group-dashboard">
+        <div class="group-profile posh-container">
+          <button
+            [disabled]="!canMakeContribution()"
+            (click)="makeContribution()"
+            mat-button
+            class="sub-btn"
+            color="primary"
+          >
+            Pay<mat-icon iconPositionEnd>payment</mat-icon>
+          </button>
+          <div class="group-circle">
+            <div>
+              <app-status-circle
+                [statuses]="getTotalPaidMembers()"
+              ></app-status-circle>
+              <app-group-circle [group]="group"></app-group-circle>
+            </div>
+          </div>
+          <div class="group-strength-wrapper">
+            <div>
+              <app-group-strength [group]="group!"></app-group-strength>
+            </div>
+          </div>
+        </div>
+        <div class="group-basic-info">
+          <h2>Group Details</h2>
+          <div class="details-wrapper">
+            <div class="group-details two-items">
+              <h2>Savings Target</h2>
+              <mat-divider class="horiz-divider"></mat-divider>
+              <p>{{ group.savingsTarget | currency }}</p>
+            </div>
+            <div class="group-details two-items">
+              <h2>
+                Progress
+                <span *ngIf="groupProgress" class="progress-value"
+                  >({{ groupProgress | percent : "1.0-2" }})</span
+                >
+              </h2>
+              <div class="group-progress">
+                <div class="outer-progress">
+                  <div
+                    class="inner-progress"
+                    appProgressAnimation
+                    (progressPercent)="getGroupProgress($event)"
+                    [startDate]="group!.startDate"
+                    [endDate]="group!.endDate"
+                  ></div>
+                </div>
+              </div>
+            </div>
+            <div class="group-details two-items highlight">
+              <h2>Contribution</h2>
+              <mat-divider class="horiz-divider"></mat-divider>
+              <p>
+                {{
+                  group.contribution | currency : "USD" : "symbol" : "1.0-0"
+                }}/{{ group.frequency }}
+              </p>
+            </div>
+            <div class="group-details two-items">
+              <h2>Next Contribution</h2>
+              <mat-divider class="horiz-divider"></mat-divider>
+              <p *ngIf="group.nextContribution; else noNextCont">
+                {{ group.nextContribution | date }}
+              </p>
+              <ng-template #noNextCont>
+                <p>---</p>
+              </ng-template>
+            </div>
+            <div class="group-details two-items">
+              <h2>Payout System</h2>
+              <mat-divider class="horiz-divider"></mat-divider>
+              <p>{{ group.payoutSystem}}</p>
+            </div>
+            <div class="group-details two-items">
+              <h2>Cycle #</h2>
+              <mat-divider class="horiz-divider"></mat-divider>
+              <p>{{ group.cycle}}</p>
+            </div>
+            <div class="group-details two-items">
+              <h2>Start Date</h2>
+              <mat-divider class="horiz-divider"></mat-divider>
+              <p>{{ group.startDate | date }}</p>
+            </div>
+            <div class="group-details two-items">
+              <h2>End Date</h2>
+              <mat-divider class="horiz-divider"></mat-divider>
+              <p>{{ group.endDate | date }}</p>
+            </div>
+          </div>
+        </div>
+        <div class="performance">
+          <div class="performance-section" appLazyLoadText>
+            <h2>Group Performance</h2>
+            <div class="group-stats">
+              <app-group-stats [groupStats]="groupStats"></app-group-stats>
+            </div>
+          </div>
+        </div>
+      </div>
+    </mat-tab>
+
+    <mat-tab class="second-tab">
+      <div class="tab-label">
+        <ng-template mat-tab-label>
+          <mat-icon>menu_book</mat-icon> &nbsp; Resources &nbsp;
+          <mat-icon>arrow_drop_down</mat-icon>
+        </ng-template>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
 </div>
 
 <ng-template #noGroupFallback>
   <div class="no-group-fallback">
     <mat-icon>block</mat-icon>
-    You must be a current or former member of a group to access its dashboard. If you believe this is an error, please let us know <span class="highlighted-link">here</span>.
+    You must be a current or former member of a group to access its dashboard.
+    If you believe this is an error, please let us know
+    <span class="highlighted-link">here</span>.
   </div>
 </ng-template>

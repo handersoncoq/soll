@@ -18,6 +18,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatNativeDateModule} from '@angular/material/core';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatTabsModule} from '@angular/material/tabs';
 
 import { AppComponent } from './app.component';
 import { FrontPageComponent } from './components/front-page/front-page.component';
@@ -121,6 +122,7 @@ export class HammerConfig extends HammerGestureConfig {
     MatDatepickerModule,
     MatCheckboxModule,
     HammerModule,
+    MatTabsModule
   ],
   providers: [
     ContentManagerService, ScreenLayoutService, AuthGuard, PaymentService,

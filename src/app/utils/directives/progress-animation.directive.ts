@@ -1,4 +1,4 @@
-import { Directive, ElementRef, Input, Renderer2, AfterViewInit } from '@angular/core';
+import { Directive, ElementRef, Input, Renderer2, AfterViewInit, Output, EventEmitter } from '@angular/core';
 
 @Directive({
   selector: '[appProgressAnimation]'
@@ -6,6 +6,7 @@ import { Directive, ElementRef, Input, Renderer2, AfterViewInit } from '@angular
 export class ProgressAnimationDirective implements AfterViewInit {
   @Input() startDate!: Date;
   @Input() endDate!: Date;
+  @Output() progressPercent: EventEmitter<number> = new EventEmitter();
 
   constructor(private el: ElementRef, private renderer: Renderer2) {}
 
@@ -51,7 +52,9 @@ export class ProgressAnimationDirective implements AfterViewInit {
 
     const totalDuration = end - start;
     const elapsedDuration = now - start;
-    return (elapsedDuration / totalDuration) * 100;
+    const progress = (elapsedDuration / totalDuration) * 100;
+    this.progressPercent.emit(progress/100);
+    return progress;
   }
 
   resetProgressBar() {

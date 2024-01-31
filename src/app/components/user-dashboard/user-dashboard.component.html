@@ -1,7 +1,7 @@
 <div class="user-dash-c post-login-component">
   <div class="user-stats">
     <div class="spacing"></div>
-    <div class="saving-alert" appStickyScroll>
+    <div class="saving-alert">
       <div class="current-saving">
         <h3 appLazyLoadText>Your Savings</h3>
         <h2 appLazyLoadText>{{ currentUser.totalSavings| currency }}</h2>
@@ -17,138 +17,162 @@
         >
       </div>
     </div>
-    <div class="pre-stats posh-container">
-      <div class="header-wrapper">
-        <div class="header">
-          <div class="user-progress">
-            <div class="user-profile">
-              <div
-                class="outer-circle"
-                appConfigureDashboardHeader
-                [reputationScore]="currentUser.reputationScore"
-              >
-                <div class="inner-circle-dynamic-fill">
-                  <div class="img-container">
-                    <img
-                      class="profile-img"
-                      [attr.data-src]="profilePic"
-                      appLazyLoading
-                      alt="User Profile"
-                    />
+
+    <mat-tab-group dynamicHeight>
+      <mat-tab class="first-tab">
+
+        <ng-template mat-tab-label>
+          <mat-icon>dashboard</mat-icon> &nbsp; Dashboard  &nbsp;
+          <mat-icon>arrow_drop_down</mat-icon>
+        </ng-template>
+
+        <div class="pre-stats posh-container">
+            <div class="header-wrapper">
+              <div class="header">
+                <div class="user-progress">
+                  <div class="user-profile">
+                    <div
+                      class="outer-circle"
+                      appConfigureDashboardHeader
+                      [reputationScore]="currentUser.reputationScore"
+                    >
+                      <div class="inner-circle-dynamic-fill">
+                        <div class="img-container">
+                          <button mat-icon-button class="edit-btn" (click)="fileInput.click()">
+                            <mat-icon>add</mat-icon>
+                          </button>
+                          <img
+                            class="profile-img"
+                            [ngStyle]="{'mix-blend-mode': !isRealPic ? 'luminosity' : ''}"
+                            [attr.data-src]="profilePic"
+                            appLazyLoading
+                            alt="User Profile"
+                          />
+                          <input type="file" #fileInput style="display: none" (change)="onFileSelected($event)" accept="image/*">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <p class="user-name">{{ useShortenedName }}</p>
+                </div>
+                <div class="demographic">
+                  <div class="reputation-score">
+                    <div class="label">Reputation Score</div>
+                    <div class="value">
+                      {{ currentUser.reputationScore }}
+                    </div>
+                  </div>
+                  <div class="active-group">
+                    <div class="label">Next Payout</div>
+                    <div class="value">
+                      <span *ngIf="daysUntilPayout, else badData">
+                        <mat-icon class="clock-icon">access_alarm</mat-icon>
+                        {{ daysUntilPayout || '---' }} days
+                      </span>
+                      <ng-template #badData>
+                       --
+                      </ng-template>
+                    </div>
+                  </div>
+                  <div class="location">
+                    <div class="label">Group Location</div>
+                    <div class="value"> {{ currentUser.address }}</div>
                   </div>
                 </div>
               </div>
             </div>
-            <p class="user-name">{{ useShortenedName }}</p>
-          </div>
-          <div class="demographic">
-            <div class="reputation-score">
-              <div class="label">Reputation Score</div>
-              <div class="value">
-                {{ currentUser.reputationScore }}
+            <div *ngIf="activeGroups" class="slide-groups user-groups">
+              <div appLazyLoadText class="slide-title">
+                <mat-icon class="group-icon">groups_3</mat-icon>
+                Active Groups
               </div>
+              <swiper-container
+                [slides-per-view]="5"
+                navigation="false"
+                pagination="true"
+                scrollbar="false"
+                speed="500"
+                [spaceBetween]="20"
+              >
+                <swiper-slide class="user-group-slide" *ngFor="let group of activeGroups">
+                  <app-active-groups [routerLink]="getGroupDashboardRoute(group)" [activeGroup]="group"></app-active-groups>
+                </swiper-slide>
+              </swiper-container>
             </div>
-            <div class="active-group">
-              <div class="label">Next Payout</div>
-              <div class="value">
-                <span *ngIf="daysUntilPayout, else badData">
-                  <mat-icon class="clock-icon">access_alarm</mat-icon>
-                  {{ daysUntilPayout || '---' }} days
-                </span>
-                <ng-template #badData>
-                 --
-                </ng-template>
+            <div *ngIf="previousGroups" class="slide-groups user-groups">
+              <div appLazyLoadText class="slide-title">
+                <mat-icon class="history-icon">history</mat-icon>
+                Previous Groups
               </div>
-            </div>
-            <div class="location">
-              <div class="label">Group Location</div>
-              <div class="value"> {{ currentUser.address }}</div>
+              <swiper-container
+                [slides-per-view]="5"
+                navigation="false"
+                pagination="true"
+                scrollbar="false"
+                speed="500"
+                [spaceBetween]="20"
+              >
+                <swiper-slide class="user-group-slide" *ngFor="let group of previousGroups">
+                  <app-prev-groups [routerLink]="getGroupDashboardRoute(group)" [prevGroup]="group"></app-prev-groups>
+                </swiper-slide>
+              </swiper-container>
             </div>
           </div>
+      </mat-tab>
+      <mat-tab>
+        <div class="tab-label">
+          <ng-template mat-tab-label>
+            <mat-icon>person</mat-icon> &nbsp; Profile &nbsp;
+            <mat-icon>arrow_drop_down</mat-icon>
+          </ng-template>
         </div>
-      </div>
-      <div *ngIf="activeGroups" class="slide-groups user-groups">
-        <div appLazyLoadText class="slide-title">
-          <mat-icon class="group-icon">groups_3</mat-icon>
-          Active Groups
-        </div>
-        <swiper-container
-          [slides-per-view]="5"
-          navigation="false"
-          pagination="true"
-          scrollbar="false"
-          speed="500"
-          [spaceBetween]="20"
-        >
-          <swiper-slide class="user-group-slide" *ngFor="let group of activeGroups">
-            <app-active-groups [routerLink]="getGroupDashboardRoute(group)" [activeGroup]="group"></app-active-groups>
-          </swiper-slide>
-        </swiper-container>
-      </div>
-      <div *ngIf="previousGroups" class="slide-groups user-groups">
-        <div appLazyLoadText class="slide-title">
-          <mat-icon class="history-icon">history</mat-icon>
-          Previous Groups
-        </div>
-        <swiper-container
-          [slides-per-view]="5"
-          navigation="false"
-          pagination="true"
-          scrollbar="false"
-          speed="500"
-          [spaceBetween]="20"
-        >
-          <swiper-slide class="user-group-slide" *ngFor="let group of previousGroups">
-            <app-prev-groups [routerLink]="getGroupDashboardRoute(group)" [prevGroup]="group"></app-prev-groups>
-          </swiper-slide>
-        </swiper-container>
-      </div>
+        <br><br>
+      </mat-tab>
+    </mat-tab-group>
+    <div *ngIf="trendingGroups || trendingCommunities" class="trending">
+      <div appLazyLoadText class="trending-title">What's Trending</div>
+    
+      <mat-card *ngIf="trendingGroups" class="trending-card">
+        <mat-card-content>
+          <div class="slide-groups">
+            <div appLazyLoadText class="slide-title">Groups</div>
+            <swiper-container
+              [slides-per-view]="5"
+              navigation="false"
+              pagination="true"
+              scrollbar="false"
+              speed="500"
+              [spaceBetween]="20"
+            >
+              <swiper-slide *ngFor="let group of trendingGroups">
+                <mat-icon [routerLink]="getGroupProfileRoute(group.groupName)" class="add-it-icon">add_circle</mat-icon>
+                <app-trending-groups [routerLink]="getGroupProfileRoute(group.groupName)" [trendingGroup]="group"></app-trending-groups>
+              </swiper-slide>
+            </swiper-container>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    
+      <mat-card *ngIf="trendingCommunities" class="trending-card">
+        <mat-card-content>
+          <div class="slide-groups">
+            <div appLazyLoadText class="slide-title">Communities</div>
+            <swiper-container
+              [slides-per-view]="5"
+              navigation="false"
+              pagination="true"
+              scrollbar="false"
+              speed="500"
+              [spaceBetween]="20"
+            >
+              <swiper-slide *ngFor="let community of trendingCommunities">
+                <mat-icon class="add-it-icon">add_circle</mat-icon>
+                <app-trending-communities [trendingCommunity]="community"></app-trending-communities>
+              </swiper-slide>
+            </swiper-container>
+          </div>
+        </mat-card-content>
+      </mat-card>
     </div>
-  </div>
-  
-  <div *ngIf="trendingGroups || trendingCommunities" class="trending">
-    <div appLazyLoadText class="trending-title">What's Trending</div>
-  
-    <mat-card *ngIf="trendingGroups" class="trending-card">
-      <mat-card-content>
-        <div class="slide-groups">
-          <div appLazyLoadText class="slide-title">Groups</div>
-          <swiper-container
-            [slides-per-view]="5"
-            navigation="false"
-            pagination="true"
-            scrollbar="false"
-            speed="500"
-            [spaceBetween]="20"
-          >
-            <swiper-slide *ngFor="let group of trendingGroups">
-              <mat-icon [routerLink]="getGroupProfileRoute(group.groupName)" class="add-it-icon">add_circle</mat-icon>
-              <app-trending-groups [routerLink]="getGroupProfileRoute(group.groupName)" [trendingGroup]="group"></app-trending-groups>
-            </swiper-slide>
-          </swiper-container>
-        </div>
-      </mat-card-content>
-    </mat-card>
-  
-    <mat-card *ngIf="trendingCommunities" class="trending-card">
-      <mat-card-content>
-        <div class="slide-groups">
-          <div appLazyLoadText class="slide-title">Communities</div>
-          <swiper-container
-            [slides-per-view]="5"
-            navigation="false"
-            pagination="true"
-            scrollbar="false"
-            speed="500"
-            [spaceBetween]="20"
-          >
-            <swiper-slide *ngFor="let community of trendingCommunities">
-              <mat-icon class="add-it-icon">add_circle</mat-icon>
-              <app-trending-communities [trendingCommunity]="community"></app-trending-communities>
-            </swiper-slide>
-          </swiper-container>
-        </div>
-      </mat-card-content>
-    </mat-card>
   </div>
 </div>

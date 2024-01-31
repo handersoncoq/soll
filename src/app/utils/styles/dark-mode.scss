@@ -99,8 +99,7 @@ body.dark-mode {
     .posh-container {
       background-color: $accent-color;
       border-radius: 2em;
-      padding: 1em 0;
-      padding-top: 0;
+      padding: 0;
     }
   
     .pre-stats {
@@ -153,8 +152,7 @@ body.dark-mode {
     }
   
     .pre-g-dashboard .vert-div,
-    .pre-g-dashboard .alert,
-    .performance-section {
+    .pre-g-dashboard .alert{
       color: white !important;
     }
   
@@ -167,7 +165,7 @@ body.dark-mode {
       color: white;
     }
   
-    .pay-btn {
+    .sub-btn:not(.active-button) {
       margin-top: 1.5em;
       margin-right: 2.1em;
     }
@@ -198,6 +196,8 @@ body.dark-mode {
     .add-it-icon {
       background-color: $primary-color;
     }
+    
+   
   
     @media screen and (min-width: 768px) {
       .posh-container {

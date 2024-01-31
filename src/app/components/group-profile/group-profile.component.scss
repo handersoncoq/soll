@@ -31,6 +31,10 @@ $bottom-top-box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0
     }
   }
 
+  .group-profile{
+    border: solid $primary-color 1px;
+  }
+
   .group-status{
     display: flex;
     float: inline-end;
@@ -44,27 +48,6 @@ $bottom-top-box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0
       font-size: large;
       vertical-align: sub;
     }
-  }
-  
-  .performance{
-    border: none;
-    box-shadow: none;
-    border-radius: 0;
-    margin-top: 3em;
-    padding: 0 0.6em;
-  }
-  
-  .group-strength {
-    align-items: center;
-    text-align: center;
-    padding: 1em 0;
-    margin-bottom: 1em;
-  }
-  
-  .group-strength h1 {
-    font-size: 1.5em;
-    margin-bottom: 0;
-    color: white;
   }
   
   .group-circle{
@@ -81,6 +64,7 @@ $bottom-top-box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0
   .group-details {
     display: flex;
     flex-direction: column;
+    border: none !important;
     padding: 1em;
     color: white;
     ::ng-deep .mat-divider{
