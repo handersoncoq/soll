@@ -1,17 +1,23 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-feedback',
-  standalone: true,
   templateUrl: './feedback.component.html',
-  styleUrl: './feedback.component.scss'
+  styleUrls: ['./feedback.component.scss']
 })
-export class FeedbackComponent {
+export class FeedbackComponent implements OnInit {
   private googleFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSexbwAYOOp4SMCvYseWQvHMqDoQogvviOLz_QcIxz8OHav-YA/viewform?embedded=true';
-  formUrl: SafeResourceUrl;
+  formUrl!: SafeResourceUrl;
+  isLoading = true;
 
-  constructor(private sanitizer: DomSanitizer) {
+  constructor(private sanitizer: DomSanitizer) {}
+
+  ngOnInit(): void {
     this.formUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.googleFormUrl);
+    setTimeout(() => {
+      this.isLoading = false;
+    }, 1000);
   }
+
 }

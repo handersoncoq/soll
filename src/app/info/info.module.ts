@@ -7,6 +7,7 @@ import { InfoRoutingModule } from './info-routing.module';
 import { SharedModule } from '../shared/shared.module';
 import { EmailJustificationComponent } from './components/email-justification/email-justification.component';
 import { PhoneAgreementComponent } from './components/phone-agreement/phone-agreement.component';
+import { FeedbackComponent } from './components/feedback/feedback.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { PhoneAgreementComponent } from './components/phone-agreement/phone-agre
     ConceptOverviewComponent,
     AboutUsComponent,
     EmailJustificationComponent,
-    PhoneAgreementComponent
+    PhoneAgreementComponent,
+    FeedbackComponent
   ],
   imports: [
     CommonModule,

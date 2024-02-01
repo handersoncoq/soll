@@ -12,6 +12,7 @@ import { SnackBarComponent } from '../snack-bar/snack-bar.component';
 export class NoticeComponent {
 
   notice: any;
+  googleUrl = 'https://www.google.com/'
   welcomeMsg = "Welcome! Don't forget to share your feedback after exploring!"
 
   constructor(public dialogRef: MatDialogRef<NoticeComponent>, private snackBar: MatSnackBar) {
@@ -23,17 +24,17 @@ export class NoticeComponent {
     this.dialogRef.close();
   }
 
-  clickAway(){
-    window.history.back();
-  }
+  clickAway() {
+    window.location.href = this.googleUrl;
+  }  
 
   sendWelcomeMsg(){
     this.snackBar.openFromComponent(SnackBarComponent, {
       data: {
         message: this.welcomeMsg,
-        type: 'success'
+        type: 'welcome'
       },
-      panelClass: 'app-snackbar-success',
+      panelClass: 'app-snackbar-neutral',
     });
   }
 }

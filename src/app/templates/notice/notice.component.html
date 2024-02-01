@@ -1,5 +1,7 @@
 <div class="notice" *ngIf="notice">
-    <h2 mat-dialog-title >{{notice.title}}</h2>
+    <h2 mat-dialog-title >{{notice.title}}
+        <mat-icon color="accent">front_hand</mat-icon>
+    </h2>
     <mat-dialog-content class="mat-typography">
         <p>{{notice.content}}</p>
     </mat-dialog-content>

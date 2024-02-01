@@ -91,14 +91,19 @@ body {
   font-family: "Poppins", "Roboto", sans-serif;
 }
 
-.app-snackbar-success {
+.app-snackbar-neutral, .app-snackbar-success, .app-snackbar-error{
   --mdc-snackbar-container-color: white;
-  border: solid #4caf50 1px;
   border-radius: 4px;
 }
 
+.app-snackbar-neutral {
+  border: solid $primary-color 1px;
+}
+
+.app-snackbar-success {
+  border: solid #4caf50 1px;
+}
+
 .app-snackbar-error {
-  --mdc-snackbar-container-color: white;
   border: solid rgb(174, 38, 14) 1px;
-  border-radius: 4px;
 }

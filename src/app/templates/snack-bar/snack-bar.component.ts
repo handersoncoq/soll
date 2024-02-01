@@ -31,6 +31,7 @@ export class SnackBarComponent {
       case 'success': return 'check';
       case 'warn': return 'info';
       case 'error': return 'error';
+      case 'welcome': return 'handshake';
       default: return '';
     }
   }

@@ -3,7 +3,7 @@ import { activeEcpsGroupMembers, activeEpsGroupMembers, previousEcpsGroupMembers
 import { groupLeaders } from './GroupLeaders';
 
 const present = new Date();
-const epsStartDate = new Date(present.getFullYear()-1, 10, 30);
+const epsStartDate = new Date(present.getFullYear()-1, 10, 8);
 const ecpsStartDate = new Date(present.getFullYear()-1, 8, 23);
 const groupSize = 10;
 
@@ -46,7 +46,7 @@ export const userGroups: GroupDetail[] = [
     contribution: 500,
     frequency: 'Bi',
     groupSize: 10,
-    rank: 6,
+    rank: 8,
     nextContributionDate: getBINextContributionDate(epsStartDate),
     startDate: epsStartDate,
     endDate: getEPSendDate(epsStartDate),

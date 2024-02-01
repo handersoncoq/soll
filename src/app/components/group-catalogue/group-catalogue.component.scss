@@ -133,6 +133,12 @@ mat-card {
     padding-top: 0;
     width: fit-content;
     font-weight: normal;
+    mat-icon{
+      vertical-align: bottom;
+      color: $progress-color;
+      font-size: smaller;
+      height: 19px;
+    }
   }
 }
 

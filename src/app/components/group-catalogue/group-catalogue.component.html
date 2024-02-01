@@ -70,6 +70,10 @@
           ></app-group-layout>
         </swiper-slide>
       </swiper-container>
+      <h5>Did you find what you were looking for? Please let us know
+        <button routerLink="/info/feedback" mat-icon-button><mat-icon>thumb_down_alt</mat-icon></button>
+        <button routerLink="/info/feedback" mat-icon-button><mat-icon>thumb_up_alt</mat-icon></button>
+      </h5>
     </div>
   </mat-card-content>
 </mat-card>
@@ -215,7 +219,7 @@
 
         <div class="menu-form-field">
           <mat-checkbox color="primary" formControlName="minReputationScore"></mat-checkbox>
-          <mat-label>Rep. Size</mat-label>
+          <mat-label>Rep. Score</mat-label>
         </div>
       </form>
       <span>

@@ -12,7 +12,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { MAT_SNACK_BAR_DEFAULT_OPTIONS, MatSnackBarModule } from '@angular/material/snack-bar';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import {MatSelectModule} from '@angular/material/select';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatNativeDateModule} from '@angular/material/core';
@@ -29,7 +28,6 @@ import { GetStartedComponent } from './components/get-started/get-started.compon
 import { SnackBarComponent } from './templates/snack-bar/snack-bar.component';
 import { ScreenLayoutService } from './utils/screen-layout/screen-layout.service';
 import { VerificationComponent } from './templates/verification/verification.component';
-import { LoadingComponent } from './templates/loading/loading.component';
 import { DialogueComponent } from './templates/dialogue/dialogue.component';
 import { PrivacyPolicyComponent } from './templates/privacy-policy/privacy-policy.component';
 import { TermsAndConditionsComponent } from './templates/terms-and-conditions/terms-and-conditions.component';
@@ -75,7 +73,6 @@ export class HammerConfig extends HammerGestureConfig {
     GetStartedComponent,
     SnackBarComponent,
     VerificationComponent,
-    LoadingComponent,
     DialogueComponent,
     PrivacyPolicyComponent,
     TermsAndConditionsComponent,
@@ -115,7 +112,6 @@ export class HammerConfig extends HammerGestureConfig {
     MatInputModule,
     MatFormFieldModule,
     MatSnackBarModule,
-    MatProgressSpinnerModule,
     MatSelectModule,
     MatTooltipModule,
     MatNativeDateModule,
@@ -133,7 +129,7 @@ export class HammerConfig extends HammerGestureConfig {
     },
     {provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: {
       duration: 3000,
-      panelClass: ['app-snackbar-success', 'app-snackbar-error'],
+      panelClass: ['app-snackbar-neutral', 'app-snackbar-success', 'app-snackbar-error'],
       verticalPosition: 'top',
       horizontalPosition: 'right',
     }}

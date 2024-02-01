@@ -47,7 +47,7 @@ button{
     color: $primary-color !important;
 }
 
-.small-icon {
+.small-icon:not(.welcome) {
     font-size: 24px;
     height: 24px;
     width: 24px;
@@ -70,6 +70,15 @@ button{
     color: $error-color;
     overflow: visible;
     font-size: 1.8em !important;
+  }
+
+  .welcome{
+    margin-top: -0.13em;
+    background-color: transparent;
+    color: $accent-color;
+    font-size: 30px !important;
+    overflow: visible;
+    margin-right: -0.4em;
   }
   
   .success {

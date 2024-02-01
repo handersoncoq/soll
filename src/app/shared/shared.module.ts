@@ -11,6 +11,7 @@ import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatBadgeModule } from '@angular/material/badge';
 import {MatCardModule} from '@angular/material/card';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import { PublicNavComponent } from '../templates/public-nav/public-nav.component';
 import { LazyLoadingDirective } from '../utils/directives/lazy-loading.directive';
@@ -22,6 +23,7 @@ import { ProgressAnimationDirective } from '../utils/directives/progress-animati
 import { ConfigureDashboardHeaderDirective } from '../utils/directives/configure-dashboard-header.directive';
 import { GroupStrengthAnimationDirective } from '../utils/directives/group-strength-animation.directive';
 import { StickyScrollDirective } from '../utils/directives/sticky-scroll.directive';
+import { LoadingComponent } from '../templates/loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +35,7 @@ import { StickyScrollDirective } from '../utils/directives/sticky-scroll.directi
     ProgressAnimationDirective,
     GroupStrengthAnimationDirective,
     StickyScrollDirective,
+    LoadingComponent
   ],
   imports: [
     CommonModule,
@@ -45,7 +48,8 @@ import { StickyScrollDirective } from '../utils/directives/sticky-scroll.directi
     MatBottomSheetModule,
     MatStepperModule,
     MatBadgeModule,
-    MatCardModule
+    MatCardModule,
+    MatProgressSpinnerModule
   ],
   providers: [
     PublicInteractionService,
@@ -69,7 +73,9 @@ import { StickyScrollDirective } from '../utils/directives/sticky-scroll.directi
     MatBottomSheetModule,
     MatStepperModule,
     MatBadgeModule,
-    MatCardModule
+    MatCardModule,
+    LoadingComponent,
+    MatProgressSpinnerModule
   ],
 })
 export class SharedModule {}
