@@ -1,0 +1,30 @@
+
+$primary-color: #52688F;
+$subtle-white: #f5f5f5;
+
+.feedback-c{
+    display: flex;
+    justify-content: center;
+}
+
+.go-back{
+    cursor: pointer; 
+    margin: 1em;
+    padding: 5px;
+    color: $primary-color;
+    background-color: $subtle-white;
+    text-align: center;
+    border-bottom: solid $primary-color;
+    &:hover{
+        background-color: hsl(0deg 0% 93.08%);
+    }
+}
+
+.feedback-c, .go-back{
+    margin-top: 2em;
+}
+
+::ng-deep  :host div.Esexse {
+    display: none !important;
+  }
+  

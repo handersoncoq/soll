@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { InfoDetails } from 'src/app/interaces/Info';
 import { ContentManagerService } from 'src/app/services/content-manager/content-manager.service';
-import { DialogueComponent } from 'src/app/templates/dialogue/dialogue.component';
 
 @Component({
   selector: 'app-footer',
@@ -31,19 +30,6 @@ export class FooterComponent {
 
   openTermsAndConditions(): void {
     this.contentManagerService.openTermsAndConditions();
-  }
-
-  openFeedback(): void {
-    this.dialog.open(DialogueComponent, {
-      data: {
-        title: this.infoDetails.feedbackTitle,
-        content: this.infoDetails.email,
-        copiable: true,
-        isFeedback: true,
-        enterAnimationDuration: this.enterAnimationDuration,
-        exitAnimationDuration: this.exitAnimationDuration,
-      },
-    });
   }
 
 }

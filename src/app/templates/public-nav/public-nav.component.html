@@ -47,7 +47,7 @@
         mat-menu-item
         (click)="navigateTo('/info/concept-overview', 'eps')"
       >
-        EPS
+        EPS system
         <mat-icon color="primary">calendar_month</mat-icon>
       </button>
       <button
@@ -55,10 +55,26 @@
         mat-menu-item
         (click)="navigateTo('/info/concept-overview', 'ecps')"
       >
-        ECPS
+        ECPS system
         <mat-icon color="primary">savings</mat-icon>
       </button>
       <button
+        appLazyLoadText
+        mat-menu-item
+        (click)="navigateToSimpleRoute('/info/about-us')"
+        >
+        About us
+        <mat-icon color="primary">info</mat-icon>
+      </button>
+      <button
+      appLazyLoadText
+      mat-menu-item
+      (click)="navigateToSimpleRoute('/info/feedback')"
+      >
+      Feedback
+      <mat-icon color="primary">feedback</mat-icon>
+    </button>
+      <!-- <button
         appLazyLoadText
         mat-menu-item
         (click)="shakeIcon(); openInquireDialog()"
@@ -66,17 +82,8 @@
         <mat-icon color="primary" [class.shake-animation]="shake"
           >support_agent</mat-icon
         >Questions?
-      </button>
+      </button> -->
     </div>
-    <mat-divider class="menu-divider"></mat-divider>
-    <button
-      class="about-us"
-      appLazyLoadText
-      mat-menu-item
-      (click)="navigateToSimpleRoute('/info/about-us')"
-    >
-      About us
-    </button>
   </ng-template>
 </mat-menu>
 
