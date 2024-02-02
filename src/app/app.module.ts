@@ -9,6 +9,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { MAT_SNACK_BAR_DEFAULT_OPTIONS, MatSnackBarModule } from '@angular/material/snack-bar';
@@ -58,6 +59,9 @@ import { UnsuccessfulJoinComponent } from './templates/unsuccessful-join/unsucce
 import { PaymentService } from './services/payment.service';
 import { PaymentContainerComponent } from './templates/payment-container/payment-container.component';
 import { StatusCircleComponent } from './templates/status-circle/status-circle.component';
+import { GroupChatComponent } from './templates/group-chat/group-chat.component';
+import { ChatMessageComponent } from './templates/chat-message/chat-message.component';
+import { ChatService } from './services/chat-service/chat.service';
 
 @Injectable()
 export class HammerConfig extends HammerGestureConfig {
@@ -96,7 +100,9 @@ export class HammerConfig extends HammerGestureConfig {
     GroupLayoutComponent,
     UnsuccessfulJoinComponent,
     PaymentContainerComponent,
-    StatusCircleComponent
+    StatusCircleComponent,
+    GroupChatComponent,
+    ChatMessageComponent,
   ],
   imports: [
     ReactiveFormsModule,
@@ -118,11 +124,12 @@ export class HammerConfig extends HammerGestureConfig {
     MatDatepickerModule,
     MatCheckboxModule,
     HammerModule,
-    MatTabsModule
+    MatTabsModule,
+    FormsModule
   ],
   providers: [
     ContentManagerService, ScreenLayoutService, AuthGuard, PaymentService,
-    StyleManagerService, GroupService, DialogService, UserService,
+    StyleManagerService, GroupService, DialogService, UserService, ChatService,
     {
       provide: HAMMER_GESTURE_CONFIG,
       useClass: HammerConfig

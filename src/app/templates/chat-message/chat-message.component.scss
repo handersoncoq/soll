@@ -1,0 +1,105 @@
+$primary-color: #52688F;
+$accent-color: #35425B;
+$beige-ish: rgb(253 243 232);
+
+.sender-name, .timestamp{
+  font-size: 0.75rem;
+}
+
+.pin-indication{
+  display: flex;
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  margin-left: 0.7em;
+  font-size: medium;
+  margin-bottom: -0.5em;
+}
+
+.verify-icon{
+  padding-left: 0.5em;
+  padding-top: 2px;
+  position: absolute;
+  font-size: small;
+}
+
+  .message {
+    margin-left: -0.5em;
+    margin-bottom: 1em;
+    width: fit-content;
+  }
+
+ .message .message-card {
+    background-color: $beige-ish;
+    color: $primary-color;
+    .timestamp{
+      color: #b5b1b1;
+    }
+  }
+
+  .message-card .mat-mdc-card-content {
+    padding-left: 0.8em;
+    padding-right: 0.8em;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .own-message {
+    margin-left: 0;
+    text-align: right;
+  }
+
+  .timestamp {
+    text-align: right;
+  }
+
+  .sender-name{
+    text-align: left;
+    color: black;
+    font-weight: bold;
+  }
+
+  .own-message {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+   .own-message .message-card {
+      background-color: $primary-color;
+      color: bisque;
+      .sender-name, .timestamp{
+        color: #e6e4e2;
+        text-align: left;
+      }
+    }
+
+.message-content{
+  word-wrap: break-word;
+}
+
+// tailing
+
+
+$message-background: $beige-ish;
+$own-message-background: $primary-color;
+
+.message, .own-message {
+  position: relative;
+  .message-card {
+    border-radius: 16px;
+  }
+}
+
+.message:not(.own-message){
+  .message-card{
+    border-bottom-right-radius: 0;
+  }
+}
+
+.own-message{
+  .message-card{
+    border-bottom-left-radius: 0;
+  }
+}
+  

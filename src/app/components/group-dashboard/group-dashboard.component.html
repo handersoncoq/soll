@@ -19,7 +19,8 @@
         appLazyLoadText
         aria-hidden="false"
         [matBadge]="messageCount"
-        (click)="tooltip.show()"
+        [matBadgeHidden]="hideBadge"
+        (click)="openGroupChat()"
         matBadgeSize="medium"
         class="alert"
         >forum</mat-icon

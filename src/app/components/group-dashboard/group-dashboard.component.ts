@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Group } from 'src/app/interaces/Group';
+import { ChatService } from 'src/app/services/chat-service/chat.service';
 import { GroupService } from 'src/app/services/group-service/group.service';
 import { PaymentService } from 'src/app/services/payment.service';
 import { ecpsGroupStats, epsGroupStats } from 'src/app/utils/constants/GroupStats';
@@ -22,9 +23,10 @@ groupProfilePic2 = '/assets/img/group-profile-2.png';
 isGroupActive = true;
 groupProgress!: number;
 messageCount!: number;
+hideBadge = false;
 
 constructor(private route: ActivatedRoute, private paymentService: PaymentService,
-  private groupService: GroupService) {}
+  private groupService: GroupService, private chatService: ChatService) {}
 
 ngOnInit() {
   const routeGroupName = this.route.snapshot.paramMap.get('groupName');
@@ -36,7 +38,7 @@ ngOnInit() {
     }
 
   this.setData()
-  this.messageCount = Math.floor(Math.random() * 98);
+  this.messageCount = 1;
 
   if(this.group.endDate.getTime() < new Date().getTime()){
     this.isGroupActive = false;
@@ -85,6 +87,11 @@ onFileSelected(event: any): void {
     };
     reader.readAsDataURL(file);
   }
+}
+
+openGroupChat(){
+  this.hideBadge = true;
+  this.chatService.openMobileGroupChat();
 }
 
 }

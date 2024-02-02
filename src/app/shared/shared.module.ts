@@ -24,6 +24,7 @@ import { ConfigureDashboardHeaderDirective } from '../utils/directives/configure
 import { GroupStrengthAnimationDirective } from '../utils/directives/group-strength-animation.directive';
 import { StickyScrollDirective } from '../utils/directives/sticky-scroll.directive';
 import { LoadingComponent } from '../templates/loading/loading.component';
+import { RelativeDatePipe } from '../utils/pipes/relative-date.pipe';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { LoadingComponent } from '../templates/loading/loading.component';
     ProgressAnimationDirective,
     GroupStrengthAnimationDirective,
     StickyScrollDirective,
-    LoadingComponent
+    LoadingComponent,
+    RelativeDatePipe,
   ],
   imports: [
     CommonModule,
@@ -75,7 +77,8 @@ import { LoadingComponent } from '../templates/loading/loading.component';
     MatBadgeModule,
     MatCardModule,
     LoadingComponent,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    RelativeDatePipe
   ],
 })
 export class SharedModule {}

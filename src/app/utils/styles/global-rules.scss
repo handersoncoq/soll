@@ -141,17 +141,27 @@ input{
 
   // angular material + library components  =================================================================
 
- 
-  .agreement{
-    font-size: smaller;
-    a, span{
-        font-weight: bold;
-        color: $primary-color;
+  .bottom-sheet-title-close{
+    border-bottom: solid $primary-color 1px;
+    margin-bottom: 1em;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background-color: white;
+    display: grid;
+    grid-template-columns: 12fr 1fr;
+    mat-icon:not(.group-icon){
+      margin-top: 0.6em;
+      margin-left: 1em;
+      font-size: 1.5em;
+      color: $primary-color;
     }
-    mat-checkbox{
-        height: 12px;
-        margin-left: -0.8em;
-    }
+  }
+  
+  .bottom-sheet-content {
+    overflow-y: auto;
+    overflow-x: hidden;
+    max-height: calc(100vh - 56px);
   }
   
   
@@ -163,17 +173,19 @@ input{
     border-top: solid $primary-color 1px;
     border-top-right-radius: 2em !important;
     border-top-left-radius: 2em !important;
+    overflow-y: hidden !important;
   }
 
-  .bottom-sheet-title-close{
-      display: grid;
-      grid-template-columns: 12fr 1fr;
-      mat-icon{
-        margin-top: 0.6em;
-        margin-left: 1em;
-        font-size: 1.5em;
+  .agreement{
+    font-size: smaller;
+    a, span{
+        font-weight: bold;
         color: $primary-color;
-      }
+    }
+    mat-checkbox{
+        height: 12px;
+        margin-left: -0.8em;
+    }
   }
 
   .mat-mdc-tooltip .mdc-tooltip__surface {

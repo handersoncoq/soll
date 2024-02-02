@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
 import { Group } from 'src/app/interaces/Group';
 import { GroupService } from 'src/app/services/group-service/group.service';
 import { PaymentService } from 'src/app/services/payment.service';
@@ -18,7 +17,7 @@ export class PaymentContainerComponent implements OnInit{
   group!: Group;
 
   constructor(private screenService: ScreenLayoutService, private formBuilder: FormBuilder,
-    private paymentService: PaymentService, private route: ActivatedRoute, private groupService: GroupService) { 
+    private paymentService: PaymentService, private groupService: GroupService) { 
     this.screenService.isMobile$.subscribe(
       isMobile =>{
         this.isMobile = isMobile;

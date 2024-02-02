@@ -1,0 +1,42 @@
+$primary-color: #52688F;
+$accent-color: #35425B;
+
+.bottom-sheet-c {
+  overflow-x: hidden;
+  border-radius: 1.5em;
+  h2, h3{
+      color: $primary-color;
+      padding: 0 0.5em;
+  }
+}
+
+.chat-window {
+  max-width: 800px;
+  margin: 0;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: none;
+}
+  
+  .message-input {
+    flex-grow: 1;
+    box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+  }
+
+  textarea::placeholder{
+    font-size: small;
+  }
+
+  .send-button{
+    margin-left: 4px;
+  }
+
+  ::ng-deep .message-input .mdc-text-field--outlined {
+    --mdc-outlined-text-field-container-shape: 0.6em !important;
+}
+
+::ng-deep .message-input .mat-mdc-form-field-subscript-wrapper{
+  display: none !important;
+}
+  
