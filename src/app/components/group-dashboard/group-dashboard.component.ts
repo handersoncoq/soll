@@ -5,8 +5,6 @@ import { ChatService } from 'src/app/services/chat-service/chat.service';
 import { GroupService } from 'src/app/services/group-service/group.service';
 import { PaymentService } from 'src/app/services/payment.service';
 import { ecpsGroupStats, epsGroupStats } from 'src/app/utils/constants/GroupStats';
-import { prevGroups } from 'src/app/utils/constants/PreviousGroups';
-import { userGroups } from 'src/app/utils/constants/UserGroupDetail';
 
 @Component({
   selector: 'app-group-dashboard',
@@ -15,12 +13,10 @@ import { userGroups } from 'src/app/utils/constants/UserGroupDetail';
 })
 export class GroupDashboardComponent implements OnInit {
   
-userPrevGroups: Group[] = prevGroups
 group!: Group;
 groupStats: any[] = [];
 groupProfilePic = '/assets/img/group-profile-1.png';
 groupProfilePic2 = '/assets/img/group-profile-2.png';
-isGroupActive = true;
 groupProgress!: number;
 messageCount!: number;
 hideBadge = false;
@@ -38,11 +34,7 @@ ngOnInit() {
     }
 
   this.setData()
-  this.messageCount = 1;
-
-  if(this.group.endDate.getTime() < new Date().getTime()){
-    this.isGroupActive = false;
-  }
+  this.messageCount = this.chatService.getGroupMessages(this.group).length;
 
   if(this.group.payoutSystem === 'ECPS'){
     this.groupProfilePic = this.groupProfilePic2;
@@ -50,7 +42,7 @@ ngOnInit() {
 }
 
 getGroupStatus(): string{
-  if(!this.isGroupActive) return 'inactive';
+  if(!this.group.isActive) return 'inactive';
   return 'active'
 }
 
@@ -59,10 +51,6 @@ setData(){
   else this.groupStats = ecpsGroupStats;
 }
 
-canMakeContribution(): boolean{
-  let totalPaidMembers = this.getTotalPaidMembers();
-  return totalPaidMembers < this.group.groupSize;
-}
 
 getTotalPaidMembers(): number{
   return this.group!.groupMembers.filter(

@@ -1,37 +1,39 @@
 <div class="bottom-sheet-c chat-container" [class.mobile]="isMobile">
   <div class="bottom-sheet-title-close">
-    <h3>{{ group.groupName }}</h3>
-    <mat-icon *ngIf="isMobile" (click)="closeBottomSheet()">close</mat-icon>
+    <div class="title-icon">
+      <h3>{{ group.groupName }}</h3>
+      <mat-icon (click)="closeBottomSheet()">close</mat-icon>
+    </div>
+    <!-- <div class="pinned-message" *ngIf="pinnedMessage && showPinnedMessage">{{pinnedMessage.text}}</div> -->
   </div>
-  <div class="bottom-sheet-content">
+  <div #chatContent class="bottom-sheet-content" id="chat-content">
     <mat-dialog-content class="mat-typography">
       <mat-card class="chat-window">
-        <mat-card-content>
+        <mat-card-content class="messages">
           <app-chat-message
             *ngFor="let message of messages"
             [message]="message"
           ></app-chat-message>
         </mat-card-content>
-        <mat-card-actions>
-          <mat-form-field class="message-input" appearance="outline">
-            <textarea
-              matInput
-              placeholder="Type your message"
-              cdkTextareaAutosize
-              #autosize="cdkTextareaAutosize"
-              cdkAutosizeMinRows="1"
-              cdkAutosizeMaxRows="5"
-              [(ngModel)]="newMessage"
-            ></textarea>
-          </mat-form-field>
-          <button class="send-button" *ngIf="newMessage"  mat-mini-fab color="primary" (click)="sendMessage()">
-              <mat-icon>send</mat-icon>
-          </button>
-        </mat-card-actions>
       </mat-card>
     </mat-dialog-content>
   </div>
-  <mat-dialog-actions align="end" *ngIf="!isMobile">
-    <button mat-button mat-dialog-close right-align>Close</button>
-  </mat-dialog-actions>
+  <mat-card>
+    <mat-card-actions>
+      <mat-form-field class="message-input" appearance="outline">
+        <textarea
+          matInput
+          placeholder="Type your message"
+          cdkTextareaAutosize
+          #autosize="cdkTextareaAutosize"
+          cdkAutosizeMinRows="1"
+          cdkAutosizeMaxRows="5"
+          [(ngModel)]="newMessage"
+        ></textarea>
+      </mat-form-field>
+      <button class="send-button" *ngIf="newMessage"  mat-mini-fab color="primary" (click)="sendMessage()">
+          <mat-icon>send</mat-icon>
+      </button>
+    </mat-card-actions>
+  </mat-card>
 </div>

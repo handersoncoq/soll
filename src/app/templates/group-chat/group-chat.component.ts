@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, Renderer2, ViewChild } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { ChatMessage } from 'src/app/interaces/ChatMessage';
 import { Group } from 'src/app/interaces/Group';
 import { User } from 'src/app/interaces/User';
@@ -12,55 +13,85 @@ import { ScreenLayoutService } from 'src/app/utils/screen-layout/screen-layout.s
   templateUrl: './group-chat.component.html',
   styleUrl: './group-chat.component.scss',
 })
-export class GroupChatComponent implements OnInit{
+export class GroupChatComponent implements OnInit, AfterViewInit{
+  @ViewChild('chatContent') chatContent!: ElementRef;
 
   isMobile = true;
-  group: Group;
+  group!: Group;
   currentUser: User;
 
   messages: ChatMessage[] = [];
   newMessage: string = '';
-  own: boolean = true;
-  timestamp = new Date();
-
-  groupLeaderMsg!: ChatMessage;
-  leaderMsg: string = 'Welcome to the group chat. Please follow the rules!';
+  pinnedMessage: ChatMessage | undefined;
+  showPinnedMessage = false;
 
   constructor(private screenService: ScreenLayoutService, private groupService: GroupService,
-    private chatService: ChatService, private userService: UserService){
+    private chatService: ChatService, private userService: UserService, private renderer: Renderer2){
     this.screenService.isMobile$.subscribe(
       isMobile =>{
         this.isMobile = isMobile;
       });
-      this.group = this.groupService.foundGroup;
-      this.currentUser = userService.getCurrentUser();
+      this.currentUser = this.userService.getCurrentUser();
     }
+
 
   ngOnInit(): void {
-    this.groupLeaderMsg = {
-      text: this.leaderMsg,
-      own: false,
-      senderName: this.group.groupLeader.name,
-      timestamp: this.group.startDate,
-      pinned: true,
-      fromGroupLeader: true
-    }
-    this.messages.push(this.groupLeaderMsg);
+    this.group = this.groupService.foundGroup;
   }
 
-  closeBottomSheet(){
-    this.chatService.closeBottomSheet();
+  ngAfterViewInit() {
+    this.initChat();
+    this.scrollToLastMessage();
+    this.onScroll();
   }
+
+  initChat() {
+    this.messages = this.chatService.getGroupMessages(this.group);
+    this.getPinnedMessage();
+  }
+
 
   sendMessage(): void {
     if (this.newMessage.trim()) {
       this.messages.push({
         text: this.newMessage,
-        own: this.own,
-        timestamp: this.timestamp,
-        senderName: this.currentUser.firstName,
+        own: true,
+        timestamp: new Date(),
+        sender: this.currentUser,
       });
       this.newMessage = '';
+      requestAnimationFrame(() => {
+        this.scrollToLastMessage();
+      });
     }
+  }
+
+  scrollToLastMessage(): void {
+    const messageElements = document.querySelectorAll('.message'); // Use an appropriate class name
+    const lastMessage = messageElements[messageElements.length - 1];
+    if (lastMessage) {
+      lastMessage.scrollIntoView({ behavior: 'smooth', block: 'end' });
+    }
+  }
+
+  // get pinned message from message list
+  getPinnedMessage(){
+    this.pinnedMessage = this.messages.find((message) => message.pinned);
+  }
+
+  onScroll() {
+    this.renderer.listen(this.chatContent.nativeElement, 'scroll', (event) => {
+      // Logic to show/hide pinned message
+      if (event.target.scrollTop > 10) {
+        this.showPinnedMessage = true;
+      } else {
+        this.showPinnedMessage = false;
+      }
+      console.log('Scroll event captured');
+    });
+  }
+
+  closeBottomSheet(){
+    this.chatService.closeBottomSheet();
   }
 }

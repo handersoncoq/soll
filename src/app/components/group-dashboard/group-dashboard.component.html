@@ -35,7 +35,7 @@
     <div class="inner-div">
       <div class="hero-div">
         <button
-          [disabled]="!isGroupActive"
+          [disabled]="!group.isActive"
           class="edit-btn"
           mat-icon-button
           (click)="fileInput.click()"
@@ -51,7 +51,7 @@
         />
         <button
           class="sub-btn active-button"
-          [class.inactive-btn]="!isGroupActive"
+          [class.inactive-btn]="!group.isActive"
           mat-raised-button
         >
           status: {{ getGroupStatus() }} <i>i</i>
@@ -70,7 +70,7 @@
       <div class="group-dashboard">
         <div class="group-profile posh-container">
           <button
-            [disabled]="!canMakeContribution()"
+            [disabled]="!group.isActive"
             (click)="makeContribution()"
             mat-button
             class="sub-btn"

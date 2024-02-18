@@ -146,14 +146,19 @@ input{
     margin-bottom: 1em;
     position: sticky;
     top: 0;
-    z-index: 1;
+    z-index: 100;
     background-color: white;
     display: grid;
     grid-template-columns: 12fr 1fr;
+    h2, h3{
+      color: $primary-color;
+      padding: 0 0.5em;
+  }
     mat-icon:not(.group-icon){
       margin-top: 0.6em;
       margin-left: 1em;
       font-size: 1.5em;
+      cursor: pointer;
       color: $primary-color;
     }
   }
@@ -161,7 +166,9 @@ input{
   .bottom-sheet-content {
     overflow-y: auto;
     overflow-x: hidden;
-    max-height: calc(100vh - 56px);
+    padding-bottom: 1em;
+    margin-bottom: 2em;
+    max-height: calc(100vh - 24em);
   }
   
   
@@ -173,7 +180,7 @@ input{
     border-top: solid $primary-color 1px;
     border-top-right-radius: 2em !important;
     border-top-left-radius: 2em !important;
-    overflow-y: hidden !important;
+    // overflow-y: hidden !important;
   }
 
   .agreement{

@@ -1,8 +1,10 @@
+import { User } from "./User";
+
 export interface ChatMessage {
     text: string;
     own: boolean;
     timestamp: Date;
-    senderName: string;
+    sender: User;
     pinned?: boolean;
     fromGroupLeader?: boolean
 }

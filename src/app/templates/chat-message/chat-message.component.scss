@@ -1,19 +1,21 @@
 $primary-color: #52688F;
 $accent-color: #35425B;
 $beige-ish: rgb(253 243 232);
-
-.sender-name, .timestamp{
-  font-size: 0.75rem;
-}
+$progress-color: #20a7db;
 
 .pin-indication{
   display: flex;
   position: relative;
+  justify-content: flex-end;
   z-index: 10;
   width: 100%;
-  margin-left: 0.7em;
+  margin-left: -2em;
   font-size: medium;
   margin-bottom: -0.5em;
+}
+
+mat-icon{
+  color: $accent-color;
 }
 
 .verify-icon{
@@ -24,17 +26,19 @@ $beige-ish: rgb(253 243 232);
 }
 
   .message {
-    margin-left: -0.5em;
+    margin-left: -1em;
     margin-bottom: 1em;
     width: fit-content;
   }
 
  .message .message-card {
-    background-color: $beige-ish;
-    color: $primary-color;
-    .timestamp{
-      color: #b5b1b1;
-    }
+  background-color: $primary-color;
+  color: white;
+       .timestamp{
+        padding-top: 8px;
+        color: #dedddd;
+        text-align: right;
+      }
   }
 
   .message-card .mat-mdc-card-content {
@@ -43,36 +47,33 @@ $beige-ish: rgb(253 243 232);
     display: flex;
     flex-direction: column;
   }
-  
-  .own-message {
-    margin-left: 0;
-    text-align: right;
-  }
 
-  .timestamp {
-    text-align: right;
+  .message-card .mat-mdc-card-content:last-child
+  {
+    padding-bottom: 8px;
+  }
+  
+  .message-card .mat-mdc-card-content:first-child 
+  {
+    padding-top: 6px;
   }
 
   .sender-name{
     text-align: left;
-    color: black;
+    color: bisque;
     font-weight: bold;
   }
 
+  .sender-name, .timestamp{
+    font-size: 0.75rem;
+  }
+
   .own-message {
+    margin-left: 0;
     width: 100%;
     display: flex;
     justify-content: flex-end;
   }
-
-   .own-message .message-card {
-      background-color: $primary-color;
-      color: bisque;
-      .sender-name, .timestamp{
-        color: #e6e4e2;
-        text-align: left;
-      }
-    }
 
 .message-content{
   word-wrap: break-word;
@@ -87,19 +88,51 @@ $own-message-background: $primary-color;
 .message, .own-message {
   position: relative;
   .message-card {
-    border-radius: 16px;
+    border-radius: 1em;
   }
 }
 
 .message:not(.own-message){
   .message-card{
-    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
   }
 }
 
 .own-message{
   .message-card{
-    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
   }
+}
+
+// buble
+
+.bubble {
+  --r: 25px; /* the radius */
+  --t: 24px; /* the size of the tail */
+  
+  max-width: fit-content;
+  mask: 
+    radial-gradient(var(--t) at var(--_d) 0,#0000 98%,#000 102%) 
+      var(--_d) 100%/calc(100% - var(--r)) var(--t) no-repeat,
+    conic-gradient(at var(--r) var(--r),#000 75%,#0000 0) 
+      calc(var(--r)/-2) calc(var(--r)/-2) padding-box, 
+      radial-gradient(farthest-side at 50%, #000 98%,#0000 101%) 
+      0 0/var(--r) var(--r) space padding-box;
+      background: transparent;
+  color: #fff;
+}
+.left {
+  --_d: 0%;
+  border-left: var(--t) solid #0000;
+  margin-right: var(--t);
+  place-self: start;
+}
+.right {
+  --_d: 100%;
+  border-right: var(--t) solid #0000;
+  border-left: none;
+  margin-right: 0;
+  margin-left: var(--t);
+  place-self: end;
 }
   

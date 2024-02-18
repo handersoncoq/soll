@@ -18,9 +18,8 @@ export class RelativeDatePipe implements PipeTransform {
     if (date.isToday()) {
       return date.format('h:mm A');
     } else return dayjs(value).calendar(null, {
-      // sameDay: '[Today]',
       nextDay: '[Tomorrow]',
-      lastDay: '[Yesterday]',
+      lastDay: `[Yesterday] [at] h:mm A`,
       lastWeek: 'dddd',
       sameElse: 'DD MMM, YYYY'
     });

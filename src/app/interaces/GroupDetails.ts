@@ -1,5 +1,6 @@
 import { GroupLeader } from "./GroupLeader";
 import { GroupMember } from "./GroupMember";
+import { User } from "./User";
 
 export interface GroupDetail {
     groupName: string;
@@ -15,6 +16,6 @@ export interface GroupDetail {
     endDate: Date,
     isActive: boolean,
     groupMembers: GroupMember[],
-    groupLeader: GroupLeader,
+    groupLeader: User,
     cycle: number
   }

@@ -1,14 +1,19 @@
-<div class="message" [ngClass]="{'own-message': message.own}">
+<div class="message" [ngClass]="{ 'own-message': message.own }">
   <div class="pin-indication" *ngIf="message.pinned">
-    <mat-icon color="primary">push_pin</mat-icon>
+    <mat-icon>push_pin</mat-icon>
   </div>
-    <mat-card class="message-card">
-      <mat-card-content class="card-content">
-        <div *ngIf="message.senderName !== currentUser.firstName" class="sender-name">
-          {{message.senderName}}<mat-icon class="verify-icon" color="primary" *ngIf="message.fromGroupLeader">verified</mat-icon>
-        </div>
-        <div class="message-content">{{ message.text }}</div>
-        <div class="timestamp" *ngIf="message.timestamp">{{ message.timestamp | relativeDate}}</div>
-      </mat-card-content>
-    </mat-card>
-  </div>  
+  <mat-card class="message-card bubble left" [ngClass]="{ 'right': message.own }" >
+    <mat-card-content class="card-content">
+      <div *ngIf="!message.own" class="sender-name">
+        {{ getSenderName()
+        }}<mat-icon class="verify-icon" *ngIf="message.fromGroupLeader"
+          >verified</mat-icon
+        >
+      </div>
+      <div class="message-content">{{ message.text }}</div>
+      <div class="timestamp" *ngIf="message.timestamp">
+        {{ message.timestamp | relativeDate }}
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

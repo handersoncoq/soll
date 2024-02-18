@@ -34,14 +34,14 @@ export class UserDashboardComponent implements OnInit {
     private userService: UserService
   ) {
     this.currentUser = this.userService.getCurrentUser();
-    this.activeGroups = this.currentUser.groups
+    this.activeGroups = this.currentUser.groups!
       .filter((group) => group.isActive)
       .sort((a, b) => {
         const dateA = new Date(a.nextContributionDate).getTime();
         const dateB = new Date(b.nextContributionDate).getTime();
         return dateA - dateB;
       });
-    this.previousGroups = this.currentUser.groups
+    this.previousGroups = this.currentUser.groups!
       .filter((group) => !group.isActive)
       .sort((a, b) => {
         const dateA = new Date(a.nextContributionDate).getTime();

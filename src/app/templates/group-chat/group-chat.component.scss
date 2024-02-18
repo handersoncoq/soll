@@ -1,22 +1,41 @@
 $primary-color: #52688F;
 $accent-color: #35425B;
 
-.bottom-sheet-c {
-  overflow-x: hidden;
-  border-radius: 1.5em;
-  h2, h3{
-      color: $primary-color;
-      padding: 0 0.5em;
-  }
-}
-
 .chat-window {
   max-width: 800px;
   margin: 0;
-  height: 500px;
   display: flex;
   flex-direction: column;
   box-shadow: none;
+}
+
+.bottom-sheet-content{
+  height: 100% !important;
+  margin-bottom: 0 !important;
+}
+
+.bottom-sheet-title-close{
+  display: block !important;
+}
+
+.title-icon{
+  display: grid;
+  grid-template-columns: 12fr 1fr;
+}
+
+.messages{
+  margin-bottom: 2em;
+  overflow-y: auto;
+  max-height: 20em;
+}
+
+mat-card{
+  box-shadow: none;
+}
+
+.pinned-message{
+  margin-bottom: 1em;
+  padding: 0 1em;
 }
   
   .message-input {
@@ -26,6 +45,7 @@ $accent-color: #35425B;
 
   textarea::placeholder{
     font-size: small;
+    font-style: italic;
   }
 
   .send-button{
@@ -34,6 +54,7 @@ $accent-color: #35425B;
 
   ::ng-deep .message-input .mdc-text-field--outlined {
     --mdc-outlined-text-field-container-shape: 0.6em !important;
+    --mdc-outlined-text-field-outline-color: #52688F !important;
 }
 
 ::ng-deep .message-input .mat-mdc-form-field-subscript-wrapper{

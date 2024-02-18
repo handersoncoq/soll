@@ -2,15 +2,6 @@ $primary-color: #52688F;
 $accent-color: #35425B;
 $alt-font-color: #E3E7F1;
 
-.payment-container{
-    overflow-x: hidden;
-    border-radius: 1.5em;
-    h2, h3{
-        color: $primary-color;
-        padding: 0 0.5em;
-    }
-}
-
 .mobile{
     font-size: small;
     h3{

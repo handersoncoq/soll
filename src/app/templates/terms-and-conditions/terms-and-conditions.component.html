@@ -1,6 +1,6 @@
 <div class="termsAndConditions" [class.mobile]="isMobile" *ngIf="termsAndConditions">
   <div class="bottom-sheet-title-close">
-    <h2 mat-dialog-title>{{ termsAndConditions.termsAndConditionsTitle }}</h2>
+    <h3>{{ termsAndConditions.termsAndConditionsTitle }}</h3>
     <mat-icon *ngIf="isMobile" (click)="closeBottomSheet()">close</mat-icon>
   </div>
   <div class="bottom-sheet-content">

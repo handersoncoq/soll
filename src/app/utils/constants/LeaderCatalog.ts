@@ -1,80 +1,111 @@
 import { GroupLeader } from "src/app/interaces/GroupLeader";
+import { User } from "src/app/interaces/User";
 
 const profilePic = '/assets/img/profile.png';
 
-export const groupLeaders: GroupLeader[] = [
+export const groupLeaders: User[] = [
     {
-        name: 'Elena Rodriguez',
+        firstName: 'Elena',
+        lastName: 'Rodriguez',
+        address: 'Nashville, TN',
         reputationScore: 95,
         profilePic: profilePic
     },
     {
-        name: 'Samuel Kingston',
+        firstName: 'Samuel',
+        lastName: 'Smith',
+        address: 'Gainesville, FL',
         reputationScore: 92,
         profilePic: profilePic
     },
     {
-        name: 'Ava Chen',
+        firstName: 'Ava',
+        lastName: 'Garcia',
+        address: 'New Haven, CT',
         reputationScore: 98,
         profilePic: profilePic
     },
     {
-        name: 'Liam Patel',
+        firstName: 'Liam',
+        lastName: 'Johnson',
+        address: 'Hartford, CT',
         reputationScore: 91,
         profilePic: profilePic
     },
     {
-        name: 'Isabella Johnson',
+        firstName: 'Isabella',
+        lastName: 'Brown',
+        address: 'Los Angeles, CA',
         reputationScore: 97,
         profilePic: profilePic
     },
     {
-        name: 'Lucas Grant',
+        firstName: 'Lucas',
+        lastName: 'Martinez',
+        address: 'Atlanta, GA',
         reputationScore: 90,
         profilePic: profilePic
     },
     {
-        name: 'Sophia Perez',
+        firstName: 'Sophia',
+        lastName: 'Nguyen',
+        address: 'Arington, TX',
         reputationScore: 92,
         profilePic: profilePic
     },
     {
-        name: 'Mason Nguyen',
+        firstName: 'Mason',
+        lastName: 'Garcia',
+        address: 'Philadelphia, PA',
         reputationScore: 91,
         profilePic: profilePic
     },
     {
-        name: 'Olivia Brown',
+        firstName: 'Olivia',
+        lastName: 'Brown',
+        address: 'Boston, MA',
         reputationScore: 94,
         profilePic: profilePic
     },
     {
-        name: 'Ethan Davis',
+        firstName: 'Ethan',
+        lastName: 'Davis',
+        address: 'Georgetown, KY',
         reputationScore: 90,
         profilePic: profilePic
     },
     {
-        name: 'Charlotte Wilson',
+        firstName: 'Charlotte',
+        lastName: 'Wilson',
+        address: 'Knoxville, TN',
         reputationScore: 91,
         profilePic: profilePic
     },
     {
-        name: 'Logan Martinez',
+        firstName: 'Logan',
+        lastName: 'Martinez',
+        address: 'Tampa, FL',
         reputationScore: 90,
         profilePic: profilePic
     },
     {
-        name: 'Aria Taylor',
+        firstName: 'Ariah',
+        lastName: 'Taylor',
+        address: 'Virginia Beach, VA',
         reputationScore: 95,
         profilePic: profilePic
     },
     {
-        name: 'Benjamin Hernandez',
+        firstName: 'Benjamin',
+        lastName: 'Hernandez',
+        address: 'Orlando, FL',
         reputationScore: 92,
         profilePic: profilePic
     },
     {
-        name: 'Amelia Garcia',
+        firstName: 'Amelia',
+        lastName: 'Garcia',
+        address: 'Madison, WI',
         reputationScore: 96,
         profilePic: profilePic
     }

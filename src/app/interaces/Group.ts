@@ -1,5 +1,5 @@
-import { GroupLeader } from "./GroupLeader"
 import { GroupMember } from "./GroupMember"
+import { User } from "./User"
 
 export interface Group {
     groupName: string,
@@ -14,7 +14,7 @@ export interface Group {
     endDate: Date,
     isActive: boolean,
     groupMembers: GroupMember[],
-    groupLeader: GroupLeader,
+    groupLeader: User,
     minReputationScore: number,
     cycle: number
   }

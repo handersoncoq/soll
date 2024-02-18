@@ -1,6 +1,6 @@
 <div class="privacyPolicy" [class.mobile]="isMobile" *ngIf="privacyPolicy">
   <div class="bottom-sheet-title-close">
-    <h2 mat-dialog-title>{{ privacyPolicy.privacyPolicyTitle }}</h2>
+    <h3>{{ privacyPolicy.privacyPolicyTitle }}</h3>
     <mat-icon *ngIf="isMobile" (click)="closeBottomSheet()">close</mat-icon>
   </div>
   <div class="bottom-sheet-content">

@@ -1,40 +1,54 @@
-import { GroupLeader } from "src/app/interaces/GroupLeader";
+import { User } from "src/app/interaces/User";
 
 const profilePic = '/assets/img/profile.png';
 
-export const groupLeaders: GroupLeader[] = [
+export const groupLeaders: User[] = [
     {
-        name: 'Joel Bellham',
+        firstName: 'Joel',
+        lastName: 'Fernandes',
+        address: 'New York, NY',
         reputationScore: 90,
         profilePic: profilePic
     },
     {
-        name: 'Pristine Nork',
+        firstName: 'Pristine',
+        lastName: 'Nork',
+        address: 'Los Angeles, CA',
         reputationScore: 96,
         profilePic: profilePic
     },
     {
-        name: 'Pablo Pellegrini',
+        firstName: 'Pablo Pellegrini',
+        lastName: 'Lopez',
+        address: 'Los Angeles, CA',
         reputationScore: 94,
         profilePic: profilePic
     },
     {
-        name: 'Mona Jean',
+        firstName: 'Mona',
+        lastName: 'Kane',
+        address: 'Hartford, CT',
         reputationScore: 92,
         profilePic: profilePic
     },
     {
-        name: 'Pariah Aznii',
+        firstName: 'Pariah',
+        lastName: 'Aznii',
+        address: 'Lexington, KY',
         reputationScore: 91,
         profilePic: profilePic
     },
     {
-        name: 'Boris Watson',
+        firstName: 'Boris',
+        lastName: 'Kuznetsov',
+        address: 'Irvin, TX',
         reputationScore: 91,
         profilePic: profilePic
     },
     {
-        name: 'Matt Gonzales',
+        firstName: 'Matthew',
+        lastName: 'Harris',
+        address: 'New York, NY',
         reputationScore: 92,
         profilePic: profilePic
     },

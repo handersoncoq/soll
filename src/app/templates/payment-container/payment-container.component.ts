@@ -39,6 +39,11 @@ export class PaymentContainerComponent implements OnInit{
     });
   }
 
+  // Get group leader full name
+  get groupLeaderName(): string {
+    return `${this.group.groupLeader.firstName} ${this.group.groupLeader.lastName}`;
+  }
+
 
   formatAmount(): string {
     let amount = this.group.contribution

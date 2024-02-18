@@ -4,7 +4,6 @@ import { Community } from 'src/app/interaces/Community';
 import { Group } from 'src/app/interaces/Group';
 import { User } from 'src/app/interaces/User';
 import { groups } from 'src/app/utils/constants/GroupCatalog';
-import { prevGroups } from 'src/app/utils/constants/PreviousGroups';
 import { trendingCommunities } from 'src/app/utils/constants/TrendingCommunities';
 import { userGroups } from 'src/app/utils/constants/UserGroupDetail';
 
@@ -31,7 +30,7 @@ export class GroupService {
     cycle: groupDetail.cycle
   }));
   
-  userPrevGroups: Group[] = prevGroups
+  userPrevGroups: Group[] = [];
   trendingCommunities: Community[] = [];  
 
   

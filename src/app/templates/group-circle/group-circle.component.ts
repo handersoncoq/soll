@@ -40,14 +40,19 @@ export class GroupCircleComponent implements OnInit{
 
   }
 
+   // Get group leader full name
+   get groupLeaderName(): string {
+    return `${this.group!.groupLeader.firstName} ${this.group!.groupLeader.lastName}`;
+  }
+
 
   openLeaderDialog() {
     const buttonClickCallback = () => {
-      console.log('Contact', this.group!.groupLeader.name);
+      console.log('Contact', this.groupLeaderName);
     };
 
     this.dialogService.openLeaderDialog(
-      this.group!.groupLeader.name,
+      this.groupLeaderName,
       this.group!.groupLeader.reputationScore,
       buttonClickCallback
       );
