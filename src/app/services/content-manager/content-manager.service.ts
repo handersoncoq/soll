@@ -30,6 +30,7 @@ export class ContentManagerService {
   // logo and images
   appLogo3 = './assets/logo/3.png';
   appLogo6 = './assets/logo/6.png';
+  solLogo = './assets/logo/soll.png';
   appLogoDark = './assets/logo/logo-dark.png';
   five_stars = './assets/img/five-stars.svg';
 
@@ -109,7 +110,11 @@ export class ContentManagerService {
   }
 
   getAppLogo6(): string{
-    return this.appLogo6;
+    return this.solLogo;
+  }
+
+  getAppLogo(): string{
+    return this.solLogo;
   }
 
   getAppLogoDark(): string{

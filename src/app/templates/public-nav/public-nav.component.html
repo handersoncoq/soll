@@ -2,9 +2,8 @@
   <mat-toolbar-row class="spacer-row"></mat-toolbar-row>
   <mat-toolbar-row>
     <div class="toolbar-content">
-      <span (click)="navigateToSimpleRoute('/')" class="company-name"
-        >Soll<sup>&reg;</sup></span
-      >
+      <span (click)="navigateToSimpleRoute('/')" class="company-logo"
+        ><img class="app-logo" [src]="appLogo" alt="Soll"></span>
       <span class="spacer"></span>
       <mat-icon [matMenuTriggerFor]="languageMenu" class="language-icon"
         >public</mat-icon
@@ -18,7 +17,6 @@
         [matMenuTriggerFor]="menu"
         #trigger="matMenuTrigger"
         class="menu-button"
-        (click)="shakeIcon(); startShakeInterval()"
       >
         <span *ngIf="trigger.menuOpen" class="material-symbols-outlined"
           >keyboard_arrow_down</span

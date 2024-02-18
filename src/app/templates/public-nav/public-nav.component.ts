@@ -29,6 +29,7 @@ import { supportedLanguages } from 'src/app/utils/constants/Languages';
 export class PublicNavComponent implements OnInit {
   @ViewChild(MatMenuTrigger) menuTrigger!: MatMenuTrigger;
 
+  appLogo!: string;
   infoDetails!: InfoDetails;
   enterAnimationDuration = '400ms';
   exitAnimationDuration = '400ms';
@@ -46,11 +47,11 @@ export class PublicNavComponent implements OnInit {
     this.contentManagerService
       .getInfo()
       .subscribe((details) => (this.infoDetails = details));
+    this.appLogo = this.contentManagerService.getAppLogo();
   }
 
   ngOnInit(): void {
     this.styleManager.loadMaterialSymbols();
-    this.startShakeInterval();
   }
 
   navigateTo(route: string, fragment: string) {
@@ -72,45 +73,6 @@ export class PublicNavComponent implements OnInit {
         exitAnimationDuration: this.exitAnimationDuration,
       },
     });
-  }
-
-  shakeIcon() {
-    this.shake = true;
-    setTimeout(() => (this.shake = false), 1000);
-  }
-
-  @HostListener('window:scroll', [])
-  onWindowScroll() {
-    const contentDiv = document.querySelector('.nav-class');
-    if (window.scrollY > 20) {
-      contentDiv?.classList.add('bottom-shadow');
-      this.marginTop = '0.8em'
-    } else {
-      contentDiv?.classList.remove('bottom-shadow');
-      this.marginTop = '1.44em'
-    }
-  }
-
-  ngOnDestroy() {
-    if (this.interval) {
-      clearInterval(this.interval);
-    }
-  }
-
-  startShakeInterval() {
-    if (!this.interval) {
-      this.interval = setInterval(() => {
-        this.shake = true;
-        setTimeout(() => (this.shake = false), 500);
-      }, 3000);
-    }
-  }  
-
-  stopShakeInterval() {
-    if (this.interval) {
-      clearInterval(this.interval);
-      this.interval = null;
-    }
   }
 
   changeLanguage(language: string){
