@@ -31,6 +31,7 @@ export class ContentManagerService {
   appLogo3 = './assets/logo/3.png';
   appLogo6 = './assets/logo/6.png';
   solLogo = './assets/logo/soll.png';
+  solLogoSlogan = './assets/logo/soll-logo-slogan.png';
   appLogoDark = './assets/logo/logo-dark.png';
   five_stars = './assets/img/five-stars.svg';
 
@@ -111,6 +112,10 @@ export class ContentManagerService {
 
   getAppLogo6(): string{
     return this.solLogo;
+  }
+
+  getLoganSlogan(): string{
+    return this.solLogoSlogan;
   }
 
   getAppLogo(): string{

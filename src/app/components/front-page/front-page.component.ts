@@ -1,10 +1,12 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { is } from 'date-fns/locale';
 import { forkJoin } from 'rxjs';
 import { TitleBodyArrayType } from 'src/app/interaces/TitleBodyArrayType';
 import { ContentManagerService } from 'src/app/services/content-manager/content-manager.service';
 import { PublicInteractionService } from 'src/app/services/public-interaction/public-interaction.service';
+import { ScreenLayoutService } from 'src/app/utils/screen-layout/screen-layout.service';
 
 @Component({
   selector: 'app-front-page',
@@ -23,6 +25,7 @@ export class FrontPageComponent implements OnInit, OnDestroy{
   faqs!: any[];
   keyWords!: any;
   contentVideos: string[];
+  isMobile = true;
 
   intervalId: any;
   currentImageIndex = 0;
@@ -37,7 +40,7 @@ export class FrontPageComponent implements OnInit, OnDestroy{
   $accentColor = '#35425B';
   inputForm!: FormGroup;
 
-  constructor(private contentManagerService: ContentManagerService, private router: Router,
+  constructor(private contentManagerService: ContentManagerService, private router: Router, private screenService: ScreenLayoutService,
     private formBuilder: FormBuilder, private publicInteractionService: PublicInteractionService){
     this.frontPageLogo = this.contentManagerService.getAppLogo6();
     this.trustPilot = this.contentManagerService.getTrustpilotAndStars()[0];
@@ -51,6 +54,7 @@ export class FrontPageComponent implements OnInit, OnDestroy{
   }
 
   ngOnInit() {
+    this.screenService.isMobile$.subscribe(isDesktop => { this.isMobile = isDesktop; });
     this.currentImage = this.images[0];
     forkJoin({
         slogan: this.contentManagerService.getSlogan(),
@@ -105,7 +109,7 @@ export class FrontPageComponent implements OnInit, OnDestroy{
   }
 
   inactiveColor(index: number): string {
-    return 'white';
+    return '#E3E7F1';
   }
 
   handleSwipeLeft(event: any) {

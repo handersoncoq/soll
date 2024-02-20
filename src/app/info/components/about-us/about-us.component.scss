@@ -13,6 +13,7 @@ $radiant2: rgb(75, 124, 149, 0.5);
 $dark-dusty-blue: rgb(37 84 109);
 
 .header {
+    margin-top: 5em;
     background: $background-image;
     background-size: cover;
     background-repeat: no-repeat;
@@ -25,8 +26,8 @@ $dark-dusty-blue: rgb(37 84 109);
     padding: 16px 0;
   
     .inner-div{
-        background: linear-gradient(to top, $radiant1, $dark-dusty-blue);
-        margin: 0;
+      background: linear-gradient(to top, $radiant1, $primary-color);
+      margin: 0;
       .hero-links{
         color: white;
         text-shadow: $text-shadow;

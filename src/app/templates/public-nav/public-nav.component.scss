@@ -10,7 +10,8 @@ mat-toolbar {
   position: fixed;
   background-color: white;
   z-index: 1000;
-  box-shadow: $swoosh-box-shadow;
+  // box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
+  border-bottom: solid $primary-color 10px;
 
   .spacer-row {
     height: 0.3em;
