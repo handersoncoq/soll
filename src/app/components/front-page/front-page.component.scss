@@ -59,6 +59,7 @@ $transparent-bgr: rgb(82, 104, 143, 0.1);
       padding-top: 0.5em;
       padding-left: 0.1em;
       text-align: right;
+      
     }
     .get-started{
       margin-top: 4em;
@@ -92,7 +93,18 @@ $transparent-bgr: rgb(82, 104, 143, 0.1);
   }
 }
 
-
+.bar-chart{
+  pointer-events: none;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 1.5em;
+  mat-icon{
+    font-size: x-large;
+    color: bisque;
+    transform: rotateY(180deg);
+  }
+}
 
 .swipe {
   position: relative;
@@ -366,16 +378,6 @@ button{
   img{
     height: auto;
     width: 100%;
-  }
-  .video-even{
-    display: block;
-    width: auto;
-    justify-content: flex-start;
-  }
-  .video-odd{
-    width: auto;
-    display: block;
-    justify-content: flex-end;
   }
 }
 
