@@ -1,7 +1,7 @@
 $primary-color: #52688f;
 $accent-color: #35425b;
 $alt-font-color: #E3E7F1;
-$swoosh-box-shadow: -5px 10px 20px -20px #111;
+$swoosh-box-shadow: -5px 10px 20px -20px #52688f;
 $text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 
 mat-toolbar {
@@ -10,8 +10,7 @@ mat-toolbar {
   position: fixed;
   background-color: white;
   z-index: 1000;
-  // box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
-  border-bottom: solid $primary-color 10px;
+  box-shadow:$swoosh-box-shadow;
 
   .spacer-row {
     height: 0.3em;

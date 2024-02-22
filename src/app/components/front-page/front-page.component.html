@@ -5,63 +5,13 @@
     <h1 appLazyLoadText class="tagLine">{{ slogan }}</h1>
   </div>
 
-  <div class="hero-container">
-    <div class="hero">
-      <div class="action">
-        <h4>Discover Soll and start working on your financial goal today!</h4>
-        <div class="bar-chart">
-          <mat-icon>bar_chart</mat-icon>
-          <mat-icon>bar_chart</mat-icon>
-          <mat-icon>bar_chart</mat-icon>
-          <mat-icon>bar_chart</mat-icon>
-        </div>
-        <div *ngIf="!isMobile" class="get-started" [formGroup]="inputForm">
-          <input
-            formControlName="email"
-            type="email"
-            id="front-email-input"
-            placeholder="Type your email"
-            class="form-control front-page"
-          />
-          <div>
-            <button
-              (click)="getStarted()"
-              mat-raised-button
-              class="primary-btn"
-              type="button"
-            >
-              Get Started
-            </button>
-          </div>
-        </div>
-      </div>
-      <div>
-        <div
-          class="swipe"
-          (swipeleft)="handleSwipeLeft($event)"
-          (swiperight)="handleSwipeRight('swiperight')"
-        >
-          <img
-            [class.current]="isCurrentImage(currentImage)"
-            class="heroImages"
-            [src]="currentImage"
-            alt="Promotional"
-          />
-        </div>
-        <div class="slide-buttons">
-          <div class="image-indicators">
-            <button
-              *ngFor="let image of images; let i = index"
-              (click)="setCurrentImage(i)"
-              [style.background-color]="
-                i === currentImageIndex ? activeColor(i) : inactiveColor(i)
-              "
-            ></button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div *ngIf="isMobile" class="get-started" [formGroup]="inputForm">
+  <div class="hero-container" [ngStyle]="{'background-image': 'url(' + heroImage + ')'}">
+    <div class="spacing"></div>
+    <div class="spacing"></div>
+    <div class="spacing"></div>
+    <div class="spacing"></div>
+    <div class="spacing"></div>
+    <div class="get-started" [formGroup]="inputForm">
       <input
         formControlName="email"
         type="email"
@@ -78,6 +28,17 @@
         >
           Get Started
         </button>
+      </div>
+    </div>
+    <div class="slide-buttons">
+      <div class="image-indicators">
+        <button
+          *ngFor="let image of images; let i = index"
+          (click)="setCurrentImage(i)"
+          [style.background-color]="
+            i === currentImageIndex ? activeColor(i) : inactiveColor(i)
+          "
+        ></button>
       </div>
     </div>
   </div>

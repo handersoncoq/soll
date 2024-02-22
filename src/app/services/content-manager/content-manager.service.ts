@@ -34,6 +34,7 @@ export class ContentManagerService {
   solLogoSlogan = './assets/logo/soll-logo-slogan.png';
   appLogoDark = './assets/logo/logo-dark.png';
   five_stars = './assets/img/five-stars.svg';
+  heroImage = './assets/img/hero-img.png';
 
   // videos
   savingAtYourFingerTip = './assets/img/Saving-at -your-fingertips.png';
@@ -142,6 +143,10 @@ export class ContentManagerService {
             this.bank_of_america, 
             this.paypal,
           ]
+  }
+
+  getHeroImage(): string{
+    return this.heroImage;
   }
 
   getContentVideos(): string[]{

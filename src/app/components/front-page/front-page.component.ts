@@ -26,6 +26,7 @@ export class FrontPageComponent implements OnInit, OnDestroy{
   keyWords!: any;
   contentVideos: string[];
   isMobile = true;
+  heroImage!: string;
 
   intervalId: any;
   currentImageIndex = 0;
@@ -47,6 +48,7 @@ export class FrontPageComponent implements OnInit, OnDestroy{
     this.fiveStars = this.contentManagerService.getTrustpilotAndStars()[1];
     this.partners = this.contentManagerService.getPartners();
     this.contentVideos = this.contentManagerService.getContentVideos();
+    this.heroImage = this.contentManagerService.getHeroImage();
     this.startSlideshow();
     this.inputForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email, Validators.email]],

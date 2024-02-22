@@ -1,3 +1,5 @@
+$primary-color: #52688f;
+
 .front-page-component{
   @media screen and (min-width: 768px) {
       margin-top: 5em !important;
@@ -18,19 +20,22 @@
       h1{
         font-size: xx-large !important;
       }
-      
-      .hero{
-        padding: 2em 4em !important;
-        padding-right: 2em !important;
-        .action h4{
-          font-size: x-large !important;
-        }
-        img{
-          margin-top: -6em !important;
-          height: 22em !important;
-          width: 22em !important;
-        }
+
+      .hero-container{
+        min-height: 45em !important;
+        background-size: contain !important;
       }
+
+      .get-started{
+        margin-top: 18em !important;
+        padding-left: 3em !important;
+        padding-right: 3em !important;
+      }
+
+      .slide-buttons{
+        margin-top: 1.5em;
+      }
+      
       .justify-right{
         width: 100%;
         position: relative;
