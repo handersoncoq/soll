@@ -35,10 +35,6 @@
 
 <mat-menu #menu="matMenu" class="main-menu">
   <ng-template matMenuContent>
-    <mat-divider
-      class="menu-divider"
-      [ngStyle]="{ 'margin-top': marginTop }"
-    ></mat-divider>
     <div @accordion-animation class="menu-items">
       <button
         appLazyLoadText
@@ -89,9 +85,6 @@
 
 <mat-menu #languageMenu="matMenu" class="language-menu">
   <ng-template matMenuContent>
-    <mat-divider
-    class="language-menu-divider"
-  ></mat-divider>
     <div @accordion-animation class="menu-items">
       <button
         appLazyLoadText

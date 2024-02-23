@@ -35,7 +35,6 @@ export class PublicNavComponent implements OnInit {
   exitAnimationDuration = '400ms';
   shake = false;
   interval: any;
-  marginTop = '1.44em';
   languages = supportedLanguages;
 
   constructor(

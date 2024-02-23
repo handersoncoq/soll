@@ -41,7 +41,7 @@ $transparent-bgr: rgb(82, 104, 143, 0.1);
   z-index: 1000;
   margin-top: -1em;
   background-position: center;
-  min-height: 25em;
+  min-height: 26em;
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -50,6 +50,7 @@ $transparent-bgr: rgb(82, 104, 143, 0.1);
   display: flex;
   justify-content: center;
   width: 100%;
+  margin-top: 1.5em;
   button{
     cursor: pointer;
     border: none;
@@ -69,13 +70,12 @@ $transparent-bgr: rgb(82, 104, 143, 0.1);
 
 
 .get-started {
-  align-items: center;
   margin: 0 0.5em;
   padding-bottom: 1em;
-  margin-top: 2em;
+  margin-top: 1.5em;
 .form-control {
   width: 100%;
-  border: none;
+  border: solid $primary-color 2px;
   border-radius: 12em;
   text-indent: 1em;
   padding: 0.75em 0;

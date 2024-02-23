@@ -31,11 +31,11 @@ export class FrontPageComponent implements OnInit, OnDestroy{
   intervalId: any;
   currentImageIndex = 0;
   images: string[] = [
-    '/assets/img/connect-and-thrive.webp',
-    '/assets/img/elevate-your-savings.webp',
-    '/assets/img/empower-with-soll-community.webp',
-    '/assets/img/unite-for-saving.webp',
-    '/assets/img/revive-community-saving.webp',
+    '/assets/img/hero-img.png',
+    '/assets/img/hero-img2.png',
+    '/assets/img/hero-img3.png',
+    '/assets/img/hero-img4.png',
+    '/assets/img/hero-img5.png',
   ];
   currentImage!: string;
   $accentColor = '#35425B';
