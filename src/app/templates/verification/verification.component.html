@@ -1,6 +1,6 @@
-<div class="verification-form" [formGroup]="verificationForm">
+<div class="verification-form">
     <div *ngIf="!verificationSucceeds">
-      <form (ngSubmit)="onSubmit($event)">
+      <form [formGroup]="verificationForm" (ngSubmit)="onSubmit($event)">
         <div id="mobileVerification" class="code-inputs">
           <input type="tel" autocomplete="off" formControlName="digit1" maxlength="1" (keyup)="onKeyUp($event, 0)" #digitInput>
           <input type="tel" autocomplete="off" formControlName="digit2" maxlength="1" (keyup)="onKeyUp($event, 1)" #digitInput>
