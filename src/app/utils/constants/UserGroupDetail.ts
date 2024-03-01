@@ -3,8 +3,8 @@ import { activeEcpsGroupMembers, activeEpsGroupMembers, previousEcpsGroupMembers
 import { groupLeaders } from './GroupLeaders';
 
 const present = new Date();
-const epsStartDate = new Date(present.getFullYear()-1, 10, 8);
-const ecpsStartDate = new Date(present.getFullYear()-1, 8, 23);
+const epsStartDate = new Date(present.getFullYear()-1, 12, 8);
+const ecpsStartDate = new Date(present.getFullYear()-1, 10, 23);
 const groupSize = 10;
 
 const ecpsSavingsTarget = 10000; 

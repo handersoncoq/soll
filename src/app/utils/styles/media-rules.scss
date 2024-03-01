@@ -30,7 +30,6 @@ $primary-color: #52688f;
         padding-left: 3em !important;
         padding-right: 3em !important;
         margin-top: 3em !important;
-        margin-bottom: -10em !important;
       }
 
       .slide-buttons{
@@ -83,3 +82,16 @@ $primary-color: #52688f;
         padding-right: 1em;
     }
   }
+
+@media screen and (orientation: landscape){
+  .hero-container{
+    min-height: 45em !important;
+  }
+  .get-started{
+    margin-top: 3em !important;
+  }
+
+  .slide-buttons{
+    margin-top: 15em !important;
+  }
+}
