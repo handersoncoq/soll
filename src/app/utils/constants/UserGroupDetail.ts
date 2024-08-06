@@ -1,28 +1,41 @@
 import { GroupDetail } from 'src/app/interaces/GroupDetails';
-import { activeEcpsGroupMembers, activeEpsGroupMembers, previousEcpsGroupMembers, previousEpsGroupMembers } from './GroupMember';
+import {
+  activeEcpsGroupMembers,
+  activeEpsGroupMembers,
+  previousEcpsGroupMembers,
+  previousEpsGroupMembers,
+} from './GroupMember';
 import { groupLeaders } from './GroupLeaders';
 
 const present = new Date();
-const epsStartDate = new Date(present.getFullYear()-1, 12, 8);
-const ecpsStartDate = new Date(present.getFullYear()-1, 10, 23);
+const epsStartDate = new Date(present.getFullYear() - 1, 12, 8);
+const ecpsStartDate = new Date(present.getFullYear() - 1, 10, 23);
 const groupSize = 10;
 
-const ecpsSavingsTarget = 10000; 
+const ecpsSavingsTarget = 10000;
 const ecpsContributionAmount = 500;
 const frequency = 14;
 
 function getEPSendDate(startDate: Date): Date {
   const initialDelay = 4 * 7 * 24 * 60 * 60 * 1000;
-  const totalPayoutDuration = groupSize * 2 * 7 * 24 * 60 * 60 * 1000;
-  const endDate = new Date(startDate.getTime() + initialDelay + totalPayoutDuration);
+  const subsequentPayoutDate = 2 * 7 * 24 * 60 * 60 * 1000;
+  const totalPayoutDuration = groupSize * subsequentPayoutDate;
+  const endDate = new Date(
+    startDate.getTime() + initialDelay + totalPayoutDuration
+  );
 
   return endDate;
 }
 
 function calculateECPSendDate(): Date {
-  const totalContributionsNeeded = Math.ceil(ecpsSavingsTarget / ecpsContributionAmount);
+  const totalContributionsNeeded = Math.ceil(
+    ecpsSavingsTarget / ecpsContributionAmount
+  );
   const oneContributionPeriod = frequency * 24 * 60 * 60 * 1000;
-  const endDate = new Date(ecpsStartDate.getTime() + oneContributionPeriod * (totalContributionsNeeded - 1));
+  const endDate = new Date(
+    ecpsStartDate.getTime() +
+      oneContributionPeriod * (totalContributionsNeeded - 1)
+  );
   return endDate;
 }
 
@@ -30,10 +43,14 @@ function getBINextContributionDate(startDate: Date): Date {
   startDate.setHours(0, 0, 0, 0);
   present.setHours(0, 0, 0, 0);
   const oneDay = 24 * 60 * 60 * 1000;
-  const daysSinceStart = Math.floor((present.getTime() - startDate.getTime()) / oneDay);
+  const daysSinceStart = Math.floor(
+    (present.getTime() - startDate.getTime()) / oneDay
+  );
   const contributionInterval = 14;
   const cyclesPassed = Math.floor(daysSinceStart / contributionInterval);
-  const nextContributionDate = new Date(startDate.getTime() + ((cyclesPassed + 1) * contributionInterval * oneDay));
+  const nextContributionDate = new Date(
+    startDate.getTime() + (cyclesPassed + 1) * contributionInterval * oneDay
+  );
   return nextContributionDate;
 }
 
@@ -53,7 +70,7 @@ export const userGroups: GroupDetail[] = [
     isActive: true,
     groupMembers: activeEpsGroupMembers,
     groupLeader: groupLeaders[5],
-    cycle: 2
+    cycle: 2,
   },
   {
     groupName: 'Hartford Savings Builders',
@@ -70,7 +87,7 @@ export const userGroups: GroupDetail[] = [
     isActive: true,
     groupMembers: activeEcpsGroupMembers,
     groupLeader: groupLeaders[4],
-    cycle: 3
+    cycle: 3,
   },
   {
     groupName: 'Hartford Trust Alliance',
@@ -87,7 +104,7 @@ export const userGroups: GroupDetail[] = [
     isActive: false,
     groupMembers: previousEpsGroupMembers,
     groupLeader: groupLeaders[3],
-    cycle: 1
+    cycle: 1,
   },
   {
     groupName: 'Hartford Heritage Union',
@@ -104,6 +121,6 @@ export const userGroups: GroupDetail[] = [
     isActive: false,
     groupMembers: previousEcpsGroupMembers,
     groupLeader: groupLeaders[2],
-    cycle: 1
+    cycle: 1,
   },
 ];

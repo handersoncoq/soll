@@ -5,7 +5,10 @@
     <h1 appLazyLoadText class="tagLine">{{ slogan }}</h1>
   </div>
 
-  <div class="hero-container" [ngStyle]="{'background-image': 'url(' + currentImage + ')'}">
+  <div
+    class="hero-container"
+    [ngStyle]="{ 'background-image': 'url(' + currentImage + ')' }"
+  >
     <div class="spacing"></div>
     <div class="spacing"></div>
     <div class="spacing"></div>
@@ -41,7 +44,10 @@
         </button>
       </div>
     </div>
-    <p class="note"><sup>1</sup> Note: images on this website were created using AI for illustration purposes.</p>
+    <p class="note">
+      <sup>1</sup> Note: images on this website were created using AI for
+      illustration purposes.
+    </p>
   </div>
 
   <div class="core-page">
@@ -69,7 +75,7 @@
             <div routerLink="/info/concept-overview">
               <button mat-raised-button>
                 <span>Learn More</span>
-                <mat-icon iconPositionEnd >open_in_new</mat-icon>
+                <mat-icon iconPositionEnd>open_in_new</mat-icon>
               </button>
             </div>
           </div>
@@ -85,14 +91,27 @@
       </h1>
       <div class="front-page-content">
         <div routerLink="/sign-in">
-          <img [attr.data-src]="contentVideos[1]" alt="content" appLazyLoading />
+          <img
+            [attr.data-src]="contentVideos[1]"
+            alt="content"
+            appLazyLoading
+          />
         </div>
       </div>
       <div class="justify-right">
-        <h1 appLazyLoadText class="tagline-header">Saving at your Fingertips</h1>
+        <h1 appLazyLoadText class="tagline-header">
+          Saving at your Fingertips
+        </h1>
         <div class="front-page-content">
-          <div routerLink="/info/concept-overview" fragment="operational-infrastructure">
-            <img [attr.data-src]="contentVideos[0]" alt="content" appLazyLoading />
+          <div
+            routerLink="/info/concept-overview"
+            fragment="operational-infrastructure"
+          >
+            <img
+              [attr.data-src]="contentVideos[0]"
+              alt="content"
+              appLazyLoading
+            />
           </div>
         </div>
       </div>
@@ -101,34 +120,50 @@
       </h1>
       <div class="front-page-content">
         <div routerLink="/get-started">
-          <img [attr.data-src]="contentVideos[3]" alt="content" appLazyLoading />
+          <img
+            [attr.data-src]="contentVideos[3]"
+            alt="content"
+            appLazyLoading
+          />
         </div>
       </div>
       <div class="justify-right">
         <h1 appLazyLoadText class="tagline-header">
           Not geared for online transactions?
         </h1>
-        <div class="front-page-content ">
+        <div class="front-page-content">
           <div routerLink="/info/concept-overview" fragment="group-leaders">
-            <img [attr.data-src]="contentVideos[6]" alt="content" appLazyLoading />
+            <img
+              [attr.data-src]="contentVideos[6]"
+              alt="content"
+              appLazyLoading
+            />
           </div>
         </div>
       </div>
       <h1 appLazyLoadText class="tagline-header">
         Start Saving with Soll for a Better Future
       </h1>
-      <div class="front-page-content ">
+      <div class="front-page-content">
         <div routerLink="/get-started">
-          <img [attr.data-src]="contentVideos[4]" alt="content" appLazyLoading />
+          <img
+            [attr.data-src]="contentVideos[4]"
+            alt="content"
+            appLazyLoading
+          />
         </div>
       </div>
       <div class="justify-right">
         <h1 appLazyLoadText class="tagline-header">
           Finally, Bring your Dream Project to Life
         </h1>
-        <div class="front-page-content  last-video">
+        <div class="front-page-content last-video">
           <div routerLink="/info/concept-overview">
-            <img [attr.data-src]="contentVideos[2]" alt="content" appLazyLoading />
+            <img
+              [attr.data-src]="contentVideos[2]"
+              alt="content"
+              appLazyLoading
+            />
           </div>
         </div>
       </div>
