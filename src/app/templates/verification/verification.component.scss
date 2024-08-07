@@ -1,10 +1,10 @@
-$primary-color: #52688F;
-$accent-color: #35425B;
-$alt-font-color: #E3E7F1;
+$primary-color: #52688f;
+$accent-color: #35425b;
+$alt-font-color: #e3e7f1;
 $dark-dusty-blue: rgb(37, 84, 109);
 
 .verification-form {
-  font-family: 'Arial', sans-serif;
+  font-family: "Arial", sans-serif;
   color: $primary-color;
 
   label {
@@ -62,27 +62,20 @@ $dark-dusty-blue: rgb(37, 84, 109);
     font-size: 0.9em;
 
     p {
-        color: $primary-color;
-        text-decoration: underline;
-        margin: 0;
-        padding: 0 0.3em;
-        cursor: pointer;
-    
-        &:hover {
-          color: darken($primary-color, 10%);
-        }
+      color: $primary-color;
+      text-decoration: underline;
+      margin: 0;
+      padding: 0 0.3em;
+      cursor: pointer;
+
+      &:hover {
+        color: darken($primary-color, 10%);
       }
+    }
   }
-
 }
 
-::ng-deep .mat-mdc-snack-bar-container {
-  --mdc-snackbar-container-color: #35425B;
-  --mdc-snackbar-supporting-text-color: white;
-  font-size: small !important;
-}
-
-.spinner-container{
+.spinner-container {
   margin: 12em 0;
   display: flex;
   justify-content: center;
@@ -90,7 +83,7 @@ $dark-dusty-blue: rgb(37, 84, 109);
 }
 
 @media (min-width: 600px) {
-  input{
+  input {
     width: 1.5em !important;
     height: 1.8em !important;
   }
