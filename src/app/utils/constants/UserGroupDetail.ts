@@ -8,8 +8,16 @@ import {
 import { groupLeaders } from './GroupLeaders';
 
 const present = new Date();
-const epsStartDate = new Date(present.getFullYear() - 1, 12, 8);
-const ecpsStartDate = new Date(present.getFullYear() - 1, 10, 23);
+const epsStartDate = new Date(
+  present.getFullYear(),
+  present.getMonth() - 3,
+  20
+);
+const ecpsStartDate = new Date(
+  present.getFullYear(),
+  present.getMonth() - 4,
+  23
+);
 const groupSize = 10;
 
 const ecpsSavingsTarget = 10000;
@@ -124,3 +132,5 @@ export const userGroups: GroupDetail[] = [
     cycle: 1,
   },
 ];
+
+export const userGroupEPSstartDate: Date = epsStartDate;

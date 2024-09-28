@@ -1,5 +1,5 @@
 {
-  "title": "Soll: save, overcome, link up, and learn",
+  "title": "Soll: Save, Overcome, Leverage, and Learn",
   "subTitle": "An Innovative Rotational Savings System",
   "overview": {
     "description": "Soll, a pioneering Rotational Savings System, is envisioned as a community-centric platform aiming to redefine how individuals save, collaborate, and progress financially. Drawing inspiration from traditional savings practices known globally, such as 'chit funds' in India, 'tandas' in Mexico, and 'stokvels' in South Africa, Soll aims to blend these age-old values with modern digital management. This creates a secure, adaptive, and inclusive environment where each participant's unique financial standing is acknowledged and catered to.",
@@ -40,8 +40,16 @@
   "illustrativeExample": {
     "groupSize": "Group Size: ( n = 10 ) participants.",
     "contribution": "Contribution: ( x = $500 ) every two weeks over 40 weeks",
-    "epsExample": ["Payouts start from week 20.", "The first participant receives $10,000, and continues to make contributions until the end of the cycle.", "Two weeks later, the next participant receives $10,000 and continues to make contributions until the end, and so on…"],
-    "ecpExample": ["Payouts occur at the end.", "All participants receive $10,000 and no more contribution is required.", "End of cycle."]
+    "epsExample": [
+      "Payouts start from week 20.",
+      "The first participant receives $10,000, and continues to make contributions until the end of the cycle.",
+      "Two weeks later, the next participant receives $10,000 and continues to make contributions until the end, and so on…"
+    ],
+    "ecpExample": [
+      "Payouts occur at the end.",
+      "All participants receive $10,000 and no more contribution is required.",
+      "End of cycle."
+    ]
   },
   "legalAndRegulatoryCompliance": "Engagement with financial legal experts is paramount to navigating the regulatory landscape, ensuring Soll's operation aligns with legal requirements pertaining to fund management, especially as it operates across different states within the US.",
   "scalabilityAndAdaptability": "The phased launch approach, starting with two to three states at a time, ensures a controlled and compliant expansion. This strategy also allows for adaptability to regional financial regulations and economic conditions.",

@@ -3,7 +3,11 @@ import { GroupMember } from 'src/app/interaces/GroupMember';
 const profilePic = '/assets/img/profile.png';
 
 const present = new Date();
-const epsStartDate = new Date(present.getFullYear()-1, 12, 8);
+const epsStartDate = new Date(
+  present.getFullYear(),
+  present.getMonth() - 3,
+  20
+);
 
 function isPaidOut(rank: number): boolean {
   const cycleStartDate = epsStartDate;
