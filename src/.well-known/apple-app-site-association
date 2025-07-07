@@ -1,0 +1,11 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "4M3J9FRUGG.com.sollsavings.Soll",
+        "paths": [ "/onboarding/*" ]
+      }
+    ]
+  }
+}
