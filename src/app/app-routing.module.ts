@@ -14,12 +14,12 @@ const routes: Routes = [
     loadChildren: () => import('./info/info.module').then(m => m.InfoModule)
   },
   { path: '', component: FrontPageComponent},
-  { path: 'get-started', component: GetStartedComponent},
-  { path: 'sign-in', component: SignInComponent},
-  { path: 'my-dashboard', component: UserDashboardComponent},
-  { path: 'group/:groupName/cycle/:cycleNumber/dashboard', component: GroupDashboardComponent },
-  { path: 'group/:groupName/profile', component: GroupProfileComponent },
-  { path: 'join-a-group', component: GroupCatalogueComponent },
+  // { path: 'get-started', component: GetStartedComponent},
+  // { path: 'sign-in', component: SignInComponent},
+  // { path: 'my-dashboard', component: UserDashboardComponent},
+  // { path: 'group/:groupName/cycle/:cycleNumber/dashboard', component: GroupDashboardComponent },
+  // { path: 'group/:groupName/profile', component: GroupProfileComponent },
+  // { path: 'join-a-group', component: GroupCatalogueComponent },
 
   {path: '**', redirectTo: ''}
 ];
