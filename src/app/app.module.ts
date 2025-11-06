@@ -141,6 +141,8 @@ export class HammerConfig extends HammerGestureConfig {
     FormsModule,
   ],
   providers: [
+    provideFirebaseApp(() => initializeApp(firebaseConfig)),
+    provideAuth(() => getAuth()),
     ContentManagerService,
     ScreenLayoutService,
     AuthGuard,
@@ -167,8 +169,6 @@ export class HammerConfig extends HammerGestureConfig {
         horizontalPosition: 'right',
       },
     },
-    provideFirebaseApp(() => initializeApp(firebaseConfig)),
-    provideAuth(() => getAuth()),
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent],
