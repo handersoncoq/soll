@@ -1,13 +1,22 @@
 $primary-color: #52688f;
 $accent-color: #35425b;
 $box-shadow: 0px 0px 10px rgba(82, 104, 143, 0.5);
-$alt-font-color: #E3E7F1;
+$alt-font-color: #e3e7f1;
 $transparent-bgr: rgb(82, 104, 143, 0.1);
 
-.spacing{
+.spacing {
   margin: 2em 0.9em;
   margin-bottom: 1em;
   border: none;
+}
+
+.router-like-link {
+  display: inline-block;
+  text-decoration: none;
+  color: inherit;
+}
+.router-like-link:hover {
+  cursor: pointer;
 }
 
 .header-tagline {
@@ -19,19 +28,19 @@ $transparent-bgr: rgb(82, 104, 143, 0.1);
   }
 }
 
-.curvy-header{
+.curvy-header {
   border-top-left-radius: 1.5em;
   border-top-right-radius: 1.5em;
   box-shadow: 0px -5px 5px -5px rgba(0, 0, 0, 0.5);
 }
 
-.curvy-bottom{
+.curvy-bottom {
   border-bottom-left-radius: 2em;
   border-bottom-right-radius: 2em;
   box-shadow: 0px 5px 5px -5px rgba(0, 0, 0, 0.5);
 }
 
-.core-page{
+.core-page {
   margin: 0;
   padding: 0;
 }
@@ -51,7 +60,7 @@ $transparent-bgr: rgb(82, 104, 143, 0.1);
   justify-content: center;
   width: 100%;
   margin-top: 1.5em;
-  button{
+  button {
     cursor: pointer;
     border: none;
     width: 0.8em;
@@ -68,41 +77,46 @@ $transparent-bgr: rgb(82, 104, 143, 0.1);
   position: relative;
 }
 
-
 .get-started {
   margin: 0 0.5em;
   padding-bottom: 1em;
   margin-top: 1.5em;
-.form-control {
-  width: 100%;
-  border: solid $primary-color 2px;
-  border-radius: 12em;
-  text-indent: 1em;
-  padding: 0.75em 0;
-  margin-bottom: -1em;
-  font-size: medium;
-  &:focus {
-    border: none;
-    outline: none;
-    outline: 2px solid $accent-color;
+  .form-control {
+    width: 100%;
+    border: solid $primary-color 2px;
+    border-radius: 12em;
+    text-indent: 1em;
+    padding: 0.75em 0;
+    margin-bottom: -1em;
+    font-size: medium;
+    &:focus {
+      border: none;
+      outline: none;
+      outline: 2px solid $accent-color;
+    }
   }
-}
-input::placeholder {
-  font-size: medium;
-}
-button{
-  background: $accent-color;
-  color: white;
-  border-radius: 1.3em;
-  font-weight: bold;
-  padding: 1.17em;
-  box-shadow: $box-shadow;
-  width: 100%;
-}
+  input::placeholder {
+    font-size: medium;
+  }
+  button {
+    background: $accent-color;
+    color: white;
+    border-radius: 1.3em;
+    font-weight: bold;
+    padding: 1.17em;
+    box-shadow: $box-shadow;
+    width: 100%;
+  }
 }
 
 .what-is-img {
-  padding-bottom: 1em;
+  margin-bottom: 1em;
+}
+
+@media (min-width: 1024px) {
+  .what-is-img {
+    padding: 1em;
+  }
 }
 
 // ******************************************* Old Style ****************************
@@ -112,8 +126,7 @@ button{
   background-color: $accent-color;
 }
 
-
-.hero-btn-container{
+.hero-btn-container {
   display: flex;
   max-width: 90%;
   width: fit-content;
@@ -121,32 +134,32 @@ button{
   margin: 0 2.5em;
 }
 
-.call-to-action{
-    display: flex;
-    justify-content: center;
-    vertical-align: middle;
-    margin-top: 1em;
+.call-to-action {
+  display: flex;
+  justify-content: center;
+  vertical-align: middle;
+  margin-top: 1em;
 }
 
 .learn-more {
-        text-align: center;
-        width: 100%;
-        margin: 0;
-        padding: 1.5em 1em;
-        padding-top: 0;
-        margin-bottom: 0;
-        display: grid;
-        grid-template-columns: 2fr 2fr;
-        gap: 1em;
-    
-    button{
-        background: $accent-color;
-        color: white;
-        border-radius: 1.3em;
-        font-size: medium;
-        box-shadow: $box-shadow;
-        width: 100%;
-    }
+  text-align: center;
+  width: 100%;
+  margin: 0;
+  padding: 1.5em 1em;
+  padding-top: 0;
+  margin-bottom: 0;
+  display: grid;
+  grid-template-columns: 2fr 2fr;
+  gap: 1em;
+
+  button {
+    background: $accent-color;
+    color: white;
+    border-radius: 1.3em;
+    font-size: medium;
+    box-shadow: $box-shadow;
+    width: 100%;
+  }
 }
 
 .tagline-header {
@@ -157,7 +170,7 @@ button{
   padding-top: 1.5em;
 }
 
-.sub-header{
+.sub-header {
   font-size: small;
   padding: 0 0.9em;
   margin-top: -1em;
@@ -165,37 +178,38 @@ button{
   color: $accent-color;
 }
 
-.branding{
+.branding {
   margin-top: -1.8em;
 }
 
-.learn-more-content{
-    margin-top: -1em;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    text-align: center;
+.learn-more-content {
+  margin-top: -1em;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  text-align: center;
 
-    img{
-      margin-top: 1em;
-      height: 6.2em;
-      width: 6.2em;
-    }
-    .img-p, .tag-p{
-      text-align: center;
-      font-family: "Inter", sans-serif;
-      color: $primary-color;
-    }
+  img {
+    margin-top: 1em;
+    height: 6.2em;
+    width: 6.2em;
+  }
+  .img-p,
+  .tag-p {
+    text-align: center;
+    font-family: "Inter", sans-serif;
+    color: $primary-color;
+  }
 }
 
-.learn-more-body{
+.learn-more-body {
   font-size: medium;
   color: $primary-color;
   font-family: "Poppins", "Roboto", sans-serif;
   text-align: start;
 }
 
-.learn-more-content.tag-words{
+.learn-more-content.tag-words {
   p {
     z-index: 10;
     margin-top: -2em;
@@ -205,88 +219,85 @@ button{
   }
 }
 
-.ratings-partners{
+.ratings-partners {
   margin-top: 0;
   background-color: $transparent-bgr;
-  img{
+  img {
     transform: none !important;
   }
 
-  .trustpilot-rating, .partners{
+  .trustpilot-rating,
+  .partners {
     text-align: center;
     padding: 2em;
     margin: 1em;
-    sup{
+    sup {
       cursor: default;
     }
   }
 
   .trustpilot-rating {
-    div{
-      img{
+    div {
+      img {
         width: 11.5em;
       }
     }
-  
   }
-  
-  .partners{
+
+  .partners {
     margin-bottom: 1em;
-    span{
-      img{
+    span {
+      img {
         width: 6.5em;
       }
     }
-    h1{
+    h1 {
       font-size: x-large;
       margin-top: -2em;
     }
-    sup{
+    sup {
       font-size: small;
       font-weight: normal;
       color: $primary-color;
       font-family: sans-serif;
     }
-    span:not(:last-child){
+    span:not(:last-child) {
       padding-right: 1.1em;
     }
   }
 }
 
-
-.faqs{
+.faqs {
   padding: 4em 1em;
   padding-top: 1.5em;
   border-top-left-radius: 2em;
   border-top-right-radius: 2em;
-  h1{
+  h1 {
     padding: 0;
   }
 
-  mat-expansion-panel{
+  mat-expansion-panel {
     box-shadow: none;
     color: $accent-color;
   }
 
-  mat-panel-title{
+  mat-panel-title {
     color: $accent-color;
     color: $primary-color;
   }
 
-  ::ng-deep .mat-expansion-panel-header:not([aria-disabled=true]) {
+  ::ng-deep .mat-expansion-panel-header:not([aria-disabled="true"]) {
     width: 100%;
     padding: 1em 0;
   }
 
-  p{
+  p {
     font-size: 14px !important;
   }
 
   .panel-icon {
     float: right;
   }
-
-
 }
 
 ::ng-deep mat-expansion-panel-header .mat-expansion-indicator::after {
@@ -302,7 +313,9 @@ button{
   border: 0;
   transform: none;
 }
-::ng-deep .mat-expansion-panel-header.mat-expanded .mat-expansion-indicator::after {
+::ng-deep
+  .mat-expansion-panel-header.mat-expanded
+  .mat-expansion-indicator::after {
   content: "-" !important;
   border-radius: 50%;
   background-color: $primary-color;
@@ -317,18 +330,18 @@ button{
 ::ng-deep .mat-mdc-tooltip .mdc-tooltip__surface {
   font-size: x-small !important;
   background-color: white !important;
-  color: #636B74 !important;
+  color: #636b74 !important;
   border-radius: 1em !important;
 }
 
-::ng-deep .mat-mdc-tooltip{
+::ng-deep .mat-mdc-tooltip {
   box-shadow: rgba(0, 0, 0, 0.2) 0px 60px 40px -7px !important;
 }
 
 .front-page-content {
   margin: 0;
   margin-top: 1em;
-  img{
+  img {
     height: auto;
     width: 100%;
   }
@@ -338,11 +351,11 @@ button{
   margin-bottom: 4em;
 }
 
-.last-video{
+.last-video {
   margin-bottom: 7em;
 }
 
-.desktop-core{
+.desktop-core {
   margin-left: 6em;
   margin-right: 6em;
 }

@@ -1,24 +1,35 @@
 import { CUSTOM_ELEMENTS_SCHEMA, Injectable, NgModule } from '@angular/core';
-import { BrowserModule, HammerModule, HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
+import {
+  BrowserModule,
+  HammerModule,
+  HammerGestureConfig,
+  HAMMER_GESTURE_CONFIG,
+} from '@angular/platform-browser';
 import * as Hammer from 'hammerjs';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
+import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
+import { provideAuth, getAuth } from '@angular/fire/auth';
+import { firebaseConfig } from 'src/app/firebase.config';
 
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
-import {MatInputModule} from '@angular/material/input';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import { MAT_SNACK_BAR_DEFAULT_OPTIONS, MatSnackBarModule } from '@angular/material/snack-bar';
-import {MatSelectModule} from '@angular/material/select';
-import {MatTooltipModule} from '@angular/material/tooltip';
-import {MatNativeDateModule} from '@angular/material/core';
-import {MatDatepickerModule} from '@angular/material/datepicker';
-import {MatCheckboxModule} from '@angular/material/checkbox';
-import {MatTabsModule} from '@angular/material/tabs';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import {
+  MAT_SNACK_BAR_DEFAULT_OPTIONS,
+  MatSnackBarModule,
+} from '@angular/material/snack-bar';
+import { MatSelectModule } from '@angular/material/select';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatTabsModule } from '@angular/material/tabs';
 
 import { AppComponent } from './app.component';
 import { FrontPageComponent } from './components/front-page/front-page.component';
@@ -62,16 +73,18 @@ import { StatusCircleComponent } from './templates/status-circle/status-circle.c
 import { GroupChatComponent } from './templates/group-chat/group-chat.component';
 import { ChatMessageComponent } from './templates/chat-message/chat-message.component';
 import { ChatService } from './services/chat-service/chat.service';
+import { AuthComponent } from './components/auth/auth.component';
 
 @Injectable()
 export class HammerConfig extends HammerGestureConfig {
-  override overrides = <any> { 
-    swipe: { direction: Hammer.DIRECTION_ALL }, 
+  override overrides = <any>{
+    swipe: { direction: Hammer.DIRECTION_ALL },
   };
 }
 @NgModule({
   declarations: [
     AppComponent,
+    AuthComponent,
     FrontPageComponent,
     FooterComponent,
     GetStartedComponent,
@@ -125,23 +138,39 @@ export class HammerConfig extends HammerGestureConfig {
     MatCheckboxModule,
     HammerModule,
     MatTabsModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [
-    ContentManagerService, ScreenLayoutService, AuthGuard, PaymentService,
-    StyleManagerService, GroupService, DialogService, UserService, ChatService,
+    ContentManagerService,
+    ScreenLayoutService,
+    AuthGuard,
+    PaymentService,
+    StyleManagerService,
+    GroupService,
+    DialogService,
+    UserService,
+    ChatService,
     {
       provide: HAMMER_GESTURE_CONFIG,
-      useClass: HammerConfig
+      useClass: HammerConfig,
     },
-    {provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: {
-      duration: 3000,
-      panelClass: ['app-snackbar-neutral', 'app-snackbar-success', 'app-snackbar-error'],
-      verticalPosition: 'top',
-      horizontalPosition: 'right',
-    }}
+    {
+      provide: MAT_SNACK_BAR_DEFAULT_OPTIONS,
+      useValue: {
+        duration: 3000,
+        panelClass: [
+          'app-snackbar-neutral',
+          'app-snackbar-success',
+          'app-snackbar-error',
+        ],
+        verticalPosition: 'top',
+        horizontalPosition: 'right',
+      },
+    },
+    provideFirebaseApp(() => initializeApp(firebaseConfig)),
+    provideAuth(() => getAuth()),
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

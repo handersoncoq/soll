@@ -1,0 +1,13 @@
+<div class="verify-container">
+  <h3>Verifying your email...</h3>
+  <div class="verify-card">
+    <mat-icon *ngIf="status === 'success'" class="success-icon"
+      >check_circle</mat-icon
+    >
+    <mat-icon *ngIf="status === 'error'" class="error-icon">cancel</mat-icon>
+    <mat-icon *ngIf="status === 'warning'" class="warning-icon"
+      >sentiment_dissatisfied</mat-icon
+    >
+    <p class="verify-message">{{ message }}</p>
+  </div>
+</div>

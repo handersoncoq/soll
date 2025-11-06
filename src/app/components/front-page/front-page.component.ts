@@ -11,10 +11,9 @@ import { ScreenLayoutService } from 'src/app/utils/screen-layout/screen-layout.s
 @Component({
   selector: 'app-front-page',
   templateUrl: './front-page.component.html',
-  styleUrls: ['./front-page.component.scss']
+  styleUrls: ['./front-page.component.scss'],
 })
-export class FrontPageComponent implements OnInit, OnDestroy{
-
+export class FrontPageComponent implements OnInit, OnDestroy {
   slogan!: string;
   learnMore!: TitleBodyArrayType;
   frontPageLogo: string;
@@ -41,8 +40,13 @@ export class FrontPageComponent implements OnInit, OnDestroy{
   $accentColor = '#35425B';
   inputForm!: FormGroup;
 
-  constructor(private contentManagerService: ContentManagerService, private router: Router, private screenService: ScreenLayoutService,
-    private formBuilder: FormBuilder, private publicInteractionService: PublicInteractionService){
+  constructor(
+    private contentManagerService: ContentManagerService,
+    private router: Router,
+    private screenService: ScreenLayoutService,
+    private formBuilder: FormBuilder,
+    private publicInteractionService: PublicInteractionService
+  ) {
     this.frontPageLogo = this.contentManagerService.getAppLogo6();
     this.trustPilot = this.contentManagerService.getTrustpilotAndStars()[0];
     this.fiveStars = this.contentManagerService.getTrustpilotAndStars()[1];
@@ -52,33 +56,37 @@ export class FrontPageComponent implements OnInit, OnDestroy{
     this.startSlideshow();
     this.inputForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email, Validators.email]],
-    })
+    });
   }
 
   ngOnInit() {
-    this.screenService.isMobile$.subscribe(isDesktop => { this.isMobile = isDesktop; });
+    this.screenService.isMobile$.subscribe((isDesktop) => {
+      this.isMobile = isDesktop;
+    });
     this.currentImage = this.images[0];
     forkJoin({
-        slogan: this.contentManagerService.getSlogan(),
-        learnMore: this.contentManagerService.getLearnMore(),
-        faqs: this.contentManagerService.getFaqs(),
-        keyWords: this.contentManagerService.getKeyWords(),
-        taglines: this.contentManagerService.getTaglines()
-    }).subscribe(results => {
-        this.slogan = results.slogan;
-        this.learnMore = results.learnMore;
-        this.faqs = results.faqs;
-        this.keyWords = results.keyWords;
-        this.taglines = results.taglines;
-        this.slogan = results.taglines.array[0];
+      slogan: this.contentManagerService.getSlogan(),
+      learnMore: this.contentManagerService.getLearnMore(),
+      faqs: this.contentManagerService.getFaqs(),
+      keyWords: this.contentManagerService.getKeyWords(),
+      taglines: this.contentManagerService.getTaglines(),
+    }).subscribe((results) => {
+      this.slogan = results.slogan;
+      this.learnMore = results.learnMore;
+      this.faqs = results.faqs;
+      this.keyWords = results.keyWords;
+      this.taglines = results.taglines;
+      this.slogan = results.taglines.array[0];
     });
-}
+  }
 
   startSlideshow() {
     this.intervalId = setInterval(() => {
-      this.currentImageIndex = (this.currentImageIndex + 1) % this.images.length;
+      this.currentImageIndex =
+        (this.currentImageIndex + 1) % this.images.length;
       this.currentImage = this.images[this.currentImageIndex];
-      if(this.taglines) this.slogan = this.taglines.array[this.currentImageIndex];
+      if (this.taglines)
+        this.slogan = this.taglines.array[this.currentImageIndex];
       this.toggleBackground(this.currentImageIndex);
     }, 5000);
   }
@@ -115,14 +123,15 @@ export class FrontPageComponent implements OnInit, OnDestroy{
   }
 
   handleSwipeLeft(event: any) {
-    console.log(event)
+    console.log(event);
     this.currentImageIndex = (this.currentImageIndex + 1) % this.images.length;
     this.setCurrentImage(this.currentImageIndex);
   }
 
   handleSwipeRight(event: any) {
-    console.log(event)
-    this.currentImageIndex = (this.currentImageIndex - 1 + this.images.length) % this.images.length;
+    console.log(event);
+    this.currentImageIndex =
+      (this.currentImageIndex - 1 + this.images.length) % this.images.length;
     this.setCurrentImage(this.currentImageIndex);
   }
 
@@ -133,9 +142,16 @@ export class FrontPageComponent implements OnInit, OnDestroy{
   getStarted() {
     const emailValue = this.inputForm.get('email')?.value;
     if (emailValue) {
-      this.publicInteractionService.setEmail(emailValue)
+      this.publicInteractionService.setEmail(emailValue);
     }
-    this.router.navigate(['/get-started']);
-  }  
+    window.location.href = 'soll://register';
+  }
 
+  // getStarted() {
+  //   const emailValue = this.inputForm.get('email')?.value;
+  //   if (emailValue) {
+  //     this.publicInteractionService.setEmail(emailValue)
+  //   }
+  //   this.router.navigate(['/get-started']);
+  // }
 }

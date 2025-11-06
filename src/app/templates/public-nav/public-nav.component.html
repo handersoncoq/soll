@@ -3,14 +3,15 @@
   <mat-toolbar-row>
     <div class="toolbar-content">
       <span (click)="navigateToSimpleRoute('/')" class="company-logo"
-        ><img class="app-logo" [src]="appLogo" alt="Soll"></span>
+        ><img class="app-logo" [src]="appLogo" alt="Soll"
+      /></span>
       <span class="spacer"></span>
       <mat-icon [matMenuTriggerFor]="languageMenu" class="language-icon"
         >public</mat-icon
       >
       <mat-divider class="divider" [vertical]="true"></mat-divider>
-      <button mat-button (click)="navigateToSimpleRoute('/sign-in')">
-        Sign in
+      <button mat-button (click)="navigateToSimpleRoute('/contact-us')">
+        Contact Us
       </button>
       <button
         mat-icon-button
@@ -56,18 +57,18 @@
         appLazyLoadText
         mat-menu-item
         (click)="navigateToSimpleRoute('/info/about-us')"
-        >
+      >
         About us
         <mat-icon color="primary">info</mat-icon>
       </button>
       <button
-      appLazyLoadText
-      mat-menu-item
-      (click)="navigateToSimpleRoute('/info/feedback')"
+        appLazyLoadText
+        mat-menu-item
+        (click)="navigateToSimpleRoute('/info/feedback')"
       >
-      Feedback
-      <mat-icon color="primary">feedback</mat-icon>
-    </button>
+        Feedback
+        <mat-icon color="primary">feedback</mat-icon>
+      </button>
       <!-- <button
         appLazyLoadText
         mat-menu-item
