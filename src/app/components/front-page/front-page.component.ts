@@ -144,7 +144,7 @@ export class FrontPageComponent implements OnInit, OnDestroy {
     if (emailValue) {
       this.publicInteractionService.setEmail(emailValue);
     }
-    window.location.href = 'soll://register';
+    window.location.href = 'sollapp://register';
   }
 
   // getStarted() {
