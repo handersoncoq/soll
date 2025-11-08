@@ -48,11 +48,5 @@
     "karma-jasmine-html-reporter": "~2.1.0",
     "ngx-deploy-npm": "^7.1.0",
     "typescript": "~5.2.2"
-  },
-  "optionalDependencies": {
-    "@nx/nx-linux-x64-gnu": "<version-matching-nx>",
-    "@nx/nx-linux-arm64-gnu": "<version-matching-nx>",
-    "@nx/nx-darwin-arm64": "<version-matching-nx>",
-    "@nx/nx-win32-x64-msvc": "<version-matching-nx>"
   }
 }
