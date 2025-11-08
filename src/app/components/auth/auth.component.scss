@@ -5,15 +5,11 @@ $alt-font-color: #e3e7f1;
 $transparent-bgr: rgb(82, 104, 143, 0.1);
 
 .verify-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
-  // color: $alt-font-color;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: small;
   text-align: center;
   background-color: $primary-color;
+  padding-top: 10em;
   height: 100vh;
 
   .verify-card {
