@@ -10,8 +10,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 
+import { importProvidersFrom } from '@angular/core';
+import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
+import { provideAuth, getAuth } from '@angular/fire/auth';
 import { firebaseConfig } from 'src/app/config/firebase.config';
-import { AngularFireModule } from '@angular/fire/compat';
 
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
@@ -118,7 +120,6 @@ export class HammerConfig extends HammerGestureConfig {
     ChatMessageComponent,
   ],
   imports: [
-    AngularFireModule.initializeApp(firebaseConfig),
     ReactiveFormsModule,
     BrowserModule,
     AppRoutingModule,
@@ -142,6 +143,10 @@ export class HammerConfig extends HammerGestureConfig {
     FormsModule,
   ],
   providers: [
+    importProvidersFrom(
+      provideFirebaseApp(() => initializeApp(firebaseConfig)),
+      provideAuth(() => getAuth())
+    ),
     ContentManagerService,
     ScreenLayoutService,
     AuthGuard,
