@@ -10,15 +10,15 @@ $transparent-bgr: rgb(82, 104, 143, 0.1);
   justify-content: center;
   align-items: center;
   margin: auto 1em;
-  color: $alt-font-color;
+  // color: $alt-font-color;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: small;
   text-align: center;
-  background: none;
+  background-color: $primary-color;
   height: 80vh;
 
   .verify-card {
-    background-color: $primary-color;
+    background-color: white;
     border-radius: 12px;
     box-shadow: none;
     padding: 2em;

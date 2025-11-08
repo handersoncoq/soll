@@ -12,7 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
 import { provideAuth, getAuth } from '@angular/fire/auth';
-import { firebaseConfig } from 'src/app/firebase.config';
+import { firebaseConfig } from 'src/app/config/firebase.config';
 console.log('Runtime Firebase Config:', firebaseConfig);
 
 import { MatIconModule } from '@angular/material/icon';
