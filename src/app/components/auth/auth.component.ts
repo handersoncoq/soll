@@ -24,7 +24,7 @@ export class AuthComponent implements OnInit {
       const params = new URLSearchParams(window.location.search);
       const mode = params.get('mode');
       const oobCode = params.get('oobCode');
-
+      console.log('Verification parameters:', { mode, oobCode });
       this.handleVerification(mode, oobCode);
     } catch {
       this.showMessage(
