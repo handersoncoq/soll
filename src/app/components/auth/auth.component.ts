@@ -24,7 +24,6 @@ export class AuthComponent implements OnInit {
       const params = new URLSearchParams(window.location.search);
       const mode = params.get('mode');
       const oobCode = params.get('oobCode');
-      console.log('Verification parameters:', { mode, oobCode });
       this.handleVerification(mode, oobCode);
     } catch {
       this.showMessage(
@@ -46,7 +45,7 @@ export class AuthComponent implements OnInit {
           this.success = true;
           this.isExpiredLink = false;
           setTimeout(() => {
-            window.location.href = 'soll://login';
+            window.location.href = 'sollapp://login';
           }, 3000);
         })
         .catch((error) => {
@@ -60,7 +59,7 @@ export class AuthComponent implements OnInit {
               );
               break;
             case 'auth/invalid-action-code':
-              this.isExpiredLink = false;
+              this.isExpiredLink = true;
               this.showMessage(
                 'This verification link is invalid or has already been used.',
                 'error'
@@ -102,7 +101,7 @@ export class AuthComponent implements OnInit {
       'Redirecting you to the app to request a new verification email…',
       'warning'
     );
-    window.location.href = 'soll://resendVerificationEmail';
+    window.location.href = 'sollapp://resendVerificationEmail';
   }
 
   showMessage(message: string, type: 'success' | 'error' | 'warning'): void {
