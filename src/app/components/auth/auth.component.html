@@ -20,5 +20,15 @@
       >sentiment_dissatisfied</mat-icon
     >
     <p class="verify-message">{{ message }}</p>
+    <div *ngIf="status !== null && status === 'warning'">
+      <button
+        mat-button
+        color="primary"
+        class="resend-link"
+        (click)="resendVerificationEmail()"
+      >
+        Resend Verification Email
+      </button>
+    </div>
   </div>
 </div>
