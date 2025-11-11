@@ -1,34 +1,122 @@
-<div class="verify-container">
-  <div class="verify-card">
-    <mat-progress-spinner
-      *ngIf="status === null"
-      diameter="40"
-      color="accent"
-      mode="indeterminate"
-    ></mat-progress-spinner>
-    <mat-icon
-      *ngIf="status !== null && status === 'success'"
-      class="success-icon"
-      >check_circle</mat-icon
-    >
-    <mat-icon *ngIf="status !== null && status === 'error'" class="error-icon"
-      >cancel</mat-icon
-    >
-    <mat-icon
-      *ngIf="status !== null && status === 'warning'"
-      class="warning-icon"
-      >sentiment_dissatisfied</mat-icon
-    >
-    <p class="verify-message">{{ message }}</p>
-    <div *ngIf="isExpiredLink">
-      <button
-        mat-button
-        color="primary"
-        class="resend-link"
-        (click)="resendVerificationEmail()"
+<div *ngIf="isForEmailVerification">
+  <div class="verify-container">
+    <div class="verify-card">
+      <mat-progress-spinner
+        *ngIf="status === null"
+        diameter="40"
+        color="accent"
+        mode="indeterminate"
+      ></mat-progress-spinner>
+      <mat-icon
+        *ngIf="status !== null && status === 'success'"
+        class="success-icon"
+        >check_circle</mat-icon
       >
-        Resend Verification Email
-      </button>
+      <mat-icon *ngIf="status !== null && status === 'error'" class="error-icon"
+        >cancel</mat-icon
+      >
+      <mat-icon
+        *ngIf="status !== null && status === 'warning'"
+        class="warning-icon"
+        >sentiment_dissatisfied</mat-icon
+      >
+      <p class="verify-message">{{ message }}</p>
+      <div *ngIf="isExpiredLink">
+        <button
+          mat-button
+          color="primary"
+          class="resend-link"
+          (click)="resendVerificationEmail()"
+        >
+          Resend Verification Email
+        </button>
+      </div>
     </div>
+  </div>
+</div>
+<div *ngIf="isForPasswordReset" class="reset-container">
+  <div class="reset-card">
+    <p class="reset-message">{{ message }}</p>
+    <form
+      *ngIf="showResetForm"
+      (ngSubmit)="resetPassword()"
+      #resetForm="ngForm"
+    >
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>New Password</mat-label>
+        <input
+          matInput
+          [type]="showNewPassword ? 'text' : 'password'"
+          name="newPassword"
+          [(ngModel)]="newPassword"
+          required
+          pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,}$"
+          placeholder="Enter new password"
+          (input)="onPasswordInput()"
+        />
+        <button
+          mat-icon-button
+          matSuffix
+          type="button"
+          class="toggle-icon"
+          (click)="toggleNewPasswordVisibility()"
+        >
+          <mat-icon color="primary">{{
+            showNewPassword ? "visibility_off" : "visibility"
+          }}</mat-icon>
+        </button>
+      </mat-form-field>
+      <div class="password-strength-section" [ngClass]="passwordStrengthClass">
+        <div class="strength-bar"></div>
+        <p class="strength-label">Password Strength</p>
+        <ul>
+          <li [class.valid]="passwordStrength.length">At least 8 characters</li>
+          <li [class.valid]="passwordStrength.pattern">
+            Upper, lower, number, symbol
+          </li>
+        </ul>
+      </div>
+
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Confirm Password</mat-label>
+        <input
+          matInput
+          [type]="showConfirmPassword ? 'text' : 'password'"
+          name="confirmPassword"
+          [(ngModel)]="confirmPassword"
+          required
+          placeholder="Confirm new password"
+          (input)="onPasswordInput()"
+        />
+        <button
+          mat-icon-button
+          matSuffix
+          type="button"
+          class="toggle-icon"
+          (click)="toggleConfirmPasswordVisibility()"
+        >
+          <mat-icon color="primary">{{
+            showNewPassword ? "visibility_off" : "visibility"
+          }}</mat-icon>
+        </button>
+      </mat-form-field>
+      <p
+        class="password-match"
+        [class.match]="passwordsMatch"
+        [class.mismatch]="!passwordsMatch"
+        *ngIf="confirmPassword"
+      >
+        {{ passwordsMatch ? "Passwords match" : "Passwords do not match" }}
+      </p>
+
+      <button
+        mat-raised-button
+        color="primary"
+        type="submit"
+        [disabled]="isProcessing"
+      >
+        {{ isProcessing ? "Resetting..." : "Reset Password" }}
+      </button>
+    </form>
   </div>
 </div>

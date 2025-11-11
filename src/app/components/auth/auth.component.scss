@@ -40,3 +40,113 @@ $transparent-bgr: rgb(82, 104, 143, 0.1);
     color: $alt-font-color;
   }
 }
+
+.reset-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: $primary-color;
+  font-size: small;
+}
+
+.reset-card {
+  background-color: white;
+  border-radius: 12px;
+  padding: 1.5em;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: $box-shadow;
+  text-align: center;
+
+  .reset-message {
+    text-align: left;
+    margin-bottom: 2em;
+    color: $accent-color;
+  }
+
+  .full-width {
+    width: 100%;
+    margin-bottom: 1em;
+  }
+
+  button {
+    margin-top: 1em;
+    width: 100%;
+    border-radius: 25px;
+    padding: 0.75em 0;
+    font-weight: 500;
+  }
+
+  .toggle-icon {
+    font-size: medium;
+    margin-right: 0.5em;
+  }
+}
+
+.password-strength-section {
+  text-align: left;
+  margin-bottom: 1em;
+  margin-top: -1em;
+
+  .strength-bar {
+    height: 6px;
+    border-radius: 4px;
+    background-color: #ccc;
+    margin-bottom: 0.5em;
+    transition: background-color 0.3s ease;
+  }
+
+  &.weak .strength-bar {
+    background-color: #f44336;
+  }
+
+  &.medium .strength-bar {
+    background-color: #ff9800;
+  }
+
+  &.strong .strength-bar {
+    background-color: #4caf50;
+  }
+
+  .strength-label {
+    font-size: 0.8rem;
+    color: $accent-color;
+    margin-bottom: 0.5em;
+    font-weight: normal;
+  }
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+    font-size: 0.8rem;
+    color: gray;
+    margin-bottom: 1.5em;
+
+    li {
+      margin-bottom: 0.2em;
+    }
+
+    .valid {
+      color: #4caf50;
+      font-weight: normal;
+    }
+  }
+}
+
+.password-match {
+  font-size: 0.8rem;
+  text-align: left;
+  margin-top: -2em;
+  margin-bottom: 1em;
+
+  &.match {
+    color: #4caf50;
+    font-weight: normal;
+  }
+
+  &.mismatch {
+    color: #f44336;
+    font-weight: normal;
+  }
+}
