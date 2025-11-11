@@ -46,7 +46,7 @@ $transparent-bgr: rgb(82, 104, 143, 0.1);
   font-size: medium;
   text-align: center;
   background-color: $primary-color;
-  padding-top: 6.5em;
+  padding-top: 7em;
   height: 100vh;
 }
 
@@ -73,9 +73,10 @@ $transparent-bgr: rgb(82, 104, 143, 0.1);
 
   button {
     margin-top: 1em;
+    margin-bottom: 1em;
     width: 100%;
     border-radius: 25px;
-    padding: 0.75em 0;
+    padding: 1.3em 0;
     font-weight: 500;
     font-size: medium;
   }

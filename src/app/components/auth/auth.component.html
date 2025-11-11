@@ -20,7 +20,19 @@
         class="warning-icon"
         >sentiment_dissatisfied</mat-icon
       >
-      <p class="verify-message">{{ message }}</p>
+      <p
+        class="verify-message"
+        [ngStyle]="{
+          color:
+            status === 'error'
+              ? 'red'
+              : status === 'success'
+              ? 'green'
+              : 'inherit'
+        }"
+      >
+        {{ message }}
+      </p>
       <div *ngIf="isExpiredLink">
         <button
           mat-button
@@ -36,7 +48,19 @@
 </div>
 <div *ngIf="isForPasswordReset" class="reset-container">
   <div class="reset-card">
-    <p class="reset-message">{{ message }}</p>
+    <p
+      class="reset-message"
+      [ngStyle]="{
+        color:
+          status === 'error'
+            ? 'red'
+            : status === 'success'
+            ? 'green'
+            : 'inherit'
+      }"
+    >
+      {{ message }}
+    </p>
     <form
       *ngIf="showResetForm"
       (ngSubmit)="resetPassword()"
