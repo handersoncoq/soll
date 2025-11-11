@@ -42,12 +42,12 @@ $transparent-bgr: rgb(82, 104, 143, 0.1);
 }
 
 .reset-container {
-  display: flex;
-  justify-content: center;
   align-items: center;
-  height: 100vh;
-  background-color: $primary-color;
   font-size: small;
+  text-align: center;
+  background-color: $primary-color;
+  padding-top: 6em;
+  height: 100vh;
 }
 
 .reset-card {
@@ -76,6 +76,7 @@ $transparent-bgr: rgb(82, 104, 143, 0.1);
     border-radius: 25px;
     padding: 0.75em 0;
     font-weight: 500;
+    font-size: medium;
   }
 
   .toggle-icon {
