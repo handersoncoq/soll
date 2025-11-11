@@ -46,8 +46,11 @@ $transparent-bgr: rgb(82, 104, 143, 0.1);
   font-size: medium;
   text-align: center;
   background-color: $primary-color;
-  padding-top: 7em;
+  padding-top: -7em;
   height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .reset-card {
