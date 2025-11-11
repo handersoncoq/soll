@@ -43,10 +43,10 @@ $transparent-bgr: rgb(82, 104, 143, 0.1);
 
 .reset-container {
   align-items: center;
-  font-size: small;
+  font-size: medium;
   text-align: center;
   background-color: $primary-color;
-  padding-top: 6em;
+  padding-top: 6.5em;
   height: 100vh;
 }
 
@@ -63,6 +63,7 @@ $transparent-bgr: rgb(82, 104, 143, 0.1);
     text-align: left;
     margin-bottom: 2em;
     color: $accent-color;
+    font-size: small;
   }
 
   .full-width {
@@ -115,6 +116,7 @@ $transparent-bgr: rgb(82, 104, 143, 0.1);
     color: $accent-color;
     margin-bottom: 0.5em;
     font-weight: normal;
+    font-size: small;
   }
 
   ul {
@@ -140,6 +142,7 @@ $transparent-bgr: rgb(82, 104, 143, 0.1);
   text-align: left;
   margin-top: -2em;
   margin-bottom: 1em;
+  font-size: small;
 
   &.match {
     color: #4caf50;
