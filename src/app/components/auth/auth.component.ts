@@ -121,6 +121,7 @@ export class AuthComponent implements OnInit {
       this.showMessage('Please fill out all password fields.', 'error');
       return;
     }
+
     const passwordPattern =
       /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,}$/;
     if (!passwordPattern.test(this.newPassword)) {
@@ -130,10 +131,12 @@ export class AuthComponent implements OnInit {
       );
       return;
     }
+
     if (this.newPassword !== this.confirmPassword) {
       this.showMessage('Passwords do not match.', 'error');
       return;
     }
+
     if (!this.oobCode) {
       this.showMessage('Invalid or missing password reset code.', 'error');
       return;
@@ -141,7 +144,15 @@ export class AuthComponent implements OnInit {
 
     this.isProcessing = true;
     const auth = getAuth();
-    confirmPasswordReset(auth, this.oobCode, this.newPassword)
+
+    const timeout = new Promise((_, reject) =>
+      setTimeout(() => reject(new Error('Timeout')), 10000)
+    );
+
+    Promise.race([
+      confirmPasswordReset(auth, this.oobCode, this.newPassword),
+      timeout,
+    ])
       .then(() => {
         this.showMessage(
           'Your password has been reset successfully. Redirecting you to the app…',
@@ -154,9 +165,16 @@ export class AuthComponent implements OnInit {
         }, 3000);
       })
       .catch((error) => {
-        this.isProcessing = false;
         console.error('Password reset error:', error);
-        this.handleFirebaseError(error);
+        this.isProcessing = false;
+        if (error.message === 'Timeout') {
+          this.showMessage(
+            'The password reset process took too long. Please check your internet connection or try again later.',
+            'error'
+          );
+        } else {
+          this.handleFirebaseError(error);
+        }
       });
   }
 
