@@ -46,7 +46,7 @@ $transparent-bgr: rgb(82, 104, 143, 0.1);
   font-size: medium;
   text-align: center;
   background-color: $primary-color;
-  margin-top: -2.1em;
+  margin-top: -2.3em;
   padding-bottom: 5em;
   height: 100vh;
   display: flex;
@@ -156,5 +156,23 @@ $transparent-bgr: rgb(82, 104, 143, 0.1);
   &.mismatch {
     color: #f44336;
     font-weight: normal;
+  }
+}
+
+.auth-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: -7em;
+  font-size: x-small;
+  background-color: white;
+  color: rgba(0, 0, 0, 0.6);
+  padding: 3em 1em;
+}
+
+@media (max-width: 600px) {
+  .verify-container,
+  .reset-container {
+    margin-top: -3em;
   }
 }

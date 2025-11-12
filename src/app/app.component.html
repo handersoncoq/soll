@@ -1,19 +1,19 @@
-<div *ngIf="shouldShowPublicNav()" class="nav-container">
+<div class="app-main-content">
+  <div *ngIf="shouldShowPublicNav()" class="nav-container">
     <app-public-nav></app-public-nav>
-</div>
+  </div>
 
-<div *ngIf="isPostLogin()" class="nav-container">
+  <div *ngIf="isPostLogin()" class="nav-container">
     <app-user-nav></app-user-nav>
-</div>
+  </div>
 
-<div *ngIf="showIcon" class="scroll-indicator" (click)="scrollToTop()">
+  <div *ngIf="showIcon" class="scroll-indicator" (click)="scrollToTop()">
     <mat-icon color="accent">keyboard_arrow_up</mat-icon>
+  </div>
+
+  <router-outlet></router-outlet>
+
+  <div *ngIf="isPostLogin()"><app-dashboard-footer></app-dashboard-footer></div>
 </div>
 
-<router-outlet></router-outlet>
-
-<div *ngIf="isPostLogin()"><app-dashboard-footer></app-dashboard-footer></div>
-
-<div class="spacing"></div>
-
-<app-footer *ngIf="isNoneAppContent()"></app-footer>
+<app-footer class="footer-class" *ngIf="isNoneAppContent()"></app-footer>

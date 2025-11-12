@@ -89,9 +89,12 @@ body {
 body {
   margin: 0;
   font-family: "Poppins", "Roboto", sans-serif;
+  background-color: $primary-color;
 }
 
-.app-snackbar-neutral, .app-snackbar-success, .app-snackbar-error{
+.app-snackbar-neutral,
+.app-snackbar-success,
+.app-snackbar-error {
   --mdc-snackbar-container-color: white;
   border-radius: 4px;
 }
