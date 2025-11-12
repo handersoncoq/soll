@@ -5,11 +5,12 @@ $accent-color: #35425b;
 
 .app-footer {
   color: $alt-font-color;
-  font-size: 0.8em;
-  padding: 1em;
+  padding: 2em 1em;
+  padding-bottom: 3em;
   background-color: $primary-color;
 
   .footer-content {
+    font-size: medium;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -34,12 +35,31 @@ $accent-color: #35425b;
     }
   }
 
+  .footer-logo {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 1em;
+
+    img {
+      width: 3em;
+      height: auto;
+      opacity: 1;
+    }
+  }
+
   // ***************************************************
 
   @media (max-width: 600px) {
-    .footer-content {
-      padding-bottom: 1em;
+    .footer-content,
+    p,
+    span {
       font-size: smaller;
+    }
+    .footer-logo {
+      img {
+        width: 2em;
+      }
     }
   }
 }
