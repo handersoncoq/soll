@@ -159,6 +159,8 @@ export class AuthComponent implements OnInit {
           'success'
         );
         this.success = true;
+        this.newPassword = '';
+        this.confirmPassword = '';
         this.isProcessing = false;
         setTimeout(() => {
           window.location.href = 'sollapp://login';
