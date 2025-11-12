@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { initializeApp, getApps } from 'firebase/app';
 import { getAuth, applyActionCode, confirmPasswordReset } from 'firebase/auth';
 import { firebaseConfig } from 'src/app/config/firebase.config';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-auth',
@@ -44,6 +45,8 @@ export class AuthComponent implements OnInit {
     }
   }
 
+  constructor(private router: Router) {}
+
   ngOnInit(): void {
     try {
       if (!getApps().length) {
@@ -53,6 +56,12 @@ export class AuthComponent implements OnInit {
       const params = new URLSearchParams(window.location.search);
       const mode = params.get('mode');
       const oobCode = params.get('oobCode');
+
+      if (mode !== 'verifyEmail' && mode !== 'resetPassword') {
+        this.router.navigate(['/not-found']);
+        return;
+      }
+
       this.handleVerification(mode, oobCode);
     } catch {
       this.showMessage(

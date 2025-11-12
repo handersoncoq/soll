@@ -8,6 +8,7 @@ import { GroupDashboardComponent } from './components/group-dashboard/group-dash
 import { GroupProfileComponent } from './components/group-profile/group-profile.component';
 import { GroupCatalogueComponent } from './components/group-catalogue/group-catalogue.component';
 import { AuthComponent } from './components/auth/auth.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 const routes: Routes = [
   {
@@ -23,7 +24,7 @@ const routes: Routes = [
   // { path: 'group/:groupName/profile', component: GroupProfileComponent },
   // { path: 'join-a-group', component: GroupCatalogueComponent },
 
-  { path: '**', redirectTo: '' },
+  { path: '**', component: NotFoundComponent },
 ];
 
 const routerOptions: ExtraOptions = {

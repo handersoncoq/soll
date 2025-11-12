@@ -76,6 +76,7 @@ import { GroupChatComponent } from './templates/group-chat/group-chat.component'
 import { ChatMessageComponent } from './templates/chat-message/chat-message.component';
 import { ChatService } from './services/chat-service/chat.service';
 import { AuthComponent } from './components/auth/auth.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 @Injectable()
 export class HammerConfig extends HammerGestureConfig {
@@ -87,6 +88,7 @@ export class HammerConfig extends HammerGestureConfig {
   declarations: [
     AppComponent,
     AuthComponent,
+    NotFoundComponent,
     FrontPageComponent,
     FooterComponent,
     GetStartedComponent,
