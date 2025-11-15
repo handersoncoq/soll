@@ -34,8 +34,11 @@ export class AuthComponent implements OnInit {
 
   passwordsMatch: boolean = true;
 
-  get passwordStrengthClass(): 'strong' | 'medium' | 'weak' {
+  get passwordStrengthClass(): 'pristine' | 'strong' | 'medium' | 'weak' {
     const { length, pattern } = this.passwordStrength;
+    if (!this.newPassword) {
+      return 'pristine';
+    }
     if (length && pattern) {
       return 'strong';
     } else if (length) {

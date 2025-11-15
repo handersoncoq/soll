@@ -103,6 +103,10 @@ $transparent-bgr: rgb(82, 104, 143, 0.1);
     transition: background-color 0.3s ease;
   }
 
+  &.pristine .strength-bar {
+    background-color: #ccc;
+  }
+
   &.weak .strength-bar {
     background-color: #f44336;
   }
