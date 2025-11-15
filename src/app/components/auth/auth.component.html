@@ -93,20 +93,22 @@
             }}</mat-icon>
           </button>
         </mat-form-field>
-        <div
-          class="password-strength-section"
-          [ngClass]="passwordStrengthClass"
-        >
-          <div class="strength-bar"></div>
-          <p class="strength-label">Password Strength</p>
-          <ul>
-            <li [class.valid]="passwordStrength.length">
-              At least 8 characters
-            </li>
-            <li [class.valid]="passwordStrength.pattern">
-              Upper, lower, number, symbol
-            </li>
-          </ul>
+        <div *ngIf="newPassword">
+          <div
+            class="password-strength-section"
+            [ngClass]="passwordStrengthClass"
+          >
+            <div class="strength-bar"></div>
+            <p class="strength-label">Password Strength</p>
+            <ul>
+              <li [class.valid]="passwordStrength.length">
+                At least 8 characters
+              </li>
+              <li [class.valid]="passwordStrength.pattern">
+                Upper, lower, number, symbol
+              </li>
+            </ul>
+          </div>
         </div>
 
         <mat-form-field appearance="fill" class="full-width">
