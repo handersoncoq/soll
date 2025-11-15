@@ -75,7 +75,7 @@ $transparent-bgr: rgb(82, 104, 143, 0.1);
     margin-bottom: 1em;
   }
 
-  button {
+  button:not(.toggle-icon) {
     margin-bottom: 1em;
     width: 100%;
     border-radius: 25px;
@@ -87,6 +87,7 @@ $transparent-bgr: rgb(82, 104, 143, 0.1);
   .toggle-icon {
     font-size: medium;
     margin-right: 0.5em;
+    margin-top: 0.4em;
   }
 }
 
