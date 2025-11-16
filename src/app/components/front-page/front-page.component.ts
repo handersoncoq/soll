@@ -33,8 +33,6 @@ export class FrontPageComponent implements OnInit, OnDestroy {
     '/assets/img/hero-img.png',
     '/assets/img/hero-img2.png',
     '/assets/img/hero-img3.png',
-    '/assets/img/hero-img4.png',
-    '/assets/img/hero-img5.png',
   ];
   currentImage!: string;
   $accentColor = '#35425B';

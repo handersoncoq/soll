@@ -1,97 +1,103 @@
 $primary-color: #52688f;
 
-.front-page-component{
-  @media screen and (min-width: 768px) {
-      margin-top: 5em !important;
-      font-size: larger !important;
-      .core-page{
-        padding-top: 1em;
-        padding-left: 3em;
-        padding-right: 3em;
-      }
-      .header-tagline{
-        margin-bottom: 2em !important;
-        padding-bottom: 2em !important;
-      }
-      img:not(.call-to-action img, .branding img, .ratings-partners img, .hero img){
-        height: 30em !important;
-        width: 30em !important;
-      }
-      h1{
-        font-size: xx-large !important;
-      }
-
-      .hero-container{
-        min-height: 45em !important;
-        background-size: contain !important;
-      }
-
-      .get-started{
-        padding-left: 3em !important;
-        padding-right: 3em !important;
-        margin-top: 3em !important;
-      }
-
-      .slide-buttons{
-        margin-top: 15em !important;
-      }
-      
-      .justify-right{
-        width: 100%;
-        position: relative;
-        display: flex;
-        justify-content: flex-end;
-      }
-      .action{
-        margin-left: -2em;
-        padding-right: 1em;
-      }
-      .learn-more{
-        button{
-          font-size: x-large !important;
-          padding-top: 1em !important;
-          padding-bottom: 1em !important;
-        }
-      }
-      .learn-more-content{
-        img{
-          margin-top: -3em !important;
-        }
-      }
-      .learn-more-content.tag-words p{
-        font-size: large !important;
-      }
-      .faqs p{
-        font-size: large !important;
-      }
-      img:not(.call-to-action img, .branding img, .ratings-partners img, .hero img){
-        height: 25em !important;
-        width: 25em !important;
-      }
-      mat-expansion-panel-header .mat-expansion-indicator::after {
-        padding: 0.2em 0.3em;
-        padding-bottom: 0.4em;
-      }
+.front-page-component {
+  @media (min-width: 1024px) {
+    margin-top: 5em !important;
+    font-size: larger !important;
+    .core-page {
+      padding-top: 1em;
+      padding-left: 3em;
+      padding-right: 3em;
+    }
+    .header-tagline {
+      margin-bottom: 2em !important;
+      padding-bottom: 2em !important;
+    }
+    img:not(
+        .call-to-action img,
+        .branding img,
+        .ratings-partners img,
+        .hero img
+      ) {
+      height: 30em !important;
+      width: 30em !important;
+    }
+    h1 {
+      font-size: xx-large !important;
     }
 
-  }
+    .hero-container {
+      min-height: 45em !important;
+      background-size: contain !important;
+    }
 
-    @media screen and (min-width: 768px) {
-      .public-nav{
-        padding-left: 1em;
-        padding-right: 1em;
+    .get-started {
+      padding-left: 3em !important;
+      padding-right: 3em !important;
+      margin-top: 3em !important;
+    }
+
+    .slide-buttons {
+      margin-top: 15em !important;
+    }
+
+    .justify-right {
+      width: 100%;
+      position: relative;
+      display: flex;
+      justify-content: flex-end;
+    }
+    .action {
+      margin-left: -2em;
+      padding-right: 1em;
+    }
+    .learn-more {
+      button {
+        font-size: x-large !important;
+        padding-top: 1em !important;
+        padding-bottom: 1em !important;
+      }
+    }
+    .learn-more-content {
+      img {
+        margin-top: -3em !important;
+      }
+    }
+    .learn-more-content.tag-words p {
+      font-size: large !important;
+    }
+    .faqs p {
+      font-size: large !important;
+    }
+    img:not(
+        .call-to-action img,
+        .branding img,
+        .ratings-partners img,
+        .hero img
+      ) {
+      height: 25em !important;
+      width: 25em !important;
+    }
+    mat-expansion-panel-header .mat-expansion-indicator::after {
+      padding: 0.2em 0.3em;
+      padding-bottom: 0.4em;
     }
   }
+}
 
-@media screen and (orientation: landscape){
-  .hero-container{
+@media (min-width: 1024px) {
+  .public-nav {
+    padding-left: 1em;
+    padding-right: 1em;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-container {
     min-height: 45em !important;
   }
-  .get-started{
-    margin-top: 3em !important;
-  }
 
-  .slide-buttons{
-    margin-top: 15em !important;
+  .slide-buttons {
+    margin-top: 5em !important;
   }
 }
