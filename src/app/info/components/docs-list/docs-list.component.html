@@ -1,0 +1,17 @@
+<div class="docs-list">
+  <ng-container *ngFor="let group of groupedDocs">
+    <!-- Category Title -->
+    <div class="category-title">
+      {{ group.category.name }}
+    </div>
+
+    <!-- Docs inside category -->
+    <ul class="docs-items">
+      <li *ngFor="let doc of group.docs">
+        <a [routerLink]="['/info', doc.slug]" routerLinkActive="active">
+          {{ doc.title.rendered }}
+        </a>
+      </li>
+    </ul>
+  </ng-container>
+</div>

@@ -1,0 +1,12 @@
+<div class="doc-container" *ngIf="doc; else loading">
+  <h1 class="doc-title" [innerHTML]="doc.title.rendered"></h1>
+
+  <div class="doc-content doc-content-static" [innerHTML]="safeContent"></div>
+</div>
+
+<ng-template #loading>
+  <div class="doc-loading">
+    <mat-progress-spinner diameter="40" color="accent" mode="indeterminate">
+    </mat-progress-spinner>
+  </div>
+</ng-template>

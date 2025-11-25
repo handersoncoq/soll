@@ -1,0 +1,61 @@
+$primary-color: #52688f;
+$accent-color: #35425b;
+$box-shadow: 0px 0px 10px rgba(82, 104, 143, 0.5);
+$alt-font-color: #e3e7f1;
+$transparent-bgr: rgb(82, 104, 143, 0.1);
+
+.docs-list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* Category Header */
+.category-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: $accent-color;
+  text-transform: uppercase;
+  margin-top: 1rem;
+  margin-bottom: 0.3rem;
+  letter-spacing: 0.5px;
+}
+
+/* Docs under category */
+.docs-items {
+  list-style: none;
+  padding-left: 0;
+
+  li {
+    margin: 0.2rem 0;
+  }
+
+  a {
+    display: block;
+    padding: 0.35rem 0.5rem;
+    border-radius: 6px;
+    text-decoration: none;
+    color: $accent-color;
+    font-size: 0.92rem;
+    transition: background 0.15s ease;
+
+    &:hover {
+      background: $transparent-bgr;
+      color: $primary-color;
+    }
+
+    &.active {
+      background: $primary-color;
+      color: white;
+      font-weight: 500;
+    }
+  }
+}
+
+/* Mobile: we'll add collapsible sidebar later */
+@media (max-width: 768px) {
+  .docs-list {
+    padding-bottom: 2rem;
+  }
+}

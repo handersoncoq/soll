@@ -3,16 +3,26 @@ import { RouterModule, Routes } from '@angular/router';
 import { ConceptOverviewComponent } from './components/concept-overview/concept-overview.component';
 import { AboutUsComponent } from './components/about-us/about-us.component';
 import { FeedbackComponent } from './components/feedback/feedback.component';
-
+import { DocsLayoutComponent } from './components/docs-layout/docs-layout.component';
+import { DocsListComponent } from './components/docs-list/docs-list.component';
+import { DocViewerComponent } from './components/doc-viewer/doc-viewer.component';
 
 const routes: Routes = [
-  { path: 'concept-overview', component: ConceptOverviewComponent },
+  {
+    path: '',
+    component: DocsLayoutComponent,
+    children: [
+      { path: '', component: DocsListComponent },
+      { path: ':slug', component: DocViewerComponent },
+    ],
+  },
+  // { path: 'concept-overview', component: ConceptOverviewComponent },
   { path: 'about-us', component: AboutUsComponent },
   { path: 'feedback', component: FeedbackComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class InfoRoutingModule { }
+export class InfoRoutingModule {}

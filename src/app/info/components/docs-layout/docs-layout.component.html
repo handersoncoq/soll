@@ -1,0 +1,29 @@
+<ng-container *ngIf="!(isMobile$ | async); else mobileLayout">
+  <div class="docs-container">
+    <aside class="docs-sidebar">
+      <app-docs-list></app-docs-list>
+    </aside>
+
+    <main class="docs-content">
+      <router-outlet></router-outlet>
+    </main>
+  </div>
+</ng-container>
+
+<ng-template #mobileLayout>
+  <div class="docs-container docs-mobile-container">
+    <div class="mobile-top-row">
+      <button class="mobile-menu-btn" (click)="toggleMobileMenu()">
+        <mat-icon>menu</mat-icon>
+      </button>
+    </div>
+
+    <mat-menu #mobileMenu="matMenu" class="mobile-docs-menu">
+      <app-docs-list></app-docs-list>
+    </mat-menu>
+
+    <main class="docs-content mobile-docs-content">
+      <router-outlet></router-outlet>
+    </main>
+  </div>
+</ng-template>

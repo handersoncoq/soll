@@ -1,0 +1,67 @@
+$primary-color: #52688f;
+$accent-color: #35425b;
+$box-shadow: 0px 0px 10px rgba(82, 104, 143, 0.5);
+$alt-font-color: #e3e7f1;
+$transparent-bgr: rgb(82, 104, 143, 0.1);
+
+.doc-container {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2em 1em;
+  color: $accent-color;
+  padding-top: 0;
+}
+
+.doc-title {
+  font-size: 2em;
+  font-weight: 700;
+  margin-bottom: 1.5em;
+  color: $accent-color;
+}
+
+.doc-content {
+  font-size: 1em;
+  line-height: 1.65;
+  color: $accent-color;
+
+  p {
+    margin-bottom: 1.2em;
+  }
+
+  h2,
+  h3,
+  h4 {
+    margin-top: 2em;
+    margin-bottom: 0.75em;
+    font-weight: 600;
+    color: $primary-color;
+  }
+
+  ul,
+  ol {
+    margin-left: 1.2em;
+    margin-bottom: 1.2em;
+
+    li {
+      margin-bottom: 0.4em;
+    }
+  }
+
+  a {
+    color: $primary-color;
+    text-decoration: underline;
+
+    &:hover {
+      color: darken($primary-color, 10%);
+    }
+  }
+}
+
+.doc-loading {
+  text-align: center;
+  padding: 3em 1em;
+  color: $accent-color;
+  font-size: 1em;
+  opacity: 0.7;
+}

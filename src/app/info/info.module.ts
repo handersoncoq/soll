@@ -7,8 +7,13 @@ import { InfoRoutingModule } from './info-routing.module';
 import { SharedModule } from '../shared/shared.module';
 import { EmailJustificationComponent } from './components/email-justification/email-justification.component';
 import { PhoneAgreementComponent } from './components/phone-agreement/phone-agreement.component';
-import { FeedbackComponent } from './components/feedback/feedback.component';
 
+import { FeedbackComponent } from './components/feedback/feedback.component';
+import { DocsLayoutComponent } from './components/docs-layout/docs-layout.component';
+import { DocsListComponent } from './components/docs-list/docs-list.component';
+import { DocViewerComponent } from './components/doc-viewer/doc-viewer.component';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -16,12 +21,17 @@ import { FeedbackComponent } from './components/feedback/feedback.component';
     AboutUsComponent,
     EmailJustificationComponent,
     PhoneAgreementComponent,
-    FeedbackComponent
+    FeedbackComponent,
+    DocsLayoutComponent,
+    DocsListComponent,
+    DocViewerComponent,
   ],
   imports: [
     CommonModule,
     InfoRoutingModule,
-    SharedModule
-  ]
+    SharedModule,
+    MatMenuModule,
+    MatIconModule,
+  ],
 })
-export class InfoModule { }
+export class InfoModule {}
