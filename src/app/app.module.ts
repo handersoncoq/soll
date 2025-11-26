@@ -1,4 +1,9 @@
-import { CUSTOM_ELEMENTS_SCHEMA, Injectable, NgModule } from '@angular/core';
+import {
+  CUSTOM_ELEMENTS_SCHEMA,
+  Injectable,
+  NgModule,
+  APP_INITIALIZER,
+} from '@angular/core';
 import {
   BrowserModule,
   HammerModule,
@@ -77,6 +82,11 @@ import { ChatMessageComponent } from './templates/chat-message/chat-message.comp
 import { ChatService } from './services/chat-service/chat.service';
 import { AuthComponent } from './components/auth/auth.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { DocsPreloadService } from './info/services/docs-preload.service';
+
+export function preloadDocs(preloadService: DocsPreloadService) {
+  return () => preloadService.preloadAll();
+}
 
 @Injectable()
 export class HammerConfig extends HammerGestureConfig {
@@ -158,6 +168,7 @@ export class HammerConfig extends HammerGestureConfig {
     DialogService,
     UserService,
     ChatService,
+    DocsPreloadService,
     {
       provide: HAMMER_GESTURE_CONFIG,
       useClass: HammerConfig,

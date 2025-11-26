@@ -1,28 +1,34 @@
-<ng-container *ngIf="!(isMobile$ | async); else mobileLayout">
+<ng-container *ngIf="isMobile$ | async; else desktopLayout">
+  <!-- MOBILE -->
+  <div class="mobile-header">
+    <button class="mobile-menu-btn" (click)="toggleMenu()">
+      <mat-icon>menu</mat-icon>
+    </button>
+
+    <div class="mobile-title">
+      <ng-container *ngIf="currentCategory && currentTitle">
+        {{ htmlDecode(currentCategory) }} › {{ htmlDecode(currentTitle) }}
+      </ng-container>
+    </div>
+  </div>
+
+  <div *ngIf="menuOpen" class="mobile-sidebar">
+    <app-docs-list (docSelected)="menuOpen = false"></app-docs-list>
+  </div>
+
+  <div *ngIf="!menuOpen" class="docs-content">
+    <router-outlet></router-outlet>
+  </div>
+</ng-container>
+
+<!-- DESKTOP -->
+<ng-template #desktopLayout>
   <div class="docs-container">
     <aside class="docs-sidebar">
       <app-docs-list></app-docs-list>
     </aside>
 
     <main class="docs-content">
-      <router-outlet></router-outlet>
-    </main>
-  </div>
-</ng-container>
-
-<ng-template #mobileLayout>
-  <div class="docs-container docs-mobile-container">
-    <div class="mobile-top-row">
-      <button class="mobile-menu-btn" (click)="toggleMobileMenu()">
-        <mat-icon>menu</mat-icon>
-      </button>
-    </div>
-
-    <mat-menu #mobileMenu="matMenu" class="mobile-docs-menu">
-      <app-docs-list></app-docs-list>
-    </mat-menu>
-
-    <main class="docs-content mobile-docs-content">
       <router-outlet></router-outlet>
     </main>
   </div>

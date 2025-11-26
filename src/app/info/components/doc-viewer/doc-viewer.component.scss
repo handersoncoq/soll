@@ -59,7 +59,9 @@ $transparent-bgr: rgb(82, 104, 143, 0.1);
 }
 
 .doc-loading {
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 3em 1em;
   color: $accent-color;
   font-size: 1em;

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { DocsService } from '../../services/docs.service';
 import { SollDoc } from 'src/app/interaces/SollDoc';
 import { DocsCategory } from 'src/app/interaces/DocsCategory';
@@ -12,14 +12,19 @@ import { Router } from '@angular/router';
 export class DocsListComponent implements OnInit {
   categories: DocsCategory[] = [];
   docs: SollDoc[] = [];
+  @Output() docSelected = new EventEmitter<void>();
 
-  // Final grouped structure for the sidebar
   groupedDocs: { category: DocsCategory; docs: SollDoc[] }[] = [];
 
   constructor(private docsService: DocsService, private router: Router) {}
 
   ngOnInit(): void {
     this.loadAllData();
+  }
+
+  onDocClick(slug: string) {
+    this.docSelected.emit();
+    this.router.navigate(['/info', slug]);
   }
 
   private loadAllData() {
@@ -58,5 +63,12 @@ export class DocsListComponent implements OnInit {
       if (b.category.slug === 'getting-started') return 1;
       return a.category.name.localeCompare(b.category.name);
     });
+  }
+
+  htmlDecode(text: string): string {
+    return (
+      new DOMParser().parseFromString(text, 'text/html').documentElement
+        .textContent || text
+    );
   }
 }

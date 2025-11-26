@@ -12,6 +12,7 @@ import { SollDoc } from 'src/app/interaces/SollDoc';
 export class DocViewerComponent implements OnInit {
   doc: SollDoc | null = null;
   safeContent: SafeHtml | null = null;
+  isLoading = true;
 
   constructor(
     private route: ActivatedRoute,
@@ -22,16 +23,29 @@ export class DocViewerComponent implements OnInit {
   ngOnInit(): void {
     this.route.paramMap.subscribe((params) => {
       const slug = params.get('slug');
-      if (slug) {
-        this.docsService.getDocBySlug(slug).subscribe((result) => {
-          this.doc = result[0] || null;
-          if (this.doc) {
-            this.safeContent = this.sanitizer.bypassSecurityTrustHtml(
-              this.doc.content.rendered
-            );
-          }
-        });
+
+      this.isLoading = true;
+
+      if (!slug) {
+        this.doc = null;
+        this.safeContent = null;
+        this.isLoading = false;
+        return;
       }
+
+      this.docsService.getDocBySlug(slug).subscribe((doc) => {
+        this.doc = doc;
+
+        if (doc) {
+          this.safeContent = this.sanitizer.bypassSecurityTrustHtml(
+            doc.content.rendered
+          );
+        } else {
+          this.safeContent = null;
+        }
+
+        this.isLoading = false;
+      });
     });
   }
 }

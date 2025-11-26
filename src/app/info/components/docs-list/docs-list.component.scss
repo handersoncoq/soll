@@ -39,6 +39,7 @@ $transparent-bgr: rgb(82, 104, 143, 0.1);
     color: $accent-color;
     font-size: 0.92rem;
     transition: background 0.15s ease;
+    cursor: pointer;
 
     &:hover {
       background: $transparent-bgr;

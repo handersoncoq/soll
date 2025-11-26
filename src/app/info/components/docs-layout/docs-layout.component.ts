@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
+import { NavigationEnd, Router } from '@angular/router';
 import { ScreenLayoutService } from 'src/app/utils/screen-layout/screen-layout.service';
+import { DocsStoreService } from '../../services/docs-store.service';
+import { filter } from 'rxjs';
 
 @Component({
   selector: 'app-docs-layout',
@@ -7,27 +10,50 @@ import { ScreenLayoutService } from 'src/app/utils/screen-layout/screen-layout.s
   styleUrl: './docs-layout.component.scss',
 })
 export class DocsLayoutComponent {
-  showMobileMenu = false;
+  menuOpen = false;
+  currentTitle: string | null = null;
+  currentCategory: string | null = null;
 
   isMobile$ = this.screenLayoutService.isMobile$;
   isTablet$ = this.screenLayoutService.isTablet$;
   isDesktop$ = this.screenLayoutService.isDesktop$;
 
-  constructor(private screenLayoutService: ScreenLayoutService) {}
+  constructor(
+    private screenLayoutService: ScreenLayoutService,
+    private router: Router,
+    private docsStore: DocsStoreService
+  ) {}
 
-  ngOnInit(): void {
-    this.isMobile$.subscribe((isMobile) => {
-      if (!isMobile) {
-        this.showMobileMenu = false;
-      }
-    });
+  ngOnInit() {
+    // Update title/category whenever the route changes
+    this.router.events
+      .pipe(filter((event) => event instanceof NavigationEnd))
+      .subscribe(() => {
+        const slug = this.router.url.split('/').pop();
+        if (!slug) return;
+
+        const docs = this.docsStore.getDocsSnapshot();
+        const doc = docs.find((d) => d.slug === slug);
+
+        if (doc) {
+          this.currentTitle = doc.title.rendered;
+          const catId = doc.categories?.[0];
+          const cat = this.docsStore
+            .getCategoriesSnapshot()
+            .find((c) => c.id === catId);
+          this.currentCategory = cat ? cat.name : null;
+        }
+      });
   }
 
-  toggleMobileMenu(): void {
-    this.showMobileMenu = !this.showMobileMenu;
+  htmlDecode(text: string): string {
+    return (
+      new DOMParser().parseFromString(text, 'text/html').documentElement
+        .textContent || text
+    );
   }
 
-  closeMobileMenu(): void {
-    this.showMobileMenu = false;
+  toggleMenu() {
+    this.menuOpen = !this.menuOpen;
   }
 }

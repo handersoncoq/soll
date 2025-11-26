@@ -1,4 +1,4 @@
-<div class="doc-container" *ngIf="doc; else loading">
+<div class="doc-container" *ngIf="!isLoading && doc; else loading">
   <h1 class="doc-title" [innerHTML]="doc.title.rendered"></h1>
 
   <div class="doc-content doc-content-static" [innerHTML]="safeContent"></div>
