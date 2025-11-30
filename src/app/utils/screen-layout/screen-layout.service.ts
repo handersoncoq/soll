@@ -9,12 +9,23 @@ export class ScreenLayoutService {
   isMobile$: Observable<boolean>;
   isTablet$: Observable<boolean>;
   isDesktop$: Observable<boolean>;
+  isLandscape$: Observable<boolean>;
 
   constructor(private breakpointObserver: BreakpointObserver) {
-    // MOBILE: < 768px
+    this.isLandscape$ = this.breakpointObserver
+      .observe(['(orientation: landscape)'])
+      .pipe(map((result) => result.matches));
+
     this.isMobile$ = this.breakpointObserver
       .observe(['(max-width: 767px)'])
-      .pipe(map((result) => result.matches));
+      .pipe(
+        map((result) => result.matches),
+        map(
+          (isMobileWidth) =>
+            isMobileWidth &&
+            !this.breakpointObserver.isMatched('(orientation: landscape)')
+        )
+      );
 
     // TABLET: 768px – 1023px
     this.isTablet$ = this.breakpointObserver

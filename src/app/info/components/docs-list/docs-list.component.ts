@@ -34,12 +34,6 @@ export class DocsListComponent implements OnInit {
       this.docsService.getAllDocs().subscribe((docs) => {
         this.docs = docs;
         this.groupDocsByCategory();
-
-        const defaultDoc = this.docs.find((d) => d.slug === 'what-is-soll');
-
-        if (defaultDoc) {
-          this.router.navigate(['/info', defaultDoc.slug]);
-        }
       });
     });
   }

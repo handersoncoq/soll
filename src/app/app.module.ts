@@ -83,6 +83,7 @@ import { ChatService } from './services/chat-service/chat.service';
 import { AuthComponent } from './components/auth/auth.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { DocsPreloadService } from './info/services/docs-preload.service';
+import { FrontPageTemplateComponent } from './templates/front-page-template/front-page-template.component';
 
 export function preloadDocs(preloadService: DocsPreloadService) {
   return () => preloadService.preloadAll();
@@ -130,6 +131,7 @@ export class HammerConfig extends HammerGestureConfig {
     StatusCircleComponent,
     GroupChatComponent,
     ChatMessageComponent,
+    FrontPageTemplateComponent,
   ],
   imports: [
     ReactiveFormsModule,

@@ -3,20 +3,15 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { forkJoin } from 'rxjs';
 import { TitleBodyArrayType } from 'src/app/interaces/TitleBodyArrayType';
-import {
-  FRONT_PAGE_SIDE_CONTENTS,
-  FrontPageSideCategory,
-} from 'src/app/interaces/FrontPageSideContents';
 import { ContentManagerService } from 'src/app/services/content-manager/content-manager.service';
 import { PublicInteractionService } from 'src/app/services/public-interaction/public-interaction.service';
-import { ScreenLayoutService } from 'src/app/utils/screen-layout/screen-layout.service';
 
 @Component({
-  selector: 'app-front-page',
-  templateUrl: './front-page.component.html',
-  styleUrls: ['./front-page.component.scss'],
+  selector: 'app-front-page-template',
+  templateUrl: './front-page-template.component.html',
+  styleUrl: './front-page-template.component.scss',
 })
-export class FrontPageComponent implements OnInit, OnDestroy {
+export class FrontPageTemplateComponent {
   slogan!: string;
   learnMore!: TitleBodyArrayType;
   frontPageLogo: string;
@@ -27,11 +22,7 @@ export class FrontPageComponent implements OnInit, OnDestroy {
   faqs!: any[];
   keyWords!: any;
   contentVideos: string[];
-  isMobile$ = true;
-  isLandscape$ = false;
   heroImage!: string;
-
-  sideContents: FrontPageSideCategory[] = FRONT_PAGE_SIDE_CONTENTS;
 
   intervalId: any;
   currentImageIndex = 0;
@@ -46,8 +37,6 @@ export class FrontPageComponent implements OnInit, OnDestroy {
 
   constructor(
     private contentManagerService: ContentManagerService,
-    private router: Router,
-    private screenService: ScreenLayoutService,
     private formBuilder: FormBuilder,
     private publicInteractionService: PublicInteractionService
   ) {
@@ -64,12 +53,6 @@ export class FrontPageComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.screenService.isMobile$.subscribe((isDesktop) => {
-      this.isMobile$ = isDesktop;
-    });
-    this.screenService.isLandscape$.subscribe((isDesktop) => {
-      this.isLandscape$ = isDesktop;
-    });
     this.currentImage = this.images[0];
     forkJoin({
       slogan: this.contentManagerService.getSlogan(),
@@ -153,12 +136,4 @@ export class FrontPageComponent implements OnInit, OnDestroy {
     }
     window.location.href = 'sollapp://register';
   }
-
-  // getStarted() {
-  //   const emailValue = this.inputForm.get('email')?.value;
-  //   if (emailValue) {
-  //     this.publicInteractionService.setEmail(emailValue)
-  //   }
-  //   this.router.navigate(['/get-started']);
-  // }
 }
