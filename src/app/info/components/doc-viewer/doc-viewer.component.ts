@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { DocsService } from '../../services/docs.service';
 import { SollDoc } from 'src/app/interaces/SollDoc';
 
@@ -17,7 +17,8 @@ export class DocViewerComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private docsService: DocsService,
-    private sanitizer: DomSanitizer
+    private sanitizer: DomSanitizer,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -36,13 +37,14 @@ export class DocViewerComponent implements OnInit {
       this.docsService.getDocBySlug(slug).subscribe((doc) => {
         this.doc = doc;
 
-        if (doc) {
-          this.safeContent = this.sanitizer.bypassSecurityTrustHtml(
-            doc.content.rendered
-          );
-        } else {
-          this.safeContent = null;
+        if (!doc) {
+          this.router.navigate(['/info/what-is-soll']);
+          return;
         }
+
+        this.safeContent = this.sanitizer.bypassSecurityTrustHtml(
+          doc.content.rendered
+        );
 
         this.isLoading = false;
       });
