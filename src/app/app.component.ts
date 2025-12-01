@@ -91,7 +91,7 @@ export class AppComponent implements OnInit {
       '/get-started',
       '/my-dashboard',
       '/join-a-group',
-      '/info/feedback',
+      '/feedback',
     ];
     const shouldHideNavbar = hideOnRoutes.some(
       (route) => this.router.url === route
@@ -101,7 +101,7 @@ export class AppComponent implements OnInit {
   }
 
   isNoneAppContent(): boolean {
-    return !this.router.url.startsWith('/info/feedback');
+    return !this.router.url.startsWith('/feedback');
   }
 
   ngOnDestroy(): void {

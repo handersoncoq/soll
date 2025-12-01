@@ -10,6 +10,7 @@ import { GroupCatalogueComponent } from './components/group-catalogue/group-cata
 import { AuthComponent } from './components/auth/auth.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { TermsAndConditionsRouteComponent } from './templates/terms-and-conditions-route/terms-and-conditions-route.component';
+import { FeedbackComponent } from './info/components/feedback/feedback.component';
 
 const routes: Routes = [
   {
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: '', component: FrontPageComponent },
   { path: 'auth', component: AuthComponent },
   { path: 'terms-and-conditions', component: TermsAndConditionsRouteComponent },
+  { path: 'feedback', component: FeedbackComponent },
   // { path: 'get-started', component: GetStartedComponent},
   // { path: 'sign-in', component: SignInComponent},
   // { path: 'my-dashboard', component: UserDashboardComponent},

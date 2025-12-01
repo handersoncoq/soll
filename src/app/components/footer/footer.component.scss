@@ -35,6 +35,20 @@ $accent-color: #35425b;
     }
   }
 
+  .app-store-badge {
+    height: 40px;
+    width: auto;
+    display: block;
+  }
+
+  .footer-app-links {
+    margin-top: 1em;
+    padding-bottom: 0.8em;
+    img {
+      opacity: 1;
+    }
+  }
+
   .footer-logo {
     width: 100%;
     display: flex;

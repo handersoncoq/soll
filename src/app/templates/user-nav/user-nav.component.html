@@ -54,7 +54,7 @@
         Resources
         <mat-icon color="primary">menu_book</mat-icon>
       </button>
-      <button routerLink="/info/feedback" appLazyLoadText mat-menu-item>
+      <button routerLink="/feedback" appLazyLoadText mat-menu-item>
         Feedback
         <mat-icon color="primary">feedback</mat-icon>
       </button>
@@ -62,9 +62,12 @@
     <mat-divider class="main-menu-divider"></mat-divider>
     <div class="theme-toggle">
       <button (click)="toggleTheme()" mat-button>
-        <mat-icon class="dark-mode-toggle" *ngIf="isDarkMode, else lightMode">toggle_on</mat-icon> {{theme}}
+        <mat-icon class="dark-mode-toggle" *ngIf="isDarkMode; else lightMode"
+          >toggle_on</mat-icon
+        >
+        {{ theme }}
         <ng-template #lightMode>
-          <mat-icon >toggle_off</mat-icon>
+          <mat-icon>toggle_off</mat-icon>
         </ng-template>
       </button>
     </div>

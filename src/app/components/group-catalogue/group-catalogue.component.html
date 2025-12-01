@@ -19,8 +19,9 @@
     </div>
   </div>
   <div class="sub-title">
-    Note: The catalog may have been filtered to match your current location. If you
-    have recently moved, please update your location in your profile settings.
+    Note: The catalog may have been filtered to match your current location. If
+    you have recently moved, please update your location in your profile
+    settings.
   </div>
 
   <form class="group-search-bar" (submit)="handleSubmit($event)">
@@ -53,7 +54,7 @@
 >
   <mat-card-content>
     <div class="slide-groups">
-      <h5>Results: {{getResultsData()}}</h5>
+      <h5>Results: {{ getResultsData() }}</h5>
       <swiper-container
         [slides-per-view]="searchResults.length"
         navigation="false"
@@ -63,16 +64,26 @@
         [spaceBetween]="20"
       >
         <swiper-slide *ngFor="let group of searchResults">
-          <mat-icon [routerLink]="getGroupProfileRoute(group.groupName)" class="add-it-icon">add_circle</mat-icon>
-          <app-group-layout class="group-layout"
+          <mat-icon
+            [routerLink]="getGroupProfileRoute(group.groupName)"
+            class="add-it-icon"
+            >add_circle</mat-icon
+          >
+          <app-group-layout
+            class="group-layout"
             [routerLink]="getGroupProfileRoute(group.groupName)"
             [group]="group"
           ></app-group-layout>
         </swiper-slide>
       </swiper-container>
-      <h5>Did you find what you were looking for? Please let us know
-        <button routerLink="/info/feedback" mat-icon-button><mat-icon>thumb_down_alt</mat-icon></button>
-        <button routerLink="/info/feedback" mat-icon-button><mat-icon>thumb_up_alt</mat-icon></button>
+      <h5>
+        Did you find what you were looking for? Please let us know
+        <button routerLink="/feedback" mat-icon-button>
+          <mat-icon>thumb_down_alt</mat-icon>
+        </button>
+        <button routerLink="/feedback" mat-icon-button>
+          <mat-icon>thumb_up_alt</mat-icon>
+        </button>
       </h5>
     </div>
   </mat-card-content>
@@ -84,7 +95,11 @@
 
 <div *ngIf="searchResults.length === 0 && noSearchResult == false">
   <ng-container *ngFor="let cityGroups of groupArrays">
-    <mat-card *ngIf="cityGroups.length > 0" class="trending-card" appLazyLoadText>
+    <mat-card
+      *ngIf="cityGroups.length > 0"
+      class="trending-card"
+      appLazyLoadText
+    >
       <mat-card-content>
         <div class="slide-groups">
           <swiper-container
@@ -96,9 +111,10 @@
             [spaceBetween]="20"
           >
             <swiper-slide *ngFor="let group of cityGroups">
-              <app-group-layout class="group-layout"
-              [routerLink]="getGroupProfileRoute(group.groupName)"
-              [group]="group"
+              <app-group-layout
+                class="group-layout"
+                [routerLink]="getGroupProfileRoute(group.groupName)"
+                [group]="group"
               ></app-group-layout>
             </swiper-slide>
           </swiper-container>
@@ -106,7 +122,6 @@
       </mat-card-content>
     </mat-card>
   </ng-container>
-  
 </div>
 
 <!-- Filter Menu -->
@@ -114,70 +129,126 @@
 <mat-menu #filterMenu="matMenu" xPosition="after" class="post-login-menu">
   <ng-template matMenuContent>
     <div class="menu-items filter-items">
-        <h4>Filter By:
-          <mat-icon class="close-menu-icon" color="primary">close</mat-icon>
-        </h4> 
-      <form [formGroup]="filterForm" class="menu-form filter-form" (click)="preventDefaultClose($event)">
+      <h4>
+        Filter By:
+        <mat-icon class="close-menu-icon" color="primary">close</mat-icon>
+      </h4>
+      <form
+        [formGroup]="filterForm"
+        class="menu-form filter-form"
+        (click)="preventDefaultClose($event)"
+      >
         <mat-form-field class="menu-form-field">
           <mat-label>Savings Target</mat-label>
-          <input #savingTargetInput matInput placeholder="$ 10000" type="number" pattern="[0-9]*" formControlName="savingsTarget"/>
+          <input
+            #savingTargetInput
+            matInput
+            placeholder="$ 10000"
+            type="number"
+            pattern="[0-9]*"
+            formControlName="savingsTarget"
+          />
         </mat-form-field>
 
         <mat-form-field class="menu-form-field">
           <mat-label>Payout System</mat-label>
-          <input matInput placeholder="EPS" type="text" formControlName="payoutSystem"/>
+          <input
+            matInput
+            placeholder="EPS"
+            type="text"
+            formControlName="payoutSystem"
+          />
         </mat-form-field>
 
         <mat-form-field class="menu-form-field">
           <mat-label>Contribution</mat-label>
-          <input matInput placeholder="$ 500" type="number" pattern="[0-9]*" formControlName="contribution"/>
+          <input
+            matInput
+            placeholder="$ 500"
+            type="number"
+            pattern="[0-9]*"
+            formControlName="contribution"
+          />
         </mat-form-field>
 
         <mat-form-field class="menu-form-field">
           <mat-label>Frequency</mat-label>
-          <input matInput placeholder="Bi or Mo" type="text" formControlName="frequency"/>
+          <input
+            matInput
+            placeholder="Bi or Mo"
+            type="text"
+            formControlName="frequency"
+          />
         </mat-form-field>
 
         <div formGroupName="groupStartDateRange" class="date-range">
           <mat-form-field class="menu-form-field">
             <mat-label>Start Date</mat-label>
             <mat-date-range-input [rangePicker]="groupStartRangePicker">
-              <input matStartDate formControlName="startDate" placeholder="/">
-              <input matEndDate formControlName="endDate" placeholder="/">
+              <input matStartDate formControlName="startDate" placeholder="/" />
+              <input matEndDate formControlName="endDate" placeholder="/" />
             </mat-date-range-input>
             <mat-hint>MM/DD/YYYY - MM/DD/YYYY</mat-hint>
-            <mat-datepicker-toggle class="date-picker" matSuffix [for]="groupStartRangePicker"></mat-datepicker-toggle>
-            <mat-date-range-picker #groupStartRangePicker></mat-date-range-picker>
+            <mat-datepicker-toggle
+              class="date-picker"
+              matSuffix
+              [for]="groupStartRangePicker"
+            ></mat-datepicker-toggle>
+            <mat-date-range-picker
+              #groupStartRangePicker
+            ></mat-date-range-picker>
           </mat-form-field>
         </div>
-        
+
         <div formGroupName="groupEndDateRange" class="date-range">
           <mat-form-field class="menu-form-field">
             <mat-label>End Date</mat-label>
             <mat-date-range-input [rangePicker]="groupEndRangePicker">
-              <input matStartDate formControlName="startDate" placeholder="/">
-              <input matEndDate formControlName="endDate" placeholder="/">
+              <input matStartDate formControlName="startDate" placeholder="/" />
+              <input matEndDate formControlName="endDate" placeholder="/" />
             </mat-date-range-input>
             <mat-hint>MM/DD/YYYY - MM/DD/YYYY</mat-hint>
-            <mat-datepicker-toggle class="date-picker" matSuffix [for]="groupEndRangePicker"></mat-datepicker-toggle>
+            <mat-datepicker-toggle
+              class="date-picker"
+              matSuffix
+              [for]="groupEndRangePicker"
+            ></mat-datepicker-toggle>
             <mat-date-range-picker #groupEndRangePicker></mat-date-range-picker>
           </mat-form-field>
         </div>
-        
+
         <mat-form-field class="menu-form-field">
           <mat-label>Group Size</mat-label>
-          <input matInput placeholder="10" type="number" formControlName="groupSize"/>
-        </mat-form-field>
-        
-        <mat-form-field class="menu-form-field">
-          <mat-label>Rep. Score</mat-label>
-          <input matInput placeholder="80" type="number" formControlName="minReputationScore"/>
+          <input
+            matInput
+            placeholder="10"
+            type="number"
+            formControlName="groupSize"
+          />
         </mat-form-field>
 
+        <mat-form-field class="menu-form-field">
+          <mat-label>Rep. Score</mat-label>
+          <input
+            matInput
+            placeholder="80"
+            type="number"
+            formControlName="minReputationScore"
+          />
+        </mat-form-field>
       </form>
       <span>
-        <button (click)="applyFilter()" mat-flat-button color="primary">Apply</button>
-        <button (click)="clearFilter($event)" class="clear-btn" mat-flat-button color="primary">Clear</button>
+        <button (click)="applyFilter()" mat-flat-button color="primary">
+          Apply
+        </button>
+        <button
+          (click)="clearFilter($event)"
+          class="clear-btn"
+          mat-flat-button
+          color="primary"
+        >
+          Clear
+        </button>
       </span>
     </div>
   </ng-template>
@@ -188,43 +259,75 @@
 <mat-menu #sortMenu="matMenu" xPosition="after" class="post-login-menu">
   <ng-template matMenuContent>
     <div class="menu-items sort-items">
-      <h4>Sort Filter Results By:
+      <h4>
+        Sort Filter Results By:
         <mat-icon class="close-menu-icon" color="primary">close</mat-icon>
       </h4>
-      <form [formGroup]="sortForm" class="menu-form" (click)="preventDefaultClose($event)">
+      <form
+        [formGroup]="sortForm"
+        class="menu-form"
+        (click)="preventDefaultClose($event)"
+      >
         <div class="menu-form-field">
-          <mat-checkbox color="primary" formControlName="savingsTarget"></mat-checkbox>
+          <mat-checkbox
+            color="primary"
+            formControlName="savingsTarget"
+          ></mat-checkbox>
           <mat-label>Savings Target</mat-label>
         </div>
 
         <div class="menu-form-field">
-          <mat-checkbox color="primary" formControlName="contribution"></mat-checkbox>
+          <mat-checkbox
+            color="primary"
+            formControlName="contribution"
+          ></mat-checkbox>
           <mat-label>Contribution</mat-label>
         </div>
 
         <div class="menu-form-field">
-          <mat-checkbox color="primary" formControlName="startDate"></mat-checkbox>
+          <mat-checkbox
+            color="primary"
+            formControlName="startDate"
+          ></mat-checkbox>
           <mat-label>Start Date</mat-label>
         </div>
 
         <div class="menu-form-field">
-          <mat-checkbox color="primary" formControlName="endDate"></mat-checkbox>
+          <mat-checkbox
+            color="primary"
+            formControlName="endDate"
+          ></mat-checkbox>
           <mat-label>End Date</mat-label>
         </div>
 
         <div class="menu-form-field">
-          <mat-checkbox color="primary" formControlName="groupSize"></mat-checkbox>
+          <mat-checkbox
+            color="primary"
+            formControlName="groupSize"
+          ></mat-checkbox>
           <mat-label>Group Size</mat-label>
         </div>
 
         <div class="menu-form-field">
-          <mat-checkbox color="primary" formControlName="minReputationScore"></mat-checkbox>
+          <mat-checkbox
+            color="primary"
+            formControlName="minReputationScore"
+          ></mat-checkbox>
           <mat-label>Rep. Score</mat-label>
         </div>
       </form>
       <span>
-        <button (click)="applySort()" mat-flat-button color="primary">Apply</button>
-        <button (click)="clearSort($event)" class="clear-btn" mat-flat-button color="primary">Clear</button>
+        <button (click)="applySort()" mat-flat-button color="primary">
+          Apply
+        </button>
+        <button
+          (click)="clearSort($event)"
+          class="clear-btn"
+          mat-flat-button
+          color="primary"
+        >
+          Clear
+        </button>
       </span>
     </div>
   </ng-template>

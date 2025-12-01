@@ -85,6 +85,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { DocsPreloadService } from './info/services/docs-preload.service';
 import { FrontPageTemplateComponent } from './templates/front-page-template/front-page-template.component';
 import { TermsAndConditionsRouteComponent } from './templates/terms-and-conditions-route/terms-and-conditions-route.component';
+import { FeedbackComponent } from './info/components/feedback/feedback.component';
 
 export function preloadDocs(preloadService: DocsPreloadService) {
   return () => preloadService.preloadAll();
@@ -134,6 +135,7 @@ export class HammerConfig extends HammerGestureConfig {
     GroupChatComponent,
     ChatMessageComponent,
     FrontPageTemplateComponent,
+    FeedbackComponent,
   ],
   imports: [
     ReactiveFormsModule,
