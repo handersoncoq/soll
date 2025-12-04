@@ -5,6 +5,17 @@ $box-shadow: 0px 0px 10px rgba(82, 104, 143, 0.5);
 $alt-font-color: #e3e7f1;
 $transparent-bgr: rgb(82, 104, 143, 0.1);
 
+.app-hero {
+  overflow: hidden;
+  margin: 0 1em;
+  margin-top: 0;
+  margin-bottom: 5em;
+}
+
+.desktop-front-page {
+  margin: 0 5.8em;
+}
+
 .front-page-container {
   display: grid;
   grid-template-columns: 260px 1fr;

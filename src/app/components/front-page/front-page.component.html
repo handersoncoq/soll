@@ -3,25 +3,8 @@
 </ng-container>
 
 <ng-template #desktopLayout>
-  <div class="front-page-container">
-    <aside class="front-page-sidebar">
-      <div class="front-page-list">
-        <ng-container *ngFor="let category of sideContents">
-          <div class="category-title">{{ category.title }}</div>
-
-          <ul class="front-page-items">
-            <li *ngFor="let item of category.items">
-              <a [routerLink]="item.link" routerLinkActive="active">
-                {{ item.label }}
-              </a>
-            </li>
-          </ul>
-        </ng-container>
-      </div>
-    </aside>
-
-    <div class="desktop-front-page">
-      <app-front-page-template></app-front-page-template>
-    </div>
+  <app-hero></app-hero>
+  <div class="desktop-front-page">
+    <app-front-page-template></app-front-page-template>
   </div>
 </ng-template>

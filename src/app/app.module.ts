@@ -1,9 +1,4 @@
-import {
-  CUSTOM_ELEMENTS_SCHEMA,
-  Injectable,
-  NgModule,
-  APP_INITIALIZER,
-} from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Injectable, NgModule } from '@angular/core';
 import {
   BrowserModule,
   HammerModule,
@@ -86,6 +81,9 @@ import { DocsPreloadService } from './info/services/docs-preload.service';
 import { FrontPageTemplateComponent } from './templates/front-page-template/front-page-template.component';
 import { TermsAndConditionsRouteComponent } from './templates/terms-and-conditions-route/terms-and-conditions-route.component';
 import { FeedbackComponent } from './info/components/feedback/feedback.component';
+import { HeroComponent } from './templates/hero/hero.component';
+import { PrPageComponent } from './components/pr-page/pr-page.component';
+import { TestimonialShuffleComponent } from './templates/testimonial-shuffle/testimonial-shuffle.component';
 
 export function preloadDocs(preloadService: DocsPreloadService) {
   return () => preloadService.preloadAll();
@@ -136,6 +134,9 @@ export class HammerConfig extends HammerGestureConfig {
     ChatMessageComponent,
     FrontPageTemplateComponent,
     FeedbackComponent,
+    HeroComponent,
+    PrPageComponent,
+    TestimonialShuffleComponent,
   ],
   imports: [
     ReactiveFormsModule,

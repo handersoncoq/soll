@@ -88,15 +88,15 @@ form {
   }
 }
 
-img {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: transform 0.8s ease-in-out, opacity 0.8s ease-in-out;
+// img {
+//   opacity: 0;
+//   transform: translateY(20px);
+//   transition: transform 0.8s ease-in-out, opacity 0.8s ease-in-out;
 
-  &.loaded {
-    animation: floatUp 0.8s ease-in-out forwards;
-  }
-}
+//   &.loaded {
+//     animation: floatUp 0.8s ease-in-out forwards;
+//   }
+// }
 
 @keyframes fadeIn {
   from {

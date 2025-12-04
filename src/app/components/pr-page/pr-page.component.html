@@ -1,0 +1,158 @@
+<!-- ========================= NAVBAR ========================= -->
+<nav class="pr-navbar" *ngIf="(isMobile$ | async) === false; else mobileNav">
+  <div class="nav-container-desktop">
+    <div class="nav-left">
+      <img src="assets/logo/5.png" alt="Soll Icon" class="nav-logo" />
+    </div>
+
+    <div class="nav-right">
+      <button mat-icon-button [matMenuTriggerFor]="langMenu">
+        <mat-icon class="language-icon">public</mat-icon>
+      </button>
+      <mat-menu #langMenu="matMenu">
+        <button mat-menu-item>English</button>
+        <button mat-menu-item>Français</button>
+        <button mat-menu-item>Kreyòl</button>
+        <button mat-menu-item>Español</button>
+      </mat-menu>
+
+      <a class="nav-item">Home</a>
+      <a class="nav-item">About Us</a>
+      <a class="nav-item">Contact</a>
+      <button mat-icon-button>
+        <mat-icon>menu</mat-icon>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<ng-template #mobileNav>
+  <nav class="pr-navbar-mobile">
+    <div class="nav-container-mobile">
+      <img src="assets/logo/5.png" alt="Soll Icon" class="nav-logo" />
+
+      <div class="nav-mobile-right">
+        <button mat-icon-button [matMenuTriggerFor]="langMenuMobile">
+          <mat-icon class="language-icon">public</mat-icon>
+        </button>
+        <mat-menu #langMenuMobile="matMenu">
+          <button mat-menu-item>English</button>
+          <button mat-menu-item>Français</button>
+          <button mat-menu-item>Kreyòl</button>
+          <button mat-menu-item>Español</button>
+        </mat-menu>
+
+        <button mat-icon-button>
+          <mat-icon>menu</mat-icon>
+        </button>
+      </div>
+    </div>
+  </nav>
+</ng-template>
+
+<!-- ========================= HERO SECTION ========================= -->
+<div
+  class="hero-fixed-layer"
+  *ngIf="(isMobile$ | async) === false; else mobileHero"
+>
+  <div class="hero-visual">
+    <div class="pr-hero-container">
+      <div class="hero-content-desktop">
+        <div class="hero-left">
+          <img
+            src="assets/img/soll-savings-left-align.svg"
+            alt="Soll Savings"
+            class="soll-savings-desktop"
+          />
+
+          <p class="hero-subtext">
+            Where Aspirations Meet Savings, and Visions Come Alive. Turn Dreams
+            into Reality, Craft Your Future, Save for Tomorrow.
+          </p>
+
+          <div class="hero-cta-row">
+            <button class="cta-learn-more">Learn More</button>
+            <img
+              src="assets/img/app-store-badge-blk.svg"
+              alt="Download on App Store"
+              class="app-store-badge"
+            />
+          </div>
+        </div>
+
+        <div class="hero-right">
+          <img
+            src="assets/img/hero-phone-card-desktop.svg"
+            alt="Soll App Preview"
+            class="hero-phone-desktop"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #mobileHero>
+  <div class="hero-content-mobile">
+    <div class="hero-phone-container-mobile">
+      <img
+        src="assets/img/hero-phone-card-mobile.svg"
+        alt="Soll App Mobile Preview"
+        class="hero-phone-mobile"
+      />
+    </div>
+  </div>
+
+  <div class="mobile-hero-sticky" #mobileSticky>
+    <div class="post-phone-card-container-mobile">
+      <img
+        src="assets/img/soll-savings-center.svg"
+        alt="Soll Savings"
+        class="soll-savings-mobile"
+      />
+
+      <p class="hero-subtext-mobile">
+        Where Aspirations Meet Savings, and Visions Come Alive. Turn Dreams into
+        Reality, Craft Your Future, Save for Tomorrow.
+      </p>
+
+      <div class="hero-cta-row-mobile">
+        <button class="cta-learn-more">Learn More</button>
+        <img
+          src="assets/img/app-store-badge-blk.svg"
+          alt="Download on App Store"
+          class="app-store-badge"
+        />
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<!-- ========================= FOOTER ========================= -->
+
+<div class="hero-spacer"></div>
+
+<!-- ========================= DEV TESTIMONIALS ========================= -->
+<div class="testimonials">
+  <h1>What people are saying</h1>
+  <app-testimonial-shuffle
+    [testimonials]="testimonialsArray"
+  ></app-testimonial-shuffle>
+</div>
+
+<footer class="pr-footer">
+  <div
+    class="footer-content"
+    [ngClass]="{ 'footer-content-mobile': (isMobile$ | async) }"
+  >
+    <p>© 2025 Soll Savings LLC. All Rights Reserved.</p>
+
+    <div class="footer-links">
+      <a>Privacy Policy</a>
+      <span>•</span>
+      <a>Terms & Conditions</a>
+      <span>•</span>
+      <a>Feedback</a>
+    </div>
+  </div>
+</footer>

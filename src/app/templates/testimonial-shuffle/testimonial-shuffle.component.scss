@@ -1,0 +1,110 @@
+/* ========================= WRAPPER ========================= */
+$primary-color: #52688f;
+$accent-color: #35425b;
+$post-hero-bgr: #364c74;
+$box-shadow: 0 0 0.625em rgba(82, 104, 143, 0.5);
+$alt-font-color: #e3e7f1;
+$transparent-bgr: rgb(82, 104, 143, 0.1);
+
+.testimonial-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+/* ========================= DECK CONTAINER ========================= */
+.deck-container {
+  position: relative;
+  display: flex;
+  vertical-align: middle;
+  justify-content: center;
+  width: 100%;
+  max-width: 380px;
+  height: 10em;
+}
+
+.empty-message {
+  text-align: center;
+  font-size: larger;
+  font-weight: 600;
+  margin-top: 40px;
+  background: linear-gradient(
+    85deg,
+    black 16.81%,
+    #1171c0 33.19%,
+    #0d2946 70.59%,
+    rgb(4, 114, 205) 77.73%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ========================= DECK CARD (iOS style) ========================= */
+.deck-card {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 260px;
+  padding: 1.4rem;
+  border-radius: 1.2rem;
+  background: $post-hero-bgr;
+  color: white;
+  box-shadow: 0 1rem 2.2rem rgba(0, 0, 0, 0.38);
+  opacity: 0;
+  transition: transform 0.55s cubic-bezier(0.25, 0.8, 0.25, 1),
+    opacity 0.55s ease, filter 0.55s ease;
+
+  .testimonial-text {
+    font-size: 0.88rem;
+    line-height: 1.25rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .testimonial-author {
+    text-align: right;
+    font-size: 0.75rem;
+    opacity: 0.75;
+  }
+}
+
+/* ================= ENTER ANIMATION ================= */
+.deck-card.enter {
+  opacity: 1;
+  transform: translate(-50%, 0) scale(1);
+  animation: cardEnter 0.55s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+}
+
+/* ================= EXIT ANIMATION ================= */
+.deck-card.exit {
+  opacity: 0;
+  animation: cardExit 0.55s cubic-bezier(0.55, 0.06, 0.68, 0.19) forwards;
+}
+
+@keyframes cardEnter {
+  from {
+    transform: translate(80%, 0) scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: translate(-50%, 0) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes cardExit {
+  from {
+    transform: translate(-50%, 0) scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: translate(-160%, 0) scale(0.9);
+    opacity: 0;
+  }
+}
+
+/* ================= STACK DEPTH (iOS-like) ================= */
+.deck-card {
+  will-change: transform, opacity, filter;
+}

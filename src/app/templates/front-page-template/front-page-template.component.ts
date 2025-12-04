@@ -21,7 +21,7 @@ export class FrontPageTemplateComponent {
   partners: string[];
   faqs!: any[];
   keyWords!: any;
-  contentVideos: string[];
+  contentImages: string[];
   heroImage!: string;
 
   intervalId: any;
@@ -44,7 +44,7 @@ export class FrontPageTemplateComponent {
     this.trustPilot = this.contentManagerService.getTrustpilotAndStars()[0];
     this.fiveStars = this.contentManagerService.getTrustpilotAndStars()[1];
     this.partners = this.contentManagerService.getPartners();
-    this.contentVideos = this.contentManagerService.getContentVideos();
+    this.contentImages = this.contentManagerService.getContentVideos();
     this.heroImage = this.contentManagerService.getHeroImage();
     this.startSlideshow();
     this.inputForm = this.formBuilder.group({

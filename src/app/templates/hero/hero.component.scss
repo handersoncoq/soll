@@ -1,0 +1,137 @@
+$primary-color: #52688f;
+$accent-color: #35425b;
+$box-shadow: 0 0 0.625em rgba(82, 104, 143, 0.5);
+$alt-font-color: #e3e7f1;
+$transparent-bgr: rgb(82, 104, 143, 0.1);
+
+// ------------------------------
+// HERO LAYOUT
+// ------------------------------
+
+.hero-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2em;
+  margin: 0 4em;
+  gap: 3rem;
+  margin-top: 1em;
+  margin-bottom: 10em;
+
+  @media (max-width: 800px) {
+    flex-direction: column;
+    text-align: center;
+    padding: 2.5rem 1.2rem;
+  }
+}
+
+// ------------------------------
+// LEFT COLUMN
+// ------------------------------
+.left-column {
+  flex: 1;
+  max-width: 32.5em;
+  margin-top: -6em;
+  margin-left: 0.5em;
+
+  @media (max-width: 800px) {
+    max-width: 100%;
+  }
+}
+
+// ------------------------------
+// HEADLINE 1 — "Soll"
+// ------------------------------
+
+.app-name {
+  margin-left: -3.8em;
+  margin-bottom: -2.5em;
+  img {
+    width: 30em;
+    height: auto;
+    opacity: 1;
+
+    @media (max-width: 800px) {
+      width: 10em;
+    }
+  }
+}
+
+// ------------------------------
+// SUBTITLE
+// ------------------------------
+.subtitle {
+  margin-top: 1.4rem;
+  margin-bottom: 2rem;
+  max-width: 28.75em;
+
+  p {
+    font-size: medium;
+    line-height: 1.55;
+    font-weight: lighter;
+    color: #444;
+
+    @media (max-width: 800px) {
+      font-size: small;
+      max-width: 100%;
+    }
+  }
+}
+
+// ------------------------------
+// CTA SECTION
+// ------------------------------
+.call-to-action {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+
+  @media (max-width: 800px) {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .mat-cta-btn {
+    button {
+      background: $accent-color;
+      color: white;
+      border-radius: 1.3em;
+      font-size: medium;
+      width: 8.75em;
+      padding: 1em 0;
+    }
+  }
+
+  .app-store-badge {
+    height: 2.5em;
+    width: auto;
+    opacity: 1;
+    margin-top: -2.5em;
+    display: flex;
+  }
+}
+
+// ------------------------------
+// RIGHT COLUMN
+// ------------------------------
+.right-column {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 1em;
+  margin-top: -1em;
+
+  .hero-illustration {
+    width: 25em;
+    height: auto;
+    display: block;
+    opacity: 1;
+
+    @media (max-width: 800px) {
+      width: 70%;
+      max-width: 20em;
+      margin: 0 auto;
+    }
+  }
+}

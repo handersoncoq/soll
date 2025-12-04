@@ -44,7 +44,7 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.styleManager.disableScroll();
+    // this.styleManager.disableScroll();
 
     this.applyDashboardTheme();
     this.routerSubscription = this.router.events
@@ -53,14 +53,14 @@ export class AppComponent implements OnInit {
         this.applyDashboardTheme();
       });
 
-    const dialogRef = this.dialog.open(NoticeComponent, {
-      disableClose: true,
-    });
+    // const dialogRef = this.dialog.open(NoticeComponent, {
+    //   disableClose: true,
+    // });
 
-    dialogRef.afterClosed().subscribe(() => {
-      this.disclaimerAccepted = true;
-      this.styleManager.enableScroll();
-    });
+    // dialogRef.afterClosed().subscribe(() => {
+    //   this.disclaimerAccepted = true;
+    //   this.styleManager.enableScroll();
+    // });
 
     register();
   }
@@ -83,6 +83,11 @@ export class AppComponent implements OnInit {
       top: 0,
       behavior: 'smooth',
     });
+  }
+
+  infoModule(): boolean {
+    const infoRoutes = ['/info', '/guide'];
+    return infoRoutes.some((route) => this.router.url.startsWith(route));
   }
 
   shouldShowPublicNav(): boolean {

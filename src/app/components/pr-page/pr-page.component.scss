@@ -1,0 +1,437 @@
+/* ========================= VARIABLES ========================= */
+$primary-color: #52688f;
+$accent-color: #35425b;
+$post-hero-bgr: #364c74;
+$box-shadow: 0 0 0.625em rgba(82, 104, 143, 0.5);
+$alt-font-color: #e3e7f1;
+$transparent-bgr: rgb(82, 104, 143, 0.1);
+
+$desktop-bgr-gradient: radial-gradient(
+  circle at 0% 0%,
+  #52688f 0%,
+  #52688f 20%,
+  #ffffff 45%,
+  #ffffff 60%,
+  #52688f 80%,
+  #52688f 100%
+);
+
+$mobile-bgr-gradient: radial-gradient(
+  circle at 0% 0%,
+  #52688f,
+  #52688f 20.17%,
+  #ffffff 35%,
+  #ffffff 41.18%,
+  #52688f 48.74%,
+  #52688f 100%,
+  #ffffff
+);
+
+.hero-fixed-layer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 46rem;
+  overflow: hidden;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.hero-visual {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background: $desktop-bgr-gradient;
+
+  @media (max-width: 768px) {
+    background: $mobile-bgr-gradient;
+  }
+}
+
+.hero-spacer {
+  width: 100%;
+  height: 46rem;
+  display: block;
+  z-index: -1;
+}
+
+/* ========================= IMAGE OPACITY OVERRIDE ========================= */
+img {
+  opacity: 1 !important;
+}
+
+/* ========================= GLOBAL LAYOUT ========================= */
+
+:host {
+  display: block;
+  width: 100%;
+  min-height: 100vh;
+  background: transparent;
+  overflow-x: hidden;
+  position: relative;
+  z-index: 0;
+
+  @media (max-width: 768px) {
+    background: $mobile-bgr-gradient;
+  }
+}
+
+.language-icon {
+  font-size: x-large;
+  overflow: visible;
+  padding: 0 0.25em;
+  color: white;
+  cursor: pointer;
+}
+
+.nav-logo {
+  height: 2rem;
+  display: block;
+}
+
+/* ========================= NAVBAR (DESKTOP) ========================= */
+
+.pr-navbar {
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  background: transparent;
+  width: 100%;
+  padding: 0.6rem 0;
+  display: flex;
+  justify-content: center;
+
+  .nav-container-desktop {
+    width: 95%;
+    max-width: 1300px;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    column-gap: 0rem;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid white;
+    padding: 0 0.5rem;
+    margin: 1rem;
+    border-radius: 2rem;
+    background: $accent-color;
+    backdrop-filter: blur(6px);
+    height: 2.8rem;
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      height: 100%;
+      margin-left: 0.5em;
+      padding-bottom: 0.07em;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      justify-content: flex-end;
+      height: 100%;
+      margin-left: 0.3rem;
+
+      .nav-item {
+        color: white;
+        font-size: 1rem;
+        cursor: pointer;
+      }
+
+      button mat-icon {
+        color: white;
+      }
+    }
+  }
+}
+
+/* ========================= NAVBAR (MOBILE) ========================= */
+
+.pr-navbar-mobile {
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  background: transparent;
+  width: 100%;
+  padding: 0.6rem 0;
+  display: flex;
+  justify-content: center;
+
+  .nav-container-mobile {
+    width: 95%;
+    max-width: 1300px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid white;
+    padding: 0 0.5rem;
+    margin: 1rem;
+    border-radius: 2rem;
+    background: $accent-color;
+    backdrop-filter: blur(6px);
+    height: 2.3rem;
+
+    .nav-logo {
+      height: 1.7rem;
+      display: block;
+      margin-left: 0.5em;
+    }
+
+    .nav-mobile-right {
+      display: flex;
+      align-items: center;
+      gap: 0rem;
+
+      .language-icon {
+        font-size: 23px;
+        padding: 0rem;
+        margin-right: -0.5em;
+      }
+
+      button mat-icon {
+        color: white;
+      }
+
+      .nav-item {
+        color: white;
+      }
+    }
+  }
+}
+
+/* ========================= HERO SECTION (DESKTOP) ========================= */
+
+.pr-hero-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: 0;
+  padding-top: 5em;
+  position: relative;
+  z-index: 1;
+  position: relative;
+  z-index: 10;
+
+  .hero-content-desktop {
+    width: 95%;
+    max-width: 1300px;
+    display: grid;
+    grid-template-columns: 6fr 1fr;
+    align-items: center;
+    padding-bottom: 4rem;
+
+    .hero-left {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin-top: -12em;
+      margin-left: 6.5em;
+
+      .soll-savings-desktop {
+        width: 30em;
+        max-width: 420px;
+        margin-left: -3.3em;
+        margin-bottom: -2em;
+      }
+
+      .hero-subtext {
+        margin-top: -1em;
+        max-width: 500px;
+        font-size: 1.15rem;
+        line-height: 1.55rem;
+        color: #444;
+        font-weight: lighter;
+        font-size: medium;
+      }
+
+      .hero-cta-row {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+
+        .cta-learn-more {
+          background: $accent-color;
+          color: white;
+          border: none;
+          padding: 0.8rem 1.7rem;
+          font-size: 1rem;
+          border-radius: 2rem;
+          cursor: pointer;
+          box-shadow: none;
+        }
+
+        .app-store-badge {
+          height: 2.8rem;
+          cursor: pointer;
+        }
+      }
+    }
+
+    .hero-right {
+      display: flex;
+      justify-content: center;
+      margin-right: 3em;
+      margin-left: -3em;
+
+      .hero-phone-desktop {
+        margin-top: 2em;
+        width: 32em;
+        max-width: 540px;
+        z-index: 1;
+      }
+    }
+  }
+}
+
+/* ========================= HERO SECTION (MOBILE) ========================= */
+
+.hero-content-mobile {
+  position: fixed;
+  top: 5.4em;
+  left: 0;
+  width: 100%;
+  height: 40rem;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: -1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.hero-phone-container-mobile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: -8em;
+
+  .hero-phone-mobile {
+    width: 30em;
+    margin-left: 1.4em;
+  }
+}
+
+.mobile-hero-sticky {
+  position: sticky;
+  top: 6rem;
+  width: 100%;
+  z-index: 10;
+  pointer-events: none;
+  transition: transform 0.3s ease-out;
+  padding-bottom: 5em;
+}
+
+.post-phone-card-container-mobile {
+  margin-top: 20.5rem;
+  position: absolute;
+  z-index: 10;
+  pointer-events: auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 10em;
+  background-color: $post-hero-bgr;
+  box-shadow: 0 -0.5rem 1.5rem $accent-color;
+
+  .soll-savings-mobile {
+    width: 75%;
+    max-width: 340px;
+  }
+
+  .hero-subtext-mobile {
+    width: 85%;
+    text-align: center;
+    font-size: smaller;
+    line-height: 1.4rem;
+    color: white;
+    font-weight: lighter;
+    margin-top: -1.5em;
+    margin-bottom: 2em;
+  }
+
+  .hero-cta-row-mobile {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+
+    .cta-learn-more {
+      background: darken($accent-color, 12%);
+      color: white;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 2rem;
+      font-size: 1rem;
+      cursor: pointer;
+      box-shadow: none;
+    }
+
+    .app-store-badge {
+      height: 2.5rem;
+    }
+  }
+}
+
+/* ========================= TESTIMONIALS ========================= */
+
+.testimonials {
+  width: 100%;
+  padding: 1em 0;
+  display: block;
+  position: relative;
+  z-index: 20;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(4px);
+  right: 0;
+  left: 0;
+  margin-bottom: -3em;
+
+  h1 {
+    text-align: center;
+    font-size: x-large;
+  }
+}
+
+/* ========================= FOOTER ========================= */
+
+.pr-footer {
+  width: 100%;
+  background: $post-hero-bgr;
+  padding: 2rem 1em;
+  display: flex;
+  justify-content: left;
+  margin-top: 3rem;
+  border-top: 1px solid white;
+  z-index: 100;
+  position: relative;
+  z-index: 10;
+
+  .footer-content {
+    text-align: left;
+    color: white;
+    font-size: small;
+
+    p {
+      margin-bottom: 0.6rem;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 0.6rem;
+
+      a {
+        color: white;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .footer-content-mobile {
+    font-size: x-small;
+  }
+}

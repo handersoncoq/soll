@@ -11,13 +11,14 @@ import { AuthComponent } from './components/auth/auth.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { TermsAndConditionsRouteComponent } from './templates/terms-and-conditions-route/terms-and-conditions-route.component';
 import { FeedbackComponent } from './info/components/feedback/feedback.component';
+import { PrPageComponent } from './components/pr-page/pr-page.component';
 
 const routes: Routes = [
   {
     path: 'info',
     loadChildren: () => import('./info/info.module').then((m) => m.InfoModule),
   },
-  { path: '', component: FrontPageComponent },
+  { path: '', component: PrPageComponent },
   { path: 'auth', component: AuthComponent },
   { path: 'terms-and-conditions', component: TermsAndConditionsRouteComponent },
   { path: 'feedback', component: FeedbackComponent },

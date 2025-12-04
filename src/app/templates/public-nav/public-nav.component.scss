@@ -1,6 +1,6 @@
 $primary-color: #52688f;
 $accent-color: #35425b;
-$alt-font-color: #E3E7F1;
+$alt-font-color: #e3e7f1;
 $swoosh-box-shadow: -5px 10px 20px -20px #52688f;
 $text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 
@@ -10,7 +10,7 @@ mat-toolbar {
   position: fixed;
   background-color: white;
   z-index: 1000;
-  box-shadow:$swoosh-box-shadow;
+  box-shadow: $swoosh-box-shadow;
 
   .spacer-row {
     height: 0.3em;
@@ -26,15 +26,14 @@ mat-toolbar {
       flex: 2 1;
     }
 
-    .language-icon{
+    .language-icon {
       font-size: x-large;
       overflow: visible;
       padding: 0 0.25em;
       color: $primary-color;
+      cursor: pointer;
     }
-
   }
-
 }
 
 .company-logo {
@@ -47,7 +46,7 @@ mat-toolbar {
   cursor: pointer;
 }
 
-.app-logo{
+.app-logo {
   opacity: 1;
   width: 3.2em;
   height: 3.2em;
@@ -57,15 +56,16 @@ mat-toolbar {
   clip-path: border-box;
 }
 
-:host .mat-toolbar-row, .mat-toolbar-single-row{
+:host .mat-toolbar-row,
+.mat-toolbar-single-row {
   padding: 0 0.6em;
 }
 
-button{
+button {
   font-size: large;
 }
 
-button:not(.menu-button){
+button:not(.menu-button) {
   font-family: "Poppins", "Roboto", sans-serif;
 }
 
@@ -91,10 +91,10 @@ button:not(.menu-button){
 .material-symbols-outlined {
   font-size: xx-large;
   font-variation-settings: "FILL" 0, "wght" 200, "GRAD" 0, "opsz" 40;
-  transition: transform 1s ease-in-out
+  transition: transform 1s ease-in-out;
 }
 
-.rotated{
+.rotated {
   transform: rotate(180deg);
 }
 
@@ -105,62 +105,63 @@ button:not(.menu-button){
   --mat-menu-container-shape: 10px !important;
 }
 
-::ng-deep .mat-elevation-z8, .mat-mdc-elevation-specific.mat-elevation-z8 {
+::ng-deep .mat-elevation-z8,
+.mat-mdc-elevation-specific.mat-elevation-z8 {
   box-shadow: rgba(0, 0, 0, 0.2) 0px 60px 40px -7px !important;
 }
 
-::ng-deep .mat-mdc-menu-item{
+::ng-deep .mat-mdc-menu-item {
   color: $accent-color !important;
 }
 
-.menu-items{
+.menu-items {
   overflow: hidden;
   margin-top: 0.5em;
-  button{
+  button {
     color: $primary-color !important;
   }
 }
 
-.divider, .menu-divider{
+.divider,
+.menu-divider {
   height: 1.5em;
   font-weight: bold;
   color: $accent-color;
 }
 
-  .language-menu-divider{
-    margin-top: 1.7em;
-  }
+.language-menu-divider {
+  margin-top: 1.7em;
+}
 
-.menu-divider{
+.menu-divider {
   height: 0em;
   transition: margin-top 0.5s ease-in-out;
 }
 
-.about-us{
+.about-us {
   font-size: medium;
 }
 
-::ng-deep .mat-divider{
-  border-top-color: #E3E7F1 !important;
+::ng-deep .mat-divider {
+  border-top-color: #e3e7f1 !important;
 }
 
 :host .mat-divider.mat-divider-vertical {
   border-right-color: #35425b !important;
 }
 
-
 // *********************************************************************
 
 @media (min-width: 600px) {
-  .toolbar-content{
-    button{
+  .toolbar-content {
+    button {
       font-size: large;
     }
   }
-  .menu-divider{
+  .menu-divider {
     margin-top: 1.07em !important;
   }
-  .language-menu-divider{
+  .language-menu-divider {
     margin-top: 1.3em !important;
   }
 }
