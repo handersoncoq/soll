@@ -9,26 +9,66 @@ $transparent-bgr: rgb(82, 104, 143, 0.1);
 .testimonial-wrapper {
   width: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   position: relative;
+  min-height: 180px;
+}
+
+.testimonial-wrapper.empty .empty-message {
+  opacity: 1;
 }
 
 /* ========================= DECK CONTAINER ========================= */
 .deck-container {
   position: relative;
   display: flex;
-  vertical-align: middle;
+  flex-direction: row;
+  align-items: flex-start;
   justify-content: center;
+  gap: 1.2rem;
+
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+
+  padding: 1.5rem 0;
   width: 100%;
-  max-width: 380px;
-  height: 10em;
+  max-width: 100%;
+
+  scrollbar-width: none;
+}
+.deck-container::-webkit-scrollbar {
+  display: none;
+}
+
+/* ================= CLICK OVERLAY WHEN CARD IS ACTIVE ================= */
+.card-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: transparent;
+  z-index: 60;
 }
 
 .empty-message {
+  position: relative;
+  display: flex;
+  width: 100%;
+  margin-top: 2em;
   text-align: center;
-  font-size: larger;
+  justify-content: center;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  font-size: 1.8rem;
   font-weight: 600;
-  margin-top: 40px;
+  vertical-align: middle;
+
   background: linear-gradient(
     85deg,
     black 16.81%,
@@ -41,25 +81,41 @@ $transparent-bgr: rgb(82, 104, 143, 0.1);
   -webkit-text-fill-color: transparent;
 }
 
-/* ========================= DECK CARD (iOS style) ========================= */
+/* ========================= DECK CARD ========================= */
 .deck-card {
-  position: absolute;
-  left: 50%;
-  transform: translate(-50%, 0);
-  width: 260px;
+  position: relative;
+  overflow: hidden;
+  flex: 0 0 auto;
+  scroll-snap-align: center;
+
+  min-width: 220px;
+  max-width: 280px;
+  width: auto;
+  height: 7em;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
   padding: 1.4rem;
   border-radius: 1.2rem;
   background: $post-hero-bgr;
   color: white;
-  box-shadow: 0 1rem 2.2rem rgba(0, 0, 0, 0.38);
+  box-shadow: 0 -6px 12px rgba(0, 0, 0, 0.18), -6px 0 12px rgba(0, 0, 0, 0.18),
+    6px 0 12px rgba(0, 0, 0, 0.18);
   opacity: 0;
-  transition: transform 0.55s cubic-bezier(0.25, 0.8, 0.25, 1),
+  transform: translateX(0);
+  transition: transform 0.35s cubic-bezier(0.25, 0.8, 0.25, 1),
     opacity 0.55s ease, filter 0.55s ease;
+  transform-origin: center center;
+  z-index: 1;
 
   .testimonial-text {
-    font-size: 0.88rem;
+    font-size: small;
     line-height: 1.25rem;
     margin-bottom: 0.8rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .testimonial-author {
@@ -69,42 +125,79 @@ $transparent-bgr: rgb(82, 104, 143, 0.1);
   }
 }
 
+/* ================= ACTIVE CARD (PAUSE MODE) ================= */
+.deck-card.active {
+  transform: scale(1.2) !important;
+  border-radius: 1.5rem;
+  position: relative;
+  z-index: 9999 !important;
+  transition: transform 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
 /* ================= ENTER ANIMATION ================= */
 .deck-card.enter {
   opacity: 1;
-  transform: translate(-50%, 0) scale(1);
-  animation: cardEnter 0.55s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+  transform: translateX(0);
+  animation: cardEnterHorizontal 0.55s ease-out forwards;
 }
 
 /* ================= EXIT ANIMATION ================= */
 .deck-card.exit {
   opacity: 0;
-  animation: cardExit 0.55s cubic-bezier(0.55, 0.06, 0.68, 0.19) forwards;
+  animation: cardExitHorizontal 0.55s ease-in forwards;
 }
 
-@keyframes cardEnter {
+@keyframes cardEnterHorizontal {
   from {
-    transform: translate(80%, 0) scale(0.9);
+    transform: translateX(80%) scale(0.95);
     opacity: 0;
   }
   to {
-    transform: translate(-50%, 0) scale(1);
+    transform: translateX(0) scale(1);
     opacity: 1;
   }
 }
 
-@keyframes cardExit {
+@keyframes cardExitHorizontal {
   from {
-    transform: translate(-50%, 0) scale(1);
+    transform: translateX(0) scale(1);
     opacity: 1;
   }
   to {
-    transform: translate(-160%, 0) scale(0.9);
+    transform: translateX(-80%) scale(0.95);
     opacity: 0;
   }
 }
 
-/* ================= STACK DEPTH (iOS-like) ================= */
 .deck-card {
   will-change: transform, opacity, filter;
+}
+
+/* ================= MOBILE ADJUSTMENTS ================= */
+@media (max-width: 600px) {
+  .deck-container {
+    gap: 1.2rem;
+    padding: 0.75rem 0;
+  }
+
+  .deck-card {
+    height: 7.2em;
+    width: 180px;
+    padding: 1rem;
+    border-radius: 1rem;
+  }
+
+  .deck-card .testimonial-text {
+    font-size: smaller;
+    line-height: 1.1rem;
+  }
+
+  .deck-card .testimonial-author {
+    font-size: 0.65rem;
+  }
+
+  .empty-message {
+    font-size: 1.2rem;
+    top: -2rem;
+  }
 }

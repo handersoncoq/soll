@@ -18,6 +18,7 @@ $transparent-bgr: rgb(82, 104, 143, 0.1);
 .docs-sidebar {
   position: sticky;
   top: 100px;
+  align-self: start;
   height: calc(100vh - 120px);
   overflow-y: auto;
   border-right: 1px solid #e5e5e5;
@@ -26,6 +27,7 @@ $transparent-bgr: rgb(82, 104, 143, 0.1);
 }
 
 .docs-content {
+  margin-top: 3em;
   padding: 1em 0;
   min-width: 0;
   box-sizing: border-box;
@@ -86,6 +88,7 @@ $transparent-bgr: rgb(82, 104, 143, 0.1);
   }
 
   .docs-content {
+    margin-top: 0em;
     box-sizing: border-box;
     width: 100%;
     overflow-x: hidden;

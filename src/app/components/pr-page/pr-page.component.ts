@@ -26,7 +26,8 @@ export class PrPageComponent implements AfterViewInit {
   }
 
   ngAfterViewInit() {
-    this.updateStickyPosition();
+    window.scrollTo(0, 0);
+    requestAnimationFrame(() => this.updateStickyPosition());
   }
 
   @HostListener('window:scroll')

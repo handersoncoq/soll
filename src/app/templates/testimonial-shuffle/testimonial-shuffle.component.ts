@@ -17,14 +17,17 @@ export class TestimonialShuffleComponent implements OnInit, OnDestroy {
 
   deck: Testimonial[] = [];
   visibleDeck: { item: Testimonial; state: string; order: number }[] = [];
-  showEmptyMessage = false;
+  isEmpty: boolean = true;
 
   isAnimating = false;
   phase: 'enter' | 'idle' | 'exit' = 'enter';
-  cardInterval = 5000;
-  idleDuration = 4000;
+  cardInterval = 3000;
+  idleDuration = 3000;
   currentEnterIndex = 0;
   currentExitIndex = 0;
+
+  paused = false;
+  activeCardIndex: number | null = null;
 
   constructor(private screenLayout: ScreenLayoutService) {}
 
@@ -38,6 +41,7 @@ export class TestimonialShuffleComponent implements OnInit, OnDestroy {
   }
 
   startSequence() {
+    if (this.paused) return;
     this.phase = 'enter';
     this.currentEnterIndex = 0;
     this.visibleDeck = [];
@@ -45,6 +49,7 @@ export class TestimonialShuffleComponent implements OnInit, OnDestroy {
   }
 
   runEnterPhase() {
+    if (this.paused) return;
     if (this.currentEnterIndex >= this.deck.length) {
       this.phase = 'idle';
       setTimeout(() => this.startExitPhase(), this.idleDuration);
@@ -52,7 +57,7 @@ export class TestimonialShuffleComponent implements OnInit, OnDestroy {
     }
 
     const item = this.deck[this.currentEnterIndex];
-    this.showEmptyMessage = false;
+    this.isEmpty = false;
 
     this.visibleDeck.unshift({
       item,
@@ -66,12 +71,14 @@ export class TestimonialShuffleComponent implements OnInit, OnDestroy {
   }
 
   startExitPhase() {
+    if (this.paused) return;
     this.phase = 'exit';
     this.currentExitIndex = 0;
     this.runExitPhase();
   }
 
   runExitPhase() {
+    if (this.paused) return;
     if (this.currentExitIndex >= this.deck.length) {
       this.startSequence();
       return;
@@ -83,14 +90,25 @@ export class TestimonialShuffleComponent implements OnInit, OnDestroy {
       setTimeout(() => {
         this.visibleDeck.shift();
         if (this.visibleDeck.length === 0) {
-          this.showEmptyMessage = true;
+          this.isEmpty = true;
         }
-      }, this.cardInterval - 100);
+      }, this.cardInterval - 3000);
     }
 
     this.currentExitIndex++;
 
     setTimeout(() => this.runExitPhase(), this.cardInterval);
+  }
+
+  pauseAnimation(cardIndex: number) {
+    this.paused = true;
+    this.activeCardIndex = cardIndex;
+  }
+
+  resumeAnimation() {
+    this.paused = false;
+    this.activeCardIndex = null;
+    this.startSequence();
   }
 
   ngOnDestroy(): void {

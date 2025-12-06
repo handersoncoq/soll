@@ -1,55 +1,3 @@
-<!-- ========================= NAVBAR ========================= -->
-<nav class="pr-navbar" *ngIf="(isMobile$ | async) === false; else mobileNav">
-  <div class="nav-container-desktop">
-    <div class="nav-left">
-      <img src="assets/logo/5.png" alt="Soll Icon" class="nav-logo" />
-    </div>
-
-    <div class="nav-right">
-      <button mat-icon-button [matMenuTriggerFor]="langMenu">
-        <mat-icon class="language-icon">public</mat-icon>
-      </button>
-      <mat-menu #langMenu="matMenu">
-        <button mat-menu-item>English</button>
-        <button mat-menu-item>Français</button>
-        <button mat-menu-item>Kreyòl</button>
-        <button mat-menu-item>Español</button>
-      </mat-menu>
-
-      <a class="nav-item">Home</a>
-      <a class="nav-item">About Us</a>
-      <a class="nav-item">Contact</a>
-      <button mat-icon-button>
-        <mat-icon>menu</mat-icon>
-      </button>
-    </div>
-  </div>
-</nav>
-
-<ng-template #mobileNav>
-  <nav class="pr-navbar-mobile">
-    <div class="nav-container-mobile">
-      <img src="assets/logo/5.png" alt="Soll Icon" class="nav-logo" />
-
-      <div class="nav-mobile-right">
-        <button mat-icon-button [matMenuTriggerFor]="langMenuMobile">
-          <mat-icon class="language-icon">public</mat-icon>
-        </button>
-        <mat-menu #langMenuMobile="matMenu">
-          <button mat-menu-item>English</button>
-          <button mat-menu-item>Français</button>
-          <button mat-menu-item>Kreyòl</button>
-          <button mat-menu-item>Español</button>
-        </mat-menu>
-
-        <button mat-icon-button>
-          <mat-icon>menu</mat-icon>
-        </button>
-      </div>
-    </div>
-  </nav>
-</ng-template>
-
 <!-- ========================= HERO SECTION ========================= -->
 <div
   class="hero-fixed-layer"
@@ -71,12 +19,20 @@
           </p>
 
           <div class="hero-cta-row">
-            <button class="cta-learn-more">Learn More</button>
-            <img
-              src="assets/img/app-store-badge-blk.svg"
-              alt="Download on App Store"
-              class="app-store-badge"
-            />
+            <a
+              class="cta-learn-more"
+              href="/info/what-is-soll"
+              target="_blank"
+              rel="noopener"
+              >Learn More</a
+            >
+            <a href="sollapp://register">
+              <img
+                src="assets/img/app-store-badge-blk.svg"
+                alt="Download on App Store"
+                class="app-store-badge"
+              />
+            </a>
           </div>
         </div>
 
@@ -117,18 +73,24 @@
       </p>
 
       <div class="hero-cta-row-mobile">
-        <button class="cta-learn-more">Learn More</button>
-        <img
-          src="assets/img/app-store-badge-blk.svg"
-          alt="Download on App Store"
-          class="app-store-badge"
-        />
+        <a
+          class="cta-learn-more"
+          href="/info/what-is-soll"
+          target="_blank"
+          rel="noopener"
+          >Learn More</a
+        >
+        <a href="sollapp://register">
+          <img
+            src="assets/img/app-store-badge-blk.svg"
+            alt="Download on App Store"
+            class="app-store-badge"
+          />
+        </a>
       </div>
     </div>
   </div>
 </ng-template>
-
-<!-- ========================= FOOTER ========================= -->
 
 <div class="hero-spacer"></div>
 
@@ -139,20 +101,3 @@
     [testimonials]="testimonialsArray"
   ></app-testimonial-shuffle>
 </div>
-
-<footer class="pr-footer">
-  <div
-    class="footer-content"
-    [ngClass]="{ 'footer-content-mobile': (isMobile$ | async) }"
-  >
-    <p>© 2025 Soll Savings LLC. All Rights Reserved.</p>
-
-    <div class="footer-links">
-      <a>Privacy Policy</a>
-      <span>•</span>
-      <a>Terms & Conditions</a>
-      <span>•</span>
-      <a>Feedback</a>
-    </div>
-  </div>
-</footer>

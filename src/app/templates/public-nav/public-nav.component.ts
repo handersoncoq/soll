@@ -8,6 +8,8 @@ import { StyleManagerService } from 'src/app/services/style-manager/style-manage
 import { trigger, transition, style, animate } from '@angular/animations';
 import { MatMenuTrigger } from '@angular/material/menu';
 import { supportedLanguages } from 'src/app/utils/constants/Languages';
+import { Observable } from 'rxjs';
+import { ScreenLayoutService } from 'src/app/utils/screen-layout/screen-layout.service';
 
 @Component({
   selector: 'app-public-nav',
@@ -37,12 +39,16 @@ export class PublicNavComponent implements OnInit {
   interval: any;
   languages = supportedLanguages;
 
+  isMobile$: Observable<boolean>;
+
   constructor(
     private contentManagerService: ContentManagerService,
     private styleManager: StyleManagerService,
     private router: Router,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private screenLayoutService: ScreenLayoutService
   ) {
+    this.isMobile$ = this.screenLayoutService.isMobile$;
     this.contentManagerService
       .getInfo()
       .subscribe((details) => (this.infoDetails = details));
@@ -74,7 +80,7 @@ export class PublicNavComponent implements OnInit {
     });
   }
 
-  changeLanguage(language: string){
-    console.log(language)
+  changeLanguage(language: string) {
+    console.log(language);
   }
 }

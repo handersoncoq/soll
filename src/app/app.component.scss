@@ -1,5 +1,4 @@
 .nav-container {
-  margin-bottom: 4em;
   display: flex;
 }
 
@@ -29,5 +28,7 @@
 }
 
 .footer-class {
+  position: relative;
+  overflow-x: hidden;
   bottom: 0;
 }

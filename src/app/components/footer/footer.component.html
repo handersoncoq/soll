@@ -1,22 +1,23 @@
-<footer class="app-footer">
-  <div class="footer-content">
-    <div class="footer-logo">
-      <img src="assets/logo/5.png" alt="Soll Logo" />
-    </div>
-    <div class="footer-info">
-      <p>&copy; {{ currentYear }} Soll Savings LLC. All Rights Reserved.</p>
-    </div>
+<footer class="pr-footer">
+  <div
+    class="footer-content"
+    [ngClass]="{ 'footer-content-mobile': (isMobile$ | async) }"
+  >
+    <p>© {{ currentYear }} Soll Savings LLC. All Rights Reserved.</p>
+
     <div class="footer-links">
-      <span (click)="openPrivacyPolicy()">Privacy Policy</span>
-      <span (click)="openTermsAndConditions()">Terms & Conditions</span>
-      <span routerLink="/feedback">Feedback</span>
+      <a>Privacy Policy</a>
+      <span>•</span>
+      <a>Terms & Conditions</a>
+      <span>•</span>
+      <a>Feedback</a>
     </div>
-    <div class="footer-app-links">
-      <a href="sollapp://login" target="_blank" rel="noopener noreferrer">
+    <div class="footer-badge">
+      <a href="sollapp://register">
         <img
           src="assets/img/app-store-badge-blk.svg"
-          alt="Download on the App Store"
-          class="app-store-badge"
+          alt="Download on App Store"
+          class="footer-app-store-badge"
         />
       </a>
     </div>

@@ -1,100 +1,51 @@
-<mat-toolbar class="nav-class public-nav">
-  <mat-toolbar-row class="spacer-row"></mat-toolbar-row>
-  <mat-toolbar-row>
-    <div class="toolbar-content">
-      <span (click)="navigateToSimpleRoute('/')" class="company-logo"
-        ><img class="app-logo" [src]="appLogo" alt="Soll"
-      /></span>
-      <span class="spacer"></span>
-      <mat-icon [matMenuTriggerFor]="languageMenu" class="language-icon"
-        >public</mat-icon
-      >
-      <mat-divider class="divider" [vertical]="true"></mat-divider>
-      <button mat-button (click)="navigateToSimpleRoute('/contact-us')">
-        Contact Us
+<!-- ========================= NAVBAR ========================= -->
+<nav class="pr-navbar" *ngIf="(isMobile$ | async) === false; else mobileNav">
+  <div class="nav-container-desktop">
+    <div class="nav-left">
+      <img src="assets/logo/5.png" alt="Soll Icon" class="nav-logo" />
+    </div>
+
+    <div class="nav-right">
+      <button mat-icon-button [matMenuTriggerFor]="langMenu">
+        <mat-icon class="language-icon">public</mat-icon>
       </button>
-      <button
-        mat-icon-button
-        [matMenuTriggerFor]="menu"
-        #trigger="matMenuTrigger"
-        class="menu-button"
-      >
-        <span *ngIf="trigger.menuOpen" class="material-symbols-outlined"
-          >keyboard_arrow_down</span
-        >
-        <span
-          *ngIf="!trigger.menuOpen"
-          class="material-symbols-outlined rotated"
-          >menu</span
-        >
+      <mat-menu #langMenu="matMenu">
+        <button mat-menu-item>English</button>
+        <button mat-menu-item>Français</button>
+        <button mat-menu-item>Kreyòl</button>
+        <button mat-menu-item>Español</button>
+      </mat-menu>
+
+      <a class="nav-item">Home</a>
+      <a class="nav-item">About Us</a>
+      <a class="nav-item">Contact</a>
+      <button mat-icon-button>
+        <mat-icon>menu</mat-icon>
       </button>
     </div>
-  </mat-toolbar-row>
-  <mat-toolbar-row class="spacer-row"></mat-toolbar-row>
-  <mat-toolbar-row class="spacer-row"></mat-toolbar-row>
-</mat-toolbar>
+  </div>
+</nav>
 
-<mat-menu #menu="matMenu" class="main-menu">
-  <ng-template matMenuContent>
-    <div @accordion-animation class="menu-items">
-      <button
-        appLazyLoadText
-        mat-menu-item
-        (click)="navigateToSimpleRoute('/info/early-payout-system-eps')"
-      >
-        EPS system
-        <mat-icon color="primary">calendar_month</mat-icon>
-      </button>
-      <button
-        appLazyLoadText
-        mat-menu-item
-        (click)="navigateToSimpleRoute('/info/end-of-cycle-payout-system-ecps')"
-      >
-        ECPS system
-        <mat-icon color="primary">savings</mat-icon>
-      </button>
-      <button
-        appLazyLoadText
-        mat-menu-item
-        (click)="navigateToSimpleRoute('/info/about-us')"
-      >
-        About us
-        <mat-icon color="primary">info</mat-icon>
-      </button>
-      <button
-        appLazyLoadText
-        mat-menu-item
-        (click)="navigateToSimpleRoute('/feedback')"
-      >
-        Feedback
-        <mat-icon color="primary">feedback</mat-icon>
-      </button>
-      <!-- <button
-        appLazyLoadText
-        mat-menu-item
-        (click)="shakeIcon(); openInquireDialog()"
-      >
-        <mat-icon color="primary" [class.shake-animation]="shake"
-          >support_agent</mat-icon
-        >Questions?
-      </button> -->
+<ng-template #mobileNav>
+  <nav class="pr-navbar-mobile">
+    <div class="nav-container-mobile">
+      <img src="assets/logo/5.png" alt="Soll Icon" class="nav-logo" />
+
+      <div class="nav-mobile-right">
+        <button mat-icon-button [matMenuTriggerFor]="langMenuMobile">
+          <mat-icon class="language-icon">public</mat-icon>
+        </button>
+        <mat-menu #langMenuMobile="matMenu">
+          <button mat-menu-item>English</button>
+          <button mat-menu-item>Français</button>
+          <button mat-menu-item>Kreyòl</button>
+          <button mat-menu-item>Español</button>
+        </mat-menu>
+
+        <button mat-icon-button>
+          <mat-icon>menu</mat-icon>
+        </button>
+      </div>
     </div>
-  </ng-template>
-</mat-menu>
-
-<!-- menu for languages -->
-
-<mat-menu #languageMenu="matMenu" class="language-menu">
-  <ng-template matMenuContent>
-    <div @accordion-animation class="menu-items">
-      <button
-        appLazyLoadText
-        mat-menu-item
-        *ngFor="let language of languages"
-        (click)="changeLanguage(language)"
-      >
-        {{ language }}
-      </button>
-    </div>
-  </ng-template>
-</mat-menu>
+  </nav>
+</ng-template>

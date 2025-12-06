@@ -2,24 +2,28 @@
   class="testimonial-wrapper"
   [class.mobile]="isMobile"
   [class.desktop]="!isMobile"
+  [class.empty]="isEmpty"
 >
-  <div class="deck-container">
-    <h1 class="empty-message">Save now, build tomorrow...</h1>
+  <h1 class="empty-message" *ngIf="isEmpty">Save now, build tomorrow...</h1>
 
+  <div class="deck-container">
     <div
       class="deck-card"
       *ngFor="let c of visibleDeck; let i = index"
       [class.enter]="c.state === 'enter'"
       [class.exit]="c.state === 'exit'"
       [ngClass]="{ 'bg-dark': i % 2 === 0, 'bg-light': i % 2 !== 0 }"
-      [style.zIndex]="100 - i"
-      [style.transform]="
-        'translate(-50%, ' + i * 12 + 'px) ' + 'scale(' + (1 - i * 0.03) + ')'
-      "
-      [style.opacity]="1 - i * 0.08"
+      [style.zIndex]="1"
+      (click)="pauseAnimation(i)"
+      [class.active]="activeCardIndex === i"
     >
       <p class="testimonial-text">"{{ c.item.text }}"</p>
       <p class="testimonial-author">— {{ c.item.author }}</p>
     </div>
   </div>
+  <div
+    class="card-overlay"
+    *ngIf="activeCardIndex !== null"
+    (click)="resumeAnimation()"
+  ></div>
 </div>

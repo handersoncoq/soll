@@ -4,164 +4,130 @@ $alt-font-color: #e3e7f1;
 $swoosh-box-shadow: -5px 10px 20px -20px #52688f;
 $text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 
-mat-toolbar {
-  background-color: transparent;
-  color: $primary-color;
-  position: fixed;
-  background-color: white;
-  z-index: 1000;
-  box-shadow: $swoosh-box-shadow;
-
-  .spacer-row {
-    height: 0.3em;
-  }
-
-  .toolbar-content {
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    align-items: center;
-
-    .spacer {
-      flex: 2 1;
-    }
-
-    .language-icon {
-      font-size: x-large;
-      overflow: visible;
-      padding: 0 0.25em;
-      color: $primary-color;
-      cursor: pointer;
-    }
-  }
+img {
+  opacity: 1 !important;
 }
 
-.company-logo {
-  padding: 0;
-  margin: 0;
-  height: fit-content;
-  margin-top: -1.8em;
-  margin-left: -0.45em;
-  width: fit-content;
+.language-icon {
+  font-size: x-large;
+  overflow: visible;
+  padding: 0 0.25em;
+  color: white;
   cursor: pointer;
 }
 
-.app-logo {
-  opacity: 1;
-  width: 3.2em;
-  height: 3.2em;
-  padding: 0;
-  margin: 0;
-  object-fit: cover;
-  clip-path: border-box;
+.nav-logo {
+  height: 2rem;
+  display: block;
 }
 
-:host .mat-toolbar-row,
-.mat-toolbar-single-row {
-  padding: 0 0.6em;
-}
+/* ========================= NAVBAR (DESKTOP) ========================= */
 
-button {
-  font-size: large;
-}
+.pr-navbar {
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  background: transparent;
+  width: 100%;
+  padding: 0.6rem 0;
+  display: flex;
+  justify-content: center;
 
-button:not(.menu-button) {
-  font-family: "Poppins", "Roboto", sans-serif;
-}
+  .nav-container-desktop {
+    width: 95%;
+    max-width: 1300px;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    column-gap: 0rem;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid white;
+    padding: 0 0.5rem;
+    margin: 1rem;
+    border-radius: 2rem;
+    background: $accent-color;
+    backdrop-filter: blur(6px);
+    height: 2.8rem;
 
-.bottom-shadow {
-  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
-}
+    .nav-left {
+      display: flex;
+      align-items: center;
+      height: 100%;
+      margin-left: 0.5em;
+      padding-bottom: 0.07em;
+    }
 
-.menu-button {
-  background-color: $accent-color;
-  color: white;
-  margin-left: 0.7em;
-  font-size: xx-large !important;
-  padding: 1em;
-  height: 1em;
-  width: 1em;
-}
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      justify-content: flex-end;
+      height: 100%;
+      margin-left: 0.3rem;
 
-::ng-deep .mat-mdc-icon-button.mat-mdc-button-base {
-  --mdc-icon-button-state-layer-size: 30px !important;
-  padding: 0 !important;
-}
+      .nav-item {
+        color: white;
+        font-size: 1rem;
+        cursor: pointer;
+      }
 
-.material-symbols-outlined {
-  font-size: xx-large;
-  font-variation-settings: "FILL" 0, "wght" 200, "GRAD" 0, "opsz" 40;
-  transition: transform 1s ease-in-out;
-}
-
-.rotated {
-  transform: rotate(180deg);
-}
-
-::ng-deep .mat-mdc-menu-panel {
-  position: relative !important;
-  overflow: hidden !important;
-  right: -0.22em !important;
-  --mat-menu-container-shape: 10px !important;
-}
-
-::ng-deep .mat-elevation-z8,
-.mat-mdc-elevation-specific.mat-elevation-z8 {
-  box-shadow: rgba(0, 0, 0, 0.2) 0px 60px 40px -7px !important;
-}
-
-::ng-deep .mat-mdc-menu-item {
-  color: $accent-color !important;
-}
-
-.menu-items {
-  overflow: hidden;
-  margin-top: 0.5em;
-  button {
-    color: $primary-color !important;
-  }
-}
-
-.divider,
-.menu-divider {
-  height: 1.5em;
-  font-weight: bold;
-  color: $accent-color;
-}
-
-.language-menu-divider {
-  margin-top: 1.7em;
-}
-
-.menu-divider {
-  height: 0em;
-  transition: margin-top 0.5s ease-in-out;
-}
-
-.about-us {
-  font-size: medium;
-}
-
-::ng-deep .mat-divider {
-  border-top-color: #e3e7f1 !important;
-}
-
-:host .mat-divider.mat-divider-vertical {
-  border-right-color: #35425b !important;
-}
-
-// *********************************************************************
-
-@media (min-width: 600px) {
-  .toolbar-content {
-    button {
-      font-size: large;
+      button mat-icon {
+        color: white;
+      }
     }
   }
-  .menu-divider {
-    margin-top: 1.07em !important;
-  }
-  .language-menu-divider {
-    margin-top: 1.3em !important;
+}
+
+/* ========================= NAVBAR (MOBILE) ========================= */
+
+.pr-navbar-mobile {
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  background: transparent;
+  width: 100%;
+  padding: 0.6rem 0;
+  display: flex;
+  justify-content: center;
+
+  .nav-container-mobile {
+    width: 95%;
+    max-width: 1300px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid white;
+    padding: 0 0.5rem;
+    margin: 1rem;
+    border-radius: 2rem;
+    background: $accent-color;
+    backdrop-filter: blur(6px);
+    height: 2.3rem;
+
+    .nav-logo {
+      height: 1.7rem;
+      display: block;
+      margin-left: 0.5em;
+    }
+
+    .nav-mobile-right {
+      display: flex;
+      align-items: center;
+      gap: 0rem;
+
+      .language-icon {
+        font-size: 23px;
+        padding: 0rem;
+        margin-right: -0.5em;
+      }
+
+      button mat-icon {
+        color: white;
+      }
+
+      .nav-item {
+        color: white;
+      }
+    }
   }
 }

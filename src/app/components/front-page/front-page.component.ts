@@ -28,7 +28,6 @@ export class FrontPageComponent implements OnInit, OnDestroy {
   keyWords!: any;
   contentVideos: string[];
   isMobile$ = true;
-  isLandscape$ = false;
   heroImage!: string;
 
   sideContents: FrontPageSideCategory[] = FRONT_PAGE_SIDE_CONTENTS;
@@ -66,9 +65,6 @@ export class FrontPageComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.screenService.isMobile$.subscribe((isDesktop) => {
       this.isMobile$ = isDesktop;
-    });
-    this.screenService.isLandscape$.subscribe((isDesktop) => {
-      this.isLandscape$ = isDesktop;
     });
     this.currentImage = this.images[0];
     forkJoin({

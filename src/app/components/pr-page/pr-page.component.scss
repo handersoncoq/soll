@@ -34,8 +34,7 @@ $mobile-bgr-gradient: radial-gradient(
   width: 100%;
   height: 46rem;
   overflow: hidden;
-  z-index: -1;
-  pointer-events: none;
+  pointer-events: auto;
 }
 
 .hero-visual {
@@ -51,9 +50,10 @@ $mobile-bgr-gradient: radial-gradient(
 
 .hero-spacer {
   width: 100%;
-  height: 46rem;
+  height: 45rem;
   display: block;
   z-index: -1;
+  overflow-x: hidden;
 }
 
 /* ========================= IMAGE OPACITY OVERRIDE ========================= */
@@ -71,133 +71,10 @@ img {
   overflow-x: hidden;
   position: relative;
   z-index: 0;
+  background: $desktop-bgr-gradient;
 
   @media (max-width: 768px) {
     background: $mobile-bgr-gradient;
-  }
-}
-
-.language-icon {
-  font-size: x-large;
-  overflow: visible;
-  padding: 0 0.25em;
-  color: white;
-  cursor: pointer;
-}
-
-.nav-logo {
-  height: 2rem;
-  display: block;
-}
-
-/* ========================= NAVBAR (DESKTOP) ========================= */
-
-.pr-navbar {
-  position: fixed;
-  top: 0;
-  z-index: 1000;
-  background: transparent;
-  width: 100%;
-  padding: 0.6rem 0;
-  display: flex;
-  justify-content: center;
-
-  .nav-container-desktop {
-    width: 95%;
-    max-width: 1300px;
-    display: grid;
-    grid-template-columns: auto 1fr auto;
-    column-gap: 0rem;
-    align-items: center;
-    justify-content: space-between;
-    border: 1px solid white;
-    padding: 0 0.5rem;
-    margin: 1rem;
-    border-radius: 2rem;
-    background: $accent-color;
-    backdrop-filter: blur(6px);
-    height: 2.8rem;
-
-    .nav-left {
-      display: flex;
-      align-items: center;
-      height: 100%;
-      margin-left: 0.5em;
-      padding-bottom: 0.07em;
-    }
-
-    .nav-right {
-      display: flex;
-      align-items: center;
-      gap: 1.2rem;
-      justify-content: flex-end;
-      height: 100%;
-      margin-left: 0.3rem;
-
-      .nav-item {
-        color: white;
-        font-size: 1rem;
-        cursor: pointer;
-      }
-
-      button mat-icon {
-        color: white;
-      }
-    }
-  }
-}
-
-/* ========================= NAVBAR (MOBILE) ========================= */
-
-.pr-navbar-mobile {
-  position: fixed;
-  top: 0;
-  z-index: 1000;
-  background: transparent;
-  width: 100%;
-  padding: 0.6rem 0;
-  display: flex;
-  justify-content: center;
-
-  .nav-container-mobile {
-    width: 95%;
-    max-width: 1300px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border: 1px solid white;
-    padding: 0 0.5rem;
-    margin: 1rem;
-    border-radius: 2rem;
-    background: $accent-color;
-    backdrop-filter: blur(6px);
-    height: 2.3rem;
-
-    .nav-logo {
-      height: 1.7rem;
-      display: block;
-      margin-left: 0.5em;
-    }
-
-    .nav-mobile-right {
-      display: flex;
-      align-items: center;
-      gap: 0rem;
-
-      .language-icon {
-        font-size: 23px;
-        padding: 0rem;
-        margin-right: -0.5em;
-      }
-
-      button mat-icon {
-        color: white;
-      }
-
-      .nav-item {
-        color: white;
-      }
-    }
   }
 }
 
@@ -256,9 +133,10 @@ img {
           background: $accent-color;
           color: white;
           border: none;
-          padding: 0.8rem 1.7rem;
+          padding: 0.6rem 1.7rem;
           font-size: 1rem;
           border-radius: 2rem;
+          margin-top: -0.6em;
           cursor: pointer;
           box-shadow: none;
         }
@@ -296,7 +174,6 @@ img {
   height: 40rem;
   overflow: hidden;
   pointer-events: none;
-  z-index: -1;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -364,11 +241,12 @@ img {
       background: darken($accent-color, 12%);
       color: white;
       border: none;
-      padding: 0.75rem 1.5rem;
+      padding: 0.5rem 1.3rem;
       border-radius: 2rem;
       font-size: 1rem;
       cursor: pointer;
       box-shadow: none;
+      margin-top: -0.6em;
     }
 
     .app-store-badge {
@@ -384,54 +262,16 @@ img {
   padding: 1em 0;
   display: block;
   position: relative;
+  overflow-x: hidden;
   z-index: 20;
   background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(4px);
   right: 0;
   left: 0;
-  margin-bottom: -3em;
 
   h1 {
     text-align: center;
     font-size: x-large;
-  }
-}
-
-/* ========================= FOOTER ========================= */
-
-.pr-footer {
-  width: 100%;
-  background: $post-hero-bgr;
-  padding: 2rem 1em;
-  display: flex;
-  justify-content: left;
-  margin-top: 3rem;
-  border-top: 1px solid white;
-  z-index: 100;
-  position: relative;
-  z-index: 10;
-
-  .footer-content {
-    text-align: left;
-    color: white;
-    font-size: small;
-
-    p {
-      margin-bottom: 0.6rem;
-    }
-
-    .footer-links {
-      display: flex;
-      gap: 0.6rem;
-
-      a {
-        color: white;
-        cursor: pointer;
-      }
-    }
-  }
-
-  .footer-content-mobile {
-    font-size: x-small;
+    margin-bottom: 0.1em;
   }
 }

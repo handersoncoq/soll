@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { ScreenLayoutService } from 'src/app/utils/screen-layout/screen-layout.service';
 import { DocsStoreService } from '../../services/docs-store.service';
-import { filter } from 'rxjs';
+import { filter, Observable } from 'rxjs';
 
 @Component({
   selector: 'app-docs-layout',
@@ -14,15 +14,15 @@ export class DocsLayoutComponent {
   currentTitle: string | null = null;
   currentCategory: string | null = null;
 
-  isMobile$ = this.screenLayoutService.isMobile$;
-  isTablet$ = this.screenLayoutService.isTablet$;
-  isDesktop$ = this.screenLayoutService.isDesktop$;
+  isMobile$: Observable<boolean>;
 
   constructor(
     private screenLayoutService: ScreenLayoutService,
     private router: Router,
     private docsStore: DocsStoreService
-  ) {}
+  ) {
+    this.isMobile$ = this.screenLayoutService.isMobile$;
+  }
 
   ngOnInit() {
     // Update title/category whenever the route changes

@@ -1,79 +1,51 @@
-$dark-dusty-blue: rgb(37 84 109);
 $primary-color: #52688f;
-$alt-font-color: #e3e7f1;
 $accent-color: #35425b;
+$post-hero-bgr: #364c74;
+$box-shadow: 0 0 0.625em rgba(82, 104, 143, 0.5);
+$alt-font-color: #e3e7f1;
+$transparent-bgr: rgb(82, 104, 143, 0.1);
 
-.app-footer {
-  color: $alt-font-color;
-  padding: 2em 1em;
-  padding-bottom: 3em;
-  background-color: $primary-color;
+.pr-footer {
+  width: 100%;
+  background: $post-hero-bgr;
+  padding: 2rem 1em;
+  display: flex;
+  justify-content: left;
+  border-top: 1px solid white;
+  z-index: 100;
+  position: relative;
 
   .footer-content {
-    font-size: medium;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    flex-direction: column;
-    align-items: flex-start;
+    text-align: left;
+    color: white;
+    font-size: small;
+
+    p {
+      margin-bottom: 0.6rem;
+    }
 
     .footer-links {
-      span {
-        color: $alt-font-color;
-        width: fit-content;
+      display: flex;
+      gap: 0.6rem;
+
+      a {
+        color: white;
         cursor: pointer;
-
-        &:hover {
-          color: white;
-        }
-      }
-      span:not(:last-child) {
-        margin-right: 1.3em;
       }
     }
   }
 
-  .app-store-badge {
-    height: 40px;
-    width: auto;
-    display: block;
+  .footer-content-mobile {
+    font-size: x-small;
   }
 
-  .footer-app-links {
-    margin-top: 1em;
-    padding-bottom: 0.8em;
-    img {
-      opacity: 1;
-    }
-  }
+  .footer-badge {
+    margin-top: 1rem;
 
-  .footer-logo {
-    width: 100%;
-    display: flex;
-    align-items: flex-start;
-    margin-bottom: 1em;
-
-    img {
-      width: 3em;
-      height: auto;
-      opacity: 1;
-    }
-  }
-
-  // ***************************************************
-
-  @media (max-width: 600px) {
-    .footer-content,
-    p,
-    span {
-      font-size: smaller;
-    }
-    .footer-logo {
-      img {
-        width: 2em;
-      }
+    .footer-app-store-badge {
+      height: 1.8rem;
+      width: auto;
+      cursor: pointer;
     }
   }
 }
