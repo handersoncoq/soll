@@ -99,10 +99,9 @@ $transparent-bgr: rgb(82, 104, 143, 0.1);
 
   padding: 1.4rem;
   border-radius: 1.2rem;
-  background: $post-hero-bgr;
+  background-color: $post-hero-bgr;
   color: white;
-  box-shadow: 0 -6px 12px rgba(0, 0, 0, 0.18), -6px 0 12px rgba(0, 0, 0, 0.18),
-    6px 0 12px rgba(0, 0, 0, 0.18);
+  box-shadow: $box-shadow;
   opacity: 0;
   transform: translateX(0);
   transition: transform 0.35s cubic-bezier(0.25, 0.8, 0.25, 1),

@@ -7,9 +7,17 @@ import { InfoDetails } from 'src/app/interaces/Info';
 import { StyleManagerService } from 'src/app/services/style-manager/style-manager.service';
 import { trigger, transition, style, animate } from '@angular/animations';
 import { MatMenuTrigger } from '@angular/material/menu';
-import { supportedLanguages } from 'src/app/utils/constants/Languages';
+import {
+  SupportedLanguage,
+  supportedLanguages,
+} from 'src/app/utils/constants/Languages';
 import { Observable } from 'rxjs';
 import { ScreenLayoutService } from 'src/app/utils/screen-layout/screen-layout.service';
+import {
+  menuItemsDesktop,
+  menuItemsMobile,
+  navDesktopItems,
+} from 'src/app/utils/constants/MenuItems';
 
 @Component({
   selector: 'app-public-nav',
@@ -38,6 +46,9 @@ export class PublicNavComponent implements OnInit {
   shake = false;
   interval: any;
   languages = supportedLanguages;
+  menuItemsDesktop = menuItemsDesktop;
+  menuItemsMobile = menuItemsMobile;
+  navDesktopItems = navDesktopItems;
 
   isMobile$: Observable<boolean>;
 
@@ -80,7 +91,7 @@ export class PublicNavComponent implements OnInit {
     });
   }
 
-  changeLanguage(language: string) {
-    console.log(language);
+  changeLanguage(language: SupportedLanguage) {
+    console.log(`${language.lang} selected`);
   }
 }

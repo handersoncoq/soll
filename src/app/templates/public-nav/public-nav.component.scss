@@ -1,3 +1,5 @@
+@import "flag-icons/css/flag-icons.min.css";
+
 $primary-color: #52688f;
 $accent-color: #35425b;
 $alt-font-color: #e3e7f1;
@@ -19,6 +21,33 @@ img {
 .nav-logo {
   height: 2rem;
   display: block;
+}
+
+.menu-items {
+  overflow: hidden;
+}
+
+::ng-deep .lang-menu-panel {
+  span .fi {
+    padding-right: 1em !important;
+    font-size: smaller !important;
+    border-radius: 50%;
+  }
+}
+
+::ng-deep .lang-menu-panel .mat-mdc-menu-item {
+  min-height: 2.8em !important;
+  margin-right: 0.3em !important;
+  color: $accent-color !important;
+}
+
+::ng-deep .soll-menu-panel {
+  --mat-menu-container-shape: 1em !important;
+  max-width: 100% !important;
+}
+
+::ng-deep .soll-menu-panel mat-icon {
+  color: $accent-color !important;
 }
 
 /* ========================= NAVBAR (DESKTOP) ========================= */
@@ -52,6 +81,7 @@ img {
     .nav-left {
       display: flex;
       align-items: center;
+      cursor: pointer;
       height: 100%;
       margin-left: 0.5em;
       padding-bottom: 0.07em;
@@ -103,6 +133,10 @@ img {
     background: $accent-color;
     backdrop-filter: blur(6px);
     height: 2.3rem;
+
+    a {
+      cursor: pointer;
+    }
 
     .nav-logo {
       height: 1.7rem;

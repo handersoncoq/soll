@@ -83,7 +83,7 @@
         appLazyLoadText
         mat-menu-item
         *ngFor="let language of languages"
-        (click)="changeLanguage(language)"
+        (click)="changeLanguage(language.lang)"
       >
         {{ language }}
       </button>

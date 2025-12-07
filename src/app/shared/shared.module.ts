@@ -25,6 +25,7 @@ import { GroupStrengthAnimationDirective } from '../utils/directives/group-stren
 import { StickyScrollDirective } from '../utils/directives/sticky-scroll.directive';
 import { LoadingComponent } from '../templates/loading/loading.component';
 import { RelativeDatePipe } from '../utils/pipes/relative-date.pipe';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import { RelativeDatePipe } from '../utils/pipes/relative-date.pipe';
     MatBadgeModule,
     MatCardModule,
     MatProgressSpinnerModule,
+    RouterModule,
   ],
   providers: [
     PublicInteractionService,

@@ -1,10 +1,28 @@
 <ng-container *ngIf="isMobile$; else desktopLayout">
+  <div class="front-page-container-mobile"></div>
   <app-front-page-template></app-front-page-template>
 </ng-container>
 
 <ng-template #desktopLayout>
-  <app-hero></app-hero>
-  <div class="desktop-front-page">
-    <app-front-page-template></app-front-page-template>
+  <div class="front-page-container">
+    <aside class="front-page-sidebar">
+      <div class="front-page-list">
+        <ng-container *ngFor="let category of sideContents">
+          <div class="category-title">{{ category.title }}</div>
+
+          <ul class="front-page-items">
+            <li *ngFor="let item of category.items">
+              <a [routerLink]="item.link" routerLinkActive="active">
+                {{ item.label }}
+              </a>
+            </li>
+          </ul>
+        </ng-container>
+      </div>
+    </aside>
+
+    <div class="desktop-front-page">
+      <app-front-page-template></app-front-page-template>
+    </div>
   </div>
 </ng-template>

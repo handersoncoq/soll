@@ -190,6 +190,9 @@ img {
   .hero-phone-mobile {
     width: 30em;
     margin-left: 1.4em;
+    backface-visibility: hidden;
+    will-change: transform;
+    object-fit: contain;
   }
 }
 
@@ -273,5 +276,10 @@ img {
     text-align: center;
     font-size: x-large;
     margin-bottom: 0.1em;
+  }
+  @media (min-width: 1024px) {
+    h1 {
+      font-size: xx-large;
+    }
   }
 }

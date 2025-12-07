@@ -2,26 +2,58 @@
 <nav class="pr-navbar" *ngIf="(isMobile$ | async) === false; else mobileNav">
   <div class="nav-container-desktop">
     <div class="nav-left">
-      <img src="assets/logo/5.png" alt="Soll Icon" class="nav-logo" />
+      <a [routerLink]="'/'" rel="noopener">
+        <img src="assets/logo/5.png" alt="Soll Icon" class="nav-logo" />
+      </a>
     </div>
 
     <div class="nav-right">
       <button mat-icon-button [matMenuTriggerFor]="langMenu">
         <mat-icon class="language-icon">public</mat-icon>
       </button>
-      <mat-menu #langMenu="matMenu">
-        <button mat-menu-item>English</button>
-        <button mat-menu-item>Français</button>
-        <button mat-menu-item>Kreyòl</button>
-        <button mat-menu-item>Español</button>
+      <mat-menu #langMenu="matMenu" class="lang-menu-panel">
+        <ng-template matMenuContent>
+          <div @accordion-animation class="menu-items">
+            <button
+              appLazyLoadText
+              mat-menu-item
+              *ngFor="let lang of languages"
+              (click)="changeLanguage(lang)"
+            >
+              <span class="fi fi-{{ lang.flag }}"></span>
+              {{ lang.lang }}
+            </button>
+          </div>
+        </ng-template>
       </mat-menu>
 
-      <a class="nav-item">Home</a>
-      <a class="nav-item">About Us</a>
-      <a class="nav-item">Contact</a>
-      <button mat-icon-button>
+      <a
+        class="nav-item"
+        *ngFor="let item of navDesktopItems"
+        [routerLink]="item.route"
+        rel="noopener"
+      >
+        {{ item.label }}
+      </a>
+      <button mat-icon-button [matMenuTriggerFor]="navMenuDesktop">
         <mat-icon>menu</mat-icon>
       </button>
+      <mat-menu #navMenuDesktop="matMenu" class="soll-menu-panel">
+        <ng-template matMenuContent>
+          <div @accordion-animation class="menu-items">
+            <a
+              appLazyLoadText
+              mat-menu-item
+              *ngFor="let item of menuItemsDesktop"
+              [routerLink]="item.route"
+              rel="noopener"
+            >
+              <mat-icon>{{ item.icon }}</mat-icon>
+              {{ item.label }}
+            </a>
+          </div>
+        </ng-template>
+      </mat-menu>
     </div>
   </div>
 </nav>
@@ -29,22 +61,53 @@
 <ng-template #mobileNav>
   <nav class="pr-navbar-mobile">
     <div class="nav-container-mobile">
-      <img src="assets/logo/5.png" alt="Soll Icon" class="nav-logo" />
+      <a [routerLink]="'/'" rel="noopener">
+        <img src="assets/logo/5.png" alt="Soll Icon" class="nav-logo" />
+      </a>
 
       <div class="nav-mobile-right">
         <button mat-icon-button [matMenuTriggerFor]="langMenuMobile">
           <mat-icon class="language-icon">public</mat-icon>
         </button>
-        <mat-menu #langMenuMobile="matMenu">
-          <button mat-menu-item>English</button>
-          <button mat-menu-item>Français</button>
-          <button mat-menu-item>Kreyòl</button>
-          <button mat-menu-item>Español</button>
+        <mat-menu
+          #langMenuMobile="matMenu"
+          xPosition="before"
+          class="lang-menu-panel"
+        >
+          <ng-template matMenuContent>
+            <div @accordion-animation class="menu-items">
+              <button
+                appLazyLoadText
+                mat-menu-item
+                *ngFor="let lang of languages"
+                (click)="changeLanguage(lang)"
+              >
+                <span class="fi fi-{{ lang.flag }}"></span>
+                {{ lang.lang }}
+              </button>
+            </div>
+          </ng-template>
         </mat-menu>
 
-        <button mat-icon-button>
+        <button mat-icon-button [matMenuTriggerFor]="navMenuMobile">
           <mat-icon>menu</mat-icon>
         </button>
+        <mat-menu #navMenuMobile="matMenu" class="soll-menu-panel">
+          <ng-template matMenuContent>
+            <div @accordion-animation class="menu-items">
+              <a
+                appLazyLoadText
+                mat-menu-item
+                *ngFor="let item of menuItemsMobile"
+                [routerLink]="item.route"
+                rel="noopener"
+              >
+                <mat-icon>{{ item.icon }}</mat-icon>
+                {{ item.label }}
+              </a>
+            </div>
+          </ng-template>
+        </mat-menu>
       </div>
     </div>
   </nav>

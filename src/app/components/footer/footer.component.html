@@ -6,11 +6,11 @@
     <p>© {{ currentYear }} Soll Savings LLC. All Rights Reserved.</p>
 
     <div class="footer-links">
-      <a>Privacy Policy</a>
+      <span (click)="openPrivacyPolicy()">Privacy Policy</span>
       <span>•</span>
-      <a>Terms & Conditions</a>
+      <span (click)="openTermsAndConditions()">Terms & Conditions</span>
       <span>•</span>
-      <a>Feedback</a>
+      <span [routerLink]="'/feedback'">Feedback</span>
     </div>
     <div class="footer-badge">
       <a href="sollapp://register">
