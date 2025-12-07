@@ -3,6 +3,7 @@
 @import "src/app/utils/styles/global-rules.scss";
 @import "src/app/utils/styles/dark-mode.scss";
 @import "src/app/utils/styles/media-rules.scss";
+@import "flag-icons/css/flag-icons.min.css";
 @include mat.core();
 
 // angular material custom palettes
