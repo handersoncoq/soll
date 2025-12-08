@@ -156,6 +156,12 @@ form {
   }
 }
 
+@media (min-width: 1024px) {
+  .doc-content figure img {
+    max-width: 60%;
+  }
+}
+
 // spacing and dividers  =================================================================
 
 .spacing {

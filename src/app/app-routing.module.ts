@@ -12,6 +12,8 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { TermsAndConditionsRouteComponent } from './templates/terms-and-conditions-route/terms-and-conditions-route.component';
 import { FeedbackComponent } from './info/components/feedback/feedback.component';
 import { PrPageComponent } from './components/pr-page/pr-page.component';
+import { ContactComponent } from './components/contact/contact.component';
+import { AboutUsComponent } from './info/components/about-us/about-us.component';
 
 const routes: Routes = [
   {
@@ -21,8 +23,8 @@ const routes: Routes = [
   { path: '', component: PrPageComponent },
   { path: 'auth', component: AuthComponent },
   { path: 'terms-and-conditions', component: TermsAndConditionsRouteComponent },
-  { path: 'feedback', component: FeedbackComponent },
-  // { path: 'get-started', component: GetStartedComponent},
+  { path: 'contact-us', component: ContactComponent },
+  { path: 'about', component: AboutUsComponent },
   // { path: 'sign-in', component: SignInComponent},
   // { path: 'my-dashboard', component: UserDashboardComponent},
   // { path: 'group/:groupName/cycle/:cycleNumber/dashboard', component: GroupDashboardComponent },

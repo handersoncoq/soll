@@ -91,18 +91,22 @@ export class AppComponent implements OnInit {
   }
 
   shouldShowPublicNav(): boolean {
-    const hideOnRoutes = [
+    const hideOnExactRoutes = [
       '/sign-in',
       '/get-started',
       '/my-dashboard',
       '/join-a-group',
       '/feedback',
     ];
-    const shouldHideNavbar = hideOnRoutes.some(
+
+    const shouldHideExact = hideOnExactRoutes.some(
       (route) => this.router.url === route
     );
+
+    const shouldHideAuth = this.router.url.startsWith('/auth');
     const isGroupRoute = this.router.url.startsWith('/group/');
-    return !(shouldHideNavbar || isGroupRoute);
+
+    return !(shouldHideExact || shouldHideAuth || isGroupRoute);
   }
 
   isNoneAppContent(): boolean {

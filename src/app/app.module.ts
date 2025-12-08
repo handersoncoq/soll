@@ -84,6 +84,7 @@ import { FeedbackComponent } from './info/components/feedback/feedback.component
 import { HeroComponent } from './templates/hero/hero.component';
 import { PrPageComponent } from './components/pr-page/pr-page.component';
 import { TestimonialShuffleComponent } from './templates/testimonial-shuffle/testimonial-shuffle.component';
+import { ContactComponent } from './components/contact/contact.component';
 
 export function preloadDocs(preloadService: DocsPreloadService) {
   return () => preloadService.preloadAll();
@@ -137,6 +138,7 @@ export class HammerConfig extends HammerGestureConfig {
     HeroComponent,
     PrPageComponent,
     TestimonialShuffleComponent,
+    ContactComponent,
   ],
   imports: [
     ReactiveFormsModule,

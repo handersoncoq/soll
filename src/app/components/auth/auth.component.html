@@ -1,51 +1,51 @@
-<div>
-  <div *ngIf="isForEmailVerification">
-    <div class="verify-container">
-      <div class="verify-card">
-        <mat-progress-spinner
-          *ngIf="status === null"
-          diameter="40"
-          color="accent"
-          mode="indeterminate"
-        ></mat-progress-spinner>
-        <mat-icon
-          *ngIf="status !== null && status === 'success'"
-          class="success-icon"
-          >check_circle</mat-icon
+<div class="component-wrapper">
+  <div class="logo-header" routerLink="/">
+    <img src="assets/logo/4.png" alt="Soll Logo" />
+    <h1>Soll Savings</h1>
+  </div>
+  <div *ngIf="isForEmailVerification" class="verify-container">
+    <div class="verify-card">
+      <mat-progress-spinner
+        *ngIf="status === null"
+        diameter="40"
+        color="accent"
+        mode="indeterminate"
+      ></mat-progress-spinner>
+      <mat-icon
+        *ngIf="status !== null && status === 'success'"
+        class="success-icon"
+        >check_circle</mat-icon
+      >
+      <mat-icon *ngIf="status !== null && status === 'error'" class="error-icon"
+        >cancel</mat-icon
+      >
+      <mat-icon
+        *ngIf="status !== null && status === 'warning'"
+        class="warning-icon"
+        >sentiment_dissatisfied</mat-icon
+      >
+      <p
+        class="verify-message"
+        [ngStyle]="{
+          color:
+            status === 'error'
+              ? 'red'
+              : status === 'success'
+              ? 'green'
+              : 'inherit'
+        }"
+      >
+        {{ message }}
+      </p>
+      <div *ngIf="isExpiredLink">
+        <button
+          mat-button
+          color="primary"
+          class="resend-link"
+          (click)="resendVerificationEmail()"
         >
-        <mat-icon
-          *ngIf="status !== null && status === 'error'"
-          class="error-icon"
-          >cancel</mat-icon
-        >
-        <mat-icon
-          *ngIf="status !== null && status === 'warning'"
-          class="warning-icon"
-          >sentiment_dissatisfied</mat-icon
-        >
-        <p
-          class="verify-message"
-          [ngStyle]="{
-            color:
-              status === 'error'
-                ? 'red'
-                : status === 'success'
-                ? 'green'
-                : 'inherit'
-          }"
-        >
-          {{ message }}
-        </p>
-        <div *ngIf="isExpiredLink">
-          <button
-            mat-button
-            color="primary"
-            class="resend-link"
-            (click)="resendVerificationEmail()"
-          >
-            Resend Verification Email
-          </button>
-        </div>
+          Resend Verification Email
+        </button>
       </div>
     </div>
   </div>
@@ -147,14 +147,12 @@
           mat-raised-button
           color="primary"
           type="submit"
+          class="submit-btn"
           [disabled]="isProcessing"
         >
           {{ isProcessing ? "Resetting..." : "Reset Password" }}
         </button>
       </form>
     </div>
-  </div>
-  <div class="auth-footer">
-    <p>If you need help, please contact support +1 (800) 101-1010.</p>
   </div>
 </div>

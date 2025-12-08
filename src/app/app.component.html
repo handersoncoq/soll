@@ -1,5 +1,5 @@
 <div class="app-main-content">
-  <div class="nav-container">
+  <div *ngIf="shouldShowPublicNav()" class="nav-container">
     <app-public-nav></app-public-nav>
   </div>
 

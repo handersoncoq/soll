@@ -1,117 +1,58 @@
-
-$primary-color: #52688F;
-$accent-color: #35425B;
-$background-color: #7B9DAB;
-$default-font-color: #35425B;
-$alt-font-color: #E3E7F1;
+$primary-color: #52688f;
+$accent-color: #35425b;
+$background-color: #7b9dab;
+$default-font-color: #35425b;
+$alt-font-color: #e3e7f1;
 $text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 $text-shadow2: 2px 2px 4px rgb(21, 43, 55);
 $box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
-$background-image: url('/assets/img/people.webp');
 $radiant1: rgb(255 255 255 / 0%);
 $radiant2: rgb(75, 124, 149, 0.5);
 $dark-dusty-blue: rgb(37 84 109);
 
-.header {
-    margin-top: 5em;
-    background: $background-image;
-    background-size: cover;
-    background-repeat: no-repeat;
-    width: 100%;
-    background-position-x: center;
-    background-position-y: center;
-    color: $accent-color;
-    text-align: center;
-    height: 10em;
-    padding: 16px 0;
-  
-    .inner-div{
-      background: linear-gradient(to top, $radiant1, $primary-color);
-      margin: 0;
-      .hero-links{
-        color: white;
-        text-shadow: $text-shadow;
-        width: 100%;
-        padding-top: 1em;
-        padding-bottom: 7em;
-        margin-top: -1em;
-      }
-    
-      h2{
-        display: inline-flex;
-      }
-  
-    }
-  
+.content {
+  margin-top: 5em;
+  padding: 1em;
+  padding-bottom: 3em;
+  @media (max-width: 600px) {
+    margin-top: 4.5em;
   }
-
-  .content{
-    margin: 1em;
-    margin-top: 2em;
-    margin-bottom: 3em;
-    color: $accent-color;
-    h2{
-        color: $primary-color;
-        margin: 0;
-      }
-
-      p{
-        line-height: 1.5;
-        font-size: medium;
-        color: $primary-color;
-      }
-
-      .main-body{
-        padding-bottom: 1.5em;
-      }
-  }
-
-//   ******************************************************************
+}
 
 .member-container {
-    display: flex;
-    align-items: center;
-    padding-top: 1em;
-    margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  vertical-align: middle;
+  padding-top: 1.5em;
+  margin-bottom: 10px;
+}
 
-  }
-  
-  .profile-picture {
-    margin-right: 20px;
-    border-radius: 50%;
-    box-shadow: $box-shadow;
-  }
-  
-  .profile-picture img {
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    object-fit: cover;
-    padding: 0.4em;
-  }
-  
-  .profile-info {
-    flex-grow: 1;
-  }
-  
-  .profile-info h4 {
-    margin-bottom: 5px;
-  }
-  
-  .profile-info p {
-    margin: 0;
-  }
+.profile-picture {
+  margin-right: 20px;
+  border-radius: 50%;
+  box-shadow: $box-shadow;
+  margin-top: -1em;
+}
 
-  // =================================================================
+.profile-picture img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+  padding: 0 0.4em;
+}
 
-  @media (min-width: 600px){
-    .content{
-      margin-left: 5em !important;
-      margin-right: 5em !important;
-    }
-    .header{
-      height: 20em !important;
-    }
-  }
+.profile-info h4 {
+  margin-bottom: 5px;
+}
 
-  
+h2,
+h4 {
+  margin: 0;
+}
+
+p {
+  font-size: 1em;
+  line-height: 1.65;
+  color: $accent-color;
+}

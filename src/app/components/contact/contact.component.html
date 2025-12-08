@@ -1,0 +1,66 @@
+<div>
+  <div appLazyLoadText class="header">
+    <h2>Contact Us</h2>
+    We'd love to hear from you! Please use the form below or consider reaching
+    out to us at <strong>+1 (859) 457-4657</strong>.
+  </div>
+  <div class="contact-container">
+    <div class="contact-card">
+      <p class="contact-message">
+        Please fill out the form below and we will get back to you as soon as
+        possible.
+      </p>
+
+      <form (ngSubmit)="submitContactForm(contactForm)" #contactForm="ngForm">
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Your Name</mat-label>
+          <input
+            matInput
+            type="text"
+            name="name"
+            [(ngModel)]="name"
+            required
+            placeholder="Enter your name"
+          />
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Email Address</mat-label>
+          <input
+            matInput
+            type="email"
+            name="email"
+            [(ngModel)]="email"
+            required
+            email
+            placeholder="Enter your email"
+          />
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Message</mat-label>
+          <textarea
+            matInput
+            name="message"
+            [(ngModel)]="message"
+            required
+            placeholder="Write your message"
+            rows="3"
+            maxlength="500"
+          ></textarea>
+          <mat-hint align="end"> {{ message?.length || 0 }} / 500 </mat-hint>
+        </mat-form-field>
+        <div class="response" *ngIf="response">{{ response }}</div>
+        <button
+          mat-raised-button
+          color="primary"
+          type="submit"
+          class="submit-btn"
+          [disabled]="isProcessing"
+        >
+          {{ isProcessing ? "Sending..." : "Send Message" }}
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

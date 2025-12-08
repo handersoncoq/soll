@@ -1,11 +1,11 @@
 {
-    "title": "About us",
-    "body": "The Soll Initiative Group is a collective of compassionate individuals dedicated to safeguarding cherished communal traditions through modern solutions. Recognizing that technological advances can sometimes isolate, we've created Soll—a secure, reliable, and efficient platform—to reinforce the bonds of community. By revitalizing the time-tested practice of rotational savings, we aim to preserve unity, foster trust, and cultivate opportunities. With Soll, community-driven traditions thrive, truly connecting us all in an increasingly digital world.",
-    "header": "Meet the team",
-    "members": [
-        {
-            "name": "Handerson Coq",
-            "description": "Handerson, a dedicated software engineer and entrepreneur, excels in developing community-oriented applications. He is passionate about creating digital solutions that enhance community engagement and drive societal progress."
-        }
-    ]
+  "title": "About us",
+  "body": "The Soll Initiative Group is a collective of professionals dedicated to safeguarding cherished community traditions through modern solutions. Recognizing that technology can sometimes create distance, we created Soll as a secure, reliable, and efficient platform that strengthens the bonds of community. By revitalizing the long-practiced tradition of rotational savings, we aim to foster unity, build trust, and expand opportunities. If you would like to learn more or connect with us, we invite you to reach out using the contact form.",
+  "header": "Meet the team",
+  "members": [
+    {
+      "name": "Handerson Coq",
+      "description": "Handerson, a dedicated software engineer and entrepreneur, excels in developing community-oriented applications. He is passionate about creating digital solutions that enhance community engagement and drive societal progress."
+    }
+  ]
 }

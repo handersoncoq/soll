@@ -28,20 +28,18 @@ export class DocViewerComponent implements OnInit {
       this.isLoading = true;
 
       if (!slug) {
-        this.doc = null;
-        this.safeContent = null;
-        this.isLoading = false;
+        this.resetDocState();
+        this.router.navigate(['/info/what-is-soll']);
         return;
       }
 
       this.docsService.getDocBySlug(slug).subscribe((doc) => {
-        this.doc = doc;
-
         if (!doc) {
           this.router.navigate(['/info/what-is-soll']);
           return;
         }
 
+        this.doc = doc;
         this.safeContent = this.sanitizer.bypassSecurityTrustHtml(
           doc.content.rendered
         );
@@ -49,5 +47,11 @@ export class DocViewerComponent implements OnInit {
         this.isLoading = false;
       });
     });
+  }
+
+  private resetDocState(): void {
+    this.doc = null;
+    this.safeContent = null;
+    this.isLoading = false;
   }
 }
