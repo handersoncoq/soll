@@ -3,6 +3,9 @@
     class="footer-content"
     [ngClass]="{ 'footer-content-mobile': (isMobile$ | async) }"
   >
+    <div class="brand-logo" routerLink="/">
+      <img src="assets/logo/logo-plain-wht.png" alt="Soll Logo" />
+    </div>
     <p>© {{ currentYear }} Soll Savings LLC. All Rights Reserved.</p>
 
     <div class="footer-links">

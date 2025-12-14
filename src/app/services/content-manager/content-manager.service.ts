@@ -10,10 +10,9 @@ import { UnsuccessfulJoinComponent } from 'src/app/templates/unsuccessful-join/u
 import { ScreenLayoutService } from 'src/app/utils/screen-layout/screen-layout.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ContentManagerService {
-
   // app content
   aboutUs = './assets/app-content/AboutUs.json';
   slogan = './assets/app-content/CompanySlogan.json';
@@ -29,7 +28,7 @@ export class ContentManagerService {
 
   // logo and images
   appLogo3 = './assets/logo/3.png';
-  appLogo6 = './assets/logo/6.png';
+  appLogo6 = './assets/logo/logo-dark-brg.png';
   solLogo = './assets/logo/soll.png';
   solLogoSlogan = './assets/logo/soll-logo-slogan.png';
   appLogoDark = './assets/logo/logo-dark.png';
@@ -38,7 +37,8 @@ export class ContentManagerService {
 
   // videos
   savingAtYourFingerTip = './assets/img/Saving-at -your-fingertips.png';
-  raiseAndSaveWithFriendsAndLovedOnes = './assets/img/raise-save-with-friends.png';
+  raiseAndSaveWithFriendsAndLovedOnes =
+    './assets/img/raise-save-with-friends.png';
   bringYourIdeaToLife = './assets/img/bring-your-dream-project-to-life.png';
   getExcitedWhenItsYourTurn = './assets/img/get-excited.png';
   startSavingForTheirFuture = './assets/img/start-saving-for-their-future.png';
@@ -57,14 +57,16 @@ export class ContentManagerService {
   enterAnimationDuration = '400ms';
   exitAnimationDuration = '200ms';
 
-  constructor(private http: HttpClient, private screenService: ScreenLayoutService,
-    private _bottomSheet: MatBottomSheet, private dialog: MatDialog) {
-      this.screenService.isMobile$.subscribe(
-        isMobile =>{
-          this.isMobile = isMobile;
-        }
-      );
-    }
+  constructor(
+    private http: HttpClient,
+    private screenService: ScreenLayoutService,
+    private _bottomSheet: MatBottomSheet,
+    private dialog: MatDialog
+  ) {
+    this.screenService.isMobile$.subscribe((isMobile) => {
+      this.isMobile = isMobile;
+    });
+  }
 
   getAboutUs(): Observable<any> {
     return this.http.get(this.aboutUs);
@@ -102,54 +104,47 @@ export class ContentManagerService {
     return this.http.get(this.taglines);
   }
 
-
   getInfo(): Observable<InfoDetails> {
     return this.http.get<InfoDetails>(this.infoDetails);
   }
 
-  getAppLogo3(): string{
+  getAppLogo3(): string {
     return this.appLogo3;
   }
 
-  getAppLogo6(): string{
+  getAppLogo6(): string {
     return this.solLogo;
   }
 
-  getLoganSlogan(): string{
+  getLoganSlogan(): string {
     return this.solLogoSlogan;
   }
 
-  getAppLogo(): string{
+  getAppLogo(): string {
     return this.solLogo;
   }
 
-  getAppLogoDark(): string{
+  getAppLogoDark(): string {
     return this.appLogoDark;
   }
 
-  getAppVersion(): string{
+  getAppVersion(): string {
     return this.appVersion;
   }
 
-
-  getTrustpilotAndStars(): string[]{
-    return [this.trustpilot, this.five_stars]
+  getTrustpilotAndStars(): string[] {
+    return [this.trustpilot, this.five_stars];
   }
 
-  getPartners(): string[]{
-    return [
-            this.visa,
-            this.stripe,
-            this.bank_of_america, 
-            this.paypal,
-          ]
+  getPartners(): string[] {
+    return [this.visa, this.stripe, this.bank_of_america, this.paypal];
   }
 
-  getHeroImage(): string{
+  getHeroImage(): string {
     return this.heroImage;
   }
 
-  getContentVideos(): string[]{
+  getContentVideos(): string[] {
     return [
       this.savingAtYourFingerTip,
       this.raiseAndSaveWithFriendsAndLovedOnes,
@@ -157,51 +152,47 @@ export class ContentManagerService {
       this.getExcitedWhenItsYourTurn,
       this.startSavingForTheirFuture,
       this.howItWorks,
-      this.noOnlineTransaction
-    ]
+      this.noOnlineTransaction,
+    ];
   }
 
   openPrivacyPolicy(): void {
-    if(this.isMobile) {
+    if (this.isMobile) {
       this._bottomSheet.open(PrivacyPolicyComponent, {
-        panelClass: 'bottom-sheet-container'
+        panelClass: 'bottom-sheet-container',
       });
-    }else{
-      this.dialog.open(PrivacyPolicyComponent,
-        {
-          width: '100%',
-          enterAnimationDuration: this.enterAnimationDuration,
-          exitAnimationDuration: this.exitAnimationDuration,
-        })
+    } else {
+      this.dialog.open(PrivacyPolicyComponent, {
+        width: '100%',
+        enterAnimationDuration: this.enterAnimationDuration,
+        exitAnimationDuration: this.exitAnimationDuration,
+      });
     }
   }
 
   openTermsAndConditions(): void {
-    if(this.isMobile){
+    if (this.isMobile) {
       this._bottomSheet.open(TermsAndConditionsComponent, {
-        panelClass: 'bottom-sheet-container'
+        panelClass: 'bottom-sheet-container',
       });
-    }else{
-      this.dialog.open(TermsAndConditionsComponent,
-        {
-          width: '100%',
-          enterAnimationDuration: this.enterAnimationDuration,
-          exitAnimationDuration: this.exitAnimationDuration,
-        })
-    }
-  }
-
-  openUnsuccessfulJoin(){
-    this.dialog.open(UnsuccessfulJoinComponent,
-      {
+    } else {
+      this.dialog.open(TermsAndConditionsComponent, {
         width: '100%',
         enterAnimationDuration: this.enterAnimationDuration,
         exitAnimationDuration: this.exitAnimationDuration,
-      })
+      });
+    }
   }
 
-  closeBottomSheet(){
-    this._bottomSheet.dismiss()
+  openUnsuccessfulJoin() {
+    this.dialog.open(UnsuccessfulJoinComponent, {
+      width: '100%',
+      enterAnimationDuration: this.enterAnimationDuration,
+      exitAnimationDuration: this.exitAnimationDuration,
+    });
   }
 
+  closeBottomSheet() {
+    this._bottomSheet.dismiss();
+  }
 }

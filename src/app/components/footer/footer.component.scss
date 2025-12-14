@@ -20,6 +20,17 @@ $transparent-bgr: rgb(82, 104, 143, 0.1);
     color: white;
     font-size: small;
 
+    .brand-logo {
+      margin: 0 auto;
+      padding: 0;
+      margin-bottom: -1em;
+      img {
+        height: 1.5rem;
+        width: auto;
+        cursor: pointer;
+      }
+    }
+
     p {
       margin-bottom: 0.6rem;
     }
