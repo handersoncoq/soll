@@ -17,6 +17,10 @@ $dark-dusty-blue: rgb(37 84 109);
   @media (max-width: 600px) {
     margin-top: 4.5em;
   }
+  @media (min-width: 1024px) {
+    margin-left: 3em;
+    margin-right: 3em;
+  }
 }
 
 .member-container {
