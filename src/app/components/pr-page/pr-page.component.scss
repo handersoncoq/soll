@@ -27,6 +27,28 @@ $mobile-bgr-gradient: radial-gradient(
   #ffffff
 );
 
+@keyframes slideInFromRight {
+  from {
+    transform: translateX(120px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInFromBottom {
+  from {
+    transform: translateY(120px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
 .hero-fixed-layer {
   position: fixed;
   top: 0;
@@ -159,6 +181,8 @@ img {
         width: 32em;
         max-width: 540px;
         z-index: 1;
+        animation: slideInFromRight 0.9s ease-out forwards;
+        will-change: transform, opacity;
       }
     }
   }
@@ -193,6 +217,8 @@ img {
     backface-visibility: hidden;
     will-change: transform;
     object-fit: contain;
+    animation: slideInFromBottom 0.9s ease-out forwards;
+    will-change: transform, opacity;
   }
 }
 
