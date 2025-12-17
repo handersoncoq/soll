@@ -103,6 +103,7 @@ img {
 /* ========================= HERO SECTION (DESKTOP) ========================= */
 
 .pr-hero-container {
+  --hero-scale: 1;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -116,86 +117,105 @@ img {
 
   .hero-content-desktop {
     width: 95%;
+    max-width: 1400px;
+    margin: 0 auto;
     display: grid;
-    grid-template-columns: 6fr 1fr;
+    grid-template-columns: 3fr 3fr;
     align-items: center;
-    padding-bottom: 4rem;
+    padding-bottom: calc(4rem * var(--hero-scale));
+    font-size: calc(1rem * var(--hero-scale));
+    padding-top: 0.8em;
+  }
 
+  .hero-left {
+    display: flex;
+    flex-direction: column;
+    gap: calc(1.5rem * var(--hero-scale));
+    margin-top: calc(-12em * var(--hero-scale));
+    margin-left: calc(3em * var(--hero-scale));
+    padding-top: 0.7em;
+
+    .soll-savings-desktop {
+      width: calc(30em * min(var(--hero-scale), 1.1));
+      max-width: calc(420px * min(var(--hero-scale), 1.1));
+      margin-left: calc(-3.1em * min(var(--hero-scale), 0.9));
+      margin-bottom: calc(-2em * min(var(--hero-scale), 1.05));
+      transform: translateY(calc(-0.25em * var(--hero-scale)));
+    }
+
+    .hero-subtext {
+      margin-top: calc(-0.8em * var(--hero-scale));
+      max-width: 500px;
+      font-size: medium;
+      line-height: 1.55rem;
+      color: #444;
+      font-weight: lighter;
+    }
+
+    .hero-cta-row {
+      display: flex;
+      align-items: center;
+      gap: calc(2rem * var(--hero-scale));
+
+      .cta-learn-more {
+        background: $accent-color;
+        color: white;
+        border: none;
+        padding: calc(0.6rem * var(--hero-scale))
+          calc(1.7rem * var(--hero-scale));
+        font-size: calc(1rem * var(--hero-scale));
+        border-radius: calc(2rem * var(--hero-scale));
+        margin-top: calc(-0.6em * var(--hero-scale));
+        cursor: pointer;
+        box-shadow: none;
+      }
+
+      .app-store-badge {
+        height: 2.8rem;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .hero-right {
+    display: flex;
+    justify-content: center;
+    justify-content: flex-end;
+    margin-right: calc(3.5em * var(--hero-scale));
+
+    .hero-phone-desktop {
+      margin-top: calc(1.6em * var(--hero-scale));
+      width: calc(30em * min(var(--hero-scale), 1.03));
+      max-width: calc(520px * min(var(--hero-scale), 1.03));
+      height: auto;
+      z-index: 1;
+      animation: slideInFromRight 0.9s ease-out forwards;
+      will-change: transform, opacity;
+    }
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1023px) {
+  .pr-hero-container {
+    --hero-scale: 0.93;
+  }
+}
+
+@media (min-width: 1110px) {
+  .pr-hero-container {
+    --hero-scale: 1.2;
     .hero-left {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-      margin-top: -12em;
-      margin-left: 6.5em;
-
-      .soll-savings-desktop {
-        width: 30em;
-        max-width: 420px;
-        margin-left: -3.3em;
-        margin-bottom: -2em;
-      }
-
-      .hero-subtext {
-        margin-top: -1em;
-        max-width: 500px;
-        font-size: 1.15rem;
-        line-height: 1.55rem;
-        color: #444;
-        font-weight: lighter;
-        font-size: medium;
-      }
-
-      .hero-cta-row {
-        display: flex;
-        align-items: center;
-        gap: 2rem;
-
-        .cta-learn-more {
-          background: $accent-color;
-          color: white;
-          border: none;
-          padding: 0.6rem 1.7rem;
-          font-size: 1rem;
-          border-radius: 2rem;
-          margin-top: -0.6em;
-          cursor: pointer;
-          box-shadow: none;
-        }
-
-        .app-store-badge {
-          height: 2.8rem;
-          cursor: pointer;
-        }
-      }
+      padding-top: 3em !important;
     }
-
-    .hero-right {
-      display: flex;
-      justify-content: center;
-      margin-right: 3em;
-      margin-left: -3em;
-
-      .hero-phone-desktop {
-        margin-top: 2em;
-        width: 32em;
-        max-width: 540px;
-        z-index: 1;
-        animation: slideInFromRight 0.9s ease-out forwards;
-        will-change: transform, opacity;
-      }
+    .hero-subtext {
+      font-size: calc(0.8em * var(--hero-scale)) !important;
+      line-height: calc(1.3rem * var(--hero-scale)) !important;
     }
   }
-  @media (min-width: 1110px) {
-    .hero-content-desktop {
-      width: 90%;
-      padding-top: 3em;
-      padding-left: 0.8em;
-      scale: calc(110%);
-      .hero-left {
-        margin-left: 8em;
-      }
-    }
-  }
+}
+
+.hero-content-desktop > * {
+  min-width: 0;
 }
 
 /* ========================= HERO SECTION (MOBILE) ========================= */
